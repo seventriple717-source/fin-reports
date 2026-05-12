@@ -114,6 +114,37 @@ th { font-weight: 600; color: #111; background: #F3F4F6; font-size: 12px; }
 .pa-reason.pa-r-down { background: #FFF7ED; border-color: #FED7AA; }
 .pa-reason.pa-r-sell { background: #FEF2F2; border-color: #FECACA; }
 
+/* 分析师论据核查专用 */
+.kc-wrap { border: 0.5px solid #E5E7EB; border-radius: 12px; overflow: hidden; margin: 8px 0; }
+.kc-thesis { background: #1E293B; padding: 13px 16px; }
+.kc-thesis .kc-label { font-size: 10px; font-weight: 700; color: #64748B;
+                        text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 5px; }
+.kc-thesis .kc-text  { font-size: 13px; color: #E2E8F0; line-height: 1.7; }
+.kc-debate { display: grid; grid-template-columns: 1fr 1fr; }
+.kc-for    { background: #F0FDF4; padding: 13px 16px; border-right: 0.5px solid #E5E7EB; }
+.kc-against { background: #FEF2F2; padding: 13px 16px; }
+.kc-for h3    { font-size: 11px; font-weight: 700; color: #166534; margin-bottom: 8px; }
+.kc-against h3 { font-size: 11px; font-weight: 700; color: #991B1B; margin-bottom: 8px; }
+.kc-for li, .kc-against li { font-size: 12px; line-height: 1.75; margin-bottom: 4px; }
+.kc-for li    { color: #166534; }
+.kc-against li { color: #7F1D1D; }
+.kc-verdict { padding: 13px 16px; border-top: 0.5px solid #E5E7EB;
+              display: flex; align-items: flex-start; gap: 12px; }
+.kc-verdict.kc-agree    { background: #F0FDF4; }
+.kc-verdict.kc-partial  { background: #FFFBEB; }
+.kc-verdict.kc-disagree { background: #FEF2F2; }
+.kc-verdict-badge { flex-shrink: 0; font-size: 11px; font-weight: 700; padding: 4px 10px;
+                    border-radius: 20px; margin-top: 2px; }
+.kc-badge-agree    { background: #D1FAE5; color: #065F46; }
+.kc-badge-partial  { background: #FEF3C7; color: #92400E; }
+.kc-badge-disagree { background: #FEE2E2; color: #991B1B; }
+.kc-verdict-body   { font-size: 13px; color: #374151; line-height: 1.75; }
+.kc-watch { background: #F9FAFB; padding: 11px 16px; border-top: 0.5px solid #E5E7EB; }
+.kc-watch-label { font-size: 10px; font-weight: 700; color: #6B7280;
+                  text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 7px; }
+.kc-chip { display: inline-block; background: #EFF6FF; color: #1E40AF; font-size: 11px;
+           font-weight: 600; padding: 3px 9px; border-radius: 20px; margin: 2px 4px 2px 0; }
+
 /* 市场认知差专用（深色区块，突出核心洞察） */
 .mc-wrap { background: #0F172A; border-radius: 12px; padding: 20px 22px; margin: 8px 0; }
 .mc-subtitle { font-size: 11px; font-weight: 700; color: #64748B; text-transform: uppercase;
@@ -299,13 +330,33 @@ th { font-weight: 600; color: #111; background: #F3F4F6; font-size: 12px; }
   <p>$105亿CommScope收购大幅增加净债务，5月12日再发行欧元11亿债券。预计2026年额外利息支出约$4-5亿，FCF优先用于去杠杆。当前股价已部分反映此风险，关注去杠杆进度。</p>
 </div>
 <div class="divider"></div>
-<h2>八、行业传导与竞争对手对比</h2>
+<h2>八、分析师核心论据核查</h2>
+<div class="kc-wrap">
+  <div class="kc-thesis">
+    <div class="kc-label">核查目标 · BofA 降级核心论据：GB200/GB300 NVSwitch 设计变更导致 APH content 萎缩</div>
+    <div class="kc-text">BofA 核心论点（2024年9月首次提出，2026年5月移出US 1 List时重申）：GB200 NVSwitch 托盘设计变更，将 APH 的 OverPass 飞越线缆（overpasses）替换为 PCB，每套 NVL36/NVL72 系统 APH content 减少约 $24K。下一代 GB300/Rubin 系统若延续此趋势，APH 在 Nvidia AI 服务器中的份额将系统性下降，导致 IT 数据通信营收增速显著低于市场共识。Kyber 3 概念机更是完全没有 overpasses 或线缆盒，指向长期内容归零的方向。</div>
+  </div>
+  <div class="kc-debate">
+    <div class="kc-for"><h3>✓ 支持论据（BofA 有道理之处）</h3><ul><li>GB200 NVSwitch 托盘设计变更已确认发生：机架间互联的'蓝色线缆'（跨机架 NVSwitch 连接）已被移除，PCB 从 M7 CCL 升级至 M8U CCL</li><li>变更原因真实可靠：液冷管道在 overpass 全部安装后空间不足（散热问题），且 overpass 整体失效时更换成本远高于 PCB</li><li>BofA 有实际渠道调研（channel checks）支持 ~$24K/系统的 content 减少估算</li><li>Kyber 3 概念机（GTC 2026 展示）确实没有任何 overpasses 或线缆盒，是明确的方向性信号</li><li>APH 管理层从未量化 Nvidia 特定营收敞口，信息不透明增加不确定性</li></ul></div>
+    <div class="kc-against"><h3>✗ 反驳论据（BofA 高估风险之处）</h3><ul><li>【最关键反证】GB300 正在回归 Bianca 架构（GB200 同款）：Cordelia 新设计出现 GPU OAM 与 PCB 传输问题+液冷泄漏风险，Nvidia 为加速 GB300 出货已决定切回 GB200 风格的 Bianca 板设计——这直接恢复了 APH 在 GB300 系统中的 content</li><li>物理信号完整性限制 PCB 不能完全替代 overpass：NVSwitch 托盘有 576 个高密度差分对（4×144 DP），PCB 走线会产生极严重的串扰，这正是 OverPass 发明的原因——完全 PCB 化面临物理极限</li><li>BofA 混淆了两件事：被移除的是机架「间」NVSwitch 连接（蓝色线缆），机架「内」NVSwitch 红色线缆和所有计算托盘（Compute Tray）内的连接器均保留，APH total content 损失远小于 $24K 的暗示</li><li>APH IT 数据通信收入并非全部是 Nvidia NVSwitch：Meta/Google/Microsoft/Amazon 均有自己的 GPU 集群架构，APH 在多个超大规模云厂商都有份额</li><li>APH 已推出 Paladin HD 224G 连接器，专为 Rubin 下一代系统设计，表明 APH 仍深度嵌入 Nvidia 未来路线图</li><li>Kyber 3 是「概念机」而非量产设计，概念展示与最终生产规格历来有较大差距</li></ul></div>
+  </div>
+  <div class="kc-verdict kc-partial">
+    <span class="kc-verdict-badge kc-badge-partial">△ 部分认同</span>
+    <div class="kc-verdict-body"><b>部分认同 BofA，但认为其风险估算过高，且关键前提已被新证据动摇。</b>GB200 NVSwitch 机架间线缆移除是真实的 content 小幅下降（已发生）；但 BofA 的核心前提——GB300 将延续乃至深化这一趋势——已被 GB300 回归 Bianca 架构的渠道消息（JPMorgan, 2026年5月）直接反驳。物理信号完整性约束保证 overpass 不会从机架内消失。综合来看，APH 在 Nvidia 生态的 content 是「局部收缩」而非「系统归零」，且 GB300 回归动态使 BofA 的下行情景大幅收窄。当前 $122 股价（26x fwd PE）已将这一风险过度定价，形成错误定价机会。</div>
+  </div>
+  <div class="kc-watch">
+    <div class="kc-watch-label">验证这个判断需要跟踪的指标</div>
+    <div><span class="kc-chip">GB300 是否正式确认回归 Bianca 设计？（直接决定 APH content 恢复幅度）</span><span class="kc-chip">Q2 财报 IT 数据通信分部营收与有机环比增速</span><span class="kc-chip">APH 管理层是否披露 Nvidia 单一客户敞口比例</span><span class="kc-chip">Rubin NVL72 架构确认 APH Paladin HD 224G 的具体 content 金额</span><span class="kc-chip">BofA 是否更新渠道调研观点（GB300 Bianca 消息发酵后）</span></div>
+  </div>
+</div>
+<div class="divider"></div>
+<h2>九、行业传导与竞争对手对比</h2>
 <table><tr><th>公司/指标</th><th>季度营收</th><th>利润率/驱动力</th><th>综合判断</th></tr><tr><td><strong>Amphenol (APH)</strong></td><td><span class="tag green">$7.62B</span></td><td>27.3% 营业利润率</td><td style="color:#059669;font-weight:600">结构性超越</td></tr><tr><td><strong>TE Connectivity (TEL)</strong></td><td><span class="tag gray">~$4.35B</span></td><td>~19% 营业利润率</td><td style="color:#6B7280;font-weight:600">汽车依赖偏高</td></tr><tr><td><strong>APH有机增速</strong></td><td><span class="tag green">+33%</span></td><td>AI+国防双轮驱动</td><td style="color:#059669;font-weight:600">同业领先</td></tr><tr><td><strong>TEL有机增速（估）</strong></td><td><span class="tag amber">+约5%</span></td><td>汽车缓慢复苏</td><td style="color:#D97706;font-weight:600">普通</td></tr></table>
 <div class="divider"></div>
-<h2>九、增长时间线</h2>
+<h2>十、增长时间线</h2>
 <table><tr><th style="width:12%">阶段</th><th style="width:14%">判断</th><th style="width:24%">领先指标</th><th>关键事件与预期</th></tr><tr><td><strong>2026 Q2</strong><br><span class="meta">当前</span></td><td><span class="tag amber">底部确认期</span></td><td>税率已知、BofA降级已price in、债务发行完成</td><td>若Q2 IT数据通信有机环比>12%，情绪修复+估值重估，目标回至$140-150</td></tr><tr><td><strong>2026 Q3-Q4</strong><br><span class="meta">修复期</span></td><td><span class="tag blue">均值回归</span></td><td>CommScope毛利率向27%收敛 + 超级云厂商Q2资本开支指引</td><td>CommScope annualize后增速回归20-25%有机；营业利润率扩张至28%+；估值修复至28-32x</td></tr><tr><td><strong>2027</strong><br><span class="meta">正常化</span></td><td><span class="tag green">质量复合</span></td><td>AI基础设施下一代周期（Blackwell Ultra/Rubin）启动</td><td>协同效应显现，EPS增速25%+，税率/债务问题消化，目标价$180-200</td></tr><tr><td><strong>2028+</strong><br><span class="meta">长期</span></td><td><span class="tag gray">稳定复合</span></td><td>AI维护/升级周期 + 汽车电动化</td><td>稳定20%+ EPS CAGR，历史估值锚30-35x</td></tr></table>
 <div class="divider"></div>
-<h2>十、护城河与风险评估</h2>
+<h2>11、护城河与风险评估</h2>
 
 <div class="row2">
   <div>
@@ -316,7 +367,7 @@ th { font-weight: 600; color: #111; background: #F3F4F6; font-size: 12px; }
   </div>
 </div>
 <div class="divider"></div>
-<h2>11、投资决策</h2>
+<h2>12、投资决策</h2>
 
 <div class="verdict-row">
   <div class="verdict-col">
