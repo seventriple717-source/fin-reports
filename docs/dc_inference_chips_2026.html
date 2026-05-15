@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 数据中心推理芯片 · 竞争格局深度报告 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:     #07090f;
+  --bg2:    #0c1018;
+  --bg3:    #111622;
+  --bg4:    #171e2e;
+  --line:   rgba(255,255,255,0.06);
+  --line2:  rgba(255,255,255,0.12);
+  --a:  #5b9cf6;  /* blue  - HBM GPU    */
+  --b:  #34d399;  /* green - ASIC       */
+  --c:  #a78bfa;  /* purple- SRAM       */
+  --d:  #fb923c;  /* orange- LPDDR GPU  */
+  --e:  #22d3ee;  /* cyan  - RDU        */
+  --f:  #f472b6;  /* pink  - China      */
+  --g:  #fbbf24;  /* gold  - PIM        */
+  --t1: #f1f5f9;
+  --t2: #94a3b8;
+  --t3: #475569;
+  --danger: #f87171;
+  --warn:   #fbbf24;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--t1);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 0 52px;
+  background:
+    radial-gradient(ellipse 80% 50% at 60% -10%, rgba(91,156,246,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 20% 110%, rgba(167,139,250,0.05) 0%, transparent 70%),
+    var(--bg);
+  border-bottom: 1px solid var(--line2);
+  position: relative;
+  overflow: hidden;
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.4) 80%, transparent);
+}
+.w { max-width: 1080px; margin: 0 auto; padding: 0 36px; }
+
+.eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--a);
+  margin-bottom: 16px;
+}
+.hero-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.hero-title em { font-style: italic; color: var(--a); }
+.hero-sub {
+  font-size: 15px;
+  color: var(--t2);
+  max-width: 580px;
+  margin-bottom: 28px;
+}
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.hchip {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 2px;
+  border: 1px solid;
+}
+
+/* ─── NAV ─── */
+.nav {
+  background: rgba(7,9,15,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  position: sticky; top: 0; z-index: 100;
+}
+.nav-inner {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  gap: 0;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.na {
+  font-size: 12px;
+  color: var(--t3);
+  padding: 14px 16px;
+  white-space: nowrap;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all .2s;
+  font-family: 'DM Mono', monospace;
+}
+.na:hover { color: var(--a); border-bottom-color: var(--a); }
+
+/* ─── SECTIONS ─── */
+.sec { padding: 64px 0; border-bottom: 1px solid var(--line); }
+.sec:last-child { border-bottom: none; }
+
+.sec-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 6px;
+}
+.sec-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.sec-desc { font-size: 13px; color: var(--t2); margin-bottom: 36px; max-width: 640px; }
+
+/* ─── TAXONOMY CARDS ─── */
+.tax-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.tax-card {
+  background: var(--bg2);
+  padding: 24px 22px;
+  transition: background .2s;
+  cursor: default;
+}
+.tax-card:hover { background: var(--bg3); }
+.tax-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.tax-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--t3);
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+.tax-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.3;
+}
+.tax-en {
+  font-size: 11px;
+  font-family: 'DM Mono', monospace;
+  margin-top: 2px;
+}
+.tax-body { font-size: 12px; color: var(--t2); line-height: 1.75; }
+
+.tax-card.span2 { grid-column: span 2; }
+@media (max-width: 700px) { .tax-card.span2 { grid-column: span 1; } }
+
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 2px;
+  border: 1px solid;
+}
+
+/* ─── DATA TABLE ─── */
+.dt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.dt th {
+  text-align: left;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--line2);
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--t3);
+  background: rgba(255,255,255,0.02);
+  font-weight: 400;
+}
+.dt td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  color: var(--t1);
+  vertical-align: middle;
+}
+.dt tr:last-child td { border-bottom: none; }
+.dt tr:hover td { background: rgba(255,255,255,0.02); }
+.tbl-wrap {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+/* ─── BAR SCORE ─── */
+.bar-row { display: flex; align-items: center; gap: 8px; }
+.bar-bg { flex: 1; height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; min-width: 60px; }
+.bar-fill { height: 4px; border-radius: 2px; }
+.bar-val { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--t3); width: 20px; text-align: right; }
+
+/* ─── KPI ROW ─── */
+.kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 24px 0; }
+.kpi {
+  background: var(--bg3);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px 16px;
+}
+.kpi-l { font-size: 11px; color: var(--t3); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
+.kpi-v { font-size: 26px; font-weight: 600; line-height: 1; margin-bottom: 4px; }
+.kpi-n { font-size: 11px; color: var(--t3); }
+
+/* ─── CALLOUT ─── */
+.callout {
+  border-left: 2px solid;
+  padding: 14px 18px;
+  border-radius: 0 6px 6px 0;
+  margin: 20px 0;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.ca { border-color: var(--a); background: rgba(91,156,246,.06); }
+.cw { border-color: var(--warn); background: rgba(251,191,36,.06); }
+.cd { border-color: var(--danger); background: rgba(248,113,113,.06); }
+.cs { border-color: var(--b); background: rgba(52,211,153,.06); }
+strong { color: #fff; }
+
+/* ─── CHART WRAP ─── */
+.chart-box {
+  background: var(--bg3);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 22px;
+  margin: 16px 0;
+}
+.chart-ttl { font-size: 13px; font-weight: 600; color: var(--t2); margin-bottom: 2px; }
+.chart-sub { font-size: 11px; color: var(--t3); margin-bottom: 16px; }
+.chart-inner { position: relative; }
+
+/* ─── LEGEND ─── */
+.leg { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 10px; }
+.leg-i { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--t2); }
+.leg-d { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+/* ─── VERDICT ─── */
+.verdict {
+  background: linear-gradient(135deg, rgba(91,156,246,.06), rgba(167,139,250,.04));
+  border: 1px solid rgba(91,156,246,.2);
+  border-radius: 8px;
+  padding: 28px 28px;
+  margin-top: 28px;
+}
+.verdict-t {
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.verdict-b { font-size: 13px; color: var(--t2); line-height: 1.9; }
+
+/* ─── SCENARIO GRID ─── */
+.sc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+.sc-card {
+  background: var(--bg3);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+}
+.sc-ttl { font-size: 12px; font-weight: 600; margin-bottom: 8px; }
+.sc-body { font-size: 12px; color: var(--t2); line-height: 1.75; }
+
+/* ─── FOOTER ─── */
+.footer {
+  text-align: center;
+  padding: 40px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--t3);
+  border-top: 1px solid var(--line);
+}
+
+.note { font-size: 11px; color: var(--t3); margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); line-height: 1.7; }
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 700px) { .g2 { grid-template-columns: 1fr; } }
+.mt { margin-top: 24px; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="w">
+    <div class="eyebrow">Deep Research · AI Datacenter Chips · May 2026</div>
+    <h1 class="hero-title">AI 数据中心推理芯片<br><em>竞争格局与终局推演</em></h1>
+    <p class="hero-sub">聚焦数据中心场景，厘清六大技术路线的本质差异、竞争边界与 2030 年格局</p>
+    <div class="hero-chips">
+      <span class="hchip" style="color:var(--a);border-color:rgba(91,156,246,.3);">HBM GPU</span>
+      <span class="hchip" style="color:var(--b);border-color:rgba(52,211,153,.3);">Hyperscaler ASIC</span>
+      <span class="hchip" style="color:var(--c);border-color:rgba(167,139,250,.3);">SRAM 加速器</span>
+      <span class="hchip" style="color:var(--d);border-color:rgba(251,146,60,.3);">LPDDR 推理 GPU</span>
+      <span class="hchip" style="color:var(--e);border-color:rgba(34,211,238,.3);">RDU 数据流</span>
+      <span class="hchip" style="color:var(--f);border-color:rgba(244,114,182,.3);">中国独立生态</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="w">
+    <div class="nav-inner">
+      <a href="#s1" class="na">§1 分类框架</a>
+      <a href="#s2" class="na">§2 六大技术路线</a>
+      <a href="#s3" class="na">§3 推理场景匹配</a>
+      <a href="#s4" class="na">§4 性能成本矩阵</a>
+      <a href="#s5" class="na">§5 市场格局预测</a>
+      <a href="#s6" class="na">§6 终局形态</a>
+    </div>
+  </div>
+</nav>
+
+<div class="w">
+
+<!-- ─────────────── §1 ─────────────── -->
+<section id="s1" class="sec">
+  <div class="sec-label">Section 01</div>
+  <div class="sec-title">本报告的分类维度：内存架构</div>
+  <div class="sec-desc">以「内存方案」为主轴区分技术路线，这是决定推理场景适用性的最本质差异</div>
+
+  <div class="tbl-wrap">
+    <table class="dt">
+      <thead>
+        <tr>
+          <th>内存方案</th>
+          <th>代表产品</th>
+          <th>带宽量级</th>
+          <th>功耗特征</th>
+          <th>核心适用场景</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color:var(--a);">HBM（高带宽内存）</strong><br><span style="font-size:10px;color:var(--t3);">HBM2e / HBM3 / HBM4</span></td>
+          <td>Nvidia H100/B200/B300<br>AMD MI300X/MI450<br>昇腾 910C/920</td>
+          <td>1.8–8 TB/s</td>
+          <td style="color:var(--danger);">700–1,000W+<br>液冷必须</td>
+          <td>大模型全场景（训练+推理）；大上下文 Agent 工作流</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--d);">LPDDR5X（低功耗内存）· 气冷</strong><br><span style="font-size:10px;color:var(--t3);">取舍：容量换带宽，气冷可行</span></td>
+          <td>Intel Crescent Island（CRI）<br><span style="font-size:10px;color:var(--t3);">160GB · 150-300W</span></td>
+          <td>~1.5 TB/s</td>
+          <td style="color:var(--b);">150–300W<br>气冷可用</td>
+          <td>企业棕地气冷机房；7B-70B 推理；私有化部署</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--warn);">LPDDR5X（低功耗内存）· 液冷</strong><br><span style="font-size:10px;color:var(--t3);">取舍：大容量换带宽，液冷</span></td>
+          <td>高通 AI200（768GB · 液冷）<br>高通 AI250（+近内存计算）<br><span style="font-size:10px;color:var(--t3);">商业推理 ASIC，外售 CSP/企业</span></td>
+          <td>~3-5 TB/s（near-mem）</td>
+          <td style="color:var(--warn);">中（液冷）</td>
+          <td>中国 CSP 替代选项；企业推理；液冷机房大容量场景</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--c);">片上 SRAM（静态内存）</strong><br><span style="font-size:10px;color:var(--t3);">计算与内存同在芯片上</span></td>
+          <td>Cerebras WSE-3（44GB 单晶圆）<br>Nvidia Groq 3 LPU（128GB/机架）</td>
+          <td>80 TB/s+（片上）</td>
+          <td style="color:var(--danger);">~23kW/系统<br>液冷必须</td>
+          <td>超低延迟实时推理；≤120B 模型；高并发轻量 Agent 调用</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--e);">多级混合内存（RDU 特有）</strong><br><span style="font-size:10px;color:var(--t3);">SRAM + DDR + NVMe 分层调度</span></td>
+          <td>SambaNova SN50 RDU<br>高通 AI250（近内存计算部分）</td>
+          <td>分层：SRAM 极高<br>DDR ~0.5TB/s</td>
+          <td>中</td>
+          <td>Decode 阶段专用；大模型分层服务；编译器调度优化</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--g);">PIM（存算一体）</strong><br><span style="font-size:10px;color:var(--t3);">计算嵌入内存芯片内部</span></td>
+          <td>Samsung HBM-PIM（AquaBolt-XL）<br>SK Hynix AiMX</td>
+          <td>理论 10×+ HBM（片内）</td>
+          <td style="color:var(--b);">极低（理论）</td>
+          <td>下一代全场景（2028+）；目前早期部署阶段</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout ca">
+    <strong>关键说明：</strong>Intel CRI 和 Cerebras WSE 从计算架构看都是 GPU 架构，但本报告按内存方案区分——内存决定了功耗、带宽、延迟，是实际选型的真正差异所在。高通 AI200/AI250 代表"LPDDR + 液冷 + 外售"路线，是本次新增的商业化推理 ASIC 细分。RDU 使用多级混合内存，不属于单一内存类别，单列一行。
+  </div>
+</section>
+
+<!-- ─────────────── §2 ─────────────── -->
+<section id="s2" class="sec">
+  <div class="sec-label">Section 02</div>
+  <div class="sec-title">数据中心推理芯片：六大技术路线</div>
+  <div class="sec-desc">每条路线的本质逻辑、代表产品与核心差异化</div>
+
+  <div class="tax-grid">
+
+    <!-- T1 HBM GPU -->
+    <div class="tax-card">
+      <div class="tax-header">
+        <div class="tax-num">01</div>
+        <div>
+          <div class="tax-name" style="color:var(--a);">HBM GPU</div>
+          <div class="tax-en" style="color:var(--a);">通用高带宽 GPU</div>
+        </div>
+      </div>
+      <div class="tax-body">
+        <strong>本质：</strong>通用并行计算芯片，搭载 HBM（高带宽内存）。HBM 相当于把内存叠在芯片旁边，带宽是普通 DDR 的 10-20 倍。<br><br>
+        <strong>为什么叫 GPU：</strong>最初用于游戏渲染（并行处理像素），因为矩阵乘法和渲染的数学结构相同，被复用于 AI 训练和推理。<br><br>
+        <strong>训练和推理都能做，是当前数据中心绝对主力。</strong>
+      </div>
+      <div class="tags">
+        <span class="tag" style="color:var(--a);border-color:rgba(91,156,246,.3);">Nvidia H100/B200</span>
+        <span class="tag" style="color:var(--a);border-color:rgba(91,156,246,.3);">AMD MI300X/MI450</span>
+        <span class="tag" style="color:var(--a);border-color:rgba(91,156,246,.3);">市占率 ~78%</span>
+      </div>
+    </div>
+
+    <!-- T2 ASIC -->
+    <div class="tax-card">
+      <div class="tax-header">
+        <div class="tax-num">02</div>
+        <div>
+          <div class="tax-name" style="color:var(--b);">Hyperscaler ASIC</div>
+          <div class="tax-en" style="color:var(--b);">超大规模定制芯片</div>
+        </div>
+      </div>
+      <div class="tax-body">
+        <strong>本质：</strong>专门为特定工作负载设计的固化芯片（Application-Specific Integrated Circuit）。Google 的 TPU 只为跑 TensorFlow/JAX 优化，AWS Inferentia 只为推理优化。<br><br>
+        <strong>为什么比 GPU 便宜：</strong>不需要通用性，去掉了 GPU 里 70% 的「用不上的」电路，同等算力功耗降低 4-5 倍，成本下降 3-5 倍。<br><br>
+        <strong>限制：</strong>模型架构变化后芯片可能就浪费了，且只有超大规模公司才值得自研。
+      </div>
+      <div class="tags">
+        <span class="tag" style="color:var(--b);border-color:rgba(52,211,153,.3);">Google TPU v7</span>
+        <span class="tag" style="color:var(--b);border-color:rgba(52,211,153,.3);">AWS Inferentia 3</span>
+        <span class="tag" style="color:var(--b);border-color:rgba(52,211,153,.3);">Meta MTIA v2</span>
+      </div>
+    </div>
+
+    <!-- T3 SRAM+LPU -->
+    <div class="tax-card">
+      <div class="tax-header">
+        <div class="tax-num">03</div>
+        <div>
+          <div class="tax-name" style="color:var(--c);">SRAM / LPU 架构加速器</div>
+          <div class="tax-en" style="color:var(--c);">片上内存 + 确定性调度 · 超低延迟</div>
+        </div>
+      </div>
+      <div class="tax-body">
+        <strong>本质：</strong>用片上 SRAM 替代外部 HBM，把计算和数据放在一起，消除数据来回搬运的延迟。SRAM 访问约 1-5ns，HBM 约 100ns——快 20-100 倍。<br><br>
+        <strong>两条子路线：</strong><br>
+        ▸ <strong>WSE（Cerebras）</strong>：整张晶圆 = 一块芯片，最大化 SRAM 体积（44GB），靠物理容量赢延迟<br>
+        ▸ <strong>LPU（Groq/Nvidia）</strong>：编译器把每个时钟周期全部预排好，"确定性调度"消除 GPU 的动态等待开销，500MB/芯片 × 256 颗 = 128GB 片上 SRAM/机架<br><br>
+        <strong>Nvidia 花 $200 亿买入 Groq IP，将 LPU 用于 Vera Rubin 架构的 Decode 阶段——这是最强的市场背书。</strong>
+      </div>
+      <div class="tags">
+        <span class="tag" style="color:var(--c);border-color:rgba(167,139,250,.3);">Cerebras WSE-3</span>
+        <span class="tag" style="color:var(--c);border-color:rgba(167,139,250,.3);">Nvidia Groq 3 LPU</span>
+        <span class="tag" style="color:var(--c);border-color:rgba(167,139,250,.3);">≤120B 高速推理</span>
+      </div>
+    </div>
+
+    <!-- T4 LPDDR GPU -->
+    <div class="tax-card">
+      <div class="tax-header">
+        <div class="tax-num">04</div>
+        <div>
+          <div class="tax-name" style="color:var(--d);">LPDDR 推理 GPU</div>
+          <div class="tax-en" style="color:var(--d);">低功耗 · 气冷企业专用</div>
+        </div>
+      </div>
+      <div class="tax-body">
+        <strong>本质：</strong>GPU 架构，但把 HBM 换成 LPDDR5X（笔记本电脑用的内存）。LPDDR 带宽只有 HBM 的 1/3，但功耗低 70%，容量可以做到 160GB，价格便宜得多。<br><br>
+        <strong>这是三路分类里没有的第四条路：</strong>Intel CRI 是目前唯一代表。目标客户是那些机房用不了液冷（H100 700W 必须液冷）的企业。<br><br>
+        <strong>150-300W = 气冷数据中心可以直接插入运行，无需改造机房。</strong>
+      </div>
+      <div class="tags">
+        <span class="tag" style="color:var(--d);border-color:rgba(251,146,60,.3);">Intel Crescent Island</span>
+        <span class="tag" style="color:var(--d);border-color:rgba(251,146,60,.3);">2027 量产</span>
+        <span class="tag" style="color:var(--d);border-color:rgba(251,146,60,.3);">唯一气冷推理卡</span>
+      </div>
+    </div>
+
+    <!-- T5 RDU -->
+    <div class="tax-card">
+      <div class="tax-header">
+        <div class="tax-num">05</div>
+        <div>
+          <div class="tax-name" style="color:var(--e);">RDU · 数据流处理器</div>
+          <div class="tax-en" style="color:var(--e);">可重构 · Prefill/Decode 分离</div>
+        </div>
+      </div>
+      <div class="tax-body">
+        <strong>本质：</strong>Reconfigurable Dataflow Unit（可重构数据流处理器）。介于 GPU 通用和 ASIC 专用之间——通过算子融合大幅减少内存访问次数，可以用软件重新配置适配新模型。<br><br>
+        <strong>关键洞察：</strong>AI 推理的两个阶段有完全不同的计算特征——Prefill 需要高算力（处理输入），Decode 需要低延迟（逐 token 生成）。RDU 专为 Decode 阶段优化，与 HBM GPU 搭档使用，形成异构推理系统。<br><br>
+        Intel 与 SambaNova 深度合作/收购，是 Intel 推理战略的重要拼图。
+      </div>
+      <div class="tags">
+        <span class="tag" style="color:var(--e);border-color:rgba(34,211,238,.3);">SambaNova SN50</span>
+        <span class="tag" style="color:var(--e);border-color:rgba(34,211,238,.3);">Intel 合作方</span>
+        <span class="tag" style="color:var(--e);border-color:rgba(34,211,238,.3);">Decode 专用</span>
+      </div>
+    </div>
+
+    <!-- T6 China -->
+    <div class="tax-card">
+      <div class="tax-header">
+        <div class="tax-num">06</div>
+        <div>
+          <div class="tax-name" style="color:var(--f);">中国独立生态</div>
+          <div class="tax-en" style="color:var(--f);">昇腾 · 寒武纪 · 地缘隔离</div>
+        </div>
+      </div>
+      <div class="tax-body">
+        <strong>本质：</strong>受出口管制驱动形成的独立技术路线，而非主动的差异化创新。昇腾（华为）是 GPU 架构（CANN 软件栈），寒武纪是 NPU 架构（BANG 软件栈），两者均使用 HBM 类内存。<br><br>
+        <strong>为什么单独一类：</strong>这些产品无法出口、西方产品无法进入中国，形成了平行市场。技术路线本质上是在追赶 Nvidia GPU，但被出口管制冻结在 2-3 代之前。<br><br>
+        <strong>昇腾主导中国市场，寒武纪是补充选项。</strong>
+      </div>
+      <div class="tags">
+        <span class="tag" style="color:var(--f);border-color:rgba(244,114,182,.3);">昇腾 910C/920</span>
+        <span class="tag" style="color:var(--f);border-color:rgba(244,114,182,.3);">寒武纪 MLU590</span>
+        <span class="tag" style="color:var(--f);border-color:rgba(244,114,182,.3);">中国市场专属</span>
+      </div>
+    </div>
+
+  </div><!-- /.tax-grid -->
+
+  <!-- Emerging note -->
+  <!-- LPU Deep Dive -->
+  <div style="margin-top:24px;background:var(--bg3);border:1px solid rgba(167,139,250,.2);border-radius:8px;padding:24px;">
+    <div style="font-size:12px;font-weight:600;color:var(--c);margin-bottom:16px;font-family:'DM Mono',monospace;letter-spacing:.08em;">③-A · LPU 深度解析 — Groq / Nvidia Groq 3</div>
+    <div class="g2">
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:8px;">核心创新：确定性调度</div>
+        <div style="font-size:12px;color:var(--t2);line-height:1.8;">GPU 每个 token 生成时需<strong>动态决定</strong>调度，引入不可预测等待。LPU 编译器提前把<strong>每个时钟周期的每个操作</strong>全部排好，运行时零决策开销，延迟完全可预测。每颗 Groq 3 芯片含 500MB 片上 SRAM，带宽 80 TB/s；256 芯片组成 LPX 机架，共 128GB 片上 SRAM，可装入完整 70B FP8 模型。</div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:8px;">Nvidia Vera Rubin GPU + LPU 异构推理架构</div>
+        <div style="font-size:12px;color:var(--t2);line-height:1.8;">
+          <div style="background:rgba(91,156,246,.08);border:1px solid rgba(91,156,246,.15);border-radius:4px;padding:10px;margin-bottom:8px;"><strong style="color:var(--a);">Rubin GPU（HBM4）→ Prefill</strong><br>处理输入 prompt，并行算力密集，Attention 层</div>
+          <div style="background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.15);border-radius:4px;padding:10px;"><strong style="color:var(--c);">Groq 3 LPU（SRAM）→ Decode</strong><br>逐 token 生成，FFN 层 + MoE 路由，确定性低延迟</div>
+        </div>
+      </div>
+    </div>
+    <div class="tbl-wrap" style="margin-top:16px;">
+      <table class="dt">
+        <thead><tr><th>维度</th><th>Cerebras WSE-3</th><th>Groq 3 LPU（Nvidia）</th></tr></thead>
+        <tbody>
+          <tr><td>SRAM 总量</td><td>44GB（单晶圆）</td><td style="color:var(--c);">128GB（256芯片×500MB）</td></tr>
+          <tr><td>速度来源</td><td>物理 SRAM 带宽极大</td><td style="color:var(--c);">确定性调度 + 高带宽 SRAM</td></tr>
+          <tr><td>可制造性</td><td style="color:var(--danger);">低（整晶圆良率）</td><td style="color:var(--b);">高（标准芯片堆叠）</td></tr>
+          <tr><td>最大可服务</td><td>~120B（实际上线）</td><td>70B FP8（单机架）</td></tr>
+          <tr><td>商业背书</td><td>OpenAI $200 亿合同</td><td style="color:var(--b);">Nvidia $200 亿授权 ✅ 最强</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SRAM-WSE Deep Dive -->
+  <div style="margin-top:16px;background:var(--bg3);border:1px solid rgba(167,139,250,.12);border-radius:8px;padding:24px;">
+    <div style="font-size:12px;font-weight:600;color:var(--c);margin-bottom:16px;font-family:'DM Mono',monospace;letter-spacing:.08em;">③-B · SRAM-WSE 深度解析 — Cerebras WSE-3</div>
+    <div class="g2">
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:8px;">核心思路：把整张晶圆变成一块芯片</div>
+        <div style="font-size:12px;color:var(--t2);line-height:1.8;">
+          普通芯片一张晶圆切成几百个 die，每个 die ~858mm²。Cerebras WSE-3 不切割，整张 46,225mm² = 一块芯片，集成 4 万亿晶体管、90 万 AI 核心、44GB 片上 SRAM。<br><br>
+          片上带宽 ~20 PB/s，比 H100 HBM3 的 3.35 TB/s 高约 <strong>6,000 倍</strong>。权重直接存在 SRAM 里，每次生成 token 不需要从外部内存读取，延迟从 ~100ns 降到 ~1-5ns。
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:8px;">关键指标与商业现状</div>
+        <div style="font-size:12px;color:var(--t2);line-height:1.8;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px;">
+            <div style="background:rgba(167,139,250,.06);border:1px solid rgba(167,139,250,.12);border-radius:4px;padding:8px;"><div style="font-size:10px;color:var(--t3);">70B 推理速度</div><div style="font-weight:600;color:var(--c);">~600 t/s</div><div style="font-size:10px;color:var(--t3);">vs H100 ~48 t/s</div></div>
+            <div style="background:rgba(167,139,250,.06);border:1px solid rgba(167,139,250,.12);border-radius:4px;padding:8px;"><div style="font-size:10px;color:var(--t3);">API 价格</div><div style="font-weight:600;color:var(--c);">$12/M token</div><div style="font-size:10px;color:var(--t3);">比 AWS GPU 低 60%</div></div>
+            <div style="background:rgba(167,139,250,.06);border:1px solid rgba(167,139,250,.12);border-radius:4px;padding:8px;"><div style="font-size:10px;color:var(--t3);">OpenAI 合同</div><div style="font-weight:600;color:var(--c);">>$200 亿</div><div style="font-size:10px;color:var(--t3);">750MW 推理算力</div></div>
+            <div style="background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.12);border-radius:4px;padding:8px;"><div style="font-size:10px;color:var(--t3);">实际上线最大模型</div><div style="font-weight:600;color:var(--danger);">~120B</div><div style="font-size:10px;color:var(--t3);">DeepSeek V3 未支持</div></div>
+          </div>
+          <strong style="color:var(--danger);">最大风险：</strong>模型规模增大（1T+ 参数）超出 44GB SRAM；TSMC 无长期产能保障；IPO 估值 $344-488 亿 ≈ 50× P/S，充分 price in 乐观预期。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LPDDR GPU Deep Dive -->
+  <div style="margin-top:16px;background:var(--bg3);border:1px solid rgba(251,146,60,.15);border-radius:8px;padding:24px;">
+    <div style="font-size:12px;font-weight:600;color:var(--d);margin-bottom:16px;font-family:'DM Mono',monospace;letter-spacing:.08em;">④ · LPDDR GPU 深度解析 — Intel Crescent Island（CRI）</div>
+    <div class="g2">
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:8px;">核心思路：低功耗内存换气冷可行性</div>
+        <div style="font-size:12px;color:var(--t2);line-height:1.8;">
+          HBM 每 GB 价格是 LPDDR 的 5-8 倍，功耗高 3-5 倍。CRI 选用 LPDDR5X：带宽 ~1.5 TB/s（H100 的 45%），但容量 160GB，整卡 TDP 仅 150-300W。<br><br>
+          <strong style="color:var(--d);">160GB 可完整装入 70B FP8 模型（需 70GB）后还有 90GB 给 KV Cache，而 H100 的 80GB 在长上下文会触发显存换页。</strong><br><br>
+          全球 70-80% 企业数据中心按气冷设计（机架上限 10-15kW），H100 单机箱（8卡）就超过这个数字，改造液冷一个机架需 $5-20 万。CRI 可直接插入现有气冷机架，无需改造。
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:8px;">时间线、优势与挑战</div>
+        <div style="font-size:12px;color:var(--t2);line-height:1.8;">
+          <div style="background:rgba(251,146,60,.06);border:1px solid rgba(251,146,60,.12);border-radius:4px;padding:10px;margin-bottom:10px;">
+            <span style="color:var(--d);font-size:10px;font-family:'DM Mono',monospace;">时间线</span><br>
+            H2 2026 → 客户样品 &nbsp;|&nbsp; 2027 → 量产（依赖 18A 良率）
+          </div>
+          <div style="margin-bottom:8px;"><span style="color:var(--b);">✅ 优势：</span>唯一气冷推理卡；~70-80% 企业机房无液冷；部署成本极低；Intel 苹果/Google 客户潜在背书</div>
+          <div><span style="color:var(--danger);">⚠️ 风险：</span>带宽 H100 的 45%，推理慢 3-4×；软件生态建设中；量产依赖 18A 良率；AMD 可能跟进</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RDU Deep Dive -->
+  <div style="margin-top:16px;background:var(--bg3);border:1px solid rgba(34,211,238,.15);border-radius:8px;padding:24px;">
+    <div style="font-size:12px;font-weight:600;color:var(--e);margin-bottom:16px;font-family:'DM Mono',monospace;letter-spacing:.08em;">⑤ · RDU 深度解析 — SambaNova 可重构数据流处理器</div>
+    <div class="g2">
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:8px;">核心思路：算子融合 + 三层内存体系</div>
+        <div style="font-size:12px;color:var(--t2);line-height:1.8;">
+          GPU 跑 LLM 时，矩阵运算之间有大量中间结果写回 HBM 再读出，40-60% 时间在搬数据而非计算。RDU 通过<strong>算子融合</strong>把多个连续运算合并成一个数据流，中间结果留在片上，减少内存访问 10-50 倍。<br><br>
+          三层内存：① 片上 SRAM（超快）→ ② DDR（较快，容量大）→ ③ NVMe SSD（慢，容量极大）。编译器自动决定数据放哪层，可透明地服务超出 SRAM 容量的大模型。
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:8px;">差异化：Decode 专用 + 可重构</div>
+        <div style="font-size:12px;color:var(--t2);line-height:1.8;">
+          <div style="background:rgba(34,211,238,.06);border:1px solid rgba(34,211,238,.12);border-radius:4px;padding:10px;margin-bottom:10px;">
+            <strong style="color:var(--e);">与 GPU 搭档：Prefill / Decode 分离</strong><br>
+            HBM GPU 处理 Prefill → RDU 处理 Decode<br>
+            Intel + SambaNova CRI + RDU 是 Intel 推理完整方案
+          </div>
+          <div style="margin-bottom:8px;"><span style="color:var(--b);">✅ 优势：</span>"可重构"让模型架构变化（Transformer→MoE→SSM）可用软件适配，生命周期远长于 ASIC</div>
+          <div><span style="color:var(--danger);">⚠️ 挑战：</span>SambaNova 建立 9 年仍未规模化；Nvidia 把 LPU 整合进 Vera Rubin 压缩了独立市场空间；生态鸡与蛋持续</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- China Deep Dive -->
+  <div style="margin-top:16px;background:var(--bg3);border:1px solid rgba(244,114,182,.15);border-radius:8px;padding:24px;">
+    <div style="font-size:12px;font-weight:600;color:var(--f);margin-bottom:16px;font-family:'DM Mono',monospace;letter-spacing:.08em;">⑥ · 国产芯片深度解析 — 昇腾 vs 寒武纪</div>
+    <div class="g2">
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:8px;">昇腾（华为）：中国市场绝对主导</div>
+        <div style="font-size:12px;color:var(--t2);line-height:1.8;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px;">
+            <div style="background:rgba(244,114,182,.06);border:1px solid rgba(244,114,182,.12);border-radius:4px;padding:8px;"><div style="font-size:10px;color:var(--t3);">910C 算力（BF16）</div><div style="font-weight:600;color:var(--f);">800 TFLOPS</div><div style="font-size:10px;color:var(--t3);">约 H100 的 60%</div></div>
+            <div style="background:rgba(244,114,182,.06);border:1px solid rgba(244,114,182,.12);border-radius:4px;padding:8px;"><div style="font-size:10px;color:var(--t3);">显存带宽</div><div style="font-weight:600;color:var(--f);">1,800 GB/s</div><div style="font-size:10px;color:var(--t3);">HBM2e，H100 的 54%</div></div>
+            <div style="background:rgba(244,114,182,.06);border:1px solid rgba(244,114,182,.12);border-radius:4px;padding:8px;"><div style="font-size:10px;color:var(--t3);">CloudMatrix 384</div><div style="font-weight:600;color:var(--f);">1,943 t/s</div><div style="font-size:10px;color:var(--t3);">384片910C系统级实测</div></div>
+            <div style="background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.12);border-radius:4px;padding:8px;"><div style="font-size:10px;color:var(--t3);">关键短板</div><div style="font-weight:600;color:var(--danger);">无 FP8</div><div style="font-size:10px;color:var(--t3);">仅 INT8/BF16，效率损失 ~30%</div></div>
+          </div>
+          <strong style="color:#fff;">制程约束：</strong>SMIC 7nm DUV（低于 TSMC 7nm），良率和性能均受限。920 路线图加入 FP8，但进展依赖国内设备突破。<br><br>
+          <strong style="color:#fff;">市场地位：</strong>字节跳动、阿里、腾讯、百度大规模部署，2025 年出货约 70-100 万片，DeepSeek 验证 CloudMatrix 在 MoE 模型上的可用性。
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:8px;">寒武纪：政策保护下的补充选项</div>
+        <div style="font-size:12px;color:var(--t2);line-height:1.8;">
+          <div style="background:rgba(244,114,182,.04);border:1px solid rgba(244,114,182,.1);border-radius:4px;padding:10px;margin-bottom:10px;">
+            <strong style="color:var(--f);">MLU590 核心指标：</strong><br>
+            算力约 H100 的 40-50% · 64GB HBM2e · 带宽 ~1,200 GB/s · 功耗 ~350W<br>
+            软件栈 BANG 成熟度低，大模型适配需要额外工程投入
+          </div>
+          <strong style="color:#fff;">生存逻辑：</strong>政府/国企采购需要多元化供应商，不能全押昇腾。寒武纪是"中国版 AMD"——技术跟跑，靠政策保护维持市场份额。商业互联网大厂基本不用。<br><br>
+          <strong style="color:#fff;">与昇腾差距：</strong>~1-1.5 代技术代差；无 CloudMatrix 系统级优化能力；军工政务是主阵地。<br><br>
+          <div style="background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.12);border-radius:4px;padding:8px;margin-top:8px;"><span style="color:var(--danger);">⚠️ 投资风险：</span>市值 ~¥700-1000 亿，估值靠政策溢价，国补退出或 AI 投资降温时下行风险大。</div>
+        </div>
+        <!-- 性能条 -->
+        <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--line);">
+          <div style="font-size:11px;font-weight:600;color:var(--t2);margin-bottom:8px;">各芯片推理算力对比（B200=100%）</div>
+          <div style="font-size:11px;">
+            <div style="margin-bottom:6px;"><div style="display:flex;justify-content:space-between;color:var(--t3);margin-bottom:2px;"><span>B200 基准</span><span>100%</span></div><div style="height:5px;background:rgba(255,255,255,.06);border-radius:2px;"><div style="height:5px;background:rgba(118,185,0,.8);border-radius:2px;width:100%;"></div></div></div>
+            <div style="margin-bottom:6px;"><div style="display:flex;justify-content:space-between;color:var(--t3);margin-bottom:2px;"><span>H100</span><span>~40%</span></div><div style="height:5px;background:rgba(255,255,255,.06);border-radius:2px;"><div style="height:5px;background:rgba(118,185,0,.5);border-radius:2px;width:40%;"></div></div></div>
+            <div style="margin-bottom:6px;"><div style="display:flex;justify-content:space-between;color:var(--t3);margin-bottom:2px;"><span>昇腾 910C 单卡</span><span>~24%</span></div><div style="height:5px;background:rgba(255,255,255,.06);border-radius:2px;"><div style="height:5px;background:var(--f);border-radius:2px;width:24%;"></div></div></div>
+            <div style="margin-bottom:6px;"><div style="display:flex;justify-content:space-between;color:var(--t3);margin-bottom:2px;"><span>昇腾 CloudMatrix 384</span><span>~65%（系统吞吐）</span></div><div style="height:5px;background:rgba(255,255,255,.06);border-radius:2px;"><div style="height:5px;background:var(--f);border-radius:2px;width:65%;opacity:.75;"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;color:var(--t3);margin-bottom:2px;"><span>寒武纪 MLU590</span><span>~16%</span></div><div style="height:5px;background:rgba(255,255,255,.06);border-radius:2px;"><div style="height:5px;background:rgba(248,113,113,.7);border-radius:2px;width:16%;"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LPDDR / RDU participation analysis -->
+  <div style="margin-top:16px;background:var(--bg3);border:1px solid var(--line);border-radius:8px;padding:24px;">
+    <div style="font-size:12px;font-weight:600;color:var(--t2);margin-bottom:16px;font-family:'DM Mono',monospace;letter-spacing:.08em;">为什么 LPDDR GPU 和 RDU 参与者这么少？</div>
+    <div class="g2">
+      <div>
+        <div style="font-size:12px;font-weight:600;color:var(--d);margin-bottom:8px;">LPDDR GPU：逆主流，只有 Intel 有动机</div>
+        <div style="font-size:12px;color:var(--t2);line-height:1.8;">行业共识是"带宽越高越好"，LPDDR 主动降带宽换低功耗，方向相反。Intel 做这件事是因为无法在 HBM GPU 正面竞争，需要差异化出口。AMD 和 Nvidia 已占据超大规模云市场，不需要转移资源做气冷方案。<br><br>
+        <strong style="color:var(--d);">气冷企业市场真实，但被视为"利基"——体量不够让巨头改变战略。</strong></div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:600;color:var(--e);margin-bottom:8px;">RDU：洞察太早，Nvidia 把市场空间占走了</div>
+        <div style="font-size:12px;color:var(--t2);line-height:1.8;">SambaNova 2017 年建立，9 年没达成规模化——是市场信号。Prefill/Decode 分离架构洞察直到 2024-2025 才被主流认可，市场教育成本极高。<br><br>
+        <strong style="color:var(--e);">Nvidia 把 Groq LPU 整合进 Vera Rubin 本质上是"自研 RDU 逻辑"——验证了路线，同时把市场空间压缩掉了。</strong></div>
+      </div>
+    </div>
+    <div class="callout ca" style="margin-top:16px;">
+      <strong>哪种技术路线最优？</strong> 商业最优 ≠ 技术最优。HBM GPU 统治市场靠的是 CUDA 生态飞轮（更多用户→更好优化→更多用户）+ Nvidia 年均 $180 亿研发投入，不是任何单一技术维度最优。LPDDR GPU 和 RDU 的共同困境都是"鸡和蛋"：用户少→软件优化少→性能落后→用户更少。<strong>2030 年技术终局最优解可能是 PIM（存算一体）</strong>，但商业主导权在 Nvidia 那里，除非中国生态或 MoE 架构变革打破飞轮。
+    </div>
+  </div>
+
+  <div class="callout ca" style="margin-top:16px;">
+    <strong>第七条路线（新兴）：PIM 存算一体</strong>——Samsung HBM-PIM、SK Hynix AiMX，把计算单元直接嵌入内存芯片，消除数据搬运开销。2028-2030 年进入主流，可能同时颠覆 HBM GPU 和 SRAM 架构。
+  </div>
+</section>
+
+<!-- ─────────────── §3 ─────────────── -->
+<section id="s3" class="sec">
+  <div class="sec-label">Section 03</div>
+  <div class="sec-title">高价值推理场景 × 技术路线匹配</div>
+  <div class="sec-desc">按业务价值场景分类，区分「技术最优」与「实际首选」，气冷是部署约束而非使用场景</div>
+
+  <div class="callout ca">
+    <strong>三个关键澄清：</strong><br>
+    ① <strong>「实时」= 文本响应延迟 &lt;500ms，不是语音通话</strong>——用户在对话框发消息，等到屏幕上出现第一个字的时间。语音 AI 是另一套硬件栈（ASR+TTS）。<br>
+    ② <strong>气冷是部署约束，不是使用场景</strong>——它影响哪些硬件能部署，但场景本身（代码、金融、法律）与气冷无关。<br>
+    ③ <strong>超大规模云厂商跑自己 Agent = ASIC + HBM GPU；企业客户自建 Agent = 只有 HBM GPU 实际可选</strong>（ASIC 买不到）。
+  </div>
+
+  <div class="tbl-wrap">
+    <table class="dt">
+      <thead>
+        <tr>
+          <th style="min-width:130px;">业务场景</th>
+          <th>延迟要求</th>
+          <th>上下文长度</th>
+          <th>模型规模</th>
+          <th>技术最优</th>
+          <th>实际首选</th>
+          <th>增长趋势</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:rgba(167,139,250,.04);">
+          <td>
+            <strong style="color:var(--c);">💬 交互式文本对话</strong><br>
+            <span style="font-size:10px;color:var(--t3);">消费者 AI 助手（ChatGPT/Claude/Gemini）；企业内部 Q&A；客服机器人</span>
+          </td>
+          <td style="color:var(--c);">&lt;500ms<br><span style="font-size:10px;color:var(--t3);">用户在线等第一个字</span></td>
+          <td>4K-32K</td>
+          <td>7B-70B</td>
+          <td><span style="color:var(--c);">SRAM/LPU</span><br><span style="font-size:10px;color:var(--t3);">延迟 12× 优势</span></td>
+          <td><span style="color:var(--a);">HBM GPU</span><br><span style="font-size:10px;color:var(--t3);">大模型支持+生态</span></td>
+          <td>→ 稳定增长</td>
+        </tr>
+        <tr style="background:rgba(34,211,238,.04);">
+          <td>
+            <strong style="color:var(--e);">⌨️ 代码助手 · IDE 集成</strong><br>
+            <span style="font-size:10px;color:var(--t3);">GitHub Copilot / Cursor / Claude Code；代码补全（实时）+ 代码审查（批量）</span>
+          </td>
+          <td style="color:var(--warn);">补全 &lt;300ms<br>审查 2-30s</td>
+          <td>补全 8K<br>审查 100K-1M</td>
+          <td>补全 7-13B<br>审查 70B+</td>
+          <td>补全：<span style="color:var(--c);">SRAM</span><br>审查：<span style="color:var(--a);">HBM GPU</span></td>
+          <td><span style="color:var(--a);">HBM GPU</span><br><span style="font-size:10px;color:var(--t3);">大上下文是决定因素</span></td>
+          <td style="color:var(--b);">↑↑ 最快增长</td>
+        </tr>
+        <tr>
+          <td>
+            <strong style="color:var(--a);">📊 企业 Agent 工作流</strong><br>
+            <span style="font-size:10px;color:var(--t3);">多步骤自动化；工具调用；数据分析；邮件/报告生成；RPA+AI；任务总时长分钟到小时</span>
+          </td>
+          <td>单次调用 1-5s<br>可接受</td>
+          <td>100K-1M</td>
+          <td>70B-400B+</td>
+          <td><span style="color:var(--a);">大容量 HBM GPU</span><br><span style="font-size:10px;color:var(--t3);">B200 192GB</span></td>
+          <td><span style="color:var(--a);">HBM GPU</span><br><span style="font-size:10px;color:var(--t3);">同技术最优；ASIC 不可购</span></td>
+          <td style="color:var(--b);">↑↑ 高价值增长</td>
+        </tr>
+        <tr>
+          <td>
+            <strong style="color:var(--warn);">⚖️ 法律文档分析</strong><br>
+            <span style="font-size:10px;color:var(--t3);">合同审查；案例检索；法律摘要；合规审计；不需要实时，需要高精度</span>
+          </td>
+          <td>批量处理<br>1-60 分钟可接受</td>
+          <td>50K-500K</td>
+          <td>70B-400B</td>
+          <td><span style="color:var(--b);">ASIC（内部）</span><br><span style="color:var(--a);">HBM GPU（外部）</span></td>
+          <td><span style="color:var(--a);">HBM GPU</span></td>
+          <td>↑ 稳定增长</td>
+        </tr>
+        <tr>
+          <td>
+            <strong style="color:var(--warn);">💰 金融分析 · 量化</strong><br>
+            <span style="font-size:10px;color:var(--t3);">实时风控（&lt;100ms）；财报分析（批量）；研报生成；交易信号（极低延迟专用）</span>
+          </td>
+          <td>风控 &lt;100ms<br>分析 分钟级</td>
+          <td>风控 短<br>分析 50K+</td>
+          <td>风控 7B<br>分析 70B+</td>
+          <td>风控：<span style="color:var(--c);">SRAM/LPU</span><br>分析：<span style="color:var(--b);">ASIC/GPU</span></td>
+          <td>风控：<span style="color:var(--a);">HBM GPU</span><br>分析：<span style="color:var(--a);">HBM GPU</span></td>
+          <td>↑ 高价值利基</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>📄 大规模文档处理</strong><br>
+            <span style="font-size:10px;color:var(--t3);">内容审核；数据标注；RAG 向量化；搜索排序；医疗记录 OCR；固定模型固定流程</span>
+          </td>
+          <td>吞吐优先<br>延迟不敏感</td>
+          <td>短-中</td>
+          <td>固定模型</td>
+          <td><span style="color:var(--b);">Hyperscaler ASIC</span></td>
+          <td><span style="color:var(--b);">ASIC（内部）</span><br><span style="color:var(--a);">HBM GPU（外部）</span></td>
+          <td>→ 稳定大盘</td>
+        </tr>
+        <tr>
+          <td>
+            <strong style="color:var(--f);">🇨🇳 中国境内全部场景</strong><br>
+            <span style="font-size:10px;color:var(--t3);">所有上述场景的中国版本；受出口管制，硬件选择完全不同</span>
+          </td>
+          <td>同上各场景</td>
+          <td>同上各场景</td>
+          <td>7B-671B</td>
+          <td colspan="2"><span style="color:var(--f);">昇腾 910C/920（主）</span> · <span style="color:var(--warn);">高通 AI200（补充）</span> · <span style="color:var(--f);">寒武纪 MLU590（政府/国企）</span></td>
+          <td style="color:var(--b);">↑ 结构增长</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Key insight: Agent + SRAM -->
+  <div class="callout ca" style="margin-top:20px;">
+    <strong>为什么 Agent 爆发对 SRAM 的利好是「乘法效应」而非「线性效应」：</strong><br>
+    SRAM 在 ≤70B 小模型上推理速度是 HBM GPU 的 12 倍。Agent 工作流里存在大量「轻量编排调用」（工具选择、步骤验证、快速路由，用 7-13B 小模型就够），这类调用在 Agent 链里出现 20-50 次。<br>
+    GPU：每次 2 秒 × 50 次 = 100 秒；SRAM：每次 0.2 秒 × 50 次 = 10 秒。<strong>延迟差距在链式调用中被放大 10×</strong>。<br>
+    但注意：Agent 的主力大模型调用（70B+ 复杂推理）超出 SRAM 容量，仍是 HBM GPU 的天下。SRAM 受益的是「编排层」，不是「推理主体」。
+  </div>
+
+  <!-- Gas cooling explainer - simplified -->
+  <div style="margin-top:24px;background:var(--bg3);border:1px solid rgba(251,146,60,.15);border-radius:8px;padding:20px;">
+    <div style="font-size:12px;font-weight:600;color:var(--d);margin-bottom:12px;font-family:'DM Mono',monospace;letter-spacing:.08em;">气冷是什么 · 为什么 Intel CRI 选它 · 是否战略失误</div>
+    <div class="g2">
+      <div>
+        <div style="font-size:12px;color:var(--t2);line-height:1.8;">
+          <strong style="color:#fff;">气冷（Air Cooling）= 用风扇吹散热片</strong>，这是 2000-2020 年数据中心的标配，不是高科技。全球约 70-80% 企业数据中心按气冷设计，机架功耗上限约 10-15kW。H100 单机箱（8卡）= 5.6kW，超出上限；B200 单卡 1000W，更无法部署。
+        </div>
+        <div style="font-size:12px;color:var(--t2);line-height:1.8;margin-top:10px;">
+          Intel CRI（150-300W）可以直接插入现有气冷机架，企业机房零改造成本。这不是技术退步，是市场细分——针对有推理需求但没有液冷改造预算的企业棕地（Brownfield）。
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;color:var(--t2);line-height:1.8;">
+          <strong style="color:var(--warn);">是否战略失误？三个风险：</strong><br>
+          ① <strong>高通 AI200 用了 768GB LPDDR + 液冷</strong>，说明 LPDDR 的自然演进是"更大容量+液冷"，Intel 的气冷路线是更激进的取舍，缩小了目标客户群<br>
+          ② <strong>H100 PCIe 版本约 300W</strong>，已兼容很多气冷机架，直接覆盖 Intel CRI 的核心目标客户<br>
+          ③ <strong>企业 DC 改造速度</strong>：AI 用电成本压力正在驱动企业加快液冷改造，到 2027 年时气冷棕地市场可能已经大幅缩小
+        </div>
+        <div style="background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.12);border-radius:4px;padding:8px;margin-top:10px;font-size:12px;">
+          <span style="color:var(--danger);">vs 中国芯片比较无意义：</span>Intel CRI 受出口管制无法进入中国市场。昇腾 910C（500W）和寒武纪（350W）均需液冷，中国企业气冷机房同样面临问题，但这个市场 Intel 没有机会参与。
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:12px;position:relative;width:100%;height:180px;">
+      <canvas id="coolingChart" aria-label="散热能力对比"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────── §4 ─────────────── -->
+<section id="s4" class="sec">
+  <div class="sec-label">Section 04</div>
+  <div class="sec-title">六大路线 · 性能与成本矩阵</div>
+  <div class="sec-desc">量化对比关键维度，理解每条路线的优劣边界</div>
+
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="kpi-l">Cerebras 70B 推理速度</div>
+      <div class="kpi-v" style="color:var(--c);">~600 t/s</div>
+      <div class="kpi-n">vs H100 ~48 t/s，快 12.5×</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-l">ASIC 成本优势</div>
+      <div class="kpi-v" style="color:var(--b);">4–5×</div>
+      <div class="kpi-n">vs GPU，在固定批量场景</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-l">Intel CRI 功耗</div>
+      <div class="kpi-v" style="color:var(--d);">150-300W</div>
+      <div class="kpi-n">vs H100 700W，低 57-78%</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-l">昇腾 910C vs H100</div>
+      <div class="kpi-v" style="color:var(--f);">~60%</div>
+      <div class="kpi-n">推理性能比（DeepSeek 验证）</div>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table class="dt">
+      <thead>
+        <tr>
+          <th style="min-width:110px;">路线</th>
+          <th>内存类型</th>
+          <th>70B 推理速度</th>
+          <th>最大可服务模型</th>
+          <th>单卡功耗</th>
+          <th>硬件单价</th>
+          <th>云端租用价</th>
+          <th>API 成本</th>
+          <th>软件生态</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color:var(--a);">① HBM GPU</strong><br><span style="font-size:10px;color:var(--t3);">H100 / B200 / B300</span></td>
+          <td>HBM3/4<br>3.35–8 TB/s</td>
+          <td style="color:var(--a);">H100 ~48 t/s<br>B200 ~180 t/s</td>
+          <td>405B+（多卡）</td>
+          <td style="color:var(--danger);">700W / 1,000W</td>
+          <td>H100 $25-35K<br>B200 $45-55K<br>B300 ~$40K</td>
+          <td>H100 ~$3.11/h<br>B200 ~$6.04/h<br>B300 ~$2.45/h(spot)</td>
+          <td>~$0.5-2/M token</td>
+          <td>★★★★★ CUDA</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--b);">② ASIC</strong><br><span style="font-size:10px;color:var(--t3);">TPU v7 / Inferentia 3</span></td>
+          <td>HBM / 专用</td>
+          <td style="color:var(--b);">高吞吐，延迟中</td>
+          <td>视架构定制</td>
+          <td>低（专用优化）</td>
+          <td>内部成本<br>$3-8K（估）</td>
+          <td>TPU v5p ~$3.2/h</td>
+          <td>内部使用为主</td>
+          <td>★★ 内部专用</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--c);">③ SRAM / LPU</strong><br><span style="font-size:10px;color:var(--t3);">Cerebras WSE / Groq 3 LPU</span></td>
+          <td>片上 SRAM<br>80 TB/s+</td>
+          <td style="color:var(--c);">~600 t/s ⚡</td>
+          <td style="color:var(--danger);">~120B（实际上线）</td>
+          <td style="color:var(--danger);">~23kW/系统</td>
+          <td>整晶圆，极高<br>Groq 机架 $200K+（估）</td>
+          <td>Cerebras Cloud 直接计费</td>
+          <td style="color:var(--b);">$12/M token<br>（Llama 405B）</td>
+          <td>★★★ OAI API兼容</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--d);">④ LPDDR 推理 GPU</strong><br><span style="font-size:10px;color:var(--t3);">Intel Crescent Island</span></td>
+          <td>LPDDR5X<br>~1.5 TB/s</td>
+          <td style="color:var(--warn);">~14-20 t/s（估）</td>
+          <td>160GB 装 ~70B FP8</td>
+          <td style="color:var(--b);">150-300W ✅气冷</td>
+          <td>估 $8-18K<br>（未公开）</td>
+          <td>未上市</td>
+          <td>未知</td>
+          <td>★★ 开发中</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--e);">⑤ RDU 数据流</strong><br><span style="font-size:10px;color:var(--t3);">SambaNova SN50</span></td>
+          <td>DDR + SRAM<br>多级缓存</td>
+          <td style="color:var(--e);">Decode 专项优化</td>
+          <td>大模型解码优化</td>
+          <td>中</td>
+          <td>~$10-20K（估）</td>
+          <td>SambaNovaCloud 计费</td>
+          <td>~$5/M token（估）</td>
+          <td>★★★ 标准接口</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--f);">⑥ 中国生态</strong><br><span style="font-size:10px;color:var(--t3);">昇腾 910C / 寒武纪 MLU590</span></td>
+          <td>HBM2e<br>1.8 / 1.2 TB/s</td>
+          <td style="color:var(--f);">~30-35 / ~22 t/s</td>
+          <td>671B（CloudMatrix 384卡）</td>
+          <td>500-600W / ~350W</td>
+          <td>¥200-500K/卡<br>（$28-70K）</td>
+          <td>国内云厂商提供</td>
+          <td style="color:var(--b);">¥1/M token（宣称）</td>
+          <td>★★★ CANN（国内）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note" style="margin-top:0;">数据来源：IntuitionLabs（2026.04）、GetDeploying（2026.05）、Spheron 实测。制造成本：H100 ~$3,320，B200 ~$6,400，Nvidia 毛利率约 84%。Cerebras 云定价为 $12/M 输出 token（Llama 3.1 405B），对比 AWS GPU 云约 $30/M，低 60%。昇腾价格为国内市场，受出口管制限制。</div>
+
+  <div class="chart-box mt">
+    <div class="chart-ttl">推理速度对比（Llama 3.1 70B，小 batch，tokens/秒）</div>
+    <div class="chart-sub">越高越快；注意 Cerebras 依赖片上 SRAM，大模型时优势消失</div>
+    <div class="chart-inner" style="height:220px;">
+      <canvas id="speedChart" aria-label="推理速度对比柱状图：Cerebras 600 t/s最快，H100约48，AMD MI300X约90，昇腾910C约33，Intel CRI估算17，寒武纪约22"></canvas>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="chart-box">
+      <div class="chart-ttl">六维竞争力雷达</div>
+      <div class="chart-sub">10 分制，仅数据中心推理场景</div>
+      <div class="leg">
+        <div class="leg-i"><div class="leg-d" style="background:var(--a);"></div>HBM GPU</div>
+        <div class="leg-i"><div class="leg-d" style="background:var(--b);"></div>ASIC</div>
+        <div class="leg-i"><div class="leg-d" style="background:var(--c);"></div>SRAM</div>
+        <div class="leg-i"><div class="leg-d" style="background:var(--d);"></div>LPDDR GPU</div>
+        <div class="leg-i"><div class="leg-d" style="background:var(--e);"></div>RDU</div>
+        <div class="leg-i"><div class="leg-d" style="background:var(--f);"></div>昇腾</div>
+      </div>
+      <div class="chart-inner" style="height:280px;">
+        <canvas id="radarChart" aria-label="六维竞争力雷达图，比较推理速度、容量、成本、生态、规模化、灵活性"></canvas>
+      </div>
+    </div>
+    <div>
+      <div class="chart-box" style="margin-bottom:16px;">
+        <div class="chart-ttl">各路线推理速度优势区间</div>
+        <div class="chart-sub">vs HBM GPU 基准，越高越快</div>
+        <div style="padding: 12px 0;">
+          <div style="margin-bottom:12px;">
+            <div style="font-size:12px;color:var(--t2);margin-bottom:4px;">SRAM 加速器 — 小模型（≤70B）</div>
+            <div class="bar-row"><div class="bar-bg"><div class="bar-fill" style="width:90%;background:var(--c);"></div></div><div class="bar-val" style="color:var(--c);">12×</div></div>
+          </div>
+          <div style="margin-bottom:12px;">
+            <div style="font-size:12px;color:var(--t2);margin-bottom:4px;">SRAM 加速器 — 中等模型（120-405B）</div>
+            <div class="bar-row"><div class="bar-bg"><div class="bar-fill" style="width:25%;background:var(--c);opacity:.6;"></div></div><div class="bar-val" style="color:var(--c);">3×</div></div>
+          </div>
+          <div style="margin-bottom:12px;">
+            <div style="font-size:12px;color:var(--t2);margin-bottom:4px;">RDU — Decode 阶段专项</div>
+            <div class="bar-row"><div class="bar-bg"><div class="bar-fill" style="width:40%;background:var(--e);"></div></div><div class="bar-val" style="color:var(--e);">~5×</div></div>
+          </div>
+          <div style="margin-bottom:12px;">
+            <div style="font-size:12px;color:var(--t2);margin-bottom:4px;">AMD MI300X vs H100</div>
+            <div class="bar-row"><div class="bar-bg"><div class="bar-fill" style="width:16%;background:var(--a);opacity:.7;"></div></div><div class="bar-val" style="color:var(--a);">1.9×</div></div>
+          </div>
+          <div style="margin-bottom:12px;">
+            <div style="font-size:12px;color:var(--t2);margin-bottom:4px;">昇腾 910C vs H100</div>
+            <div class="bar-row"><div class="bar-bg"><div class="bar-fill" style="width:13%;background:var(--f);"></div></div><div class="bar-val" style="color:var(--f);">0.6×</div></div>
+          </div>
+          <div>
+            <div style="font-size:12px;color:var(--t2);margin-bottom:4px;">Intel CRI（估）vs H100</div>
+            <div class="bar-row"><div class="bar-bg"><div class="bar-fill" style="width:8%;background:var(--d);"></div></div><div class="bar-val" style="color:var(--d);">0.3×</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────── §5 ─────────────── -->
+<section id="s5" class="sec">
+  <div class="sec-label">Section 05</div>
+  <div class="sec-title">市场格局预测：2024 → 2030</div>
+  <div class="sec-desc">量化各路线的市场份额演变，以及关键驱动因素</div>
+
+  <div class="g2">
+    <div class="chart-box">
+      <div class="chart-ttl">AI 推理加速器总市场规模（$B）</div>
+      <div class="chart-sub">CAGR ~24%，2030 年达 $5,700 亿</div>
+      <div class="chart-inner" style="height:220px;">
+        <canvas id="mktChart" aria-label="AI推理芯片市场规模预测，2024年$850亿增至2030年$5700亿"></canvas>
+      </div>
+    </div>
+    <div class="chart-box">
+      <div class="chart-ttl">各路线市场份额演变（全球，不含中国内需）</div>
+      <div class="chart-sub">堆叠面积图，% 占比</div>
+      <div class="chart-inner" style="height:220px;">
+        <canvas id="shareChart" aria-label="市场份额演变，HBM GPU从80%降至55%，ASIC从10%升至22%，SRAM从1%升至5%"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="tbl-wrap mt">
+    <table class="dt">
+      <thead>
+        <tr>
+          <th>路线</th>
+          <th>2024 份额</th>
+          <th>2026E 份额</th>
+          <th>2030E 份额</th>
+          <th>趋势</th>
+          <th>核心驱动 / 制约</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color:var(--a);">HBM GPU</strong></td>
+          <td>~80%</td>
+          <td>~72%</td>
+          <td>~55%</td>
+          <td style="color:var(--warn);">↓ 缓慢下降</td>
+          <td>CUDA 生态护城河强；被 ASIC 和 SRAM 蚕食边缘场景</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--b);">Hyperscaler ASIC</strong></td>
+          <td>~10%</td>
+          <td>~15%</td>
+          <td>~22%</td>
+          <td style="color:var(--b);">↑ 稳步上升</td>
+          <td>云厂商自研意愿强；只有超大规模才值得，不会扩散到中小企业</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--c);">SRAM 加速器</strong></td>
+          <td>~1%</td>
+          <td>~3%</td>
+          <td>~5%</td>
+          <td style="color:var(--b);">↑ Agent 驱动</td>
+          <td>Agent 推理需求爆发是核心驱动；受制于模型规模增长和 TSMC 产能</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--d);">LPDDR 推理 GPU</strong></td>
+          <td>—</td>
+          <td>—</td>
+          <td>~5-8%</td>
+          <td style="color:var(--e);">→ 从零开始</td>
+          <td>Intel CRI 2027 量产；气冷企业市场真实存在；执行风险高</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--e);">RDU 数据流</strong></td>
+          <td>&lt;1%</td>
+          <td>~1%</td>
+          <td>~3%</td>
+          <td style="color:var(--e);">→ 小众增长</td>
+          <td>Prefill/Decode 分离架构被更多系统采用；Intel 生态背书关键</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--f);">中国独立生态</strong></td>
+          <td>~3%</td>
+          <td>~5%</td>
+          <td>~12-15%</td>
+          <td style="color:var(--b);">↑ 政策驱动</td>
+          <td>出口管制促进国内自主，市场规模随中国 AI 投资增长；制程代差是天花板</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ─────────────── §6 ─────────────── -->
+<section id="s6" class="sec">
+  <div class="sec-label">Section 06</div>
+  <div class="sec-title">终局形态：异构协作，而非单一胜者</div>
+  <div class="sec-desc">2030 年推理基础设施不是某一种芯片赢者通吃，而是分工明确的异构生态</div>
+
+  <div class="callout ca">
+    <strong>训练市场 vs 推理市场的根本差异：</strong>训练是「跑得快」的问题——越快越好，Nvidia GPU 赢者通吃合理。推理是「用得值」的问题——不同场景对延迟、吞吐、成本、功耗的要求截然不同，不存在一种芯片全场景最优，因此不会出现单一架构垄断。
+  </div>
+
+  <!-- 终局架构图 -->
+  <div class="chart-box mt">
+    <div class="chart-ttl">2030 年理想推理系统架构</div>
+    <div class="chart-sub">一次完整的 LLM 推理请求经过的硬件分工</div>
+    <div style="padding: 20px 0; font-size: 13px;">
+      <div style="display:flex; flex-direction:column; gap:2px; max-width:700px; margin: 0 auto;">
+
+        <div style="display:flex; align-items:stretch; gap:2px;">
+          <div style="width:90px; flex-shrink:0; background:var(--bg4); border:1px solid var(--line); border-radius:6px 0 0 6px; display:flex;align-items:center;justify-content:center; padding:12px 8px; font-size:11px;color:var(--t3);font-family:'DM Mono',monospace;text-align:center;line-height:1.4;">用户<br>请求</div>
+          <div style="flex:1; display:flex; gap:2px;">
+            <div style="flex:2; background:rgba(91,156,246,0.08); border:1px solid rgba(91,156,246,0.2); border-radius:4px; padding:14px; ">
+              <div style="font-size:11px;color:var(--a);font-family:'DM Mono',monospace;margin-bottom:4px;">PREFILL 阶段</div>
+              <div style="font-weight:600;color:#fff;">HBM GPU</div>
+              <div style="font-size:11px;color:var(--t2);">处理输入 prompt<br>高算力 · 并行 · 适合大 batch</div>
+            </div>
+            <div style="flex:2; background:rgba(167,139,250,0.08); border:1px solid rgba(167,139,250,0.2); border-radius:4px; padding:14px;">
+              <div style="font-size:11px;color:var(--c);font-family:'DM Mono',monospace;margin-bottom:4px;">DECODE 阶段</div>
+              <div style="font-weight:600;color:#fff;">SRAM 加速器 / RDU</div>
+              <div style="font-size:11px;color:var(--t2);">逐 token 生成<br>超低延迟 · 高带宽 · 小 batch</div>
+            </div>
+            <div style="flex:2; background:rgba(34,211,238,0.08); border:1px solid rgba(34,211,238,0.2); border-radius:4px; padding:14px;">
+              <div style="font-size:11px;color:var(--e);font-family:'DM Mono',monospace;margin-bottom:4px;">KV CACHE 存储</div>
+              <div style="font-weight:600;color:#fff;">PIM / CXL 内存池</div>
+              <div style="font-size:11px;color:var(--t2);">长上下文存储<br>大容量 · 近内存计算</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="height:12px;display:flex;justify-content:center;align-items:center;">
+          <div style="width:1px;height:12px;background:var(--line2);"></div>
+        </div>
+
+        <div style="background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.15);border-radius:6px;padding:14px;text-align:center;">
+          <span style="font-size:11px;color:var(--b);font-family:'DM Mono',monospace;">大批量内部任务 → </span>
+          <span style="font-weight:600;color:#fff;"> Hyperscaler ASIC</span>
+          <span style="font-size:11px;color:var(--t2);"> · 离线处理 · 成本最优</span>
+        </div>
+
+        <div style="height:12px;display:flex;justify-content:center;align-items:center;">
+          <div style="width:1px;height:12px;background:var(--line2);"></div>
+        </div>
+
+        <div style="background:rgba(251,146,60,0.06);border:1px solid rgba(251,146,60,0.15);border-radius:6px;padding:14px;text-align:center;">
+          <span style="font-size:11px;color:var(--d);font-family:'DM Mono',monospace;">企业私有化部署（气冷机房）→ </span>
+          <span style="font-weight:600;color:#fff;">Intel CRI</span>
+          <span style="font-size:11px;color:var(--t2);"> · 低功耗 · 无液冷改造</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="sc-grid mt">
+    <div class="sc-card">
+      <div class="sc-ttl" style="color:var(--a);">HBM GPU 的终局角色</div>
+      <div class="sc-body">市场份额从 80% 降至 55%，但绝对规模持续扩大。大模型（400B+）、企业 Agent 大上下文工作流、训练——没有替代品。CUDA 护城河 + Groq LPU 整合，覆盖全场景。Nvidia 是终局最稳的赢家。</div>
+    </div>
+    <div class="sc-card">
+      <div class="sc-ttl" style="color:var(--c);">SRAM/LPU 的终局角色</div>
+      <div class="sc-body">约 5% 高价值利基。Agent 的轻量调用（快速决策、工具执行确认）是真实需求。Nvidia 整合 Groq LPU 是最强背书，但也意味着 Cerebras 独立性风险。<strong>MoE 架构普及是最大救星</strong>——激活参数 ≤37B，SRAM 容量够了。</div>
+    </div>
+    <div class="sc-card">
+      <div class="sc-ttl" style="color:var(--b);">商业 ASIC（高通/Broadcom）的终局角色</div>
+      <div class="sc-body">这是被忽视的增长路线。高通 AI200/AI250 代表了"外售推理 ASIC"的商业模式——不只给自己用，卖给中国 CSP 和全球企业。前提是 AI 架构稳定（Transformer/MoE 持续 5+ 年），ASIC 投资回报才合算。</div>
+    </div>
+    <div class="sc-card">
+      <div class="sc-ttl" style="color:var(--d);">Intel CRI 的终局：高风险赌注</div>
+      <div class="sc-body">气冷企业市场真实，但三个条件同时满足才能成功：① 18A 良率如期达标 ② 软件生态完成 ③ 气冷企业棕地在 2027 年前未被 H100 PCIe / ARM 方案占领。高通 AI200 用了更大容量但液冷，说明同赛道的"正确"演进方向可能不是气冷。</div>
+    </div>
+    <div class="sc-card">
+      <div class="sc-ttl" style="color:var(--f);">中国生态：确定性最高的增量</div>
+      <div class="sc-body">结构性确定：出口管制 + 中国 AI 投资增长 = 国内需求锁死。昇腾 920（加入 FP8）+ CloudMatrix 进化 + 华为自有 Fab 突破，是三个可观测的里程碑。高通 AI200 进入中国市场是新变量，但体量上不威胁昇腾主导地位。</div>
+    </div>
+    <div class="sc-card">
+      <div class="sc-ttl" style="color:var(--g);">PIM：2030 年后最重要的颠覆者</div>
+      <div class="sc-body">条件：Samsung/SK Hynix HBM4-PIM 量产且成本溢价 &lt;40%。若成真，同时解决带宽和能效两个瓶颈，HBM GPU 和 SRAM 两条路线都会被重写。是唯一真正能改变格局的"第七类"，但 2026-2028 年前不会成为市场变量。</div>
+    </div>
+  </div>
+
+  <!-- Elimination analysis -->
+  <div style="margin-top:24px;background:var(--bg3);border:1px solid var(--line);border-radius:8px;padding:24px;">
+    <div style="font-size:12px;font-weight:600;color:var(--t2);margin-bottom:16px;font-family:'DM Mono',monospace;letter-spacing:.08em;">哪些路线可能被淘汰 — 条件与原因</div>
+    <div class="tbl-wrap" style="margin:0;">
+      <table class="dt">
+        <thead><tr><th>路线</th><th>淘汰概率</th><th>触发条件</th><th>淘汰/边缘化原因</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--e);">RDU（SambaNova 独立）</strong></td>
+            <td><span style="color:var(--danger);">高（70%+）</span></td>
+            <td>Nvidia Vera Rubin + Groq 3 LPU 如期发布</td>
+            <td>Nvidia 把 LPU（即 RDU 核心逻辑）整合进自家架构，独立 RDU 的市场空间被压缩为零；Intel + SambaNova 联合方案依赖 Intel CRI 量产，间接继承 CRI 的执行风险</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--d);">Intel CRI（若延期）</strong></td>
+            <td><span style="color:var(--warn);">中（40-50%）</span></td>
+            <td>18A 良率未达标 → 量产推迟至 2028/2029</td>
+            <td>气冷企业市场到 2028 年已被 H100 PCIe（300W）和 ARM 服务器方案占领；高通 AI200 也提供了 LPDDR 大容量选项；CRI 进入市场时差异化已消失</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--c);">Cerebras 独立上市公司</strong></td>
+            <td><span style="color:var(--warn);">中（45%）</span></td>
+            <td>生产模型参数突破 200B 激活参数 OR OpenAI 合同延迟</td>
+            <td>SRAM 容量固化是结构性约束；OpenAI 占 80%+ 营收，任何合同变化即现金流危机；Nvidia Groq 3 在市场上扮演同样角色但生态更强</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--b);">超大规模内部 ASIC（向外扩散）</strong></td>
+            <td><span style="color:var(--b);">低（保持利基）</span></td>
+            <td>AI 架构发生根本性变化</td>
+            <td>不会被淘汰，但不会扩散到中小企业；永远是超大规模专属工具；若 MoE 后继架构（如 SSM）颠覆 Transformer，已固化的 ASIC 设计需要重来</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout ca" style="margin-top:16px;">
+      <strong>最重要的假设依赖：</strong>所有预测都依赖"MoE 架构是否成为主流生产标准"这个单一假设。若 DeepSeek 式低激活参数 MoE 成为行业标准 → SRAM/LPU 的容量瓶颈被解除，市场空间大幅扩大；若未来主流模型走向"更大密集模型"（Dense 参数增大）→ SRAM 边缘化，HBM GPU 和 ASIC 主导。<strong>MoE 的胜负是推理芯片格局最重要的一阶不确定性。</strong>
+    </div>
+  </div>
+
+  <!-- PIM Thesis -->
+  <div style="margin-top:24px;background:linear-gradient(135deg,rgba(251,191,36,.05),rgba(251,191,36,.02));border:1px solid rgba(251,191,36,.25);border-radius:8px;padding:24px;">
+    <div style="font-size:12px;font-weight:600;color:var(--g);margin-bottom:16px;font-family:'DM Mono',monospace;letter-spacing:.08em;">PIM 存算一体论文：中间方案都是过渡产品？</div>
+    <div class="g2">
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:8px;">用户的核心判断基本正确</div>
+        <div style="font-size:12px;color:var(--t2);line-height:1.8;">
+          AI 推理芯片所有架构创新的本质，都是在解决同一个问题：<strong style="color:#fff;">数据从内存搬到计算单元的距离太远，耗时太长。</strong><br><br>
+          各路线解决方案的激进程度：<br>
+          · HBM GPU：把内存叠在 GPU 旁边（CoWoS 封装）<br>
+          · SRAM/LPU：把数据直接放在芯片上<br>
+          · RDU：用算子融合减少搬运次数<br>
+          · <strong style="color:var(--g);">PIM：直接在内存里做计算，彻底消除搬运</strong><br><br>
+          PIM 是这个问题的「根本解」，其他路线都是程度不同的「部分解」。
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:8px;">但 PIM 不会消灭所有中间方案</div>
+        <div style="font-size:12px;color:var(--t2);line-height:1.8;">
+          <div style="background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.15);border-radius:4px;padding:10px;margin-bottom:10px;">
+            <strong style="color:var(--g);">PIM 是 HBM 的升级，不是 GPU 的替代。</strong><br>
+            PIM 把计算嵌入 HBM 内存，但 GPU 核心（Tensor Core 矩阵运算）仍然需要。未来高端 GPU = Tensor Core GPU + PIM HBM，是叠加而非替换。
+          </div>
+          <div style="margin-bottom:6px;"><span style="color:var(--danger);">不会被 PIM 消灭的：</span>HBM GPU（升级为 GPU+PIM）、超大规模 ASIC（改用 PIM 内存更高效）</div>
+          <div style="margin-bottom:6px;"><span style="color:var(--warn);">可能被 PIM 压缩的：</span>SRAM/LPU（PIM HBM 带宽大幅提升后，SRAM 的带宽优势缩小）</div>
+          <div><span style="color:var(--b);">不受 PIM 影响的：</span>Intel CRI 气冷场景（物理机房散热约束 PIM 解决不了）</div>
+        </div>
+      </div>
+    </div>
+    <!-- Research investment horizon -->
+    <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--line);">
+      <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:10px;">研究与投资视角：按时间维度分层</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+        <div style="background:var(--bg4);border:1px solid var(--line);border-radius:6px;padding:12px;">
+          <div style="font-size:10px;color:var(--t3);font-family:'DM Mono',monospace;margin-bottom:6px;">2026-2027 近期</div>
+          <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:4px;">HBM GPU 代际 + SRAM 验证</div>
+          <div style="font-size:11px;color:var(--t2);">B200→B300→Rubin 性能曲线；Groq 3 LPU 落地；Cerebras OpenAI 交付节奏</div>
+        </div>
+        <div style="background:var(--bg4);border:1px solid var(--line);border-radius:6px;padding:12px;">
+          <div style="font-size:10px;color:var(--t3);font-family:'DM Mono',monospace;margin-bottom:6px;">2027-2029 中期</div>
+          <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:4px;">商业 ASIC + 昇腾 920 + Intel 18A</div>
+          <div style="font-size:11px;color:var(--t2);">高通/Broadcom AI 芯片商业化；昇腾 920 FP8 量产；Intel 18A 良率验证</div>
+        </div>
+        <div style="background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.2);border-radius:6px;padding:12px;">
+          <div style="font-size:10px;color:var(--g);font-family:'DM Mono',monospace;margin-bottom:6px;">2029-2032 长期</div>
+          <div style="font-size:12px;font-weight:600;color:var(--g);margin-bottom:4px;">PIM 存算一体（最重要）</div>
+          <div style="font-size:11px;color:var(--t2);">HBM4/HBM5 内嵌计算；Samsung/SK Hynix 量产良率；Nvidia GPU + PIM 集成</div>
+        </div>
+      </div>
+      <div class="callout ca" style="margin-top:12px;">
+        Intel CRI 和高通 AI200 是 <strong>2-3 年的过渡性机会窗口</strong>，不是 5-10 年的长期结构性趋势。RDU 作为独立公司已被 Nvidia 战略性覆盖。<strong>长期结构性押注：Nvidia GPU 平台的 PIM 集成演进 + 中国昇腾的国内市场增长</strong>——前者是全球逻辑，后者是地缘逻辑，两者均有较高确定性。
+      </div>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-t">终局结论：异构协作 + PIM 升级，而非单一胜者</div>
+    <div class="verdict-b">
+      2030 年推理基础设施将是<strong>分工协作的异构系统</strong>：Prefill 用 HBM GPU（逐渐集成 PIM），Decode 用 SRAM/LPU（Nvidia 内化），大批量用 ASIC，Agent 编排层受益于 SRAM 低延迟优势，中国市场独立运行（昇腾主导）。<br><br>
+      中间方案（Intel CRI、RDU、独立 Cerebras）本质上是"内存带宽墙"问题的不同临时解法，PIM 是根本解法但要等到 2028-2030 年。<strong>研究 PIM 的长期价值最高，但 2026-2027 年的近期市场变量仍然是 Nvidia Rubin/LPU 生态 + 昇腾 920 量产。</strong>
+    </div>
+  </div>
+</section>
+
+</div><!-- /.w -->
+
+<div class="footer">
+  AI 数据中心推理芯片竞争格局报告 · 2026.05.14<br>
+  <span style="margin-top:4px;display:block;">数据来源：SemiAnalysis · 各公司 SEC 文件 · Mercury Research · IDC · TrendForce</span>
+</div>
+
+<script>
+Chart.defaults.color = '#475569';
+Chart.defaults.borderColor = 'rgba(255,255,255,0.05)';
+Chart.defaults.font.family = 'DM Mono, monospace';
+Chart.defaults.font.size = 11;
+
+const C = {
+  a: '#5b9cf6', b: '#34d399', c: '#a78bfa',
+  d: '#fb923c', e: '#22d3ee', f: '#f472b6',
+  g: '#fbbf24', r: '#f87171', t2: '#94a3b8'
+};
+
+// ── Cooling Chart ──
+new Chart(document.getElementById('coolingChart'), {
+  type: 'bar',
+  data: {
+    labels: ['传统气冷\n(1990s-2010s)', '现代气冷\n(2015+)', '液冷\n(2020+)', '浸没液冷\n(2024+)'],
+    datasets: [{
+      data: [12, 25, 50, 120],
+      backgroundColor: [
+        'rgba(91,156,246,.4)', 'rgba(91,156,246,.6)',
+        'rgba(251,146,60,.7)', 'rgba(248,113,113,.8)'
+      ],
+      borderRadius: 3
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend:{display:false}, tooltip:{callbacks:{label:c=>c.parsed.y+' kW/机架'}} },
+    scales: {
+      y: { ticks:{callback:v=>v+'kW',color:C.t2}, grid:{color:'rgba(255,255,255,0.04)'} },
+      x: { ticks:{color:C.t2,font:{size:10}}, grid:{display:false} }
+    }
+  }
+});
+
+// ── Speed Chart ──
+new Chart(document.getElementById('speedChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Cerebras\nWSE-3', 'AMD\nMI300X', 'Nvidia\nH100', '昇腾\n910C', '寒武纪\nMLU590', 'Intel\nCRI（估）'],
+    datasets: [{
+      data: [600, 90, 48, 33, 22, 17],
+      backgroundColor: [C.c,'rgba(212,83,126,.75)','rgba(118,185,0,.75)',C.f,'rgba(248,113,113,.6)',C.d],
+      borderRadius: 3
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend:{display:false}, tooltip:{callbacks:{label:c=>c.parsed.y+' t/s'}} },
+    scales: {
+      y: { ticks:{callback:v=>v+'t/s',color:C.t2}, grid:{color:'rgba(255,255,255,0.04)'} },
+      x: { ticks:{color:C.t2,font:{size:10}}, grid:{display:false} }
+    }
+  }
+});
+
+// ── Radar Chart ──
+new Chart(document.getElementById('radarChart'), {
+  type: 'radar',
+  data: {
+    labels: ['推理速度','容量/大模型','成本效益','软件生态','规模化能力','灵活性'],
+    datasets: [
+      { label:'HBM GPU', data:[5,9,5,10,9,8], borderColor:C.a, backgroundColor:'rgba(91,156,246,.08)', borderWidth:1.5, pointRadius:3 },
+      { label:'ASIC',    data:[6,6,9,3,7,2],  borderColor:C.b, backgroundColor:'rgba(52,211,153,.06)',  borderWidth:1.5, pointRadius:3 },
+      { label:'SRAM',    data:[10,2,6,7,4,5], borderColor:C.c, backgroundColor:'rgba(167,139,250,.08)', borderWidth:1.5, pointRadius:3 },
+      { label:'LPDDR GPU',data:[2,6,8,4,5,6], borderColor:C.d, backgroundColor:'rgba(251,146,60,.06)',  borderWidth:1.5, pointRadius:3 },
+      { label:'RDU',     data:[6,5,7,5,5,7],  borderColor:C.e, backgroundColor:'rgba(34,211,238,.06)',  borderWidth:1.5, pointRadius:3 },
+      { label:'昇腾',    data:[3,5,7,5,7,4],  borderColor:C.f, backgroundColor:'rgba(244,114,182,.06)', borderWidth:1.5, pointRadius:3 },
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend:{display:false} },
+    scales: {
+      r: {
+        min:0, max:10,
+        ticks:{ stepSize:2, color:'#334155', backdropColor:'transparent', font:{size:9} },
+        grid:{ color:'rgba(255,255,255,0.06)' },
+        pointLabels:{ color:C.t2, font:{size:11} },
+        angleLines:{ color:'rgba(255,255,255,0.05)' }
+      }
+    }
+  }
+});
+
+// ── Market Chart ──
+new Chart(document.getElementById('mktChart'), {
+  type: 'line',
+  data: {
+    labels: ['2024','2025','2026E','2027E','2028E','2029E','2030E'],
+    datasets: [{
+      label: 'AI 推理市场（$B）',
+      data: [85, 106, 155, 230, 310, 420, 570],
+      borderColor: C.a,
+      backgroundColor: ctx=>{
+        const g=ctx.chart.ctx.createLinearGradient(0,0,0,200);
+        g.addColorStop(0,'rgba(91,156,246,.18)');
+        g.addColorStop(1,'rgba(91,156,246,0)');
+        return g;
+      },
+      fill:true, borderWidth:2, pointRadius:4, pointBackgroundColor:C.a, tension:.4
+    }]
+  },
+  options: {
+    responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{display:false}, tooltip:{callbacks:{label:c=>'$'+c.parsed.y+'B'}} },
+    scales:{
+      y:{ ticks:{callback:v=>'$'+v+'B',color:C.t2}, grid:{color:'rgba(255,255,255,0.04)'} },
+      x:{ ticks:{color:C.t2}, grid:{display:false} }
+    }
+  }
+});
+
+// ── Share Chart ──
+new Chart(document.getElementById('shareChart'), {
+  type: 'bar',
+  data: {
+    labels: ['2024','2025','2026E','2028E','2030E'],
+    datasets: [
+      { label:'HBM GPU',  data:[80,77,72,63,55], backgroundColor:'rgba(91,156,246,.75)',  borderRadius:2 },
+      { label:'ASIC',     data:[10,12,15,18,22], backgroundColor:'rgba(52,211,153,.75)',  borderRadius:2 },
+      { label:'SRAM',     data:[1,2,3,4,5],      backgroundColor:'rgba(167,139,250,.75)', borderRadius:2 },
+      { label:'LPDDR GPU',data:[0,0,0,3,7],      backgroundColor:'rgba(251,146,60,.75)',  borderRadius:2 },
+      { label:'RDU',      data:[0,1,1,2,3],      backgroundColor:'rgba(34,211,238,.75)',  borderRadius:2 },
+      { label:'China',    data:[3,4,5,7,8],      backgroundColor:'rgba(244,114,182,.75)', borderRadius:2 },
+    ]
+  },
+  options: {
+    responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{ position:'bottom', labels:{color:C.t2,boxWidth:10,padding:10,font:{size:10}} } },
+    scales:{
+      x:{ stacked:true, ticks:{color:C.t2}, grid:{display:false} },
+      y:{ stacked:true, max:105, ticks:{callback:v=>v+'%',color:C.t2}, grid:{color:'rgba(255,255,255,0.04)'} }
+    }
+  }
+});
+</script>
+</body>
+</html>
