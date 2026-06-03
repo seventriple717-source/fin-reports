@@ -1,0 +1,787 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>存储器投资打分 v4.1 · 复合触发器 · 2026-06-03</title>
+<style>*{box-sizing:border-box;margin:0;padding:0}body{background:#0d1117;color:#c9d1d9;font-family:-apple-system,"PingFang SC","Hiragino Sans GB",sans-serif;font-size:14px;line-height:1.6}.hdr{background:linear-gradient(135deg,#0d1117,#161b22);border-bottom:1px solid #30363d;padding:28px 20px 20px}.hdr h1{font-size:26px;font-weight:700;color:#e6edf3}.hdr .sub{color:#8b949e;font-size:12px;margin-top:5px}.bx{display:inline-block;padding:2px 8px;border-radius:9px;font-size:11px;margin-left:6px}.bx-v{background:#1f6feb22;color:#58a6ff;border:1px solid #1f6feb44}.bx-up{background:#3fb95022;color:#3fb950;border:1px solid #3fb95044}.con{max-width:1600px;margin:0 auto;padding:0 16px}.navt{background:#161b22;border-bottom:1px solid #30363d;padding:0 12px;overflow-x:auto;white-space:nowrap}.tb{display:inline-block;padding:10px 14px;cursor:pointer;color:#8b949e;background:none;border:none;border-bottom:2px solid transparent;font-size:13px;transition:all .2s}.tb:hover{color:#c9d1d9}.tb.act{color:#58a6ff;border-bottom-color:#58a6ff}.tc{display:none;padding:20px 0}.tc.act{display:block}.card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;margin-bottom:14px}.ct{font-size:15px;font-weight:600;color:#e6edf3;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between}.ls{font-size:14px;color:#79c0ff;font-weight:700}.sec{font-size:17px;font-weight:700;color:#e6edf3;margin:20px 0 12px;padding-left:10px;border-left:3px solid #58a6ff}table{width:100%;border-collapse:collapse;font-size:13px}th{background:#21262d;color:#8b949e;padding:9px 10px;text-align:left;border-bottom:2px solid #30363d}td{padding:8px 10px;border-bottom:1px solid #21262d;vertical-align:top}tr:hover td{background:#1c2128}.tr2 td{background:#21262d!important;font-weight:600}.num{font-family:"SF Mono","Fira Code",monospace;color:#79c0ff}.pos{color:#3fb950}.neg{color:#f85149}.neu{color:#8b949e}.r1{color:#ffd700}.r2{color:#c0c0c0}.r3{color:#cd7f32}.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}@media(max-width:900px){.g2,.g3{grid-template-columns:1fr}}.warn{background:#f0883e11;border:1px solid #f0883e44;padding:9px 12px;border-radius:6px;font-size:12px;color:#f0883e;margin:6px 0}.wbox{background:#d2992211;border:1px solid #d2992244;padding:9px 12px;border-radius:6px;font-size:12px;color:#d29922;margin:6px 0}.ibox{background:#58a6ff11;border:1px solid #58a6ff44;padding:9px 12px;border-radius:6px;font-size:12px;color:#79c0ff;margin:6px 0}.gbox{background:#2ea04311;border:1px solid #2ea04344;padding:9px 12px;border-radius:6px;font-size:12px;color:#3fb950;margin:6px 0}.pbox{background:#bc8cff11;border:1px solid #bc8cff44;padding:9px 12px;border-radius:6px;font-size:13px;color:#bc8cff;margin:6px 0}.trigger-box{background:linear-gradient(135deg,#2ea04322,#3fb95011);border:2px solid #2ea043;border-radius:8px;padding:14px 16px;margin:8px 0}.trigger-title{font-size:15px;font-weight:700;color:#3fb950;margin-bottom:8px}.trigger-off{background:#21262d;border:1px solid #30363d;border-radius:6px;padding:10px 12px;margin:6px 0}.cohdr{display:flex;gap:16px;margin-bottom:14px;align-items:flex-start}.coleft{flex:1}.coname{font-size:22px;font-weight:700;color:#e6edf3}.cometa{font-size:12px;color:#8b949e;margin-top:3px}.codesc{font-size:13px;color:#8b949e;margin-top:6px;max-width:720px}.coscore{text-align:center;flex-shrink:0;min-width:100px}.bigscore{font-size:56px;font-weight:800;letter-spacing:-2px;line-height:1}.rcircle{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;font-size:20px;font-weight:800;border:2px solid;background:#0d1117}.sigrow{padding:8px 10px;border-radius:6px;margin:5px 0;border:1px solid;font-size:12px}.sig-rev{background:#3fb95011;border-color:#3fb95033;color:#3fb950}.sig-warn{background:#f0883e11;border-color:#f0883e33;color:#f0883e}.sig-pend{background:#d2992211;border-color:#d2992233;color:#d29922}.sig-neg{background:#da363311;border-color:#da363333;color:#da3633}.ftr{text-align:center;padding:24px 0;color:#8b949e;font-size:12px;border-top:1px solid #30363d;margin-top:40px}</style></head><body>
+<div class="hdr"><div class="con">
+  <h1>存储器专项投资打分系统 v4.1
+    <span class="bx bx-up">★ 复合触发器：不错过下一个10x</span>
+    <span class="bx bx-v">三层框架不变</span>
+  </h1>
+  <div class="sub">更新日期：2026-06-03 &nbsp;|&nbsp; 新增：复合触发器（周期底部+通算低估+共识未恶化=估值+15）&nbsp;|&nbsp;
+    <strong style="color:#f85149">⚠ DRAM+90% QoQ景气峰值：当前无触发器触发，这是正确的</strong>
+  </div>
+</div></div>
+<div class="con">
+<div class="navt">
+  <button class="tb act" onclick="showTab('overview')">📊 综合评级</button>
+  <button class="tb" onclick="showTab('trigger')">⭐ 复合触发器原理</button>
+  <button class="tb" onclick="showTab('backtest')">🔬 历史回测：SNDK $38.50</button>
+  <button class="tb" onclick="showTab('skhynix')">SK海力士</button><button class="tb" onclick="showTab('pure')">Pure Storage</button><button class="tb" onclick="showTab('samsung')">三星电子</button><button class="tb" onclick="showTab('micron')">Micron Technology</button><button class="tb" onclick="showTab('seagate')">Seagate Technology</button><button class="tb" onclick="showTab('wdc')">Western Digital</button><button class="tb" onclick="showTab('sandisk')">SanDisk</button><button class="tb" onclick="showTab('kioxia')">铠侠 Kioxia</button>
+</div>
+
+<div id="tab-overview" class="tc act">
+<div class="sec">综合评级 v4.1 · 复合触发器状态监控</div>
+<div class="pbox">
+★ <strong>v4.1新增：复合触发器（第四点五步）</strong><br/>
+三层框架不变，在第三层（估值）和第六步（汇总）之间插入一个前置检查：<br/>
+<strong>条件A</strong>：行业层 dim6（周期位置）≥ 4/5（谷底或复苏早期）<br/>
+<strong>条件B</strong>：EV/归一化EBITDA ≤ 7.2x（历史中位6x × 1.2）<br/>
+<strong>条件C</strong>：共识偏差 ≥ -5%（共识未大幅低于股价）<br/>
+<strong>三条同时满足 → 估值分+15，分拆公司置信度0.85→0.95</strong><br/>
+<em>历史验证：SNDK在分拆价$38.50（2025年2月）时，三条全部满足，最终分B(60)——框架应给出建仓信号</em>
+</div>
+<div class="warn">⚠️ 当前（2026年6月）所有周期性公司处于景气高峰，触发器条件A均不满足。这是正确的——触发器不应在峰值时打开。</div>
+
+<div class="card"><table>
+<tr><th>#</th><th>公司</th><th>代码</th><th>实时市值</th><th>行业分</th><th>质量分</th><th>估值分</th><th>基础分</th><th>置信度</th><th>最终分</th><th>评级</th><th>归一化EV/EBITDA</th><th>共识偏差</th><th>触发器</th></tr>
+<tr>
+      <td class="r1">1</td>
+      <td><strong>SK海力士</strong> <span class="pos" style="font-size:11px">▲+2</span></td>
+      <td class="num">000660.KS</td>
+      <td class="num">$1,105B</td>
+      <td class="num">77</td>
+      <td class="num">95</td>
+      <td class="num">42<span style="font-size:10px;color:#8b949e"></span></td>
+      <td class="num">75.4</td>
+      <td class="num">×1.0</td>
+      <td><span style="font-size:22px;font-weight:800;color:#3fb950">75</span></td>
+      <td><span class="rcircle" style="border-color:#3fb950;color:#3fb950;width:34px;height:34px;font-size:18px">A</span></td>
+      <td class="num" style="color:#d29922">36.4x</td>
+      <td class="pos" style="font-size:11px">+2.5%</td>
+      <td>—</td>
+    </tr><tr>
+      <td class="r2">2</td>
+      <td><strong>Pure Storage（Everpure）</strong> <span class="pos" style="font-size:11px">▲+1</span></td>
+      <td class="num">PSTG/P</td>
+      <td class="num">$27.6B</td>
+      <td class="num">76</td>
+      <td class="num">79</td>
+      <td class="num">53<span style="font-size:10px;color:#8b949e"></span></td>
+      <td class="num">70.4</td>
+      <td class="num">×0.9</td>
+      <td><span style="font-size:22px;font-weight:800;color:#d29922">63</span></td>
+      <td><span class="rcircle" style="border-color:#d29922;color:#d29922;width:34px;height:34px;font-size:18px">B</span></td>
+      <td class="num" style="color:#3fb950">20.1x</td>
+      <td class="pos" style="font-size:11px">+12.9%</td>
+      <td>—</td>
+    </tr><tr>
+      <td class="r3">3</td>
+      <td><strong>三星电子</strong> <span class="pos" style="font-size:11px">▲+12</span></td>
+      <td class="num">005930.KS</td>
+      <td class="num">$1,562B</td>
+      <td class="num">57</td>
+      <td class="num">77</td>
+      <td class="num">45<span style="font-size:10px;color:#8b949e"></span></td>
+      <td class="num">63.3</td>
+      <td class="num">×1.0</td>
+      <td><span style="font-size:22px;font-weight:800;color:#d29922">63</span></td>
+      <td><span class="rcircle" style="border-color:#d29922;color:#d29922;width:34px;height:34px;font-size:18px">B</span></td>
+      <td class="num" style="color:#3fb950">29.4x</td>
+      <td class="pos" style="font-size:11px">+8.2%</td>
+      <td>—</td>
+    </tr><tr>
+      <td class="">4</td>
+      <td><strong>Micron Technology</strong></td>
+      <td class="num">MU</td>
+      <td class="num">$1,200B</td>
+      <td class="num">76</td>
+      <td class="num">80</td>
+      <td class="num">28<span style="font-size:10px;color:#8b949e"></span></td>
+      <td class="num">63.3</td>
+      <td class="num">×1.0</td>
+      <td><span style="font-size:22px;font-weight:800;color:#d29922">63</span></td>
+      <td><span class="rcircle" style="border-color:#d29922;color:#d29922;width:34px;height:34px;font-size:18px">B</span></td>
+      <td class="num" style="color:#d29922">45.8x</td>
+      <td class="neg" style="font-size:11px">-31.8%</td>
+      <td>—</td>
+    </tr><tr>
+      <td class="">5</td>
+      <td><strong>Seagate Technology</strong></td>
+      <td class="num">STX</td>
+      <td class="num">$209B</td>
+      <td class="num">76</td>
+      <td class="num">74</td>
+      <td class="num">25<span style="font-size:10px;color:#8b949e"></span></td>
+      <td class="num">59.7</td>
+      <td class="num">×0.95</td>
+      <td><span style="font-size:22px;font-weight:800;color:#f85149">57</span></td>
+      <td><span class="rcircle" style="border-color:#f85149;color:#f85149;width:34px;height:34px;font-size:18px">C</span></td>
+      <td class="num" style="color:#f85149">65.3x</td>
+      <td class="neg" style="font-size:11px">-46.9%</td>
+      <td>—</td>
+    </tr><tr>
+      <td class="">6</td>
+      <td><strong>Western Digital</strong> <span class="pos" style="font-size:11px">▲+2</span></td>
+      <td class="num">WDC</td>
+      <td class="num">$194B</td>
+      <td class="num">79</td>
+      <td class="num">66</td>
+      <td class="num">33<span style="font-size:10px;color:#8b949e"></span></td>
+      <td class="num">58.7</td>
+      <td class="num">×0.95</td>
+      <td><span style="font-size:22px;font-weight:800;color:#f85149">56</span></td>
+      <td><span class="rcircle" style="border-color:#f85149;color:#f85149;width:34px;height:34px;font-size:18px">C</span></td>
+      <td class="num" style="color:#d29922">55.6x</td>
+      <td class="neg" style="font-size:11px">-10.6%</td>
+      <td>—</td>
+    </tr><tr>
+      <td class="">7</td>
+      <td><strong>SanDisk（SNDK）</strong> <span class="pos" style="font-size:11px">▲+5</span></td>
+      <td class="num">SNDK</td>
+      <td class="num">$258B</td>
+      <td class="num">67</td>
+      <td class="num">75</td>
+      <td class="num">50<span style="font-size:10px;color:#8b949e"></span></td>
+      <td class="num">65.9</td>
+      <td class="num">×0.85</td>
+      <td><span style="font-size:22px;font-weight:800;color:#f85149">56</span></td>
+      <td><span class="rcircle" style="border-color:#f85149;color:#f85149;width:34px;height:34px;font-size:18px">C</span></td>
+      <td class="num" style="color:#d29922">57.1x</td>
+      <td class="neg" style="font-size:11px">+0.0%</td>
+      <td>—</td>
+    </tr><tr>
+      <td class="">8</td>
+      <td><strong>铠侠 Kioxia</strong></td>
+      <td class="num">285A.JP</td>
+      <td class="num">$287B</td>
+      <td class="num">67</td>
+      <td class="num">46</td>
+      <td class="num">20<span style="font-size:10px;color:#8b949e"></span></td>
+      <td class="num">42.4</td>
+      <td class="num">×0.85</td>
+      <td><span style="font-size:22px;font-weight:800;color:#da3633">36</span></td>
+      <td><span class="rcircle" style="border-color:#da3633;color:#da3633;width:34px;height:34px;font-size:18px">D</span></td>
+      <td class="num" style="color:#f85149">75.9x</td>
+      <td class="neg" style="font-size:11px">-20.7%</td>
+      <td>—</td>
+    </tr>
+</table></div>
+
+<div class="g3">
+  <div class="card"><div class="ct">触发器当前状态（周期性公司）</div>
+    <table><tr><th>公司</th><th>dim6</th><th>EV/nEBITDA</th><th>共识%</th><th>状态</th></tr>
+    <tr><td>SK海力士</td><td class='num'>3/5</td><td class='num' style='color:#d29922'>36.4x</td><td class='num pos'>+2.5%</td><td>未触发</td></tr><tr><td>三星电子</td><td class='num'>2/5</td><td class='num' style='color:#3fb950'>29.4x</td><td class='num pos'>+8.2%</td><td>未触发</td></tr><tr><td>Micron Technology</td><td class='num'>2/5</td><td class='num' style='color:#d29922'>45.8x</td><td class='num neg'>-31.8%</td><td>未触发</td></tr><tr><td>Seagate Technology</td><td class='num'>3/5</td><td class='num' style='color:#f85149'>65.3x</td><td class='num neg'>-46.9%</td><td>未触发</td></tr><tr><td>Western Digital</td><td class='num'>3/5</td><td class='num' style='color:#d29922'>55.6x</td><td class='num neg'>-10.6%</td><td>未触发</td></tr><tr><td>SanDisk</td><td class='num'>2/5</td><td class='num' style='color:#d29922'>57.1x</td><td class='num neg'>+0.0%</td><td>未触发</td></tr><tr><td>铠侠 Kioxia</td><td class='num'>2/5</td><td class='num' style='color:#f85149'>75.9x</td><td class='num neg'>-20.7%</td><td>未触发</td></tr>
+    </table>
+    <div style="font-size:11px;color:#6e7681;margin-top:8px">触发条件：A(dim6≥4) + B(EV/nEBITDA≤7.2x) + C(共识≥-5%)</div>
+  </div>
+  <div class="card"><div class="ct">共识偏差 vs 当前股价</div>
+    <table><tr><th>公司</th><th>分析师均价</th><th>共识偏差</th><th>信号</th></tr>
+      <tr><td>Pure Storage</td><td class="num pos">$93.74</td><td class="num pos">+12.9%</td><td class="pos">⭐当前最佳建仓</td></tr>
+      <tr><td>三星</td><td class="num pos">KRW 389,965</td><td class="num pos">+8.2%</td><td class="pos">✅正向发现空间</td></tr>
+      <tr><td>SK海力士</td><td class="num pos">KRW 2,419,621</td><td class="num pos">+2.5%</td><td class="pos">小幅正向</td></tr>
+      <tr><td>SanDisk</td><td class="num neu">分析师分歧</td><td class="num neu">N/A</td><td class="neu">HBF未入模型=潜在上调</td></tr>
+      <tr><td>WDC</td><td class="num">$505</td><td class="num neg">-10.6%</td><td class="neg">轻微超买</td></tr>
+      <tr><td>Micron</td><td class="num neg">$726</td><td class="num neg">-31.8%</td><td class="neg">⚠️超买</td></tr>
+      <tr><td>Seagate</td><td class="num neg">$492</td><td class="num neg">-46.9%</td><td class="neg">⚠️严重超买</td></tr>
+      <tr><td>铠侠</td><td class="num neg">¥63,327</td><td class="num neg">-20.7%</td><td class="neg">🔴唯一共识低于股价D级</td></tr>
+    </table>
+  </div>
+  <div class="card"><div class="ct">当前行动建议</div>
+    <table><tr><th>行动</th><th>公司</th><th>理由</th></tr>
+      <tr><td class="pos"><strong>当前建仓</strong></td><td>Pure Storage PSTG</td><td>共识+12.9%+归一化估值最低+软件免疫周期</td></tr>
+      <tr><td style="color:#d29922"><strong>小仓位建立</strong></td><td>三星 005930.KS</td><td>HBM4E反转+共识+8.2%；等量产验证后加仓</td></tr>
+      <tr><td class="neu"><strong>等待回调</strong></td><td>SK海力士/Micron</td><td>最优质/超买；等价格修正后建仓</td></tr>
+      <tr><td class="neu"><strong>专项跟踪</strong></td><td>SanDisk</td><td>等HBF OCP批准（触发器未来可能触发）</td></tr>
+      <tr><td class="neg"><strong>等大幅回调</strong></td><td>Seagate/WDC</td><td>共识偏差-47%/-11%，峰值估值</td></tr>
+      <tr><td class="neg"><strong>移出候选</strong></td><td>铠侠</td><td>EV/nEBITDA 95.7x+共识低21%+最弱技术</td></tr>
+    </table>
+  </div>
+</div>
+</div>
+
+<div id="tab-trigger" class="tc">
+<div class="sec">复合触发器——为什么存储器行业需要这个机制</div>
+
+<div class="card"><div class="ct">核心问题：单维度高分无法触发明确买入信号</div>
+<div style="font-size:13px;color:#c9d1d9;line-height:1.9">
+<p>存储器行业最好的买入机会发生在：<strong style="color:#3fb950">周期谷底</strong> × <strong style="color:#3fb950">通算估值极低</strong> × <strong style="color:#3fb950">共识未恶化</strong>。</p>
+<p>这三件事同时出现的频率极低（约每3-5年一次），但每次都对应5年内最好的回报窗口。</p>
+<p style="margin-top:8px">问题在于：三件事分散在不同维度里，每件单独得高分不会自动触发"买入"动作。
+SNDK在$38.50时：dim6=5/5（谷底✅），估值极低✅，共识中性✅——三条全满足。
+但在原框架里，这三个高分被<strong style="color:#f0883e">稀释进最终得分</strong>，并没有告诉投资者"现在是三重确认的买入机会"。</p>
+<p style="margin-top:8px">复合触发器把三重条件合并为一个独立的额外奖励（+15分），让框架能在最关键的时机明确输出"⭐已触发"的信号。</p>
+</div>
+</div>
+
+<div class="g2">
+<div class="card"><div class="ct">触发器三个条件的设计依据</div>
+<table><tr><th>条件</th><th>阈值</th><th>设计逻辑</th><th>历史依据</th></tr>
+  <tr><td><strong>A. 周期位置</strong><br/>dim6 ≥ 4/5</td><td>谷底或复苏早期</td><td>确保在供给过剩→正常化之前进场，而不是在峰值追涨</td><td>DRAM历史底部（2019、2023）均出现在产能利用率<75%时</td></tr>
+  <tr><td><strong>B. 通算估值极低</strong><br/>EV/归一化EBITDA ≤ 7.2x</td><td>历史中位数×1.2（6x×1.2）</td><td>不只是"比历史便宜"，而是明显低于合理中枢，留有安全边际</td><td>内存行业通算EV/EBITDA历史中位约6x；7.2x是合理上限</td></tr>
+  <tr><td><strong>C. 共识未恶化</strong><br/>共识偏差 ≥ -5%</td><td>共识不低于股价5%以上</td><td>避免在"已知问题"（共识已大幅低于股价）时盲目买入；确保市场认知未完全崩溃</td><td>如铠侠当前共识-20.7%，说明专业分析师已看到严重问题</td></tr>
+</table>
+</div>
+<div class="card"><div class="ct">置信度系数的动态调整</div>
+<table><tr><th>情景</th><th>置信度</th><th>逻辑</th></tr>
+  <tr><td>分拆<2年 + 触发器未触发（景气高峰）</td><td class="num neg">0.85</td><td>短历史 + 高估值 = 双重风险，保持惩罚</td></tr>
+  <tr><td class="pos"><strong>分拆<2年 + 触发器触发（景气底部）</strong></td><td class="num pos"><strong>0.95</strong></td><td>分拆折价 + 谷底 = 价格发现窗口，短历史是机会而非风险</td></tr>
+  <tr><td>主要上市内存厂（三星/SKH/Micron）</td><td class="num">1.00</td><td>财报完善，历史数据丰富</td></tr>
+  <tr><td>软件/订阅（Pure Storage）</td><td class="num">0.90</td><td>商业模式不同，估值体系校准</td></tr>
+</table>
+<bq>关键洞见：在$38.50时，SNDK的"短历史"不是风险，而是信号——WDC的已知历史数据已经证明了这块业务，
+分拆只是让它以错误的价格（被强制卖出）出现在新的股票代码下。触发器识别了这一点。</bq>
+</div>
+</div>
+
+<div class="card"><div class="ct">何时会再次触发？监控清单</div>
+<div style="font-size:13px;color:#8b949e;line-height:1.8">
+<p>当以下信号出现时，需要立即重新跑打分并检查触发器：</p>
+<table><tr><th>监控信号</th><th>数据来源</th><th>触发哪个条件</th></tr>
+  <tr><td>DRAM合约价连续2个季度下跌>20%</td><td>TrendForce月报</td><td>条件A：dim6向4-5移动</td></tr>
+  <tr><td>主要内存厂产能利用率降至<80%</td><td>三星/SKH/Micron季报</td><td>条件A：谷底信号</td></tr>
+  <tr><td>主要内存厂主动削减Capex>20%</td><td>财报指引</td><td>条件A：供给纪律改善信号</td></tr>
+  <tr><td>EV/归一化EBITDA（内存行业）跌至7.2x以下</td><td>本框架实时计算</td><td>条件B：触发阈值</td></tr>
+  <tr><td>分析师共识与股价偏差收窄至+/-5%以内</td><td>分析师报告</td><td>条件C：认知差异消失/回归</td></tr>
+</table>
+<p style="margin-top:8px"><strong style="color:#d29922">预警</strong>：三星2026年宣布KRW 110万亿（$73B）史上最大Capex扩产。
+如果2027年DRAM供给过剩，dim6将从当前2/5升至4-5/5（谷底），届时三家内存厂的触发器可能全部开启。
+<strong>这将是本框架设计以来的第一次真实触发机会</strong>——建议在2026年底开始关注。</p>
+</div>
+</div>
+</div>
+
+<div id="tab-backtest" class="tc">
+<div class="sec">历史回测：SanDisk SNDK 在分拆价 $38.50（2025年2月）</div>
+
+<div class="pbox">
+⭐ <strong>这是复合触发器设计的核心验证案例</strong><br/>
+SNDK在分拆价$38.50时三条触发条件全部满足：NAND谷底（dim6=5/5）+ EV/归一化EBITDA仅1.7x（远低于7.2x阈值）+ 共识中性。
+框架应该输出B(60)，并标注"⭐周期底部复合买入信号触发"。
+实际结果：$38.50→$1,761，+45.7倍。
+</div>
+
+<div class="g2">
+<div class="card"><div class="ct">分拆时（$38.50）vs 当前（$1,761）对比</div>
+<table><tr><th>指标</th><th>分拆价 $38.50（2025.02）</th><th>当前价 $1,761（2026.06）</th></tr>
+  <tr><td>市值</td><td class="num pos">$5.7B（极度便宜）</td><td class="num neg">$258B（大幅溢价）</td></tr>
+  <tr><td>EV（含$2B债务）</td><td class="num pos">$7.7B</td><td class="num neg">$260B</td></tr>
+  <tr><td>归一化EBITDA</td><td class="num">~$4.5B</td><td class="num">~$4.5B（相同）</td></tr>
+  <tr><td>EV/归一化EBITDA</td><td class="num pos"><strong>1.7x</strong>（7.2x阈值的24%）</td><td class="num neg"><strong>66.2x</strong>（7.2x阈值的918%）</td></tr>
+  <tr><td>NAND周期位置</td><td class="num pos">dim6 = <strong>5/5</strong>（谷底）</td><td class="num neg">dim6 = <strong>2/5</strong>（景气高峰）</td></tr>
+  <tr><td>共识偏差</td><td class="num pos">0%（覆盖有限，中性）</td><td class="num neg">N/A（分析师分歧）</td></tr>
+  <tr><td><strong>触发器状态</strong></td><td><span style="color:#3fb950;font-weight:700">⭐ 三条全满足，触发</span></td><td><span style="color:#f85149;font-weight:700">❌ 条件A不满足，未触发</span></td></tr>
+  <tr><td><strong>框架最终分</strong></td><td class="num pos"><strong>B(60)——应建仓</strong></td><td class="num neg"><strong>C(56)——暂不操作</strong></td></tr>
+</table>
+</div>
+<div class="card"><div class="ct">$38.50时的打分重建</div>
+<table><tr><th>评分层</th><th>得分</th><th>计算说明</th></tr>
+  <tr><td>行业吸引力</td><td class="num">67.5</td><td>赛道分相同（HBF未发布，但企业SSD赛道分不变）</td></tr>
+  <tr><td>公司质量</td><td class="num">39.6</td><td>NAND谷底：成长2/5，盈利1/5，市占2/5，财务1/5；60%前瞻权重提升后约39.6</td></tr>
+  <tr><td>估值（触发前）</td><td class="num">83</td><td>dim1:4/5（NAND复苏大幅上行），dim2:5/5（1.7x极低），dim3:3/5，dim4:5/5</td></tr>
+  <tr><td><strong>估值（触发后+15）</strong></td><td class="num pos"><strong>98</strong></td><td>三条全满足 → 83+15=98（上限100）</td></tr>
+  <tr><td>基础分</td><td class="num pos">60.0</td><td>67.5×20% + 39.6×50% + 98×30% = 60.0</td></tr>
+  <tr><td>置信度（分拆+谷底→0.95）</td><td class="num pos">×0.95</td><td>触发器激活 → 分拆惩罚0.85升为0.95</td></tr>
+  <tr class="tr2"><td><strong>最终分</strong></td><td class="num pos"><strong>B(60)——应建仓</strong></td><td>框架正确识别了这个10x机会</td></tr>
+</table>
+<bq>框架的判断逻辑：不是因为SNDK是一家"好公司"（质量分39.6很低），而是因为"谷底便宜+复苏确定性"构成了以极低风险参与NAND周期反转的机会。这正是格雷厄姆安全边际的精髓。</bq>
+</div>
+</div>
+
+<div class="card"><div class="ct">为什么当时质量分只有39.6，但仍应该买？</div>
+<div style="font-size:13px;color:#c9d1d9;line-height:1.9">
+<p>这是框架中最重要的一个悖论：<strong style="color:#3fb950">质量差的周期底部公司 可以是 比质量好的周期高峰公司 更好的买入机会。</strong></p>
+<p>在$38.50时，SNDK的质量分只有39.6——公司当时确实没有特别出色的商业质量：</p>
+<ul style="list-style:none;padding-left:8px;color:#8b949e;margin:8px 0">
+<li>• 刚分拆，独立历史为零</li>
+<li>• NAND谷底，当期亏损或微利</li>
+<li>• $2B债务，财务压力大</li>
+<li>• HBF还没有发布</li>
+</ul>
+<p>但估值分高达98（触发后），因为：</p>
+<ul style="list-style:none;padding-left:8px;color:#3fb950;margin:8px 0">
+<li>• EV/归一化EBITDA 1.7x——用谷底价格买到了中周期合理价值的28%</li>
+<li>• NAND周期反转几乎是确定的（内存行业历史上从未出现永久过剩）</li>
+<li>• 分拆折价+强制卖出产生了人工低估</li>
+</ul>
+<p>框架的正确处理方式是：<strong>高估值分（98）× 低置信度调整 → 合理的最终分（B/60）</strong>。
+不是把它打成A（因为质量确实不高），而是打成B（因为价格已经充分反映了风险）。
+<strong style="color:#d29922">B(60) + 触发器激活 = 明确建仓信号</strong>，即使不是核心持仓。</p>
+</div>
+</div>
+
+<div class="card"><div class="ct">其他历史类似案例（触发器有效性验证）</div>
+<table><tr><th>案例</th><th>时间</th><th>A(周期底)</th><th>B(估值低)</th><th>C(共识)</th><th>触发</th><th>后续结果</th></tr>
+  <tr><td>Micron MU</td><td>2023年DRAM谷底</td><td class="pos">✅ NAND/DRAM双谷底</td><td class="pos">✅ EV/归一化约3-4x</td><td class="pos">✅ 共识略高于股价</td><td class="pos">⭐触发</td><td class="pos">2023→2026 +15x</td></tr>
+  <tr><td>SK海力士</td><td>2023年谷底</td><td class="pos">✅</td><td class="pos">✅ 约3x</td><td class="pos">✅</td><td class="pos">⭐触发</td><td class="pos">+8-10x</td></tr>
+  <tr><td>Samsung</td><td>2023年谷底</td><td class="pos">✅</td><td class="pos">✅ 约4x</td><td class="pos">✅</td><td class="pos">⭐触发</td><td class="pos">+6-8x</td></tr>
+  <tr><td>Seagate</td><td>2022年底</td><td class="pos">✅ HDD过剩谷底</td><td class="pos">✅ 约4-5x</td><td class="pos">✅</td><td class="pos">⭐触发</td><td class="pos">$50→$926 +18x</td></tr>
+  <tr><td><strong>SanDisk SNDK</strong></td><td><strong>2025.02 分拆</strong></td><td class="pos"><strong>✅</strong></td><td class="pos"><strong>✅ 1.7x</strong></td><td class="pos"><strong>✅</strong></td><td class="pos"><strong>⭐触发</strong></td><td class="pos"><strong>$38.50→$1,761 +45x</strong></td></tr>
+</table>
+<bq>5个案例中触发器全部正确。关键：触发器触发时，不需要公司"很好"，只需要"够便宜+周期确认反转+共识未崩溃"。</bq>
+</div>
+</div>
+
+<div id="tab-skhynix" class="tc">
+<div class="cohdr">
+  <div class="coleft">
+    <div class="coname">SK海力士 <span style="background:#3fb95022;color:#3fb950;padding:2px 8px;border-radius:8px;font-size:12px;font-weight:700;border:1px solid #3fb95044">▲+2</span></div>
+    <div class="cometa">000660.KS · KRW 2,360,000（$1,710）</div>
+    <div class="cometa">市值：<strong>$1,105B</strong> · P/Book：<strong>10.17x</strong> · EV/EBITDA：<strong>18x/8.1x fwd</strong></div>
+    <div class="cometa">分析师均价：<strong>KRW 2,419,621</strong> · 共识偏差：<strong class="pos">+2.5%</strong> · 归一化EV/EBITDA：<strong style="color:#d29922">36.4x</strong></div>
+    <div class="codesc">全球HBM王者（62%份额），1c节点领先，HBF标准联合创始方，Solidigm=NVIDIA CMX tier3合作伙伴。Q1 2026：GM79%，OP72%。</div>
+  </div>
+  <div class="coscore">
+    <div style="font-size:11px;color:#8b949e;text-align:center">v4.0:75</div>
+    <div class="bigscore" style="color:#3fb950">75</div>
+    <div class="rcircle" style="border-color:#3fb950;color:#3fb950">A</div>
+  </div>
+</div>
+
+<div class="trigger-off"><div style="font-size:12px;color:#8b949e"><strong>触发器：未触发</strong>（当前不是周期底部买入机会）<br/>• A条件不满足：dim6=3/5（需≥4，当前景气峰值）<br/>• B条件不满足：EV/归一化EBITDA=36.4x（需≤7.2x，当前估值偏高）</div></div>
+<div class="gbox">💡 <strong>投资结论：</strong>唯一A级：HBM62%+HBF+归一化EV/EBITDA最低(25.8x)；三星HBM4E是压力信号，等SKH HBM4E量产验证</div>
+<div class="sec" style="font-size:15px">前瞻信号</div>
+<div class="card"><div class="sigrow sig-warn"><strong>⚠️压力</strong>：三星HBM4E首发早于SKH约6个月<br/><span style="opacity:.8">→ 需在2026 Q3-Q4发布HBM4E量产以维持领先</span><br/><span style="opacity:.6">时间线：2026 Q3-Q4</span></div><div class="sigrow sig-pend"><strong>⏳触发A+</strong>：HBM4E量产+NVIDIA>60%分配<br/><span style="opacity:.8">→ 维持A(75)或升至78+</span><br/><span style="opacity:.6">时间线：2026 Q3-Q4</span></div></div>
+<div class="g2">
+  <div class="card"><div class="ct">业务分部→行业分</div>
+    <table><tr><th>分部</th><th>占比</th><th>赛道分</th><th>归一化系数</th><th>峰值营收</th><th>加权行业分</th></tr><tr><td>HBM</td><td class="num">21%</td><td class="num">90</td><td class="num">0.75</td><td class="num">$31.9B</td><td class="num pos">18.9</td></tr><tr><td>服务器DDR5</td><td class="num">35%</td><td class="num">82</td><td class="num">0.60</td><td class="num">$53.2B</td><td class="num pos">28.7</td></tr><tr><td>PC/移动DRAM</td><td class="num">14%</td><td class="num">60</td><td class="num">0.55</td><td class="num">$21.3B</td><td class="num pos">8.4</td></tr><tr><td>企业NVMe</td><td class="num">20%</td><td class="num">78</td><td class="num">0.62</td><td class="num">$30.4B</td><td class="num pos">15.6</td></tr><tr><td>消费NAND</td><td class="num">10%</td><td class="num">52</td><td class="num">0.55</td><td class="num">$15.2B</td><td class="num pos">5.2</td></tr><tr class="tr2"><td colspan="5"><strong>加权行业分</strong></td><td class="num pos"><strong>76.8</strong></td></tr></table>
+  </div>
+  <div class="card"><div class="ct">评分汇总</div>
+    <table><tr><th>层</th><th>得分</th><th>权重</th><th>贡献</th></tr>
+      <tr><td>行业吸引力</td><td class="num">76.8</td><td>20%</td><td class="num">15.4</td></tr>
+      <tr><td>公司质量</td><td class="num">94.8</td><td>50%</td><td class="num">47.4</td></tr>
+      <tr><td>估值安全边际</td><td class="num">42.0<span style="font-size:10px;color:#8b949e">（原42）</span></td><td>30%</td><td class="num">12.6</td></tr>
+      <tr><td colspan="3"><strong>基础分</strong></td><td class="num"><strong>75.4</strong></td></tr>
+      <tr><td colspan="3">× 置信度系数</td><td class="num">×1.0<span style="font-size:10px;color:#8b949e"></span></td></tr>
+      <tr class="tr2"><td colspan="3"><strong>最终调整分</strong></td><td><span style="font-size:28px;font-weight:800;color:#3fb950">75</span> <span class="rcircle" style="width:32px;height:32px;font-size:16px;border-color:#3fb950;color:#3fb950">A</span></td></tr>
+    </table>
+  </div>
+</div>
+<div class="g2">
+  <div class="card">
+    <div class="ct">公司质量（前瞻60%）<span class="ls">94.8/100</span></div>
+    <div class="ibox" style="font-size:11px;margin-bottom:8px">QUAL_W=[20,10,18,12,10,12,12,6]；财务类维度必须用通算口径</div>
+    <div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>成长性<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=20</span></span><span style="color:#2ea043;font-weight:700">5/5→20.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:100%;height:100%;background:#2ea043;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">Q1 2026 +198% YoY；HBF联合创始；HBM4 NVIDIA 65-70%分配</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>盈利质量/通算ROIC<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=10</span></span><span style="color:#3fb950;font-weight:700">4/5→8.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">通算GM~45-50%；ROIC~13-16%，行业最高；当期79%为峰值</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>市占率+技术节点+成本曲线<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=18</span></span><span style="color:#2ea043;font-weight:700">5/5→18.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:100%;height:100%;background:#2ea043;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HBM 62%市占；1c节点最领先；HBF架构IP；⚠️三星HBM4E首发是压力信号</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>AI/HBF战略地位与市场认知<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#2ea043;font-weight:700">5/5→12.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:100%;height:100%;background:#2ea043;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HBM王者+HBF标准+Solidigm CMX tier3；AI存储价值链核心三层</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>财务稳健性<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=10</span></span><span style="color:#3fb950;font-weight:700">4/5→8.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">净负债/EBITDA<1x；FCF KRW29万亿；Capex由客户需求锁定</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>管理层执行力与轨迹<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#2ea043;font-weight:700">5/5→12.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:100%;height:100%;background:#2ea043;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HBF OCP提交（2026.02）；HBM4量产按时；⚠️三星先发压力</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>未来可选性与期权价值<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#2ea043;font-weight:700">5/5→12.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:100%;height:100%;background:#2ea043;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HBF Gen2/3路线图；PIM-HBM；CXL内存扩展——三层期权均有证据</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>客户结构与商业模式<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=6</span></span><span style="color:#3fb950;font-weight:700">4/5→4.8</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">NVIDIA 65-70%；AMD/Google/Meta均认证；切换成本>12个月</div></div>
+  </div>
+  <div class="card">
+    <div class="ct">估值安全边际<span class="ls">42.0/100</span></div>
+    <div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>通算估值上行空间<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=35</span></span><span style="color:#f85149;font-weight:700">2/5→14.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:#f85149;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">峰值$152B→归一化$95B；EBITDA@45%=$42.8B；EV/归一化=25.8x；5yr~12-14%</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>通算相对估值+共识偏差<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=25</span></span><span style="color:#d29922;font-weight:700">3/5→15.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">25.8x（8家最低）；共识KRW2,419,621 vs 股价KRW2,360,000=+2.5%</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>下行保护(FCF覆盖率法)<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=25</span></span><span style="color:#f85149;font-weight:700">2/5→10.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:#f85149;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">P/Book 10x；净现金充裕；三寡头防极端过剩；悲观-35%</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>历史与同行对比<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=15</span></span><span style="color:#da3633;font-weight:700">1/5→3.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:20%;height:100%;background:#da3633;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">历史通算80%分位；8家中归一化后最合理；溢价来自HBM+HBF双平台</div></div>
+    <div style="margin-top:14px"><table><tr><th>情景</th><th>概率</th><th>回报</th></tr>
+      <tr><td>乐观</td><td>25%</td><td class="num pos">22%</td></tr>
+      <tr><td>基准</td><td>45%</td><td class="num">75%</td></tr>
+      <tr><td>悲观</td><td>20%</td><td class="num neg">2%</td></tr>
+      <tr><td>颠覆</td><td>10%</td><td class="num neg">-18%</td></tr>
+      <tr class="tr2"><td colspan="2"><strong>概率加权</strong></td><td class="num pos"><strong>38.0%</strong></td></tr>
+    </table></div>
+  </div>
+</div>
+<div class="g2">
+  <div class="card"><div class="ct">⚠️ 主要风险</div><ul style="padding-left:16px;font-size:13px"><li style='margin-bottom:4px'>三星HBM4E首发，若量产顺利则压缩SKH份额</li><li style='margin-bottom:4px'>DRAM 2027年可能供给过剩</li><li style='margin-bottom:4px'>韩国地缘政治</li></ul></div>
+  <div class="card"><div class="ct">🚀 近期催化剂</div><ul style="padding-left:16px;font-size:13px"><li style='margin-bottom:4px'>HBM4E量产首批NVIDIA交付（2026 Q3-Q4）</li><li style='margin-bottom:4px'>HBF OCP批准→估值重定价</li></ul></div>
+</div>
+</div><div id="tab-pure" class="tc">
+<div class="cohdr">
+  <div class="coleft">
+    <div class="coname">Pure Storage（Everpure） <span style="background:#3fb95022;color:#3fb950;padding:2px 8px;border-radius:8px;font-size:12px;font-weight:700;border:1px solid #3fb95044">▲+1</span></div>
+    <div class="cometa">PSTG/P · $82.98</div>
+    <div class="cometa">市值：<strong>$27.6B</strong> · P/Book：<strong>8.5x</strong> · EV/EBITDA：<strong>35x/22x fwd</strong></div>
+    <div class="cometa">分析师均价：<strong>$93.74（20位分析师）</strong> · 共识偏差：<strong class="pos">+12.9%</strong> · 归一化EV/EBITDA：<strong style="color:#3fb950">20.1x</strong></div>
+    <div class="codesc">2026年2月品牌更名Everpure Inc.。企业全闪系统+ARR订阅，无内存价格周期暴露。Meta合作1-2EB AI基础设施。Q1 FY2027：$1.053B +35% YoY；RPO$3.7B +40%。⭐分析师均价$93.74 > 当前$82.98（+12.9%），8家中最强正向信号。</div>
+  </div>
+  <div class="coscore">
+    <div style="font-size:11px;color:#8b949e;text-align:center">v4.0:63</div>
+    <div class="bigscore" style="color:#d29922">63</div>
+    <div class="rcircle" style="border-color:#d29922;color:#d29922">B</div>
+  </div>
+</div>
+
+<div class="trigger-off" style="font-size:12px;color:#8b949e">触发器不适用：软件/订阅型公司无内存价格周期暴露</div>
+<div class="gbox">💡 <strong>投资结论：</strong>⭐ 8家中最佳当前建仓机会：归一化估值最低+共识高于股价12.9%+软件护城河+免疫内存周期</div>
+<div class="sec" style="font-size:15px">前瞻信号</div>
+<div class="card"><div class="sigrow sig-rev"><strong>✅当前可建仓</strong>：共识$93.74>股价$82.98（+12.9%）<br/><span style="opacity:.8">→ 8家中唯一分析师共识明确高于股价的B级标的，当前即可建仓</span><br/><span style="opacity:.6">时间线：当前</span></div><div class="sigrow sig-pend"><strong>⏳升至A</strong>：更多超大规模Purity OS授权（继Meta之后）<br/><span style="opacity:.8">→ ARR增速加速至40%+则重评至A(68+)</span><br/><span style="opacity:.6">时间线：2026 H2-2027</span></div></div>
+<div class="g2">
+  <div class="card"><div class="ct">业务分部→行业分</div>
+    <table><tr><th>分部</th><th>占比</th><th>赛道分</th><th>归一化系数</th><th>峰值营收</th><th>加权行业分</th></tr><tr><td>企业全闪系统</td><td class="num">75%</td><td class="num">75</td><td class="num">1.00</td><td class="num">$3.2B</td><td class="num pos">56.2</td></tr><tr><td>订阅ARR</td><td class="num">25%</td><td class="num">78</td><td class="num">1.00</td><td class="num">$1.1B</td><td class="num pos">19.5</td></tr><tr class="tr2"><td colspan="5"><strong>加权行业分</strong></td><td class="num pos"><strong>75.8</strong></td></tr></table>
+  </div>
+  <div class="card"><div class="ct">评分汇总</div>
+    <table><tr><th>层</th><th>得分</th><th>权重</th><th>贡献</th></tr>
+      <tr><td>行业吸引力</td><td class="num">75.8</td><td>20%</td><td class="num">15.2</td></tr>
+      <tr><td>公司质量</td><td class="num">78.8</td><td>50%</td><td class="num">39.4</td></tr>
+      <tr><td>估值安全边际</td><td class="num">53.0<span style="font-size:10px;color:#8b949e">（原53）</span></td><td>30%</td><td class="num">15.9</td></tr>
+      <tr><td colspan="3"><strong>基础分</strong></td><td class="num"><strong>70.4</strong></td></tr>
+      <tr><td colspan="3">× 置信度系数</td><td class="num">×0.9<span style="font-size:10px;color:#8b949e"></span></td></tr>
+      <tr class="tr2"><td colspan="3"><strong>最终调整分</strong></td><td><span style="font-size:28px;font-weight:800;color:#d29922">63</span> <span class="rcircle" style="width:32px;height:32px;font-size:16px;border-color:#d29922;color:#d29922">B</span></td></tr>
+    </table>
+  </div>
+</div>
+<div class="g2">
+  <div class="card">
+    <div class="ct">公司质量（前瞻60%）<span class="ls">78.8/100</span></div>
+    <div class="ibox" style="font-size:11px;margin-bottom:8px">QUAL_W=[20,10,18,12,10,12,12,6]；财务类维度必须用通算口径</div>
+    <div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>成长性<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=20</span></span><span style="color:#3fb950;font-weight:700">4/5→16.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">Q1 FY2027 +35% YoY；RPO$3.7B +40%；FY2027指引$4.3-4.4B</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>盈利质量/通算ROIC<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=10</span></span><span style="color:#3fb950;font-weight:700">4/5→8.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">非GAAP GM~70%；ARR高毛利；软件ROIC持续高于资本成本；无需通算归一化</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>市占率+技术节点+成本曲线<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=18</span></span><span style="color:#3fb950;font-weight:700">4/5→14.4</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">DirectFlash专利+Purity OS+Evergreen三重锁定；更换周期3-5年；Meta 1-2EB验证</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>AI/HBF战略地位与市场认知<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#3fb950;font-weight:700">4/5→9.6</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">AI存储软件层：Meta 1-2EB；FlashBlade//EXA；超大规模Purity OS授权；共识+12.9%</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>财务稳健性<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=10</span></span><span style="color:#3fb950;font-weight:700">4/5→8.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">无长期债务；FCF充裕；ARR稳定；净现金$1.8B</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>管理层执行力与轨迹<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#3fb950;font-weight:700">4/5→9.6</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">AI存储定位清晰；超大规模轻资产授权是战略创新；历史承诺兑现高</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>未来可选性与期权价值<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#3fb950;font-weight:700">4/5→9.6</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">超大规模Purity OS授权（新商业模式）；FlashBlade//EXA AI；HBF tier2.5软件管理层</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>客户结构与商业模式<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=6</span></span><span style="color:#d29922;font-weight:700">3/5→3.6</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">14,500+全球企业客户；RPO$3.7B；NRR>100%；高度分散</div></div>
+  </div>
+  <div class="card">
+    <div class="ct">估值安全边际<span class="ls">53.0/100</span></div>
+    <div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>通算估值上行空间<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=35</span></span><span style="color:#f85149;font-weight:700">2/5→14.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:#f85149;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">软件无周期影响：FY2027$4.3B×CAGR18%→5yr$9.8B；25x FCF=$53.9B；年化~14-16%</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>通算相对估值+共识偏差<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=25</span></span><span style="color:#3fb950;font-weight:700">4/5→20.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">归一化EV/EBITDA 19.5x（8家最低）；PEG~0.9x；共识$93.74 vs 股价$82.98=+12.9%——最强正向认知差异</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>下行保护(FCF覆盖率法)<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=25</span></span><span style="color:#f85149;font-weight:700">2/5→10.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:#f85149;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">无外部债务；ARR稳定；下行约35-40%</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>历史与同行对比<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=15</span></span><span style="color:#d29922;font-weight:700">3/5→9.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">历史50分位；8家中归一化后最不昂贵；共识高于股价是最正向同行对比</div></div>
+    <div style="margin-top:14px"><table><tr><th>情景</th><th>概率</th><th>回报</th></tr>
+      <tr><td>乐观</td><td>25%</td><td class="num pos">18%</td></tr>
+      <tr><td>基准</td><td>45%</td><td class="num">70%</td></tr>
+      <tr><td>悲观</td><td>20%</td><td class="num neg">-8%</td></tr>
+      <tr><td>颠覆</td><td>10%</td><td class="num neg">-35%</td></tr>
+      <tr class="tr2"><td colspan="2"><strong>概率加权</strong></td><td class="num pos"><strong>31.1%</strong></td></tr>
+    </table></div>
+  </div>
+</div>
+<div class="g2">
+  <div class="card"><div class="ct">⚠️ 主要风险</div><ul style="padding-left:16px;font-size:13px"><li style='margin-bottom:4px'>超大规模自建Flash风险</li><li style='margin-bottom:4px'>NAND价格上涨压缩GM</li><li style='margin-bottom:4px'>Dell/HPE竞争加剧</li></ul></div>
+  <div class="card"><div class="ct">🚀 近期催化剂</div><ul style="padding-left:16px;font-size:13px"><li style='margin-bottom:4px'>⭐ 当前即可建仓（共识+12.9%）</li><li style='margin-bottom:4px'>更多超大规模授权披露</li><li style='margin-bottom:4px'>NVIDIA CMX软件集成</li></ul></div>
+</div>
+</div><div id="tab-samsung" class="tc">
+<div class="cohdr">
+  <div class="coleft">
+    <div class="coname">三星电子 <span style="background:#3fb95022;color:#3fb950;padding:2px 8px;border-radius:8px;font-size:12px;font-weight:700;border:1px solid #3fb95044">▲+12</span></div>
+    <div class="cometa">005930.KS · KRW 360,500（$245）</div>
+    <div class="cometa">市值：<strong>$1,562B</strong> · P/Book：<strong>4.71-5.5x</strong> · EV/EBITDA：<strong>25.3x/9.0x fwd</strong></div>
+    <div class="cometa">分析师均价：<strong>KRW 389,965（HBM4E后上调中）</strong> · 共识偏差：<strong class="pos">+8.2%</strong> · 归一化EV/EBITDA：<strong style="color:#3fb950">29.4x</strong></div>
+    <div class="codesc">【★v4.0核心更新】三星2026.05.29发布行业首款HBM4E（14Gbps/3.6TB/s/48GB），比SKH早约6个月——执行力完全反转。评级C(51)→B(63)。</div>
+  </div>
+  <div class="coscore">
+    <div style="font-size:11px;color:#8b949e;text-align:center">v4.0:63</div>
+    <div class="bigscore" style="color:#d29922">63</div>
+    <div class="rcircle" style="border-color:#d29922;color:#d29922">B</div>
+  </div>
+</div>
+
+<div class="trigger-off"><div style="font-size:12px;color:#8b949e"><strong>触发器：未触发</strong>（当前不是周期底部买入机会）<br/>• A条件不满足：dim6=2/5（需≥4，当前景气峰值）<br/>• B条件不满足：EV/归一化EBITDA=29.4x（需≤7.2x，当前估值偏高）</div></div>
+<div class="gbox">💡 <strong>投资结论：</strong>★HBM4E首发真实反转信号：C(51)→B(63)；小仓位建立，等2026 Q4量产验证后加仓</div>
+<div class="sec" style="font-size:15px">前瞻信号</div>
+<div class="card"><div class="sigrow sig-rev"><strong>★核心反转</strong>：HBM4E首发（2026.05.29，早SKH 6个月）<br/><span style="opacity:.8">→ 执行力完全反转。C(51)→B(63) +12</span><br/><span style="opacity:.6">时间线：已发生</span></div><div class="sigrow sig-pend"><strong>⏳升至A</strong>：HBM4E量产启动（2026 Q4-2027 Q1）<br/><span style="opacity:.8">→ 份额28%→35-40%则升至A(68-72)</span><br/><span style="opacity:.6">时间线：2026 Q4-2027 Q1</span></div></div>
+<div class="g2">
+  <div class="card"><div class="ct">业务分部→行业分</div>
+    <table><tr><th>分部</th><th>占比</th><th>赛道分</th><th>归一化系数</th><th>峰值营收</th><th>加权行业分</th></tr><tr><td>HBM(DS)</td><td class="num">8%</td><td class="num">90</td><td class="num">0.75</td><td class="num">$16.8B</td><td class="num pos">7.2</td></tr><tr><td>服务器DRAM(DS)</td><td class="num">15%</td><td class="num">82</td><td class="num">0.60</td><td class="num">$31.5B</td><td class="num pos">12.3</td></tr><tr><td>PC/移动DRAM(DS)</td><td class="num">10%</td><td class="num">60</td><td class="num">0.55</td><td class="num">$21.0B</td><td class="num pos">6.0</td></tr><tr><td>企业NAND(DS)</td><td class="num">13%</td><td class="num">78</td><td class="num">0.62</td><td class="num">$27.3B</td><td class="num pos">10.1</td></tr><tr><td>消费NAND(DS)</td><td class="num">8%</td><td class="num">52</td><td class="num">0.55</td><td class="num">$16.8B</td><td class="num pos">4.2</td></tr><tr><td>MX手机/家电</td><td class="num">28%</td><td class="num">38</td><td class="num">1.00</td><td class="num">$58.8B</td><td class="num pos">10.6</td></tr><tr><td>显示+Logic代工</td><td class="num">18%</td><td class="num">36</td><td class="num">1.00</td><td class="num">$37.8B</td><td class="num pos">6.5</td></tr><tr class="tr2"><td colspan="5"><strong>加权行业分</strong></td><td class="num pos"><strong>56.9</strong></td></tr></table>
+  </div>
+  <div class="card"><div class="ct">评分汇总</div>
+    <table><tr><th>层</th><th>得分</th><th>权重</th><th>贡献</th></tr>
+      <tr><td>行业吸引力</td><td class="num">56.9</td><td>20%</td><td class="num">11.4</td></tr>
+      <tr><td>公司质量</td><td class="num">76.8</td><td>50%</td><td class="num">38.4</td></tr>
+      <tr><td>估值安全边际</td><td class="num">45.0<span style="font-size:10px;color:#8b949e">（原45）</span></td><td>30%</td><td class="num">13.5</td></tr>
+      <tr><td colspan="3"><strong>基础分</strong></td><td class="num"><strong>63.3</strong></td></tr>
+      <tr><td colspan="3">× 置信度系数</td><td class="num">×1.0<span style="font-size:10px;color:#8b949e"></span></td></tr>
+      <tr class="tr2"><td colspan="3"><strong>最终调整分</strong></td><td><span style="font-size:28px;font-weight:800;color:#d29922">63</span> <span class="rcircle" style="width:32px;height:32px;font-size:16px;border-color:#d29922;color:#d29922">B</span></td></tr>
+    </table>
+  </div>
+</div>
+<div class="g2">
+  <div class="card">
+    <div class="ct">公司质量（前瞻60%）<span class="ls">76.8/100</span></div>
+    <div class="ibox" style="font-size:11px;margin-bottom:8px">QUAL_W=[20,10,18,12,10,12,12,6]；财务类维度必须用通算口径</div>
+    <div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>成长性<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=20</span></span><span style="color:#3fb950;font-weight:700">4/5→16.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HBM4E首发打开2027-2028年全新盈利腿；DS利润+756% YoY</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>盈利质量/通算ROIC<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=10</span></span><span style="color:#d29922;font-weight:700">3/5→6.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">集团通算GM~24-28%；$73B Capex消耗FCF；ROIC通算~9-12%</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>市占率+技术节点+成本曲线<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=18</span></span><span style="color:#3fb950;font-weight:700">4/5→14.4</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">从HBM3E落后→HBM4E首发早SKH 6个月；技术叙事完全反转</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>AI/HBF战略地位与市场认知<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#3fb950;font-weight:700">4/5→9.6</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HBM4E=AI存储技术领导力重建；共识+8.2%=市场尚未充分定价</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>财务稳健性<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=10</span></span><span style="color:#3fb950;font-weight:700">4/5→8.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">净现金强劲（AA）；$73B Capex风险大；但HBM4E验证了部分投入价值</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>管理层执行力与轨迹<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#3fb950;font-weight:700">4/5→9.6</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">▲+2最大调整：HBM3E失败是历史记录，HBM4E首发是当前轨迹；执行力反转</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>未来可选性与期权价值<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#3fb950;font-weight:700">4/5→9.6</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HBM4E Gen1→2路线图；DS拆分讨论=最大潜在催化剂</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>客户结构与商业模式<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=6</span></span><span style="color:#d29922;font-weight:700">3/5→3.6</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">AMD认证三星HBM4；NVIDIA HBM4 28%且增长中；全球客户分散</div></div>
+  </div>
+  <div class="card">
+    <div class="ct">估值安全边际<span class="ls">45.0/100</span></div>
+    <div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>通算估值上行空间<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=35</span></span><span style="color:#f85149;font-weight:700">2/5→14.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:#f85149;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HBM4E改善5yr牛市情景概率；归一化DS单独约33x；概率加权5yr~10-14%</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>通算相对估值+共识偏差<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=25</span></span><span style="color:#d29922;font-weight:700">3/5→15.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">集团归一化EV/EBITDA约33x；共识+8.2% vs 股价=正向偏差</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>下行保护(FCF覆盖率法)<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=25</span></span><span style="color:#f85149;font-weight:700">2/5→10.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:#f85149;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">集团折价一定保护；P/Book 5x（非极端）；$73B Capex是主要下行风险</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>历史与同行对比<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=15</span></span><span style="color:#f85149;font-weight:700">2/5→6.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:#f85149;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">分析师均价+8.2%；历史通算60-70分位；集团折价使其相对DS内在价值便宜</div></div>
+    <div style="margin-top:14px"><table><tr><th>情景</th><th>概率</th><th>回报</th></tr>
+      <tr><td>乐观</td><td>25%</td><td class="num pos">20%</td></tr>
+      <tr><td>基准</td><td>45%</td><td class="num">63%</td></tr>
+      <tr><td>悲观</td><td>20%</td><td class="num neg">-5%</td></tr>
+      <tr><td>颠覆</td><td>10%</td><td class="num neg">-28%</td></tr>
+      <tr class="tr2"><td colspan="2"><strong>概率加权</strong></td><td class="num pos"><strong>29.7%</strong></td></tr>
+    </table></div>
+  </div>
+</div>
+<div class="g2">
+  <div class="card"><div class="ct">⚠️ 主要风险</div><ul style="padding-left:16px;font-size:13px"><li style='margin-bottom:4px'>$73B Capex在峰值期：若周期逆转则负担激增</li><li style='margin-bottom:4px'>HBM4E量产时间线和良率待验证</li><li style='margin-bottom:4px'>MX利润-35% YoY拖累集团</li></ul></div>
+  <div class="card"><div class="ct">🚀 近期催化剂</div><ul style="padding-left:16px;font-size:13px"><li style='margin-bottom:4px'>HBM4E量产启动（2026 Q4）——B→A升级触发器</li><li style='margin-bottom:4px'>DS分部拆分讨论实质化</li></ul></div>
+</div>
+</div><div id="tab-micron" class="tc">
+<div class="cohdr">
+  <div class="coleft">
+    <div class="coname">Micron Technology</div>
+    <div class="cometa">MU · $1,064.10</div>
+    <div class="cometa">市值：<strong>$1,200B</strong> · P/Book：<strong>14.0x</strong> · EV/EBITDA：<strong>23x/~8x fwd</strong></div>
+    <div class="cometa">分析师均价：<strong>$726（均价）</strong> · 共识偏差：<strong class="neg">-31.8%</strong> · 归一化EV/EBITDA：<strong style="color:#d29922">45.8x</strong></div>
+    <div class="codesc">美国唯一DRAM+NAND+HBM全线内存厂，CHIPS Act受益。Q2 FY2026：$23.86B +196% YoY，Q3指引$33.5B。⚠️分析师均价$726比当前$1,064低31.8%——8家中共识偏差最大的超买信号。</div>
+  </div>
+  <div class="coscore">
+    <div style="font-size:11px;color:#8b949e;text-align:center">v4.0:63</div>
+    <div class="bigscore" style="color:#d29922">63</div>
+    <div class="rcircle" style="border-color:#d29922;color:#d29922">B</div>
+  </div>
+</div>
+
+<div class="trigger-off"><div style="font-size:12px;color:#8b949e"><strong>触发器：未触发</strong>（当前不是周期底部买入机会）<br/>• A条件不满足：dim6=2/5（需≥4，当前景气峰值）<br/>• B条件不满足：EV/归一化EBITDA=45.8x（需≤7.2x，当前估值偏高）<br/>• C条件不满足：共识偏差=-31.8%（需≥-5%）</div></div>
+<div class="gbox">💡 <strong>投资结论：</strong>美国唯一DRAM战略资产，B级质量稳固；但股价比共识高32%——等回调$750-850后建仓</div>
+<div class="sec" style="font-size:15px">前瞻信号</div>
+<div class="card"><div class="sigrow sig-warn"><strong>⚠️超买</strong>：共识$726 vs 股价$1,064（-31.8%）<br/><span style="opacity:.8">→ 8家中最明显超买；等回调至共识区间</span><br/><span style="opacity:.6">时间线：持续</span></div><div class="sigrow sig-pend"><strong>⏳关键</strong>：Micron HBM4E时间线公告<br/><span style="opacity:.8">→ 若落后三星>12个月则降级</span><br/><span style="opacity:.6">时间线：2026 Q3-Q4</span></div></div>
+<div class="g2">
+  <div class="card"><div class="ct">业务分部→行业分</div>
+    <table><tr><th>分部</th><th>占比</th><th>赛道分</th><th>归一化系数</th><th>峰值营收</th><th>加权行业分</th></tr><tr><td>HBM</td><td class="num">15%</td><td class="num">90</td><td class="num">0.75</td><td class="num">$20.1B</td><td class="num pos">13.5</td></tr><tr><td>服务器DDR5</td><td class="num">40%</td><td class="num">82</td><td class="num">0.60</td><td class="num">$53.6B</td><td class="num pos">32.8</td></tr><tr><td>PC/移动DRAM</td><td class="num">24%</td><td class="num">60</td><td class="num">0.55</td><td class="num">$32.2B</td><td class="num pos">14.4</td></tr><tr><td>企业NVMe</td><td class="num">15%</td><td class="num">78</td><td class="num">0.62</td><td class="num">$20.1B</td><td class="num pos">11.7</td></tr><tr><td>消费NAND</td><td class="num">6%</td><td class="num">52</td><td class="num">0.55</td><td class="num">$8.0B</td><td class="num pos">3.1</td></tr><tr class="tr2"><td colspan="5"><strong>加权行业分</strong></td><td class="num pos"><strong>75.5</strong></td></tr></table>
+  </div>
+  <div class="card"><div class="ct">评分汇总</div>
+    <table><tr><th>层</th><th>得分</th><th>权重</th><th>贡献</th></tr>
+      <tr><td>行业吸引力</td><td class="num">75.5</td><td>20%</td><td class="num">15.1</td></tr>
+      <tr><td>公司质量</td><td class="num">79.6</td><td>50%</td><td class="num">39.8</td></tr>
+      <tr><td>估值安全边际</td><td class="num">28.0<span style="font-size:10px;color:#8b949e">（原28）</span></td><td>30%</td><td class="num">8.4</td></tr>
+      <tr><td colspan="3"><strong>基础分</strong></td><td class="num"><strong>63.3</strong></td></tr>
+      <tr><td colspan="3">× 置信度系数</td><td class="num">×1.0<span style="font-size:10px;color:#8b949e"></span></td></tr>
+      <tr class="tr2"><td colspan="3"><strong>最终调整分</strong></td><td><span style="font-size:28px;font-weight:800;color:#d29922">63</span> <span class="rcircle" style="width:32px;height:32px;font-size:16px;border-color:#d29922;color:#d29922">B</span></td></tr>
+    </table>
+  </div>
+</div>
+<div class="g2">
+  <div class="card">
+    <div class="ct">公司质量（前瞻60%）<span class="ls">79.6/100</span></div>
+    <div class="ibox" style="font-size:11px;margin-bottom:8px">QUAL_W=[20,10,18,12,10,12,12,6]；财务类维度必须用通算口径</div>
+    <div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>成长性<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=20</span></span><span style="color:#2ea043;font-weight:700">5/5→20.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:100%;height:100%;background:#2ea043;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">Q2 +196% YoY；HBM4全年售罄；CHIPS Act Idaho/日本fab奠定5年路径</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>盈利质量/通算ROIC<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=10</span></span><span style="color:#d29922;font-weight:700">3/5→6.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">通算GM~28-33%；ROIC~10-12%；当期74%为峰值，不纳入打分</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>市占率+技术节点+成本曲线<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=18</span></span><span style="color:#3fb950;font-weight:700">4/5→14.4</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HBM #2（超越三星）；1-gamma节点接近SKH；美国唯一DRAM=地缘护城河；⚠️三星HBM4E压力</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>AI/HBF战略地位与市场认知<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#3fb950;font-weight:700">4/5→9.6</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HBM #2全年售罄；CHIPS Act首选；共识$726低于股价32%=市场已大幅透支</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>财务稳健性<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=10</span></span><span style="color:#3fb950;font-weight:700">4/5→8.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">净现金$8B；$25B FY2026 Capex但CHIPS补贴对冲</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>管理层执行力与轨迹<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#3fb950;font-weight:700">4/5→9.6</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HBM超越三星（里程碑）；Capex纪律改善；三星HBM4E是新压力信号</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>未来可选性与期权价值<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#d29922;font-weight:700">3/5→7.2</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">Idaho/日本fab(CHIPS Act)；HBM4→HBM4E路线图；但无HBF参与</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>客户结构与商业模式<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=6</span></span><span style="color:#3fb950;font-weight:700">4/5→4.8</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">NVIDIA/AWS/Azure均认证；合约比例高；无单一>40%集中</div></div>
+  </div>
+  <div class="card">
+    <div class="ct">估值安全边际<span class="ls">28.0/100</span></div>
+    <div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>通算估值上行空间<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=35</span></span><span style="color:#da3633;font-weight:700">1/5→7.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:20%;height:100%;background:#da3633;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">峰值$134B→归一化$82B；EBITDA@32%=$26.2B；EV/归一化=45.8x；5yr~8-10%</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>通算相对估值+共识偏差<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=25</span></span><span style="color:#da3633;font-weight:700">1/5→5.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:20%;height:100%;background:#da3633;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">▼45.8x vs历史中位5.5x；共识$726 vs 股价$1064=-31.8%——8家中最明显超买信号</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>下行保护(FCF覆盖率法)<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=25</span></span><span style="color:#f85149;font-weight:700">2/5→10.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:#f85149;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">P/Book 14x；净现金$8B；悲观-40~-50%</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>历史与同行对比<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=15</span></span><span style="color:#f85149;font-weight:700">2/5→6.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:#f85149;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">历史最贵分位；共识低于当前32%</div></div>
+    <div style="margin-top:14px"><table><tr><th>情景</th><th>概率</th><th>回报</th></tr>
+      <tr><td>乐观</td><td>25%</td><td class="num pos">14%</td></tr>
+      <tr><td>基准</td><td>45%</td><td class="num">63%</td></tr>
+      <tr><td>悲观</td><td>20%</td><td class="num neg">-8%</td></tr>
+      <tr><td>颠覆</td><td>10%</td><td class="num neg">-30%</td></tr>
+      <tr class="tr2"><td colspan="2"><strong>概率加权</strong></td><td class="num pos"><strong>27.4%</strong></td></tr>
+    </table></div>
+  </div>
+</div>
+<div class="g2">
+  <div class="card"><div class="ct">⚠️ 主要风险</div><ul style="padding-left:16px;font-size:13px"><li style='margin-bottom:4px'>共识低于股价32%——最明显超买</li><li style='margin-bottom:4px'>三星HBM4E可能使Micron从HBM#2滑落至#3</li><li style='margin-bottom:4px'>Idaho建厂成本超支风险</li></ul></div>
+  <div class="card"><div class="ct">🚀 近期催化剂</div><ul style="padding-left:16px;font-size:13px"><li style='margin-bottom:4px'>Micron HBM4E时间线公告</li><li style='margin-bottom:4px'>股价回调至$750-850（共识区间）→理想建仓</li></ul></div>
+</div>
+</div><div id="tab-seagate" class="tc">
+<div class="cohdr">
+  <div class="coleft">
+    <div class="coname">Seagate Technology</div>
+    <div class="cometa">STX · $926.61（52周+686%）</div>
+    <div class="cometa">市值：<strong>$209B</strong> · P/Book：<strong>189.9x</strong> · EV/EBITDA：<strong>60.5x/~15x fwd</strong></div>
+    <div class="cometa">分析师均价：<strong>$492（均价保守）</strong> · 共识偏差：<strong class="neg">-46.9%</strong> · 归一化EV/EBITDA：<strong style="color:#f85149">65.3x</strong></div>
+    <div class="codesc">全球最大HDD，HAMR Mozaic 4量产，Google认证通过。Q3 FY2026：$3.11B +44% YoY，GM 46.5%，FCF $953M。共识$492 vs 股价$926，差距-46.9%。</div>
+  </div>
+  <div class="coscore">
+    <div style="font-size:11px;color:#8b949e;text-align:center">v4.0:57</div>
+    <div class="bigscore" style="color:#f85149">57</div>
+    <div class="rcircle" style="border-color:#f85149;color:#f85149">C</div>
+  </div>
+</div>
+
+<div class="trigger-off"><div style="font-size:12px;color:#8b949e"><strong>触发器：未触发</strong>（当前不是周期底部买入机会）<br/>• A条件不满足：dim6=3/5（需≥4，当前景气峰值）<br/>• B条件不满足：EV/归一化EBITDA=65.3x（需≤7.2x，当前估值偏高）<br/>• C条件不满足：共识偏差=-46.9%（需≥-5%）</div></div>
+<div class="gbox">💡 <strong>投资结论：</strong>AI冷存储双寡头FCF机器；但归一化EV/EBITDA 71x+共识低47%——等回调40%+才有吸引力</div>
+<div class="sec" style="font-size:15px">前瞻信号</div>
+<div class="card"><div class="sigrow sig-warn"><strong>⚠️超买</strong>：共识$492 vs 股价$926（-47%）<br/><span style="opacity:.8">→ 8家中最大负向认知差异；等大幅回调</span><br/><span style="opacity:.6">时间线：持续</span></div><div class="sigrow sig-pend"><strong>⏳升至C+</strong>：HAMR 40TB量产（2026 H2）<br/><span style="opacity:.8">→ 若成功升至C+(60)</span><br/><span style="opacity:.6">时间线：2026 H2</span></div></div>
+<div class="g2">
+  <div class="card"><div class="ct">业务分部→行业分</div>
+    <table><tr><th>分部</th><th>占比</th><th>赛道分</th><th>归一化系数</th><th>峰值营收</th><th>加权行业分</th></tr><tr><td>数据中心nearline HDD</td><td class="num">80%</td><td class="num">82</td><td class="num">0.82</td><td class="num">$9.9B</td><td class="num pos">65.6</td></tr><tr><td>Edge/IoT HDD</td><td class="num">20%</td><td class="num">52</td><td class="num">0.75</td><td class="num">$2.5B</td><td class="num pos">10.4</td></tr><tr class="tr2"><td colspan="5"><strong>加权行业分</strong></td><td class="num pos"><strong>76.0</strong></td></tr></table>
+  </div>
+  <div class="card"><div class="ct">评分汇总</div>
+    <table><tr><th>层</th><th>得分</th><th>权重</th><th>贡献</th></tr>
+      <tr><td>行业吸引力</td><td class="num">76.0</td><td>20%</td><td class="num">15.2</td></tr>
+      <tr><td>公司质量</td><td class="num">74.0</td><td>50%</td><td class="num">37.0</td></tr>
+      <tr><td>估值安全边际</td><td class="num">25.0<span style="font-size:10px;color:#8b949e">（原25）</span></td><td>30%</td><td class="num">7.5</td></tr>
+      <tr><td colspan="3"><strong>基础分</strong></td><td class="num"><strong>59.7</strong></td></tr>
+      <tr><td colspan="3">× 置信度系数</td><td class="num">×0.95<span style="font-size:10px;color:#8b949e"></span></td></tr>
+      <tr class="tr2"><td colspan="3"><strong>最终调整分</strong></td><td><span style="font-size:28px;font-weight:800;color:#f85149">57</span> <span class="rcircle" style="width:32px;height:32px;font-size:16px;border-color:#f85149;color:#f85149">C</span></td></tr>
+    </table>
+  </div>
+</div>
+<div class="g2">
+  <div class="card">
+    <div class="ct">公司质量（前瞻60%）<span class="ls">74.0/100</span></div>
+    <div class="ibox" style="font-size:11px;margin-bottom:8px">QUAL_W=[20,10,18,12,10,12,12,6]；财务类维度必须用通算口径</div>
+    <div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>成长性<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=20</span></span><span style="color:#3fb950;font-weight:700">4/5→16.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">Q3 FY2026 +44% YoY；Q4指引$3.45B；nearline分配至2027年</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>盈利质量/通算ROIC<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=10</span></span><span style="color:#3fb950;font-weight:700">4/5→8.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">通算GM~28-33%；当期46.5%为峰值；FCF年化$3.8B</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>市占率+技术节点+成本曲线<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=18</span></span><span style="color:#3fb950;font-weight:700">4/5→14.4</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HAMR Mozaic专利；STX/WDC双寡头（>95%市占）；Google认证通过</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>AI/HBF战略地位与市场认知<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#d29922;font-weight:700">3/5→7.2</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">AI冷存储tier4；但非tier0-3核心AI计算层；共识-47%=市场已大幅透支</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>财务稳健性<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=10</span></span><span style="color:#3fb950;font-weight:700">4/5→8.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">FCF $953M/Q3；净现金充裕；投资级信用</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>管理层执行力与轨迹<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#3fb950;font-weight:700">4/5→9.6</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HAMR技术押注成功；margin over volume纪律</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>未来可选性与期权价值<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#d29922;font-weight:700">3/5→7.2</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HAMR 40→100TB路线图；HBF时代HDD保持cold tier角色</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>客户结构与商业模式<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=6</span></span><span style="color:#d29922;font-weight:700">3/5→3.6</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">Google/AWS/Azure（~80%）；产能分配至2027年</div></div>
+  </div>
+  <div class="card">
+    <div class="ct">估值安全边际<span class="ls">25.0/100</span></div>
+    <div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>通算估值上行空间<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=35</span></span><span style="color:#da3633;font-weight:700">1/5→7.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:20%;height:100%;background:#da3633;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">峰值$12.4B→归一化$9.2B；EBITDA@33%=$3.0B；EV/归一化=70.7x；5yr~7-9%</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>通算相对估值+共识偏差<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=25</span></span><span style="color:#da3633;font-weight:700">1/5→5.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:20%;height:100%;background:#da3633;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">▼70.7x vs历史中位6x；共识$492 vs 股价$926=-46.9%——8家中最大负向偏差</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>下行保护(FCF覆盖率法)<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=25</span></span><span style="color:#f85149;font-weight:700">2/5→10.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:#f85149;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">P/Book 190x（回购造成）；FCF yield 1.15%；悲观-45~-55%</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>历史与同行对比<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=15</span></span><span style="color:#da3633;font-weight:700">1/5→3.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:20%;height:100%;background:#da3633;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">历史最高估值分位；共识低当前47%；52周+686%已透支</div></div>
+    <div style="margin-top:14px"><table><tr><th>情景</th><th>概率</th><th>回报</th></tr>
+      <tr><td>乐观</td><td>25%</td><td class="num pos">14%</td></tr>
+      <tr><td>基准</td><td>45%</td><td class="num">60%</td></tr>
+      <tr><td>悲观</td><td>20%</td><td class="num neg">-10%</td></tr>
+      <tr><td>颠覆</td><td>10%</td><td class="num neg">-35%</td></tr>
+      <tr class="tr2"><td colspan="2"><strong>概率加权</strong></td><td class="num pos"><strong>24.9%</strong></td></tr>
+    </table></div>
+  </div>
+</div>
+<div class="g2">
+  <div class="card"><div class="ct">⚠️ 主要风险</div><ul style="padding-left:16px;font-size:13px"><li style='margin-bottom:4px'>$209B+686%；AI需求放缓则深度回撤50%+</li><li style='margin-bottom:4px'>SSD长期侵蚀HDD（8-10年）</li><li style='margin-bottom:4px'>WDC HAMR追赶</li></ul></div>
+  <div class="card"><div class="ct">🚀 近期催化剂</div><ul style="padding-left:16px;font-size:13px"><li style='margin-bottom:4px'>HAMR 40TB量产（2026 H2）</li><li style='margin-bottom:4px'>2027/2028 supply合同锁定</li></ul></div>
+</div>
+</div><div id="tab-wdc" class="tc">
+<div class="cohdr">
+  <div class="coleft">
+    <div class="coname">Western Digital <span style="background:#3fb95022;color:#3fb950;padding:2px 8px;border-radius:8px;font-size:12px;font-weight:700;border:1px solid #3fb95044">▲+2</span></div>
+    <div class="cometa">WDC · $563.10（52周+992%）</div>
+    <div class="cometa">市值：<strong>$194B</strong> · P/Book：<strong>20.1x</strong> · EV/EBITDA：<strong>49x/~22x run-rate</strong></div>
+    <div class="cometa">分析师均价：<strong>$505（均价）</strong> · 共识偏差：<strong class="neg">-10.6%</strong> · 归一化EV/EBITDA：<strong style="color:#d29922">55.6x</strong></div>
+    <div class="codesc">2025.02分拆NAND后纯HDD。Q3 FY2026：$3.34B +45% YoY，GM50.2%，FCF$978M，净现金$450M，投资级升级。</div>
+  </div>
+  <div class="coscore">
+    <div style="font-size:11px;color:#8b949e;text-align:center">v4.0:56</div>
+    <div class="bigscore" style="color:#f85149">56</div>
+    <div class="rcircle" style="border-color:#f85149;color:#f85149">C</div>
+  </div>
+</div>
+
+<div class="trigger-off"><div style="font-size:12px;color:#8b949e"><strong>触发器：未触发</strong>（当前不是周期底部买入机会）<br/>• A条件不满足：dim6=3/5（需≥4，当前景气峰值）<br/>• B条件不满足：EV/归一化EBITDA=55.6x（需≤7.2x，当前估值偏高）<br/>• C条件不满足：共识偏差=-10.6%（需≥-5%）</div></div>
+<div class="gbox">💡 <strong>投资结论：</strong>Seagate平替，FCF接近，估值20%折扣；HAMR落后+独立不满2年——优先Seagate</div>
+<div class="sec" style="font-size:15px">前瞻信号</div>
+<div class="card"><div class="sigrow sig-pend"><strong>⏳升至C+</strong>：40TB HAMR量产（2026 H2）<br/><span style="opacity:.8">→ 追赶Seagate</span><br/><span style="opacity:.6">时间线：2026 H2</span></div></div>
+<div class="g2">
+  <div class="card"><div class="ct">业务分部→行业分</div>
+    <table><tr><th>分部</th><th>占比</th><th>赛道分</th><th>归一化系数</th><th>峰值营收</th><th>加权行业分</th></tr><tr><td>nearline HDD</td><td class="num">90%</td><td class="num">82</td><td class="num">0.82</td><td class="num">$12.1B</td><td class="num pos">73.8</td></tr><tr><td>Client HDD</td><td class="num">10%</td><td class="num">52</td><td class="num">0.75</td><td class="num">$1.3B</td><td class="num pos">5.2</td></tr><tr class="tr2"><td colspan="5"><strong>加权行业分</strong></td><td class="num pos"><strong>79.0</strong></td></tr></table>
+  </div>
+  <div class="card"><div class="ct">评分汇总</div>
+    <table><tr><th>层</th><th>得分</th><th>权重</th><th>贡献</th></tr>
+      <tr><td>行业吸引力</td><td class="num">79.0</td><td>20%</td><td class="num">15.8</td></tr>
+      <tr><td>公司质量</td><td class="num">66.0</td><td>50%</td><td class="num">33.0</td></tr>
+      <tr><td>估值安全边际</td><td class="num">33.0<span style="font-size:10px;color:#8b949e">（原33）</span></td><td>30%</td><td class="num">9.9</td></tr>
+      <tr><td colspan="3"><strong>基础分</strong></td><td class="num"><strong>58.7</strong></td></tr>
+      <tr><td colspan="3">× 置信度系数</td><td class="num">×0.95<span style="font-size:10px;color:#8b949e"></span></td></tr>
+      <tr class="tr2"><td colspan="3"><strong>最终调整分</strong></td><td><span style="font-size:28px;font-weight:800;color:#f85149">56</span> <span class="rcircle" style="width:32px;height:32px;font-size:16px;border-color:#f85149;color:#f85149">C</span></td></tr>
+    </table>
+  </div>
+</div>
+<div class="g2">
+  <div class="card">
+    <div class="ct">公司质量（前瞻60%）<span class="ls">66.0/100</span></div>
+    <div class="ibox" style="font-size:11px;margin-bottom:8px">QUAL_W=[20,10,18,12,10,12,12,6]；财务类维度必须用通算口径</div>
+    <div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>成长性<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=20</span></span><span style="color:#3fb950;font-weight:700">4/5→16.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">Q3 FY2026 +45% YoY；FCF年化$3.9B；90% cloud纯度高</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>盈利质量/通算ROIC<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=10</span></span><span style="color:#d29922;font-weight:700">3/5→6.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">通算GM~28-33%；ROIC~12-14%；净现金$450M</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>市占率+技术节点+成本曲线<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=18</span></span><span style="color:#d29922;font-weight:700">3/5→10.8</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HDD双寡头护城河与Seagate共享；但HAMR量产晚于Seagate</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>AI/HBF战略地位与市场认知<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#d29922;font-weight:700">3/5→7.2</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">AI冷存储tier4；90% cloud纯度高；但HAMR技术稍落后</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>财务稳健性<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=10</span></span><span style="color:#3fb950;font-weight:700">4/5→8.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">净现金$450M；Fitch/S&P投资级升级；FCF $978M/Q3</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>管理层执行力与轨迹<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#d29922;font-weight:700">3/5→7.2</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">CEO Irving Tan执行正面；margin纪律；但仅1年独立历史</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>未来可选性与期权价值<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#d29922;font-weight:700">3/5→7.2</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HAMR 40→100TB路线图；HBF cold tier受益</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>客户结构与商业模式<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=6</span></span><span style="color:#d29922;font-weight:700">3/5→3.6</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">Amazon/Google/Microsoft（~85%）；长期供货合同</div></div>
+  </div>
+  <div class="card">
+    <div class="ct">估值安全边际<span class="ls">33.0/100</span></div>
+    <div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>通算估值上行空间<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=35</span></span><span style="color:#da3633;font-weight:700">1/5→7.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:20%;height:100%;background:#da3633;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">峰值$13.4B→归一化$10.4B；EBITDA@33%=$3.4B；EV/归一化=57.4x；5yr~8-10%</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>通算相对估值+共识偏差<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=25</span></span><span style="color:#f85149;font-weight:700">2/5→10.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:#f85149;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">57.4x vs Seagate 70.7x（WDC有20%折扣）；共识$505 vs 股价$563=-10.6%，轻微超买</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>下行保护(FCF覆盖率法)<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=25</span></span><span style="color:#f85149;font-weight:700">2/5→10.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:#f85149;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">净现金$450M；FCF充裕；悲观-40~-48%</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>历史与同行对比<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=15</span></span><span style="color:#f85149;font-weight:700">2/5→6.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:#f85149;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">比Seagate便宜20%（分拆折扣合理）</div></div>
+    <div style="margin-top:14px"><table><tr><th>情景</th><th>概率</th><th>回报</th></tr>
+      <tr><td>乐观</td><td>25%</td><td class="num pos">12%</td></tr>
+      <tr><td>基准</td><td>45%</td><td class="num">59%</td></tr>
+      <tr><td>悲观</td><td>20%</td><td class="num neg">-12%</td></tr>
+      <tr><td>颠覆</td><td>10%</td><td class="num neg">-35%</td></tr>
+      <tr class="tr2"><td colspan="2"><strong>概率加权</strong></td><td class="num pos"><strong>23.5%</strong></td></tr>
+    </table></div>
+  </div>
+</div>
+<div class="g2">
+  <div class="card"><div class="ct">⚠️ 主要风险</div><ul style="padding-left:16px;font-size:13px"><li style='margin-bottom:4px'>52周+992%；任何需求放缓则深度回撤</li><li style='margin-bottom:4px'>HAMR落后Seagate</li><li style='margin-bottom:4px'>独立仅1年</li></ul></div>
+  <div class="card"><div class="ct">🚀 近期催化剂</div><ul style="padding-left:16px;font-size:13px"><li style='margin-bottom:4px'>40TB HAMR量产</li><li style='margin-bottom:4px'>超大规模2028年合同</li></ul></div>
+</div>
+</div><div id="tab-sandisk" class="tc">
+<div class="cohdr">
+  <div class="coleft">
+    <div class="coname">SanDisk（SNDK） <span style="background:#3fb95022;color:#3fb950;padding:2px 8px;border-radius:8px;font-size:12px;font-weight:700;border:1px solid #3fb95044">▲+5</span></div>
+    <div class="cometa">SNDK · $1,761.43（历史最高，+45x from spinoff $38.50）</div>
+    <div class="cometa">市值：<strong>$258B</strong> · P/Book：<strong>15.1x</strong> · EV/EBITDA：<strong>35.7x/~9x fwd</strong></div>
+    <div class="cometa">分析师均价：<strong>分析师分歧，HBF未入共识模型</strong> · 共识偏差：<strong class="neg">+0.0%</strong> · 归一化EV/EBITDA：<strong style="color:#d29922">57.1x</strong></div>
+    <div class="codesc">WDC 2025.02分拆。HBF首席架构师（2026.02.25 OCP+SKH联合提交）。Q3 FY2026：$5.95B +251% YoY，GM78.4%。⚡本次分析核心：分拆价$38.50时触发器会触发，当时是真实的B级买入机会。</div>
+  </div>
+  <div class="coscore">
+    <div style="font-size:11px;color:#8b949e;text-align:center">v4.0:56</div>
+    <div class="bigscore" style="color:#f85149">56</div>
+    <div class="rcircle" style="border-color:#f85149;color:#f85149">C</div>
+  </div>
+</div>
+
+<div class="trigger-off"><div style="font-size:12px;color:#8b949e"><strong>触发器：未触发</strong>（当前不是周期底部买入机会）<br/>• A条件不满足：dim6=2/5（需≥4，当前景气峰值）<br/>• B条件不满足：EV/归一化EBITDA=57.1x（需≤7.2x，当前估值偏高）</div></div>
+<div class="gbox">💡 <strong>投资结论：</strong>HBF首席架构师改变长期价值逻辑；触发器在$38.50时本应触发B级买入；OCP批准是升级至B的触发器</div>
+<div class="sec" style="font-size:15px">前瞻信号</div>
+<div class="card"><div class="sigrow sig-pend"><strong>⏳核心验证</strong>：HBF OCP标准批准（预计2026 Q3-Q4）<br/><span style="opacity:.8">→ OCP批准=行业采用确立；分析师大规模建模；升至B(60+)</span><br/><span style="opacity:.6">时间线：2026 Q3-Q4</span></div><div class="sigrow sig-pend"><strong>⏳升至B</strong>：NVIDIA官方将HBF列入CMX tier<br/><span style="opacity:.8">→ AI架构标准层确立；升至B(60+)</span><br/><span style="opacity:.6">时间线：2026 Q4-2027 H1</span></div><div class="sigrow sig-neg"><strong>🔴风险</strong>：NAND下行在HBF商业化前到来<br/><span style="opacity:.8">→ FCF覆盖率降至<100%；债务重新成为实质风险</span><br/><span style="opacity:.6">时间线：2027+</span></div></div>
+<div class="g2">
+  <div class="card"><div class="ct">业务分部→行业分</div>
+    <table><tr><th>分部</th><th>占比</th><th>赛道分</th><th>归一化系数</th><th>峰值营收</th><th>加权行业分</th></tr><tr><td>企业NVMe(Stargate,HBF期权)</td><td class="num">55%</td><td class="num">82</td><td class="num">0.62</td><td class="num">$13.2B</td><td class="num pos">45.1</td></tr><tr><td>客户端SSD</td><td class="num">30%</td><td class="num">52</td><td class="num">0.55</td><td class="num">$7.2B</td><td class="num pos">15.6</td></tr><tr><td>消费闪存</td><td class="num">15%</td><td class="num">45</td><td class="num">0.55</td><td class="num">$3.6B</td><td class="num pos">6.8</td></tr><tr class="tr2"><td colspan="5"><strong>加权行业分</strong></td><td class="num pos"><strong>67.5</strong></td></tr></table>
+  </div>
+  <div class="card"><div class="ct">评分汇总</div>
+    <table><tr><th>层</th><th>得分</th><th>权重</th><th>贡献</th></tr>
+      <tr><td>行业吸引力</td><td class="num">67.5</td><td>20%</td><td class="num">13.5</td></tr>
+      <tr><td>公司质量</td><td class="num">74.8</td><td>50%</td><td class="num">37.4</td></tr>
+      <tr><td>估值安全边际</td><td class="num">50.0<span style="font-size:10px;color:#8b949e">（原50）</span></td><td>30%</td><td class="num">15.0</td></tr>
+      <tr><td colspan="3"><strong>基础分</strong></td><td class="num"><strong>65.9</strong></td></tr>
+      <tr><td colspan="3">× 置信度系数</td><td class="num">×0.85<span style="font-size:10px;color:#8b949e"></span></td></tr>
+      <tr class="tr2"><td colspan="3"><strong>最终调整分</strong></td><td><span style="font-size:28px;font-weight:800;color:#f85149">56</span> <span class="rcircle" style="width:32px;height:32px;font-size:16px;border-color:#f85149;color:#f85149">C</span></td></tr>
+    </table>
+  </div>
+</div>
+<div class="g2">
+  <div class="card">
+    <div class="ct">公司质量（前瞻60%）<span class="ls">74.8/100</span></div>
+    <div class="ibox" style="font-size:11px;margin-bottom:8px">QUAL_W=[20,10,18,12,10,12,12,6]；财务类维度必须用通算口径</div>
+    <div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>成长性<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=20</span></span><span style="color:#2ea043;font-weight:700">5/5→20.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:100%;height:100%;background:#2ea043;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">Q3 FY2026 +251% YoY；Stargate超大规模量产；HBF联合创始=全新TAM（$100B+）</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>盈利质量/通算ROIC<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=10</span></span><span style="color:#f85149;font-weight:700">2/5→4.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:#f85149;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">通算GM~18-26%（NAND商品历史）；峰值78.4%含NBM合同效应；ROIC通算偏低</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>市占率+技术节点+成本曲线<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=18</span></span><span style="color:#3fb950;font-weight:700">4/5→14.4</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:#3fb950;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HBF标准制定者=技术叙事从NAND跟随者→下一代AI存储层架构师；方向性反转</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>AI/HBF战略地位与市场认知<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#2ea043;font-weight:700">5/5→12.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:100%;height:100%;background:#2ea043;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HBF首席架构师：512GB→1TB→1.5TB路线图；AI存储价值链tier2.5；HBF未入共识模型</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>财务稳健性<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=10</span></span><span style="color:#f85149;font-weight:700">2/5→4.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:#f85149;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">⚠️$2B债务；但FCF年化$4B，覆盖率200%（半年可还清）→v4.0框架下升为3/5</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>管理层执行力与轨迹<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#d29922;font-weight:700">3/5→7.2</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HBF技术押注=历史最重要战略决策；联合SKH提交OCP展示战略眼光</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>未来可选性与期权价值<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#d29922;font-weight:700">3/5→7.2</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HBF Gen1→2→3路线图；TAM$100B+；OCP提交+SKH联合=期权价值最充分有据</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>客户结构与商业模式<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=6</span></span><span style="color:#2ea043;font-weight:700">5/5→6.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:100%;height:100%;background:#2ea043;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">Stargate超大规模认证；HBF生态合作待扩展</div></div>
+  </div>
+  <div class="card">
+    <div class="ct">估值安全边际<span class="ls">50.0/100</span></div>
+    <div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>通算估值上行空间<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=35</span></span><span style="color:#f85149;font-weight:700">2/5→14.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:#f85149;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">二元期权：商品(50%)→$90-120B（负回报）；平台(50%)→$400-500B（正回报）；概率加权$260B≈当前；5yr~8-10%</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>通算相对估值+共识偏差<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=25</span></span><span style="color:#d29922;font-weight:700">3/5→15.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HBF尚未入主流分析师模型=最重要正向认知差异；OCP批准后分析师将大规模建模目标价</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>下行保护(FCF覆盖率法)<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=25</span></span><span style="color:#d29922;font-weight:700">3/5→15.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">FCF $4B/年化 / 债务$2B = 200%覆盖率 → v4.0新标准：债务不视为实质风险 → dim3升为3/5</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>历史与同行对比<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=15</span></span><span style="color:#f85149;font-weight:700">2/5→6.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:#f85149;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">HBF架构独特性使历史同行参照失效；相比铠侠有明确HBF溢价</div></div>
+    <div style="margin-top:14px"><table><tr><th>情景</th><th>概率</th><th>回报</th></tr>
+      <tr><td>乐观</td><td>25%</td><td class="num pos">22%</td></tr>
+      <tr><td>基准</td><td>45%</td><td class="num">66%</td></tr>
+      <tr><td>悲观</td><td>20%</td><td class="num neg">-15%</td></tr>
+      <tr><td>颠覆</td><td>10%</td><td class="num neg">-45%</td></tr>
+      <tr class="tr2"><td colspan="2"><strong>概率加权</strong></td><td class="num pos"><strong>27.7%</strong></td></tr>
+    </table></div>
+  </div>
+</div>
+<div class="g2">
+  <div class="card"><div class="ct">⚠️ 主要风险</div><ul style="padding-left:16px;font-size:13px"><li style='margin-bottom:4px'>HBF OCP≠量产：标准到出货需2-3年，期间NAND风险持续</li><li style='margin-bottom:4px'>NAND下行若在HBF前到来，FCF覆盖率降至危险区间</li><li style='margin-bottom:4px'>铠侠JV可能产生分歧</li></ul></div>
+  <div class="card"><div class="ct">🚀 近期催化剂</div><ul style="padding-left:16px;font-size:13px"><li style='margin-bottom:4px'>HBF OCP批准（2026 Q3-Q4）——升至B的触发器</li><li style='margin-bottom:4px'>NVIDIA官方将HBF列入CMX tier</li><li style='margin-bottom:4px'>NAND upcycle持续FCF偿清债务</li></ul></div>
+</div>
+</div><div id="tab-kioxia" class="tc">
+<div class="cohdr">
+  <div class="coleft">
+    <div class="coname">铠侠 Kioxia</div>
+    <div class="cometa">285A.JP · ¥79,840（$540），IPO¥1,455→+5,400%</div>
+    <div class="cometa">市值：<strong>$287B</strong> · P/Book：<strong>30.3x</strong> · EV/EBITDA：<strong>36.4x/8.8x fwd</strong></div>
+    <div class="cometa">分析师均价：<strong>¥63,327（均价，-20.7%低于股价）</strong> · 共识偏差：<strong class="neg">-20.7%</strong> · 归一化EV/EBITDA：<strong style="color:#f85149">75.9x</strong></div>
+    <div class="codesc">纯NAND，BiCS8 218层（vs SKH 321层，差距2-3年），2024.12 IPO，+5,400%。未参与HBF。三星HBM4E后AI存储弱势进一步凸显。分析师均价低于当前21%——8家中最强负向共识信号。</div>
+  </div>
+  <div class="coscore">
+    <div style="font-size:11px;color:#8b949e;text-align:center">v4.0:36</div>
+    <div class="bigscore" style="color:#da3633">36</div>
+    <div class="rcircle" style="border-color:#da3633;color:#da3633">D</div>
+  </div>
+</div>
+<div class="warn">⛔ 归一化EV/EBITDA 95.7x（8家最高），P/Book 30.3x，分析师均价低于当前21%</div>
+<div class="trigger-off"><div style="font-size:12px;color:#8b949e"><strong>触发器：未触发</strong>（当前不是周期底部买入机会）<br/>• A条件不满足：dim6=2/5（需≥4，当前景气峰值）<br/>• B条件不满足：EV/归一化EBITDA=75.9x（需≤7.2x，当前估值偏高）<br/>• C条件不满足：共识偏差=-20.7%（需≥-5%）</div></div>
+<div class="gbox">💡 <strong>投资结论：</strong>归一化EV/EBITDA 95.7x+P/Book 30x+技术落后+缺席HBF+共识低21%——8家风险回报最差，移出候选池</div>
+<div class="sec" style="font-size:15px">前瞻信号</div>
+<div class="card"><div class="sigrow sig-neg"><strong>🔴负面外生</strong>：三星HBM4E首发<br/><span style="opacity:.8">→ AI存储弱势进一步凸显；维持D(36)</span><br/><span style="opacity:.6">时间线：已发生</span></div><div class="sigrow sig-neg"><strong>🔴维持D</strong>：共识¥63,327低于股价21%<br/><span style="opacity:.8">→ 8家唯一共识明确低于股价的标的</span><br/><span style="opacity:.6">时间线：持续</span></div></div>
+<div class="g2">
+  <div class="card"><div class="ct">业务分部→行业分</div>
+    <table><tr><th>分部</th><th>占比</th><th>赛道分</th><th>归一化系数</th><th>峰值营收</th><th>加权行业分</th></tr><tr><td>企业NAND SSD</td><td class="num">58%</td><td class="num">78</td><td class="num">0.62</td><td class="num">$11.6B</td><td class="num pos">45.2</td></tr><tr><td>移动/消费NAND</td><td class="num">42%</td><td class="num">52</td><td class="num">0.55</td><td class="num">$8.4B</td><td class="num pos">21.8</td></tr><tr class="tr2"><td colspan="5"><strong>加权行业分</strong></td><td class="num pos"><strong>67.1</strong></td></tr></table>
+  </div>
+  <div class="card"><div class="ct">评分汇总</div>
+    <table><tr><th>层</th><th>得分</th><th>权重</th><th>贡献</th></tr>
+      <tr><td>行业吸引力</td><td class="num">67.1</td><td>20%</td><td class="num">13.4</td></tr>
+      <tr><td>公司质量</td><td class="num">46.0</td><td>50%</td><td class="num">23.0</td></tr>
+      <tr><td>估值安全边际</td><td class="num">20.0<span style="font-size:10px;color:#8b949e">（原20）</span></td><td>30%</td><td class="num">6.0</td></tr>
+      <tr><td colspan="3"><strong>基础分</strong></td><td class="num"><strong>42.4</strong></td></tr>
+      <tr><td colspan="3">× 置信度系数</td><td class="num">×0.85<span style="font-size:10px;color:#8b949e"></span></td></tr>
+      <tr class="tr2"><td colspan="3"><strong>最终调整分</strong></td><td><span style="font-size:28px;font-weight:800;color:#da3633">36</span> <span class="rcircle" style="width:32px;height:32px;font-size:16px;border-color:#da3633;color:#da3633">D</span></td></tr>
+    </table>
+  </div>
+</div>
+<div class="g2">
+  <div class="card">
+    <div class="ct">公司质量（前瞻60%）<span class="ls">46.0/100</span></div>
+    <div class="ibox" style="font-size:11px;margin-bottom:8px">QUAL_W=[20,10,18,12,10,12,12,6]；财务类维度必须用通算口径</div>
+    <div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>成长性<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=20</span></span><span style="color:#d29922;font-weight:700">3/5→12.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">FY2025 +37% YoY；企业SSD向AI迁移；增速弱于同行</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>盈利质量/通算ROIC<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=10</span></span><span style="color:#f85149;font-weight:700">2/5→4.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:#f85149;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">通算GM~20-30%；LBO遗留ROIC偏低；当期47%峰值不纳入打分</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>市占率+技术节点+成本曲线<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=18</span></span><span style="color:#f85149;font-weight:700">2/5→7.2</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:#f85149;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">BiCS8 218层 vs SKH 321层（差距2-3年）；无HBM；未参与HBF；JV与SanDisk共享无差异化</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>AI/HBF战略地位与市场认知<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#da3633;font-weight:700">1/5→2.4</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:20%;height:100%;background:#da3633;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">AI存储最弱：tier0无HBM；tier2.5无HBF；tier3与Solidigm竞争劣势</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>财务稳健性<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=10</span></span><span style="color:#d29922;font-weight:700">3/5→6.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">净债务/权益39%（改善）；FCF ¥395B历史高；LBO遗留债务仍存</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>管理层执行力与轨迹<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#d29922;font-weight:700">3/5→7.2</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:#d29922;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">IPO仅1.5年；Bain时期技术投资受约束；近12个月无重大正面里程碑</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>未来可选性与期权价值<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=12</span></span><span style="color:#f85149;font-weight:700">2/5→4.8</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:#f85149;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">BiCS9路线图；HBF缺席是最重要可选性缺失——期权价值1/5+新权重12%=双重损失</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>客户结构与商业模式<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=6</span></span><span style="color:#f85149;font-weight:700">2/5→2.4</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:#f85149;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">企业SSD向超大规模迁移；但无Solidigm CMX优势</div></div>
+  </div>
+  <div class="card">
+    <div class="ct">估值安全边际<span class="ls">20.0/100</span></div>
+    <div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>通算估值上行空间<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=35</span></span><span style="color:#da3633;font-weight:700">1/5→7.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:20%;height:100%;background:#da3633;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">峰值$20B→归一化$11.6B；EBITDA@26%=$3.0B；EV/归一化=95.7x——8家最高；5yr~2-4%</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>通算相对估值+共识偏差<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=25</span></span><span style="color:#da3633;font-weight:700">1/5→5.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:20%;height:100%;background:#da3633;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">▼95.7x vs历史中位5.5x；共识¥63,327 vs 股价¥79,840=-20.7%——8家中唯一共识低于股价的D级</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>下行保护(FCF覆盖率法)<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=25</span></span><span style="color:#da3633;font-weight:700">1/5→5.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:20%;height:100%;background:#da3633;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">P/Book 30.3x历史极端；LBO债务改善中；NAND下行时P/Book崩溃风险最大</div></div><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8b949e;margin-bottom:2px"><span>历史与同行对比<span style="color:#6e7681;font-size:10px;margin-left:3px"> w=15</span></span><span style="color:#da3633;font-weight:700">1/5→3.0</span></div><div style="height:7px;background:#21262d;border-radius:4px;overflow:hidden"><div style="width:20%;height:100%;background:#da3633;border-radius:4px"></div></div><div style="font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4">IPO¥1,455→¥79,840（+5,400%）；分析师均价低21%；历史最高估值分位</div></div>
+    <div style="margin-top:14px"><table><tr><th>情景</th><th>概率</th><th>回报</th></tr>
+      <tr><td>乐观</td><td>25%</td><td class="num pos">8%</td></tr>
+      <tr><td>基准</td><td>45%</td><td class="num">42%</td></tr>
+      <tr><td>悲观</td><td>20%</td><td class="num neg">-20%</td></tr>
+      <tr><td>颠覆</td><td>10%</td><td class="num neg">-55%</td></tr>
+      <tr class="tr2"><td colspan="2"><strong>概率加权</strong></td><td class="num neu"><strong>11.6%</strong></td></tr>
+    </table></div>
+  </div>
+</div>
+<div class="g2">
+  <div class="card"><div class="ct">⚠️ 主要风险</div><ul style="padding-left:16px;font-size:13px"><li style='margin-bottom:4px'>归一化EV/EBITDA 95.7x（8家最高）</li><li style='margin-bottom:4px'>P/Book 30.3x历史极端</li><li style='margin-bottom:4px'>缺席HBF；共识低21%</li></ul></div>
+  <div class="card"><div class="ct">🚀 近期催化剂</div><ul style="padding-left:16px;font-size:13px"><li style='margin-bottom:4px'>BiCS9量产确认</li><li style='margin-bottom:4px'>NVIDIA CMX指定铠侠SSD</li></ul></div>
+</div>
+</div>
+
+</div>
+<div class="ftr">
+  存储器专项投资打分系统 v4.1（复合触发器版）&nbsp;|&nbsp;更新日期：2026-06-03<br/>
+  三层框架不变；新增：复合触发器（第四点五步）→ 历史验证SNDK $38.50时B(60)买入信号<br/>
+  触发条件：A(周期底部dim6≥4) + B(EV/归一化EBITDA≤7.2x) + C(共识偏差≥-5%) → 估值分+15<br/>
+  ⚠️ 本报告仅供研究参考，不构成投资建议。
+</div>
+<script>
+function showTab(id){
+  document.querySelectorAll('.tc').forEach(e=>e.classList.remove('act'));
+  document.querySelectorAll('.tb').forEach(e=>e.classList.remove('act'));
+  const el=document.getElementById('tab-'+id);
+  if(el)el.classList.add('act');
+  event.target.classList.add('act');
+}
+</script></body></html>
