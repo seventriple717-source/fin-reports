@@ -1,0 +1,2831 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>半导体设备与检测投资打分 v1.0 · 2026-06-04</title>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d1117;color:#c9d1d9;font-family:-apple-system,'PingFang SC','Hiragino Sans GB',sans-serif;font-size:14px;line-height:1.6}
+.hdr{background:linear-gradient(135deg,#0d1117,#1c2128);border-bottom:1px solid #30363d;padding:28px 20px 18px}
+.hdr h1{font-size:22px;font-weight:700;color:#e6edf3}
+.hdr .sub{color:#8b949e;font-size:12px;margin-top:4px}
+.bx{display:inline-block;padding:2px 8px;border-radius:9px;font-size:11px;margin-left:6px;background:#1f6feb22;color:#58a6ff;border:1px solid #1f6feb44}
+.con{max-width:1600px;margin:0 auto;padding:0 16px}
+.navt{background:#161b22;border-bottom:1px solid #30363d;padding:0 12px;overflow-x:auto;white-space:nowrap}
+.tb{display:inline-block;padding:10px 14px;cursor:pointer;color:#8b949e;background:none;border:none;border-bottom:2px solid transparent;font-size:13px;transition:all .2s}
+.tb:hover{color:#c9d1d9}.tb.act{color:#58a6ff;border-bottom-color:#58a6ff}
+.tc{display:none;padding:20px 0}.tc.act{display:block}
+.card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;margin-bottom:14px}
+.ct{font-size:15px;font-weight:600;color:#e6edf3;margin-bottom:12px}
+.sec{font-size:17px;font-weight:700;color:#e6edf3;margin:20px 0 12px;padding-left:10px;border-left:3px solid #58a6ff}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:#21262d;color:#8b949e;padding:9px 10px;text-align:left;border-bottom:2px solid #30363d}
+td{padding:8px 10px;border-bottom:1px solid #21262d;vertical-align:middle}
+tr:hover td{background:#1c2128}
+.num{font-family:'SF Mono','Fira Code',monospace;color:#79c0ff}
+.pos{color:#3fb950}.neg{color:#f85149}.neu{color:#8b949e}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:900px){.g2,.g3,.g4{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.ibox{background:#58a6ff11;border:1px solid #58a6ff44;padding:9px 12px;border-radius:6px;font-size:12px;color:#79c0ff;margin:6px 0}
+.gbox{background:#2ea04311;border:1px solid #2ea04344;padding:9px 12px;border-radius:6px;font-size:12px;color:#3fb950;margin:6px 0}
+.warn{background:#f0883e11;border:1px solid #f0883e44;padding:9px 12px;border-radius:6px;font-size:12px;color:#f0883e;margin:6px 0}
+.rbox{background:#f8514911;border:1px solid #f8514944;padding:9px 12px;border-radius:6px;font-size:12px;color:#f85149;margin:6px 0}
+.cohdr{display:flex;gap:16px;margin-bottom:14px;align-items:flex-start;flex-wrap:wrap}
+.coleft{flex:1;min-width:200px}
+.coname{font-size:18px;font-weight:700;color:#e6edf3}
+.cometa{font-size:12px;color:#8b949e;margin-top:3px}
+.coscore{text-align:center;flex-shrink:0;min-width:90px}
+.bigscore{font-size:48px;font-weight:800;letter-spacing:-2px;line-height:1}
+.rcircle{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;border:2px solid;background:#0d1117}
+.badge{display:inline-block;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:600;border:1px solid}
+.ftr{text-align:center;padding:24px 0;color:#8b949e;font-size:12px;border-top:1px solid #30363d;margin-top:40px}
+.bar-wrap{display:flex;align-items:center;gap:8px}
+.bar{height:8px;border-radius:4px}
+.bar-bg{flex:1;background:#21262d;border-radius:4px;overflow:hidden}
+.score-pill{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;font-size:12px;font-weight:700;border:1.5px solid}
+.watermark{position:fixed;bottom:12px;right:16px;font-size:10px;color:#30363d;pointer-events:none}</style>
+</head><body>
+<div class="hdr"><div class="con">
+  <h1>半导体设备与检测 专项投资打分报告
+    <span class="bx">v1.0</span>
+    <span class="bx">14家公司</span>
+    <span class="bx">2026-06-04</span>
+    <span class="bx">基于实时联网搜索数据</span>
+  </h1>
+  <div class="sub">Semiconductor Equipment &amp; Test · WFE行业扩张期 · 2026 WFE预测$145B · N2/GAA+HBM多年Capex能见度 · 数据截至2026-06-04</div>
+</div></div>
+
+<div class="con">
+<div class="navt">
+  <button class="tb act" data-tab="t-overview" onclick="showTab('t-overview')">📊 总览排名</button>
+  <button class="tb" data-tab="t-landscape" onclick="showTab('t-landscape')">🌍 WFE行业全景</button>
+  <button class="tb" data-tab="t-detail" onclick="showTab('t-detail')">🔍 公司详情</button>
+</div>
+
+<div id="t-overview" class="tc act">
+  <div class="sec">14家公司综合评分排名</div>
+  <div class="card">
+    <table>
+      <tr><th>#</th><th>代码</th><th>公司名称</th><th>子赛道</th><th>行业分</th><th>质量分</th><th>估值分</th><th>最终分</th><th>评级</th><th>置信度</th></tr>
+      <tr>
+  <td style="font-weight:600;color:#8b949e">1</td>
+  <td style="font-weight:700">KLAC</td>
+  <td style="color:#8b949e;font-size:12px">KLA Corporation</td>
+  <td><span class="badge" style="background:#58a6ff22;color:#58a6ff;border-color:#58a6ff44;font-size:10px">Process Control / Insp</span></td>
+  <td class="num">90.0</td>
+  <td class="num">92.4</td>
+  <td class="num">73.0</td>
+  <td class="num" style="color:#ffd700;font-weight:700">80.1</td>
+  <td><span class="rcircle" style="color:#ffd700;border-color:#ffd700;width:26px;height:26px;font-size:13px">S</span></td>
+  <td style="color:#8b949e;font-size:11px">0.93</td>
+</tr><tr>
+  <td style="font-weight:600;color:#8b949e">2</td>
+  <td style="font-weight:700">ASML</td>
+  <td style="color:#8b949e;font-size:12px">ASML Holding N.V.</td>
+  <td><span class="badge" style="background:#58a6ff22;color:#58a6ff;border-color:#58a6ff44;font-size:10px">Lithography</span></td>
+  <td class="num">90.0</td>
+  <td class="num">92.4</td>
+  <td class="num">63.0</td>
+  <td class="num" style="color:#3fb950;font-weight:700">78.9</td>
+  <td><span class="rcircle" style="color:#3fb950;border-color:#3fb950;width:26px;height:26px;font-size:13px">A</span></td>
+  <td style="color:#8b949e;font-size:11px">0.95</td>
+</tr><tr>
+  <td style="font-weight:600;color:#8b949e">3</td>
+  <td style="font-weight:700">LRCX</td>
+  <td style="color:#8b949e;font-size:12px">Lam Research Corporation</td>
+  <td><span class="badge" style="background:#58a6ff22;color:#58a6ff;border-color:#58a6ff44;font-size:10px">Etch/Deposition</span></td>
+  <td class="num">81.2</td>
+  <td class="num">89.6</td>
+  <td class="num">68.0</td>
+  <td class="num" style="color:#3fb950;font-weight:700">74.9</td>
+  <td><span class="rcircle" style="color:#3fb950;border-color:#3fb950;width:26px;height:26px;font-size:13px">A</span></td>
+  <td style="color:#8b949e;font-size:11px">0.92</td>
+</tr><tr>
+  <td style="font-weight:600;color:#8b949e">4</td>
+  <td style="font-weight:700">NVMI</td>
+  <td style="color:#8b949e;font-size:12px">Nova Ltd.</td>
+  <td><span class="badge" style="background:#58a6ff22;color:#58a6ff;border-color:#58a6ff44;font-size:10px">Process Control / Metr</span></td>
+  <td class="num">77.4</td>
+  <td class="num">83.6</td>
+  <td class="num">72.0</td>
+  <td class="num" style="color:#58a6ff;font-weight:700">69.4</td>
+  <td><span class="rcircle" style="color:#58a6ff;border-color:#58a6ff;width:26px;height:26px;font-size:13px">B</span></td>
+  <td style="color:#8b949e;font-size:11px">0.88</td>
+</tr><tr>
+  <td style="font-weight:600;color:#8b949e">5</td>
+  <td style="font-weight:700">TER</td>
+  <td style="color:#8b949e;font-size:12px">Teradyne Inc.</td>
+  <td><span class="badge" style="background:#58a6ff22;color:#58a6ff;border-color:#58a6ff44;font-size:10px">Semiconductor Test</span></td>
+  <td class="num">77.6</td>
+  <td class="num">85.6</td>
+  <td class="num">60.0</td>
+  <td class="num" style="color:#58a6ff;font-weight:700">68.7</td>
+  <td><span class="rcircle" style="color:#58a6ff;border-color:#58a6ff;width:26px;height:26px;font-size:13px">B</span></td>
+  <td style="color:#8b949e;font-size:11px">0.9</td>
+</tr><tr>
+  <td style="font-weight:600;color:#8b949e">6</td>
+  <td style="font-weight:700">6920.T</td>
+  <td style="color:#8b949e;font-size:12px">Lasertec Corporation</td>
+  <td><span class="badge" style="background:#58a6ff22;color:#58a6ff;border-color:#58a6ff44;font-size:10px">EUV Mask Inspection</span></td>
+  <td class="num">92.0</td>
+  <td class="num">76.4</td>
+  <td class="num">72.0</td>
+  <td class="num" style="color:#58a6ff;font-weight:700">66.5</td>
+  <td><span class="rcircle" style="color:#58a6ff;border-color:#58a6ff;width:26px;height:26px;font-size:13px">B</span></td>
+  <td style="color:#8b949e;font-size:11px">0.85</td>
+</tr><tr>
+  <td style="font-weight:600;color:#8b949e">7</td>
+  <td style="font-weight:700">ATEYY</td>
+  <td style="color:#8b949e;font-size:12px">Advantest Corporation</td>
+  <td><span class="badge" style="background:#58a6ff22;color:#58a6ff;border-color:#58a6ff44;font-size:10px">Semiconductor Test</span></td>
+  <td class="num">80.0</td>
+  <td class="num">83.2</td>
+  <td class="num">65.0</td>
+  <td class="num" style="color:#58a6ff;font-weight:700">65.5</td>
+  <td><span class="rcircle" style="color:#58a6ff;border-color:#58a6ff;width:26px;height:26px;font-size:13px">B</span></td>
+  <td style="color:#8b949e;font-size:11px">0.85</td>
+</tr><tr>
+  <td style="font-weight:600;color:#8b949e">8</td>
+  <td style="font-weight:700">CAMT</td>
+  <td style="color:#8b949e;font-size:12px">Camtek Ltd.</td>
+  <td><span class="badge" style="background:#58a6ff22;color:#58a6ff;border-color:#58a6ff44;font-size:10px">Advanced Packaging Ins</span></td>
+  <td class="num">73.0</td>
+  <td class="num">78.0</td>
+  <td class="num">67.0</td>
+  <td class="num" style="color:#58a6ff;font-weight:700">64.9</td>
+  <td><span class="rcircle" style="color:#58a6ff;border-color:#58a6ff;width:26px;height:26px;font-size:13px">B</span></td>
+  <td style="color:#8b949e;font-size:11px">0.88</td>
+</tr><tr>
+  <td style="font-weight:600;color:#8b949e">9</td>
+  <td style="font-weight:700">ONTO</td>
+  <td style="color:#8b949e;font-size:12px">Onto Innovation Inc.</td>
+  <td><span class="badge" style="background:#58a6ff22;color:#58a6ff;border-color:#58a6ff44;font-size:10px">Metrology / Advanced P</span></td>
+  <td class="num">71.0</td>
+  <td class="num">82.8</td>
+  <td class="num">60.0</td>
+  <td class="num" style="color:#58a6ff;font-weight:700">64.0</td>
+  <td><span class="rcircle" style="color:#58a6ff;border-color:#58a6ff;width:26px;height:26px;font-size:13px">B</span></td>
+  <td style="color:#8b949e;font-size:11px">0.87</td>
+</tr><tr>
+  <td style="font-weight:600;color:#8b949e">10</td>
+  <td style="font-weight:700">FORM</td>
+  <td style="color:#8b949e;font-size:12px">FormFactor Inc.</td>
+  <td><span class="badge" style="background:#58a6ff22;color:#58a6ff;border-color:#58a6ff44;font-size:10px">Probe Cards / Test Int</span></td>
+  <td class="num">73.0</td>
+  <td class="num">77.6</td>
+  <td class="num">67.0</td>
+  <td class="num" style="color:#58a6ff;font-weight:700">63.9</td>
+  <td><span class="rcircle" style="color:#58a6ff;border-color:#58a6ff;width:26px;height:26px;font-size:13px">B</span></td>
+  <td style="color:#8b949e;font-size:11px">0.87</td>
+</tr><tr>
+  <td style="font-weight:600;color:#8b949e">11</td>
+  <td style="font-weight:700">AMAT</td>
+  <td style="color:#8b949e;font-size:12px">Applied Materials Inc.</td>
+  <td><span class="badge" style="background:#58a6ff22;color:#58a6ff;border-color:#58a6ff44;font-size:10px">Deposition/Etch/CMP</span></td>
+  <td class="num">73.8</td>
+  <td class="num">75.6</td>
+  <td class="num">60.0</td>
+  <td class="num" style="color:#58a6ff;font-weight:700">63.5</td>
+  <td><span class="rcircle" style="color:#58a6ff;border-color:#58a6ff;width:26px;height:26px;font-size:13px">B</span></td>
+  <td style="color:#8b949e;font-size:11px">0.9</td>
+</tr><tr>
+  <td style="font-weight:600;color:#8b949e">12</td>
+  <td style="font-weight:700">8035.T</td>
+  <td style="color:#8b949e;font-size:12px">Tokyo Electron Ltd. (TEL)</td>
+  <td><span class="badge" style="background:#58a6ff22;color:#58a6ff;border-color:#58a6ff44;font-size:10px">CVD/ALD/Etch/Coater</span></td>
+  <td class="num">83.2</td>
+  <td class="num">75.2</td>
+  <td class="num">60.0</td>
+  <td class="num" style="color:#58a6ff;font-weight:700">61.4</td>
+  <td><span class="rcircle" style="color:#58a6ff;border-color:#58a6ff;width:26px;height:26px;font-size:13px">B</span></td>
+  <td style="color:#8b949e;font-size:11px">0.85</td>
+</tr><tr>
+  <td style="font-weight:600;color:#8b949e">13</td>
+  <td style="font-weight:700">TNPBF</td>
+  <td style="color:#8b949e;font-size:12px">Technoprobe S.p.A.</td>
+  <td><span class="badge" style="background:#58a6ff22;color:#58a6ff;border-color:#58a6ff44;font-size:10px">Probe Cards / Test Int</span></td>
+  <td class="num">73.0</td>
+  <td class="num">67.6</td>
+  <td class="num">64.0</td>
+  <td class="num" style="color:#d29922;font-weight:700">50.7</td>
+  <td><span class="rcircle" style="color:#d29922;border-color:#d29922;width:26px;height:26px;font-size:13px">C</span></td>
+  <td style="color:#8b949e;font-size:11px">0.75</td>
+</tr><tr>
+  <td style="font-weight:600;color:#8b949e">14</td>
+  <td style="font-weight:700">COHU <span style="color:#f85149;font-size:10px">VETO</span></td>
+  <td style="color:#8b949e;font-size:12px">Cohu Inc.</td>
+  <td><span class="badge" style="background:#58a6ff22;color:#58a6ff;border-color:#58a6ff44;font-size:10px">Semiconductor Test Han</span></td>
+  <td class="num">47.0</td>
+  <td class="num">37.6</td>
+  <td class="num">35.0</td>
+  <td class="num" style="color:#f85149;font-weight:700">34.8</td>
+  <td><span class="rcircle" style="color:#f85149;border-color:#f85149;width:26px;height:26px;font-size:13px">D</span></td>
+  <td style="color:#8b949e;font-size:11px">0.9</td>
+</tr>
+    </table>
+  </div>
+  <div class="g4" style="margin-top:16px">
+    <div class="card" style="border-color:#ffd70044"><div style="color:#ffd700;font-weight:700;margin-bottom:8px">⭐ S级 核心持仓</div><div style="margin:3px 0"><strong style="color:#ffd700">KLAC</strong> <span class="num">80.1</span> <span style="color:#8b949e;font-size:11px">· Process Control / Inspection & Metrology</span></div></div>
+    <div class="card" style="border-color:#3fb95044"><div style="color:#3fb950;font-weight:700;margin-bottom:8px">🟢 A级 重点关注</div><div style="margin:3px 0"><strong style="color:#3fb950">ASML</strong> <span class="num">78.9</span> <span style="color:#8b949e;font-size:11px">· Lithography</span></div><div style="margin:3px 0"><strong style="color:#3fb950">LRCX</strong> <span class="num">74.9</span> <span style="color:#8b949e;font-size:11px">· Etch/Deposition</span></div></div>
+    <div class="card" style="border-color:#58a6ff44"><div style="color:#58a6ff;font-weight:700;margin-bottom:8px">🔵 B级 小仓位</div><div style="margin:3px 0"><strong style="color:#58a6ff">NVMI</strong> <span class="num">69.4</span> <span style="color:#8b949e;font-size:11px">· Process Control / Metrology</span></div><div style="margin:3px 0"><strong style="color:#58a6ff">TER</strong> <span class="num">68.7</span> <span style="color:#8b949e;font-size:11px">· Semiconductor Test</span></div><div style="margin:3px 0"><strong style="color:#58a6ff">6920.T</strong> <span class="num">66.5</span> <span style="color:#8b949e;font-size:11px">· EUV Mask Inspection</span></div><div style="margin:3px 0"><strong style="color:#58a6ff">ATEYY</strong> <span class="num">65.5</span> <span style="color:#8b949e;font-size:11px">· Semiconductor Test</span></div><div style="margin:3px 0"><strong style="color:#58a6ff">CAMT</strong> <span class="num">64.9</span> <span style="color:#8b949e;font-size:11px">· Advanced Packaging Inspection</span></div><div style="margin:3px 0"><strong style="color:#58a6ff">ONTO</strong> <span class="num">64.0</span> <span style="color:#8b949e;font-size:11px">· Metrology / Advanced Packaging</span></div><div style="margin:3px 0"><strong style="color:#58a6ff">FORM</strong> <span class="num">63.9</span> <span style="color:#8b949e;font-size:11px">· Probe Cards / Test Interface</span></div><div style="margin:3px 0"><strong style="color:#58a6ff">AMAT</strong> <span class="num">63.5</span> <span style="color:#8b949e;font-size:11px">· Deposition/Etch/CMP</span></div><div style="margin:3px 0"><strong style="color:#58a6ff">8035.T</strong> <span class="num">61.4</span> <span style="color:#8b949e;font-size:11px">· CVD/ALD/Etch/Coater</span></div></div>
+    <div class="card" style="border-color:#f8514944"><div style="color:#f85149;font-weight:700;margin-bottom:8px">🔴 C/D级 暂不操作</div><div style="margin:3px 0"><strong style="color:#d29922">TNPBF</strong> <span class="num">50.7</span> <span style="color:#8b949e;font-size:11px">· Probe Cards / Test Interface</span></div><div style="margin:3px 0"><strong style="color:#f85149">COHU</strong> <span class="num">34.8</span> <span style="color:#8b949e;font-size:11px">· Semiconductor Test Handler</span></div></div>
+  </div>
+</div>
+
+<div id="t-landscape" class="tc">
+  <div class="sec">WFE行业全景：AI驱动扩张周期</div>
+  <div class="g3">
+    <div class="card">
+      <div class="ct">📈 周期阶段</div>
+      <div class="gbox"><strong>扩张期 — AI驱动WFE上行周期</strong><br>2026年WFE预测上调至$145B（原$139B），AI算力Capex+HBM存储驱动多年资本开支能见度。TSMC $56B记录性Capex，N2产能目标140K wpm。</div>
+      <div class="ibox" style="margin-top:8px">📌 关键洞察：SEMI上调2026年WFE至$145B；每节点转换时，工艺控制设备密度急剧上升，KLA、Nova、Lasertec不成比例受益；HBM4和AI SoC测试密度上升为Advantest、Teradyne、FormFactor创造结构性收入跃升。</div>
+    </div>
+    <div class="card">
+      <div class="ct">🚨 出口管制风险矩阵</div>
+      <table>
+        <tr><th>公司</th><th>中国营收占比</th><th>风险</th></tr>
+        <tr><td>AMAT</td><td class="neg">~25%</td><td class="neg">高，$252.5M BIS罚款已解决</td></tr>
+        <tr><td>LRCX</td><td class="neg">~31%</td><td class="neg">高</td></tr>
+        <tr><td>ASML</td><td class="neg">~15%</td><td class="neu">DUV受限，EUV禁止</td></tr>
+        <tr><td>KLAC</td><td class="neu">~20%</td><td class="neu">中，部分工艺控制受限</td></tr>
+        <tr><td>8035.T TEL</td><td class="neg">~35%</td><td class="neg">高，日本跟进管制风险</td></tr>
+        <tr><td>NVMI/CAMT</td><td class="pos">&lt;10%</td><td class="pos">低（以色列）</td></tr>
+        <tr><td>TER/ATEYY</td><td class="pos">&lt;12%</td><td class="pos">低，测试设备豁免</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="ct">🔭 WFE市场预测</div>
+      <div style="font-size:13px;line-height:2;color:#c9d1d9">
+        <div>2026年WFE总量：<span class="num">~$145B（SEMI预测）</span></div>
+        <div>YoY增速：<span class="pos">+15%（上调自$139B）</span></div>
+        <div>AI逻辑（N2/GAA）：<span class="num">~$60-65B</span></div>
+        <div>存储（DRAM+NAND）：<span class="num">~$45-50B</span></div>
+        <div>先进封装设备：<span class="num">~$10B+（快速增长）</span></div>
+        <div>2027年WFE预测：<span class="pos">$156B（SEMI）</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="t-detail" class="tc">
+  <div class="sec">公司详细评分（实时数据）</div>
+  <div class="navt" style="background:transparent;border-bottom:none"><button class="tb co-btn" data-co="KLAC" onclick="showCo('KLAC')" style="border-bottom:2px solid #ffd700;color:#ffd700">KLAC <span style="font-size:11px">80.1</span></button><button class="tb co-btn" data-co="ASML" onclick="showCo('ASML')" style="border-bottom:2px solid #3fb950;color:#3fb950">ASML <span style="font-size:11px">78.9</span></button><button class="tb co-btn" data-co="LRCX" onclick="showCo('LRCX')" style="border-bottom:2px solid #3fb950;color:#3fb950">LRCX <span style="font-size:11px">74.9</span></button><button class="tb co-btn" data-co="NVMI" onclick="showCo('NVMI')" style="border-bottom:2px solid #58a6ff;color:#58a6ff">NVMI <span style="font-size:11px">69.4</span></button><button class="tb co-btn" data-co="TER" onclick="showCo('TER')" style="border-bottom:2px solid #58a6ff;color:#58a6ff">TER <span style="font-size:11px">68.7</span></button><button class="tb co-btn" data-co="6920_T" onclick="showCo('6920_T')" style="border-bottom:2px solid #58a6ff;color:#58a6ff">6920.T <span style="font-size:11px">66.5</span></button><button class="tb co-btn" data-co="ATEYY" onclick="showCo('ATEYY')" style="border-bottom:2px solid #58a6ff;color:#58a6ff">ATEYY <span style="font-size:11px">65.5</span></button><button class="tb co-btn" data-co="CAMT" onclick="showCo('CAMT')" style="border-bottom:2px solid #58a6ff;color:#58a6ff">CAMT <span style="font-size:11px">64.9</span></button><button class="tb co-btn" data-co="ONTO" onclick="showCo('ONTO')" style="border-bottom:2px solid #58a6ff;color:#58a6ff">ONTO <span style="font-size:11px">64.0</span></button><button class="tb co-btn" data-co="FORM" onclick="showCo('FORM')" style="border-bottom:2px solid #58a6ff;color:#58a6ff">FORM <span style="font-size:11px">63.9</span></button><button class="tb co-btn" data-co="AMAT" onclick="showCo('AMAT')" style="border-bottom:2px solid #58a6ff;color:#58a6ff">AMAT <span style="font-size:11px">63.5</span></button><button class="tb co-btn" data-co="8035_T" onclick="showCo('8035_T')" style="border-bottom:2px solid #58a6ff;color:#58a6ff">8035.T <span style="font-size:11px">61.4</span></button><button class="tb co-btn" data-co="TNPBF" onclick="showCo('TNPBF')" style="border-bottom:2px solid #d29922;color:#d29922">TNPBF <span style="font-size:11px">50.7</span></button><button class="tb co-btn" data-co="COHU" onclick="showCo('COHU')" style="border-bottom:2px solid #f85149;color:#f85149">COHU <span style="font-size:11px">34.8</span></button></div>
+  
+<div id="co-KLAC" class="co-detail" style="display:none">
+  <div class="card">
+    
+    <div class="cohdr">
+      <div class="coleft">
+        <div class="coname">KLA Corporation <span style="color:#58a6ff;font-size:13px">(Process Control / Inspection & Metrology)</span></div>
+        <div class="cometa">KLAC · 置信度 0.93 · 2026-06-04 · 基于实时联网搜索数据</div>
+        <div style="margin-top:8px;font-size:13px;color:#8b949e;max-width:760px">KLA commands ~58% global market share in process control (inspection + metrology), a near-monopoly in the most mission-critical segment of WFE that cannot be displaced without multi-year qualification. Each node transition at 2nm/A16 requires disproportionately more KLA tools. Capital return program ($7B buyback + raised dividend) reflects management confidence.</div>
+        <div style="margin-top:8px">
+          <div class="ibox">📊 FQ3 2026 revenue $3.415B; FQ2 2026 $3.30B; Non-GAAP EPS FQ3 $9.40 (+11.8% YoY)</div>
+          <div class="ibox">📈 FQ3 2026 GAAP EPS $9.12; ~58% global process control market share; $7B additional buyback authorized; dividend raised to $2.30/quarter</div>
+        </div>
+      </div>
+      <div class="coscore">
+        <div class="bigscore" style="color:#ffd700">80.1</div>
+        <div><span class="rcircle" style="color:#ffd700;border-color:#ffd700">S</span></div>
+        <div style="font-size:11px;color:#8b949e;margin-top:4px">×0.93</div>
+      </div>
+    </div>
+    <div class="g3" style="margin-bottom:14px">
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#58a6ff">90.0</div>
+        <div style="font-size:11px;color:#8b949e">行业吸引力 ×20%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#3fb950">92.4</div>
+        <div style="font-size:11px;color:#8b949e">公司质量 ×50%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#f0883e">73.0</div>
+        <div style="font-size:11px;color:#8b949e">估值安全边际 ×30%</div>
+      </div>
+    </div>
+    <div class="g3">
+      <div><div class="ct">⚖️ 行业维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE长期需求</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术演进确定性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">利润池位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">行业壁垒</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">18%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">竞争格局</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE周期位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">出口管制风险</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr></table></div>
+      <div><div class="ct">🏢 公司质量</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">营收增长</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">盈利质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术护城河</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">AI节点对齐</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">财务稳健性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">管理层质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">服务收入粘性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">客户结构</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr></table></div>
+      <div><div class="ct">💰 估值维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">情景估值上行</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">35%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">相对估值PEG</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">下行保护</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">历史同行对比</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr></table></div>
+    </div>
+    <div class="g2" style="margin-top:12px">
+      <div class="rbox"><strong>⚠️ 风险：</strong>China export controls reducing SAM by $300-350M; premium valuation; concentration in process control makes revenue tied to specific node transitions.</div>
+      <div class="gbox"><strong>🚀 催化剂：</strong>N2 GAA node requiring highest-ever process control intensity; EUV/High-NA mask inspection; Advanced packaging metrology expansion.</div>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:#8b949e">
+      📎 来源：<a href="https://ir.kla.com/news-events/press-releases/detail/514/kla-corporation-reports-fiscal-2026-third-quarter-results" style="color:#58a6ff;text-decoration:none" target="_blank">[1]</a>
+      <a href="https://www.beyondspx.com/quote/KLAC/analysis/kla-corporation-process-control-dominance-in-the-ai-chip-era-meets-premium-valuation-reality-nasdaq-klac" style="color:#58a6ff;text-decoration:none;margin-left:8px" target="_blank">[2]</a>
+    </div>
+  </div>
+</div>
+<div id="co-ASML" class="co-detail" style="display:none">
+  <div class="card">
+    
+    <div class="cohdr">
+      <div class="coleft">
+        <div class="coname">ASML Holding N.V. <span style="color:#58a6ff;font-size:13px">(Lithography)</span></div>
+        <div class="cometa">ASML · 置信度 0.95 · 2026-06-04 · 基于实时联网搜索数据</div>
+        <div style="margin-top:8px;font-size:13px;color:#8b949e;max-width:760px">Absolute monopoly in EUV and High-NA lithography with no credible competitor for advanced nodes. TSMC's N2 ramp to 140K wpm and DRAM EUV adoption (51% of Q1 system sales) are driving backlog extension through 2027. High-NA revenue ramp in H2 2026 provides additional upside. FY2026 guidance raised to €36-40B.</div>
+        <div style="margin-top:8px">
+          <div class="ibox">📊 €8.8B Q1 2026 net sales (+13% YoY); FY2025 €32.7B; FY2026 guidance raised to €36-40B</div>
+          <div class="ibox">📈 Backlog €38.8B; Gross margin 53% Q1 2026; High-NA 5-10 deliveries planned 2026; EUV 65% of net system sales</div>
+        </div>
+      </div>
+      <div class="coscore">
+        <div class="bigscore" style="color:#3fb950">78.9</div>
+        <div><span class="rcircle" style="color:#3fb950;border-color:#3fb950">A</span></div>
+        <div style="font-size:11px;color:#8b949e;margin-top:4px">×0.95</div>
+      </div>
+    </div>
+    <div class="g3" style="margin-bottom:14px">
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#58a6ff">90.0</div>
+        <div style="font-size:11px;color:#8b949e">行业吸引力 ×20%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#3fb950">92.4</div>
+        <div style="font-size:11px;color:#8b949e">公司质量 ×50%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#f0883e">63.0</div>
+        <div style="font-size:11px;color:#8b949e">估值安全边际 ×30%</div>
+      </div>
+    </div>
+    <div class="g3">
+      <div><div class="ct">⚖️ 行业维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE长期需求</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术演进确定性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">利润池位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">行业壁垒</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">18%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">竞争格局</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE周期位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">出口管制风险</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr></table></div>
+      <div><div class="ct">🏢 公司质量</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">营收增长</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">盈利质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术护城河</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">AI节点对齐</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">财务稳健性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">管理层质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">服务收入粘性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">客户结构</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr></table></div>
+      <div><div class="ct">💰 估值维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">情景估值上行</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">35%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">相对估值PEG</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">下行保护</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">历史同行对比</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr></table></div>
+    </div>
+    <div class="g2" style="margin-top:12px">
+      <div class="rbox"><strong>⚠️ 风险：</strong>China export controls (BIS tightening restricts DUV shipments to China); Q1 2026 did not disclose order intake; stock premium pricing limits near-term upside.</div>
+      <div class="gbox"><strong>🚀 催化剂：</strong>High-NA EUV revenue ramp in H2 2026; Intel EXE:5200 HVM acceptance; TSMC 2nm capacity expansion accelerating.</div>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:#8b949e">
+      📎 来源：<a href="https://tech-insider.org/asml-q1-2026-revenue-earnings-guidance-raise-ai-chip/" style="color:#58a6ff;text-decoration:none" target="_blank">[1]</a>
+      <a href="https://www.semi.org/en/semi-press-release/global-semiconductor-equipment-sales-projected-to-reach-a-record-of-156-billion-dollars-in-2027-semi-reports" style="color:#58a6ff;text-decoration:none;margin-left:8px" target="_blank">[2]</a>
+    </div>
+  </div>
+</div>
+<div id="co-LRCX" class="co-detail" style="display:none">
+  <div class="card">
+    
+    <div class="cohdr">
+      <div class="coleft">
+        <div class="coname">Lam Research Corporation <span style="color:#58a6ff;font-size:13px">(Etch/Deposition)</span></div>
+        <div class="cometa">LRCX · 置信度 0.92 · 2026-06-04 · 基于实时联网搜索数据</div>
+        <div style="margin-top:8px;font-size:13px;color:#8b949e;max-width:760px">Lam holds the #1 position in etch and clear #2 in deposition, with ~35% share of WFE addressable market. Record Q3 2026 revenue of $5.84B driven by AI-fueled memory (HBM) and logic demand. CSBG achieved first $2.11B service quarter (~36% of total). Q4 2026 guidance of $6.60B signals continued record-setting trajectory.</div>
+        <div style="margin-top:8px">
+          <div class="ibox">📊 Q3 2026 record $5.84B (+9.3% sequential); Q4 2026 guided $6.60B ±$0.40B; CSBG first $2.11B quarter</div>
+          <div class="ibox">📈 Q3 2026 gross margin 49.8%; operating margin 35.0%; CSBG (service) $2.11B (36% of revenue); EPS $1.45 GAAP; Q4 guided EPS $1.65±$0.15</div>
+        </div>
+      </div>
+      <div class="coscore">
+        <div class="bigscore" style="color:#3fb950">74.9</div>
+        <div><span class="rcircle" style="color:#3fb950;border-color:#3fb950">A</span></div>
+        <div style="font-size:11px;color:#8b949e;margin-top:4px">×0.92</div>
+      </div>
+    </div>
+    <div class="g3" style="margin-bottom:14px">
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#58a6ff">81.2</div>
+        <div style="font-size:11px;color:#8b949e">行业吸引力 ×20%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#3fb950">89.6</div>
+        <div style="font-size:11px;color:#8b949e">公司质量 ×50%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#f0883e">68.0</div>
+        <div style="font-size:11px;color:#8b949e">估值安全边际 ×30%</div>
+      </div>
+    </div>
+    <div class="g3">
+      <div><div class="ct">⚖️ 行业维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE长期需求</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术演进确定性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">利润池位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">行业壁垒</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">18%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">竞争格局</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE周期位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">出口管制风险</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr></table></div>
+      <div><div class="ct">🏢 公司质量</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">营收增长</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">盈利质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术护城河</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">AI节点对齐</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">财务稳健性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">管理层质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">服务收入粘性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">客户结构</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr></table></div>
+      <div><div class="ct">💰 估值维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">情景估值上行</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">35%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">相对估值PEG</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">下行保护</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">历史同行对比</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr></table></div>
+    </div>
+    <div class="g2" style="margin-top:12px">
+      <div class="rbox"><strong>⚠️ 风险：</strong>High memory concentration (~50% of revenue); China export control exposure; NAND recovery pace slower than DRAM.</div>
+      <div class="gbox"><strong>🚀 催化剂：</strong>Q4 2026 guided $6.60B (new record); HBM4 driving etch intensity; NAND recovery accelerating; CSBG >$2B quarterly run rate established.</div>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:#8b949e">
+      📎 来源：<a href="https://www.prnewswire.com/news-releases/lam-research-corporation-reports-financial-results-for-the-quarter-ended-march-29-2026-302750629.html" style="color:#58a6ff;text-decoration:none" target="_blank">[1]</a>
+      <a href="https://beyondspx.com/quote/LRCX/analysis/lam-research-ai-driven-etch-leadership-meets-record-margin-expansion-nasdaq-lrcx" style="color:#58a6ff;text-decoration:none;margin-left:8px" target="_blank">[2]</a>
+    </div>
+  </div>
+</div>
+<div id="co-NVMI" class="co-detail" style="display:none">
+  <div class="card">
+    
+    <div class="cohdr">
+      <div class="coleft">
+        <div class="coname">Nova Ltd. <span style="color:#58a6ff;font-size:13px">(Process Control / Metrology)</span></div>
+        <div class="cometa">NVMI · 置信度 0.88 · 2026-06-04 · 基于实时联网搜索数据</div>
+        <div style="margin-top:8px;font-size:13px;color:#8b949e;max-width:760px">Nova is the most advanced independent metrology company with differentiated chemical metrology (Metrion platform) and dimensional metrology adopted by two leading GAA manufacturers. Q1 2026 record revenue $235.3M with Q2 guided $245-255M. The GAA transition creates a $500M revenue opportunity for Nova.</div>
+        <div style="margin-top:8px">
+          <div class="ibox">📊 Q1 2026 record $235.3M (+10.3% YoY, beat $227M est); Q2 2026 guided $245-255M; FY2025 $880.6M (+31% YoY)</div>
+          <div class="ibox">📈 Q1 2026 EPS $2.33 (beat est); non-GAAP gross margin ~59%; Metrion platform adopted by two leading GAA/advanced DRAM manufacturers; Needham raised PT to $640</div>
+        </div>
+      </div>
+      <div class="coscore">
+        <div class="bigscore" style="color:#58a6ff">69.4</div>
+        <div><span class="rcircle" style="color:#58a6ff;border-color:#58a6ff">B</span></div>
+        <div style="font-size:11px;color:#8b949e;margin-top:4px">×0.88</div>
+      </div>
+    </div>
+    <div class="g3" style="margin-bottom:14px">
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#58a6ff">77.4</div>
+        <div style="font-size:11px;color:#8b949e">行业吸引力 ×20%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#3fb950">83.6</div>
+        <div style="font-size:11px;color:#8b949e">公司质量 ×50%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#f0883e">72.0</div>
+        <div style="font-size:11px;color:#8b949e">估值安全边际 ×30%</div>
+      </div>
+    </div>
+    <div class="g3">
+      <div><div class="ct">⚖️ 行业维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE长期需求</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术演进确定性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">利润池位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">行业壁垒</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">18%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">竞争格局</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE周期位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">出口管制风险</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr></table></div>
+      <div><div class="ct">🏢 公司质量</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">营收增长</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">盈利质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术护城河</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">AI节点对齐</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">财务稳健性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">管理层质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">服务收入粘性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">客户结构</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr></table></div>
+      <div><div class="ct">💰 估值维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">情景估值上行</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">35%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">相对估值PEG</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">下行保护</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">历史同行对比</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr></table></div>
+    </div>
+    <div class="g2" style="margin-top:12px">
+      <div class="rbox"><strong>⚠️ 风险：</strong>China flat revenue headwind (~30% of sales); competition from KLA in dimensional metrology; smaller scale limits diversification.</div>
+      <div class="gbox"><strong>🚀 催化剂：</strong>GAA node metrology intensity ramp; Metrion platform expansion to additional GAA customers; advanced DRAM (HBM4) metrology demand.</div>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:#8b949e">
+      📎 来源：<a href="https://www.dailypolitical.com/2026/05/15/nova-nasdaqnvmi-posts-earnings-results-beats-expectations-by-0-13-eps.html" style="color:#58a6ff;text-decoration:none" target="_blank">[1]</a>
+      <a href="https://www.sahmcapital.com/news/content/is-novas-cash-rich-growth-in-advanced-metrology-reshaping-the-investment-case-for-nvmi-2026-04-29" style="color:#58a6ff;text-decoration:none;margin-left:8px" target="_blank">[2]</a>
+    </div>
+  </div>
+</div>
+<div id="co-TER" class="co-detail" style="display:none">
+  <div class="card">
+    
+    <div class="cohdr">
+      <div class="coleft">
+        <div class="coname">Teradyne Inc. <span style="color:#58a6ff;font-size:13px">(Semiconductor Test)</span></div>
+        <div class="cometa">TER · 置信度 0.9 · 2026-06-04 · 基于实时联网搜索数据</div>
+        <div style="margin-top:8px;font-size:13px;color:#8b949e;max-width:760px">Teradyne's Q1 2026 revenue of $1.282B (+87% YoY) demonstrates a structural step-change driven by AI test complexity. The SemiTest segment crossed $1B for the first time. Magnum EPIC is the de facto HBM test standard. ~70% of revenue is now AI-linked. Midterm $6B revenue target implies 2-3x from 2025 baseline.</div>
+        <div style="margin-top:8px">
+          <div class="ibox">📊 Q1 2026 record $1.282B (+87% YoY); SemiTest $1.111B; Q2 2026 guided $1.15-1.25B</div>
+          <div class="ibox">📈 Q1 2026 GAAP EPS $2.53; Non-GAAP EPS $2.56; ~70% of revenue AI-related; midterm target $6B revenue and $9.50-11.00 non-GAAP EPS</div>
+        </div>
+      </div>
+      <div class="coscore">
+        <div class="bigscore" style="color:#58a6ff">68.7</div>
+        <div><span class="rcircle" style="color:#58a6ff;border-color:#58a6ff">B</span></div>
+        <div style="font-size:11px;color:#8b949e;margin-top:4px">×0.9</div>
+      </div>
+    </div>
+    <div class="g3" style="margin-bottom:14px">
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#58a6ff">77.6</div>
+        <div style="font-size:11px;color:#8b949e">行业吸引力 ×20%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#3fb950">85.6</div>
+        <div style="font-size:11px;color:#8b949e">公司质量 ×50%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#f0883e">60.0</div>
+        <div style="font-size:11px;color:#8b949e">估值安全边际 ×30%</div>
+      </div>
+    </div>
+    <div class="g3">
+      <div><div class="ct">⚖️ 行业维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE长期需求</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术演进确定性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">利润池位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">行业壁垒</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">18%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">竞争格局</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE周期位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">出口管制风险</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr></table></div>
+      <div><div class="ct">🏢 公司质量</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">营收增长</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">盈利质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术护城河</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">AI节点对齐</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">财务稳健性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">管理层质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">服务收入粘性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">客户结构</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr></table></div>
+      <div><div class="ct">💰 估值维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">情景估值上行</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">35%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">相对估值PEG</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">下行保护</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">历史同行对比</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr></table></div>
+    </div>
+    <div class="g2" style="margin-top:12px">
+      <div class="rbox"><strong>⚠️ 风险：</strong>Advantest gaining share in GPU/HBM test; robotics division profitability dilution; customer concentration in AI chipmakers.</div>
+      <div class="gbox"><strong>🚀 催化剂：</strong>HBM4 rollout requiring new test infrastructure; AI inference chip test ramp; Robotics revenue CAGR acceleration.</div>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:#8b949e">
+      📎 来源：<a href="https://finance.yahoo.com/markets/stocks/articles/teradyne-q1-earnings-beat-estimates-165000161.html" style="color:#58a6ff;text-decoration:none" target="_blank">[1]</a>
+      <a href="https://www.kalkine.com/news/general-news/teradyne-q1-2026-results-ai-driven-semiconductor-test-demand-lifts-revenue-87-and-margins-to-record-highs" style="color:#58a6ff;text-decoration:none;margin-left:8px" target="_blank">[2]</a>
+    </div>
+  </div>
+</div>
+<div id="co-6920_T" class="co-detail" style="display:none">
+  <div class="card">
+    
+    <div class="cohdr">
+      <div class="coleft">
+        <div class="coname">Lasertec Corporation <span style="color:#58a6ff;font-size:13px">(EUV Mask Inspection)</span></div>
+        <div class="cometa">6920.T · 置信度 0.85 · 2026-06-04 · 基于实时联网搜索数据</div>
+        <div style="margin-top:8px;font-size:13px;color:#8b949e;max-width:760px">Lasertec holds a near-absolute monopoly (~90-100% share) in the sole commercially available actinic EUV photomask inspection tool — the ACTIS A150. This cannot be replicated without 10+ years of development. Backlog JPY 1.4T+ provides multi-year revenue visibility.</div>
+        <div style="margin-top:8px">
+          <div class="ibox">📊 Q3 FY2026 revenue ¥41.3B (+3.5% YoY); EPS ¥124 (missed est ¥167 by 26%); Q1 FY2026 ¥54.2B (+48% YoY); FY2026 consensus ~¥225.9B</div>
+          <div class="ibox">📈 ~90-100% global market share in actinic EUV mask inspection; order backlog JPY 1.4T+; EUV mask inspection monopoly; Q3 EPS missed by 25.91%</div>
+        </div>
+      </div>
+      <div class="coscore">
+        <div class="bigscore" style="color:#58a6ff">66.5</div>
+        <div><span class="rcircle" style="color:#58a6ff;border-color:#58a6ff">B</span></div>
+        <div style="font-size:11px;color:#8b949e;margin-top:4px">×0.85</div>
+      </div>
+    </div>
+    <div class="g3" style="margin-bottom:14px">
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#58a6ff">92.0</div>
+        <div style="font-size:11px;color:#8b949e">行业吸引力 ×20%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#3fb950">76.4</div>
+        <div style="font-size:11px;color:#8b949e">公司质量 ×50%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#f0883e">72.0</div>
+        <div style="font-size:11px;color:#8b949e">估值安全边际 ×30%</div>
+      </div>
+    </div>
+    <div class="g3">
+      <div><div class="ct">⚖️ 行业维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE长期需求</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术演进确定性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">利润池位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">行业壁垒</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">18%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">竞争格局</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE周期位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">出口管制风险</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr></table></div>
+      <div><div class="ct">🏢 公司质量</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">营收增长</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">盈利质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术护城河</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">AI节点对齐</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">财务稳健性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">管理层质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">服务收入粘性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">客户结构</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr></table></div>
+      <div><div class="ct">💰 估值维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">情景估值上行</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">35%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">相对估值PEG</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">下行保护</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">历史同行对比</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr></table></div>
+    </div>
+    <div class="g2" style="margin-top:12px">
+      <div class="rbox"><strong>⚠️ 风险：</strong>Q3 FY2026 earnings miss vs estimates (EPS -26%, revenue -9.5%); revenue lumpy due to large-ticket tool deliveries; single-product dependency; Japan export control risk.</div>
+      <div class="gbox"><strong>🚀 催化剂：</strong>High-NA EUV mask inspection tool development; 2nm/A16 transition forcing new ACTIS tool qualifications; backlog conversion to revenue in H2 2026.</div>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:#8b949e">
+      📎 来源：<a href="https://meyka.com/blog/6920t-lasertec-earnings-miss-eps-down-2591-0105/" style="color:#58a6ff;text-decoration:none" target="_blank">[1]</a>
+      <a href="https://www.oreateai.com/blog/lasertec-the-global-monopoly-in-euv-photomask-inspection/981a881b59881e5650513914c59b6694" style="color:#58a6ff;text-decoration:none;margin-left:8px" target="_blank">[2]</a>
+    </div>
+  </div>
+</div>
+<div id="co-ATEYY" class="co-detail" style="display:none">
+  <div class="card">
+    
+    <div class="cohdr">
+      <div class="coleft">
+        <div class="coname">Advantest Corporation <span style="color:#58a6ff;font-size:13px">(Semiconductor Test)</span></div>
+        <div class="cometa">ATEYY · 置信度 0.85 · 2026-06-04 · 基于实时联网搜索数据</div>
+        <div style="margin-top:8px;font-size:13px;color:#8b949e;max-width:760px">Advantest dominates AI SoC and HBM test with its V93000 platform, holding ~70% share in GPU-adjacent memory testing niches. Q1 2026 EPS beat by 21% with revenue +10.5% vs estimates, driven by AI semiconductor testing surge. FY2026 net sales forecast of ¥1,420B represents the company's highest-ever guidance.</div>
+        <div style="margin-top:8px">
+          <div class="ibox">📊 Q1 2026 (Apr 27): Revenue $2.06B (beat $1.86B est by 10.5%); EPS $1.09 (beat $0.90 est by 21.25%); FY2026 forecast ¥1,420B net sales</div>
+          <div class="ibox">📈 FY2026 full-year guidance: operating income ¥627.5B; net income ¥465.5B; AI semiconductor tester demand at record scale</div>
+        </div>
+      </div>
+      <div class="coscore">
+        <div class="bigscore" style="color:#58a6ff">65.5</div>
+        <div><span class="rcircle" style="color:#58a6ff;border-color:#58a6ff">B</span></div>
+        <div style="font-size:11px;color:#8b949e;margin-top:4px">×0.85</div>
+      </div>
+    </div>
+    <div class="g3" style="margin-bottom:14px">
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#58a6ff">80.0</div>
+        <div style="font-size:11px;color:#8b949e">行业吸引力 ×20%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#3fb950">83.2</div>
+        <div style="font-size:11px;color:#8b949e">公司质量 ×50%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#f0883e">65.0</div>
+        <div style="font-size:11px;color:#8b949e">估值安全边际 ×30%</div>
+      </div>
+    </div>
+    <div class="g3">
+      <div><div class="ct">⚖️ 行业维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE长期需求</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术演进确定性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">利润池位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">行业壁垒</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">18%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">竞争格局</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE周期位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">出口管制风险</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr></table></div>
+      <div><div class="ct">🏢 公司质量</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">营收增长</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">盈利质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术护城河</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">AI节点对齐</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">财务稳健性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">管理层质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">服务收入粘性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">客户结构</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr></table></div>
+      <div><div class="ct">💰 估值维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">情景估值上行</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">35%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">相对估值PEG</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">下行保护</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">历史同行对比</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr></table></div>
+    </div>
+    <div class="g2" style="margin-top:12px">
+      <div class="rbox"><strong>⚠️ 风险：</strong>Teradyne competition increasing in HBM test; JPY/USD FX sensitivity; concentration in a few major AI chip customers.</div>
+      <div class="gbox"><strong>🚀 催化剂：</strong>FY2026 guidance raised; record AI SoC/HBM demand; HBM4 test content increase; potential new AI customer wins.</div>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:#8b949e">
+      📎 来源：<a href="https://meyka.com/blog/ateyy-advantest-earnings-beat-eps-surges-21-above-estimates-2804/" style="color:#58a6ff;text-decoration:none" target="_blank">[1]</a>
+      <a href="https://www.advantest.com/en/investors/financial-highlights/forecast/" style="color:#58a6ff;text-decoration:none;margin-left:8px" target="_blank">[2]</a>
+    </div>
+  </div>
+</div>
+<div id="co-CAMT" class="co-detail" style="display:none">
+  <div class="card">
+    
+    <div class="cohdr">
+      <div class="coleft">
+        <div class="coname">Camtek Ltd. <span style="color:#58a6ff;font-size:13px">(Advanced Packaging Inspection)</span></div>
+        <div class="cometa">CAMT · 置信度 0.88 · 2026-06-04 · 基于实时联网搜索数据</div>
+        <div style="margin-top:8px;font-size:13px;color:#8b949e;max-width:760px">Camtek's Hawk platform is the leading inspection system for advanced packaging (HBM, CoWoS, hybrid bonding), with ~70% of Q1 2026 revenue from AI/advanced packaging. Over $105M in new orders from tier-1 HBM player and OSAT in Q1 2026. H2 2026 expected to grow >25% vs H1. No US export control exposure (Israeli company).</div>
+        <div style="margin-top:8px">
+          <div class="ibox">📊 Q1 2026 revenue $121.7M; Q2 2026 guided $129-131M; FY2026 H2 expected >25% growth vs H1; record FY2025 $496.1M</div>
+          <div class="ibox">📈 Q1 2026 non-GAAP gross margin 51%; GAAP operating margin 22.4%; >$105M new orders in Q1 from HBM player and tier-1 OSAT; ~70% of revenue AI/advanced packaging</div>
+        </div>
+      </div>
+      <div class="coscore">
+        <div class="bigscore" style="color:#58a6ff">64.9</div>
+        <div><span class="rcircle" style="color:#58a6ff;border-color:#58a6ff">B</span></div>
+        <div style="font-size:11px;color:#8b949e;margin-top:4px">×0.88</div>
+      </div>
+    </div>
+    <div class="g3" style="margin-bottom:14px">
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#58a6ff">73.0</div>
+        <div style="font-size:11px;color:#8b949e">行业吸引力 ×20%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#3fb950">78.0</div>
+        <div style="font-size:11px;color:#8b949e">公司质量 ×50%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#f0883e">67.0</div>
+        <div style="font-size:11px;color:#8b949e">估值安全边际 ×30%</div>
+      </div>
+    </div>
+    <div class="g3">
+      <div><div class="ct">⚖️ 行业维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE长期需求</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术演进确定性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">利润池位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">行业壁垒</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">18%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">竞争格局</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE周期位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">出口管制风险</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr></table></div>
+      <div><div class="ct">🏢 公司质量</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">营收增长</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">盈利质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术护城河</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">AI节点对齐</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">财务稳健性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">管理层质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">服务收入粘性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">客户结构</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr></table></div>
+      <div><div class="ct">💰 估值维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">情景估值上行</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">35%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">相对估值PEG</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">下行保护</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">历史同行对比</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr></table></div>
+    </div>
+    <div class="g2" style="margin-top:12px">
+      <div class="rbox"><strong>⚠️ 风险：</strong>Competition from KLA and Onto Innovation in advanced packaging inspection; customer concentration among HBM OSATs; smaller scale limits R&D investment.</div>
+      <div class="gbox"><strong>🚀 催化剂：</strong>H2 2026 >25% revenue growth guide; $105M+ new orders from HBM and OSAT customers; CoWoS capacity expansion at TSMC/OSATs.</div>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:#8b949e">
+      📎 来源：<a href="https://www.prnewswire.com/news-releases/camtek-announces-results-for-the-first-quarter-of-2026-302769389.html" style="color:#58a6ff;text-decoration:none" target="_blank">[1]</a>
+      <a href="https://www.stocktitan.net/sec-filings/CAMT/6-k-camtek-ltd-current-report-foreign-issuer-e53ec04f8240.html" style="color:#58a6ff;text-decoration:none;margin-left:8px" target="_blank">[2]</a>
+    </div>
+  </div>
+</div>
+<div id="co-ONTO" class="co-detail" style="display:none">
+  <div class="card">
+    
+    <div class="cohdr">
+      <div class="coleft">
+        <div class="coname">Onto Innovation Inc. <span style="color:#58a6ff;font-size:13px">(Metrology / Advanced Packaging)</span></div>
+        <div class="cometa">ONTO · 置信度 0.87 · 2026-06-04 · 基于实时联网搜索数据</div>
+        <div style="margin-top:8px;font-size:13px;color:#8b949e;max-width:760px">Onto Innovation is uniquely positioned at the intersection of advanced packaging metrology (Dragonfly G5 for sub-nm stack height measurement) and process control for NAND/HBM. Q1 2026 record revenue of $291.9M, with Q2 guided at $320M. $240M+ purchase agreement with a leading HBM manufacturer through 2027 provides exceptional backlog visibility.</div>
+        <div style="margin-top:8px">
+          <div class="ibox">📊 Q1 2026 record $291.9M (+10% sequential, nearly 10% above Q4 2025); Q2 2026 guided $320M</div>
+          <div class="ibox">📈 Q1 2026 non-GAAP operating margin 26.7%; cash $654M; $240M+ volume purchase agreement with leading HBM manufacturer through 2027; advanced packaging >30% growth projected 2026</div>
+        </div>
+      </div>
+      <div class="coscore">
+        <div class="bigscore" style="color:#58a6ff">64.0</div>
+        <div><span class="rcircle" style="color:#58a6ff;border-color:#58a6ff">B</span></div>
+        <div style="font-size:11px;color:#8b949e;margin-top:4px">×0.87</div>
+      </div>
+    </div>
+    <div class="g3" style="margin-bottom:14px">
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#58a6ff">71.0</div>
+        <div style="font-size:11px;color:#8b949e">行业吸引力 ×20%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#3fb950">82.8</div>
+        <div style="font-size:11px;color:#8b949e">公司质量 ×50%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#f0883e">60.0</div>
+        <div style="font-size:11px;color:#8b949e">估值安全边际 ×30%</div>
+      </div>
+    </div>
+    <div class="g3">
+      <div><div class="ct">⚖️ 行业维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE长期需求</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术演进确定性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">利润池位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">行业壁垒</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">18%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">竞争格局</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE周期位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">出口管制风险</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr></table></div>
+      <div><div class="ct">🏢 公司质量</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">营收增长</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">盈利质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术护城河</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">AI节点对齐</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">财务稳健性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">管理层质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">服务收入粘性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">客户结构</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr></table></div>
+      <div><div class="ct">💰 估值维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">情景估值上行</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">35%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">相对估值PEG</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">下行保护</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">历史同行对比</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr></table></div>
+    </div>
+    <div class="g2" style="margin-top:12px">
+      <div class="rbox"><strong>⚠️ 风险：</strong>Smaller scale vs. KLA; limited breadth of product portfolio; HBM customer concentration; competition from KLA and Camtek.</div>
+      <div class="gbox"><strong>🚀 催化剂：</strong>Dragonfly G5 ramp in 2026; $240M+ HBM purchase agreement deliveries; advanced packaging revenue growing >50% FY2026.</div>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:#8b949e">
+      📎 来源：<a href="https://investors.ontoinnovation.com/news/news-details/2026/Onto-Innovation-Reports-2026-First-Quarter-Results/default.aspx" style="color:#58a6ff;text-decoration:none" target="_blank">[1]</a>
+      <a href="https://seekingalpha.com/news/4554391-onto-innovation-projects-over-30-percent-advanced-packaging-growth-in-2026-amid-record" style="color:#58a6ff;text-decoration:none;margin-left:8px" target="_blank">[2]</a>
+    </div>
+  </div>
+</div>
+<div id="co-FORM" class="co-detail" style="display:none">
+  <div class="card">
+    
+    <div class="cohdr">
+      <div class="coleft">
+        <div class="coname">FormFactor Inc. <span style="color:#58a6ff;font-size:13px">(Probe Cards / Test Interface)</span></div>
+        <div class="cometa">FORM · 置信度 0.87 · 2026-06-04 · 基于实时联网搜索数据</div>
+        <div style="margin-top:8px;font-size:13px;color:#8b949e;max-width:760px">FormFactor is the leading probe card supplier to the top-3 HBM manufacturers, with SK hynix at 29.5% of Q1 2026 revenue. Q1 2026 record revenue $226.1M (+32% YoY) and non-GAAP EPS $0.56 (vs $0.23 a year ago) demonstrate powerful operating leverage. HBM4 mass production beginning creates structural upgrade cycle.</div>
+        <div style="margin-top:8px">
+          <div class="ibox">📊 Q1 2026 record $226.1M (+32% YoY, +5.1% QoQ); Q2 2026 guided $240M±5M; Non-GAAP EPS $0.56 (vs $0.23 in Q1 2025)</div>
+          <div class="ibox">📈 Q1 2026 non-GAAP gross margin up 510bps sequentially; SK hynix 29.5% of revenue; DRAM record driven by HBM demand; HBM4 higher test intensity expected to drive faster replacement cycles</div>
+        </div>
+      </div>
+      <div class="coscore">
+        <div class="bigscore" style="color:#58a6ff">63.9</div>
+        <div><span class="rcircle" style="color:#58a6ff;border-color:#58a6ff">B</span></div>
+        <div style="font-size:11px;color:#8b949e;margin-top:4px">×0.87</div>
+      </div>
+    </div>
+    <div class="g3" style="margin-bottom:14px">
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#58a6ff">73.0</div>
+        <div style="font-size:11px;color:#8b949e">行业吸引力 ×20%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#3fb950">77.6</div>
+        <div style="font-size:11px;color:#8b949e">公司质量 ×50%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#f0883e">67.0</div>
+        <div style="font-size:11px;color:#8b949e">估值安全边际 ×30%</div>
+      </div>
+    </div>
+    <div class="g3">
+      <div><div class="ct">⚖️ 行业维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE长期需求</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术演进确定性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">利润池位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">行业壁垒</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">18%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">竞争格局</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE周期位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">出口管制风险</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr></table></div>
+      <div><div class="ct">🏢 公司质量</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">营收增长</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">盈利质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术护城河</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">AI节点对齐</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">财务稳健性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">管理层质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">服务收入粘性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">客户结构</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr></table></div>
+      <div><div class="ct">💰 估值维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">情景估值上行</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">35%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">相对估值PEG</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">下行保护</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">历史同行对比</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr></table></div>
+    </div>
+    <div class="g2" style="margin-top:12px">
+      <div class="rbox"><strong>⚠️ 风险：</strong>SK hynix customer concentration (30% of revenue); probe cards are consumables subject to utilization cycles; competition from Technoprobe and Japanese probe card makers.</div>
+      <div class="gbox"><strong>🚀 催化剂：</strong>HBM4 production ramp requiring higher-frequency probe card replacements; Q2 2026 guided $240M (record); AI networking chip probe card demand.</div>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:#8b949e">
+      📎 来源：<a href="https://investors.formfactor.com/news-releases/news-release-details/formfactor-inc-reports-2026-first-quarter-results" style="color:#58a6ff;text-decoration:none" target="_blank">[1]</a>
+      <a href="https://seekingalpha.com/article/4876247-formfactor-dont-fear-the-valuation-the-hbm4-earnings-inflection-is-here" style="color:#58a6ff;text-decoration:none;margin-left:8px" target="_blank">[2]</a>
+    </div>
+  </div>
+</div>
+<div id="co-AMAT" class="co-detail" style="display:none">
+  <div class="card">
+    
+    <div class="cohdr">
+      <div class="coleft">
+        <div class="coname">Applied Materials Inc. <span style="color:#58a6ff;font-size:13px">(Deposition/Etch/CMP)</span></div>
+        <div class="cometa">AMAT · 置信度 0.9 · 2026-06-04 · 基于实时联网搜索数据</div>
+        <div style="margin-top:8px;font-size:13px;color:#8b949e;max-width:760px">Broadest equipment portfolio covering deposition, etch, CMP, and inspection enables AMAT to capture a large share of any WFE growth scenario. Q2 2026 record revenue of $7.91B despite export headwinds. The $252.5M BIS penalty is now settled. Q3 2026 guidance of $8.95B signals continued acceleration.</div>
+        <div style="margin-top:8px">
+          <div class="ibox">📊 Q2 2026 record $7.91B (+11% YoY); Q3 2026 guided $8.95B; Q1 2026 $7.01B (-2% YoY)</div>
+          <div class="ibox">📈 Q2 2026 Non-GAAP EPS $2.86 (+20% YoY); Gross margin 50.0%; $252.5M BIS penalty settled Feb 2026; China ~25% of revenue</div>
+        </div>
+      </div>
+      <div class="coscore">
+        <div class="bigscore" style="color:#58a6ff">63.5</div>
+        <div><span class="rcircle" style="color:#58a6ff;border-color:#58a6ff">B</span></div>
+        <div style="font-size:11px;color:#8b949e;margin-top:4px">×0.9</div>
+      </div>
+    </div>
+    <div class="g3" style="margin-bottom:14px">
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#58a6ff">73.8</div>
+        <div style="font-size:11px;color:#8b949e">行业吸引力 ×20%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#3fb950">75.6</div>
+        <div style="font-size:11px;color:#8b949e">公司质量 ×50%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#f0883e">60.0</div>
+        <div style="font-size:11px;color:#8b949e">估值安全边际 ×30%</div>
+      </div>
+    </div>
+    <div class="g3">
+      <div><div class="ct">⚖️ 行业维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE长期需求</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术演进确定性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">利润池位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">行业壁垒</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">18%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">竞争格局</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE周期位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">出口管制风险</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:40%;background:#f85149"></div></div>
+    <span class="score-pill" style="color:#f85149;border-color:#f85149">2</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr></table></div>
+      <div><div class="ct">🏢 公司质量</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">营收增长</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">盈利质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术护城河</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">AI节点对齐</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">财务稳健性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">管理层质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">服务收入粘性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">客户结构</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr></table></div>
+      <div><div class="ct">💰 估值维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">情景估值上行</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">35%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">相对估值PEG</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">下行保护</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">历史同行对比</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr></table></div>
+    </div>
+    <div class="g2" style="margin-top:12px">
+      <div class="rbox"><strong>⚠️ 风险：</strong>$252.5M BIS settlement and ~$600-710M China revenue loss in FY2026; ongoing export compliance risk.</div>
+      <div class="gbox"><strong>🚀 催化剂：</strong>Q3 2026 guided $8.95B (record); GAA N2 node driving deposition intensity; ICAPS (mature node) demand recovery.</div>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:#8b949e">
+      📎 来源：<a href="https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-announces-second-quarter-2026-results/" style="color:#58a6ff;text-decoration:none" target="_blank">[1]</a>
+      <a href="https://www.arnoldporter.com/en/perspectives/advisories/2026/03/bis-announces-252-5-million-settlement-with-applied-materials-over-alleged" style="color:#58a6ff;text-decoration:none;margin-left:8px" target="_blank">[2]</a>
+    </div>
+  </div>
+</div>
+<div id="co-8035_T" class="co-detail" style="display:none">
+  <div class="card">
+    
+    <div class="cohdr">
+      <div class="coleft">
+        <div class="coname">Tokyo Electron Ltd. (TEL) <span style="color:#58a6ff;font-size:13px">(CVD/ALD/Etch/Coater)</span></div>
+        <div class="cometa">8035.T · 置信度 0.85 · 2026-06-04 · 基于实时联网搜索数据</div>
+        <div style="margin-top:8px;font-size:13px;color:#8b949e;max-width:760px">TEL is the most diversified Japanese equipment company with leadership in CVD (38% share), etch (27%), and coater-developer (near monopoly). FY2026 net income of ¥574.4B sets a new record, with Q4 FY2026 revenue surging 28.9% sequentially. No US BIS export restriction exposure as a Japanese company.</div>
+        <div style="margin-top:8px">
+          <div class="ibox">📊 FY2026 (ended Mar 31 2026) revenue ¥2.44T (+0.49% YoY); net income ¥574.4B (+5.6% YoY, record); Q4 FY2026 revenue ¥711.8B (+28.9% sequential)</div>
+          <div class="ibox">📈 Q4 FY2026 EPS ¥468.67 (beat by 21.23%); Record FCF ¥433.2B; CVD 38% market share; Etch 27%; R&D investment ¥300B planned FY2026</div>
+        </div>
+      </div>
+      <div class="coscore">
+        <div class="bigscore" style="color:#58a6ff">61.4</div>
+        <div><span class="rcircle" style="color:#58a6ff;border-color:#58a6ff">B</span></div>
+        <div style="font-size:11px;color:#8b949e;margin-top:4px">×0.85</div>
+      </div>
+    </div>
+    <div class="g3" style="margin-bottom:14px">
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#58a6ff">83.2</div>
+        <div style="font-size:11px;color:#8b949e">行业吸引力 ×20%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#3fb950">75.2</div>
+        <div style="font-size:11px;color:#8b949e">公司质量 ×50%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#f0883e">60.0</div>
+        <div style="font-size:11px;color:#8b949e">估值安全边际 ×30%</div>
+      </div>
+    </div>
+    <div class="g3">
+      <div><div class="ct">⚖️ 行业维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE长期需求</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术演进确定性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">利润池位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">行业壁垒</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">18%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">竞争格局</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE周期位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">出口管制风险</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr></table></div>
+      <div><div class="ct">🏢 公司质量</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">营收增长</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">盈利质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术护城河</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">AI节点对齐</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">财务稳健性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">管理层质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">服务收入粘性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">客户结构</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr></table></div>
+      <div><div class="ct">💰 估值维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">情景估值上行</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">35%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">相对估值PEG</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">下行保护</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">历史同行对比</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr></table></div>
+    </div>
+    <div class="g2" style="margin-top:12px">
+      <div class="rbox"><strong>⚠️ 风险：</strong>FY2026 full-year revenue grew only 0.49% (below peer growth rates); ALD share gap vs. ASM International; Japan regulatory export controls; JPY/USD FX sensitivity.</div>
+      <div class="gbox"><strong>🚀 催化剂：</strong>Q4 FY2026 strong sequential rebound (+28.9%); N2 GAA and HBM driving CVD/ALD demand; Cryogenic etch ramp for 3D NAND.</div>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:#8b949e">
+      📎 来源：<a href="https://www.investing.com/news/transcripts/earnings-call-transcript-tokyo-electron-q4-2026-beats-estimates-stock-surges-93CH-4654441" style="color:#58a6ff;text-decoration:none" target="_blank">[1]</a>
+      <a href="https://www.blog.baldengineering.com/2025/05/tokyo-electron-delivers-record-fy2025.html" style="color:#58a6ff;text-decoration:none;margin-left:8px" target="_blank">[2]</a>
+    </div>
+  </div>
+</div>
+<div id="co-TNPBF" class="co-detail" style="display:none">
+  <div class="card">
+    
+    <div class="cohdr">
+      <div class="coleft">
+        <div class="coname">Technoprobe S.p.A. <span style="color:#58a6ff;font-size:13px">(Probe Cards / Test Interface)</span></div>
+        <div class="cometa">TNPBF · 置信度 0.75 · 2026-06-04 · 基于实时联网搜索数据</div>
+        <div style="margin-top:8px;font-size:13px;color:#8b949e;max-width:760px">Technoprobe surprised significantly in Q1 2026, pulling its 2027 revenue and profitability targets into 2026 — a rare positive guidance acceleration. The company guides €950M-1.05B revenue with 44-46% EBITDA margin for FY2026, implying roughly 50-67% revenue growth. AI-driven probe card demand (HBM, advanced packaging) is the primary driver.</div>
+        <div style="margin-top:8px">
+          <div class="ibox">📊 Q1 2026 revenue €187M (+19% YoY); EBITDA €69.2M (37% margin, +650bps YoY); FY2025 €628M (+15.7% YoY); 2026 guidance raised to €950M-€1.05B</div>
+          <div class="ibox">📈 Q1 2026 EBITDA margin 37%; 2027 targets pulled forward to 2026 (€950M-1.05B revenue, 44-46% EBITDA margin); shares +36% on Q1 results announcement</div>
+        </div>
+      </div>
+      <div class="coscore">
+        <div class="bigscore" style="color:#d29922">50.7</div>
+        <div><span class="rcircle" style="color:#d29922;border-color:#d29922">C</span></div>
+        <div style="font-size:11px;color:#8b949e;margin-top:4px">×0.75</div>
+      </div>
+    </div>
+    <div class="g3" style="margin-bottom:14px">
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#58a6ff">73.0</div>
+        <div style="font-size:11px;color:#8b949e">行业吸引力 ×20%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#3fb950">67.6</div>
+        <div style="font-size:11px;color:#8b949e">公司质量 ×50%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#f0883e">64.0</div>
+        <div style="font-size:11px;color:#8b949e">估值安全边际 ×30%</div>
+      </div>
+    </div>
+    <div class="g3">
+      <div><div class="ct">⚖️ 行业维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE长期需求</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术演进确定性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">利润池位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">行业壁垒</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">18%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">竞争格局</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE周期位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">出口管制风险</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:100%;background:#2ea043"></div></div>
+    <span class="score-pill" style="color:#2ea043;border-color:#2ea043">5</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr></table></div>
+      <div><div class="ct">🏢 公司质量</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">营收增长</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">盈利质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术护城河</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">AI节点对齐</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">财务稳健性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">管理层质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">服务收入粘性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:40%;background:#f85149"></div></div>
+    <span class="score-pill" style="color:#f85149;border-color:#f85149">2</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">客户结构</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr></table></div>
+      <div><div class="ct">💰 估值维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">情景估值上行</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">35%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">相对估值PEG</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">下行保护</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">历史同行对比</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:40%;background:#f85149"></div></div>
+    <span class="score-pill" style="color:#f85149;border-color:#f85149">2</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr></table></div>
+    </div>
+    <div class="g2" style="margin-top:12px">
+      <div class="rbox"><strong>⚠️ 风险：</strong>OTC trading illiquidity for US investors; execution risk on aggressive guidance acceleration; competition from FormFactor and Japanese probe card makers.</div>
+      <div class="gbox"><strong>🚀 催化剂：</strong>FY2026 guidance raised to €950M-1.05B (50%+ growth); EBITDA margin expansion to 44-46%.</div>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:#8b949e">
+      📎 来源：<a href="https://www.investing.com/news/stock-market-news/technoprobe-shares-surge-36-as-q1-profit-jumps-targets-accelerated-4691350" style="color:#58a6ff;text-decoration:none" target="_blank">[1]</a>
+      <a href="https://finance.yahoo.com/markets/stocks/articles/technoprobe-bit-tpro-valuation-record-141234412.html" style="color:#58a6ff;text-decoration:none;margin-left:8px" target="_blank">[2]</a>
+    </div>
+  </div>
+</div>
+<div id="co-COHU" class="co-detail" style="display:none">
+  <div class="card">
+    <div class="rbox" style="margin-bottom:10px"><strong>⚠️ VETO：</strong>GAAP net loss $12.1M in Q1 2026 ($0.26 loss/share); TTM net loss $55.5M (-$1.19 EPS); FY2025 GAAP loss $74.3M. Persistent GAAP and non-GAAP losses disqualify for investment scoring.</div>
+    <div class="cohdr">
+      <div class="coleft">
+        <div class="coname">Cohu Inc. <span style="color:#58a6ff;font-size:13px">(Semiconductor Test Handler)</span><span class="badge" style="background:#f8514911;color:#f85149;border-color:#f8514944;margin-left:8px">⚠️ VETO上限59分</span></div>
+        <div class="cometa">COHU · 置信度 0.9 · 2026-06-04 · 基于实时联网搜索数据</div>
+        <div style="margin-top:8px;font-size:13px;color:#8b949e;max-width:760px">Cohu serves automotive, industrial, and consumer semiconductor test markets — all in cyclical recovery. Q2 2026 guidance for +15% sequential growth reflects early-cycle recovery. However, persistent GAAP losses ($74.3M in FY2025, $12.1M in Q1 2026) and TTM net loss of $55.5M disqualify investment under scoring rules.</div>
+        <div style="margin-top:8px">
+          <div class="ibox">📊 Q1 2026 revenue $125.1M; FY2025 revenue $453M; GAAP net loss Q1 2026 $12.1M (-$0.26/share); TTM net loss $55.5M</div>
+          <div class="ibox">📈 Q1 2026 loss narrowing from $22.5M in Q4 2025; Q2 2026 guided +15% sequential; cash $489M; debt $305M</div>
+        </div>
+      </div>
+      <div class="coscore">
+        <div class="bigscore" style="color:#f85149">34.8</div>
+        <div><span class="rcircle" style="color:#f85149;border-color:#f85149">D</span></div>
+        <div style="font-size:11px;color:#8b949e;margin-top:4px">×0.9</div>
+      </div>
+    </div>
+    <div class="g3" style="margin-bottom:14px">
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#58a6ff">47.0</div>
+        <div style="font-size:11px;color:#8b949e">行业吸引力 ×20%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#3fb950">37.6</div>
+        <div style="font-size:11px;color:#8b949e">公司质量 ×50%</div>
+      </div>
+      <div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#f0883e">35.0</div>
+        <div style="font-size:11px;color:#8b949e">估值安全边际 ×30%</div>
+      </div>
+    </div>
+    <div class="g3">
+      <div><div class="ct">⚖️ 行业维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE长期需求</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:40%;background:#f85149"></div></div>
+    <span class="score-pill" style="color:#f85149;border-color:#f85149">2</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术演进确定性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:40%;background:#f85149"></div></div>
+    <span class="score-pill" style="color:#f85149;border-color:#f85149">2</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">利润池位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:40%;background:#f85149"></div></div>
+    <span class="score-pill" style="color:#f85149;border-color:#f85149">2</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">行业壁垒</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:40%;background:#f85149"></div></div>
+    <span class="score-pill" style="color:#f85149;border-color:#f85149">2</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">18%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">竞争格局</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:40%;background:#f85149"></div></div>
+    <span class="score-pill" style="color:#f85149;border-color:#f85149">2</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">WFE周期位置</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:60%;background:#d29922"></div></div>
+    <span class="score-pill" style="color:#d29922;border-color:#d29922">3</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">出口管制风险</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:80%;background:#3fb950"></div></div>
+    <span class="score-pill" style="color:#3fb950;border-color:#3fb950">4</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr></table></div>
+      <div><div class="ct">🏢 公司质量</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">营收增长</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:40%;background:#f85149"></div></div>
+    <span class="score-pill" style="color:#f85149;border-color:#f85149">2</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">盈利质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:20%;background:#da3633"></div></div>
+    <span class="score-pill" style="color:#da3633;border-color:#da3633">1</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">技术护城河</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:40%;background:#f85149"></div></div>
+    <span class="score-pill" style="color:#f85149;border-color:#f85149">2</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">16%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">AI节点对齐</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:40%;background:#f85149"></div></div>
+    <span class="score-pill" style="color:#f85149;border-color:#f85149">2</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">14%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">财务稳健性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:40%;background:#f85149"></div></div>
+    <span class="score-pill" style="color:#f85149;border-color:#f85149">2</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">管理层质量</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:40%;background:#f85149"></div></div>
+    <span class="score-pill" style="color:#f85149;border-color:#f85149">2</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">10%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">服务收入粘性</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:40%;background:#f85149"></div></div>
+    <span class="score-pill" style="color:#f85149;border-color:#f85149">2</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">客户结构</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:40%;background:#f85149"></div></div>
+    <span class="score-pill" style="color:#f85149;border-color:#f85149">2</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">12%</td>
+</tr></table></div>
+      <div><div class="ct">💰 估值维度</div><table><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">情景估值上行</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:40%;background:#f85149"></div></div>
+    <span class="score-pill" style="color:#f85149;border-color:#f85149">2</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">35%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">相对估值PEG</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:20%;background:#da3633"></div></div>
+    <span class="score-pill" style="color:#da3633;border-color:#da3633">1</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">下行保护</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:40%;background:#f85149"></div></div>
+    <span class="score-pill" style="color:#f85149;border-color:#f85149">2</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">25%</td>
+</tr><tr>
+  <td style="width:150px;color:#8b949e;font-size:12px">历史同行对比</td>
+  <td><div class="bar-wrap">
+    <div class="bar-bg"><div class="bar" style="width:40%;background:#f85149"></div></div>
+    <span class="score-pill" style="color:#f85149;border-color:#f85149">2</span>
+  </div></td>
+  <td style="width:45px;text-align:right;color:#8b949e;font-size:11px">15%</td>
+</tr></table></div>
+    </div>
+    <div class="g2" style="margin-top:12px">
+      <div class="rbox"><strong>⚠️ 风险：</strong>Persistent GAAP and non-GAAP losses; $305M debt load including $288M convertible; automotive/industrial market recovery slower than AI-driven peers.</div>
+      <div class="gbox"><strong>🚀 催化剂：</strong>Q2 2026 guided +15% sequential recovery; industrial test utilization approaching 79%; automotive recovery.</div>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:#8b949e">
+      📎 来源：<a href="https://simplywall.st/stocks/us/semiconductors/nasdaq-cohu/cohu/news/cohu-cohu-loss-narrows-in-q1-2026-and-tests-bullish-profitab" style="color:#58a6ff;text-decoration:none" target="_blank">[1]</a>
+      <a href="https://www.aol.com/articles/cohu-cohu-q1-2026-earnings-222741498.html" style="color:#58a6ff;text-decoration:none;margin-left:8px" target="_blank">[2]</a>
+    </div>
+  </div>
+</div>
+  <script>var first=document.querySelector('.co-btn');if(first)showCo(first.getAttribute('data-co'));</script>
+</div>
+
+</div>
+<div class="watermark">基于实时联网搜索数据 · 2026-06-04</div>
+<div class="ftr"><div class="con">
+  半导体设备与检测专项投资打分系统 v1.0 · 生成时间：2026-06-04 · 基于实时联网搜索数据<br>
+  本报告仅供参考，不构成投资建议
+</div></div>
+<script>function showTab(id){
+  document.querySelectorAll('.tc').forEach(e=>e.classList.remove('act'));
+  document.querySelectorAll('.tb').forEach(e=>e.classList.remove('act'));
+  document.getElementById(id).classList.add('act');
+  document.querySelector('[data-tab="'+id+'"]').classList.add('act');
+}
+function showCo(id){
+  document.querySelectorAll('.co-detail').forEach(e=>e.style.display='none');
+  document.querySelectorAll('.co-btn').forEach(e=>e.classList.remove('act'));
+  var el=document.getElementById('co-'+id);
+  if(el){el.style.display='block';}
+  var btn=document.querySelector('[data-co="'+id+'"]');
+  if(btn){btn.classList.add('act');}
+}</script>
+</body></html>
