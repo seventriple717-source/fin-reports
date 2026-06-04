@@ -1,0 +1,941 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI电力与能源基础设施投资打分 v2.0 · 2026-06-04</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d1117;color:#c9d1d9;font-family:-apple-system,'PingFang SC',sans-serif;font-size:14px;line-height:1.6}
+.hdr{padding:22px 20px 14px;border-bottom:1px solid #30363d}
+.hdr h1{font-size:21px;font-weight:700;color:#e6edf3}
+.sub{color:#8b949e;font-size:12px;margin-top:4px}
+.bx{display:inline-block;padding:2px 8px;border-radius:9px;font-size:11px;margin-left:6px;background:#1f6feb22;color:#58a6ff;border:1px solid #1f6feb44}
+.bx-g{background:#2ea04322;color:#3fb950;border-color:#2ea04344}
+.con{max-width:1400px;margin:0 auto;padding:0 16px}
+.card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:14px;margin-bottom:12px}
+.sec{font-size:16px;font-weight:700;color:#e6edf3;margin:16px 0 10px;padding-left:10px;border-left:3px solid #58a6ff}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:#21262d;color:#8b949e;padding:8px 10px;text-align:left;border-bottom:2px solid #30363d}
+td{padding:7px 10px;border-bottom:1px solid #21262d;vertical-align:middle}
+tr:hover td{background:#1c2128}
+.num{font-family:'SF Mono',monospace;color:#79c0ff}
+.pos{color:#3fb950}.neg{color:#f85149}.neu{color:#8b949e}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:800px){.g2,.g3,.g4{grid-template-columns:1fr 1fr}}
+.ibox{background:#3fb95011;border:1px solid #3fb95033;padding:8px 12px;border-radius:6px;font-size:12px;color:#56d364;margin:5px 0}
+.gbox{background:#2ea04311;border:1px solid #2ea04333;padding:8px 12px;border-radius:6px;font-size:12px;color:#3fb950;margin:5px 0}
+.warn{background:#f0883e11;border:1px solid #f0883e33;padding:8px 12px;border-radius:6px;font-size:12px;color:#f0883e;margin:5px 0}
+.rbox{background:#f8514911;border:1px solid #f8514933;padding:8px 12px;border-radius:6px;font-size:12px;color:#f85149;margin:5px 0}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;border:1px solid}
+.ftr{text-align:center;padding:20px 0;color:#8b949e;font-size:12px;border-top:1px solid #30363d;margin-top:32px}
+.bw{display:flex;align-items:center;gap:6px}
+.bb{flex:1;background:#21262d;border-radius:4px;overflow:hidden;height:7px}
+.bf{height:7px;border-radius:4px}
+.sp{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:11px;font-weight:700;border:1.5px solid}
+.sec{border-left-color:#3fb950}</style>
+</head><body>
+<div class="hdr" style="background:linear-gradient(135deg,#0d1117,#1c2128);border-bottom:1px solid #30363d"><div class="con">
+<h1>AI电力与能源基础设施投资打分<span class="bx">v2.0 修正版</span><span class="bx bx-g">实时数据</span><span class="bx">2026-06-04</span></h1>
+<div class="sub">AI电力需求快速增长期 · 核电24/7溢价 · 技术中立EPC护城河被低估</div>
+</div></div>
+<div class="con">
+<div class="card" style="border-color:#3fb95044;margin-top:14px">
+<strong style="color:#3fb950">✅ 修正说明：</strong>置信度美国上市公司统一1.0；i6=资本回收覆盖度
+</div>
+<div class="sec" style="margin-top:14px">行业全景</div>
+<div class="g3">
+<div class="card"><div style="font-weight:600;color:#e6edf3;margin-bottom:8px">⚡ 行业判断</div>
+<div class="gbox">处于 <strong>AI电力需求快速增长期</strong>，变压器交期4年+70%价格涨幅是最紧卡点，核电24/7清洁基荷溢价持续</div>
+<div class="ibox">超大规模科技公司AI PPA：微软835MW TMI核电20年、Google/Amazon多GW级别在谈</div>
+<div class="warn">电网互联排队仍严重，FERC改革进行中</div>
+</div>
+<div class="card"><div style="font-weight:600;color:#e6edf3;margin-bottom:8px">⚙️ 修正说明</div>
+<div class="ibox">置信度：美国主板上市公司统一=1.0，无例外（OKLO/SMR/BE除外）</div>
+<div class="ibox">i6=资本强度与回收确定性（PPA/合同覆盖=高分）</div>
+</div>
+<div class="card"><div style="font-weight:600;color:#e6edf3;margin-bottom:8px">🏭 关键卡点</div>
+<table><tr><th>环节</th><th>状态</th></tr>
+<tr><td>变压器</td><td class="neg">交期4年，+70%涨价</td></tr>
+<tr><td>核电24/7</td><td class="pos">供不应求，PPA溢价</td></tr>
+<tr><td>液冷系统</td><td class="neg">供不应求，VRT积压>$15B</td></tr>
+<tr><td>电网互联</td><td class="neg">排队严重</td></tr>
+</table></div></div>
+<div class="sec">综合评分排名</div>
+<div class="card"><table>
+<tr><th>#</th><th>代码</th><th>公司</th><th>子赛道</th><th>行业分</th><th>质量分</th><th>估值分</th><th>最终分</th><th>级别</th><th>置信度</th></tr>
+<tr>
+<td style="font-weight:600;color:#76e3b0">1</td>
+<td style="font-weight:700">CEG</td>
+<td style="color:#8b949e;font-size:12px">Constellation Energy</td>
+<td><span style="background:#76e3b022;color:#76e3b0;border:1px solid #76e3b044;padding:2px 6px;border-radius:8px;font-size:11px">Nuclear Power / Clean </span></td>
+<td class="num">91.2</td><td class="num">96.0</td><td class="num">72.0</td>
+<td class="num" style="color:#ffd700;font-weight:700">87.8</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #ffd700;color:#ffd700;background:#0d1117">S</div></td>
+<td style="color:#8b949e;font-size:11px">1.0</td></tr><tr>
+<td style="font-weight:600;color:#76e3b0">2</td>
+<td style="font-weight:700">MPWR</td>
+<td style="color:#8b949e;font-size:12px">Monolithic Power Systems</td>
+<td><span style="background:#76e3b022;color:#76e3b0;border:1px solid #76e3b044;padding:2px 6px;border-radius:8px;font-size:11px">Power Semiconductors /</span></td>
+<td class="num">90.8</td><td class="num">98.0</td><td class="num">59.0</td>
+<td class="num" style="color:#ffd700;font-weight:700">84.9</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #ffd700;color:#ffd700;background:#0d1117">S</div></td>
+<td style="color:#8b949e;font-size:11px">1.0</td></tr><tr>
+<td style="font-weight:600;color:#58a6ff">3</td>
+<td style="font-weight:700">EME</td>
+<td style="color:#8b949e;font-size:12px">EMCOR Group</td>
+<td><span style="background:#58a6ff22;color:#58a6ff;border:1px solid #58a6ff44;padding:2px 6px;border-radius:8px;font-size:11px">EPC / Electrical Contr</span></td>
+<td class="num">81.2</td><td class="num">90.0</td><td class="num">72.0</td>
+<td class="num" style="color:#ffd700;font-weight:700">82.8</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #ffd700;color:#ffd700;background:#0d1117">S</div></td>
+<td style="color:#8b949e;font-size:11px">1.0</td></tr><tr>
+<td style="font-weight:600;color:#bc8cff">4</td>
+<td style="font-weight:700">ETN</td>
+<td style="color:#8b949e;font-size:12px">Eaton Corporation</td>
+<td><span style="background:#bc8cff22;color:#bc8cff;border:1px solid #bc8cff44;padding:2px 6px;border-radius:8px;font-size:11px">Power Management / Ele</span></td>
+<td class="num">88.0</td><td class="num">89.6</td><td class="num">65.0</td>
+<td class="num" style="color:#ffd700;font-weight:700">81.9</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #ffd700;color:#ffd700;background:#0d1117">S</div></td>
+<td style="color:#8b949e;font-size:11px">1.0</td></tr><tr>
+<td style="font-weight:600;color:#e8b04b">5</td>
+<td style="font-weight:700">VRT</td>
+<td style="color:#8b949e;font-size:12px">Vertiv Holdings</td>
+<td><span style="background:#e8b04b22;color:#e8b04b;border:1px solid #e8b04b44;padding:2px 6px;border-radius:8px;font-size:11px">Data Center Infrastruc</span></td>
+<td class="num">85.6</td><td class="num">93.6</td><td class="num">59.0</td>
+<td class="num" style="color:#ffd700;font-weight:700">81.6</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #ffd700;color:#ffd700;background:#0d1117">S</div></td>
+<td style="color:#8b949e;font-size:11px">1.0</td></tr><tr>
+<td style="font-weight:600;color:#58a6ff">6</td>
+<td style="font-weight:700">PWR</td>
+<td style="color:#8b949e;font-size:12px">Quanta Services</td>
+<td><span style="background:#58a6ff22;color:#58a6ff;border:1px solid #58a6ff44;padding:2px 6px;border-radius:8px;font-size:11px">EPC / Utility & Energy</span></td>
+<td class="num">84.8</td><td class="num">91.2</td><td class="num">59.0</td>
+<td class="num" style="color:#ffd700;font-weight:700">80.3</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #ffd700;color:#ffd700;background:#0d1117">S</div></td>
+<td style="color:#8b949e;font-size:11px">1.0</td></tr><tr>
+<td style="font-weight:600;color:#f0883e">7</td>
+<td style="font-weight:700">VST</td>
+<td style="color:#8b949e;font-size:12px">Vistra Corp</td>
+<td><span style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e44;padding:2px 6px;border-radius:8px;font-size:11px">Independent Power Prod</span></td>
+<td class="num">78.4</td><td class="num">81.6</td><td class="num">72.0</td>
+<td class="num" style="color:#3fb950;font-weight:700">78.1</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #3fb950;color:#3fb950;background:#0d1117">A</div></td>
+<td style="color:#8b949e;font-size:11px">1.0</td></tr><tr>
+<td style="font-weight:600;color:#d29922">8</td>
+<td style="font-weight:700">POWL</td>
+<td style="color:#8b949e;font-size:12px">Powell Industries</td>
+<td><span style="background:#d2992222;color:#d29922;border:1px solid #d2992244;padding:2px 6px;border-radius:8px;font-size:11px">Switchgear & Power Con</span></td>
+<td class="num">77.6</td><td class="num">82.0</td><td class="num">72.0</td>
+<td class="num" style="color:#3fb950;font-weight:700">78.1</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #3fb950;color:#3fb950;background:#0d1117">A</div></td>
+<td style="color:#8b949e;font-size:11px">1.0</td></tr><tr>
+<td style="font-weight:600;color:#58a6ff">9</td>
+<td style="font-weight:700">MYRG</td>
+<td style="color:#8b949e;font-size:12px">MYR Group</td>
+<td><span style="background:#58a6ff22;color:#58a6ff;border:1px solid #58a6ff44;padding:2px 6px;border-radius:8px;font-size:11px">EPC / Electrical Contr</span></td>
+<td class="num">77.6</td><td class="num">80.4</td><td class="num">72.0</td>
+<td class="num" style="color:#3fb950;font-weight:700">77.3</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #3fb950;color:#3fb950;background:#0d1117">A</div></td>
+<td style="color:#8b949e;font-size:11px">1.0</td></tr><tr>
+<td style="font-weight:600;color:#3fb950">10</td>
+<td style="font-weight:700">FSLR</td>
+<td style="color:#8b949e;font-size:12px">First Solar</td>
+<td><span style="background:#3fb95022;color:#3fb950;border:1px solid #3fb95044;padding:2px 6px;border-radius:8px;font-size:11px">Solar Manufacturing / </span></td>
+<td class="num">69.6</td><td class="num">75.6</td><td class="num">80.0</td>
+<td class="num" style="color:#3fb950;font-weight:700">75.7</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #3fb950;color:#3fb950;background:#0d1117">A</div></td>
+<td style="color:#8b949e;font-size:11px">1.0</td></tr><tr>
+<td style="font-weight:600;color:#bc8cff">11</td>
+<td style="font-weight:700">HUBB</td>
+<td style="color:#8b949e;font-size:12px">Hubbell Incorporated</td>
+<td><span style="background:#bc8cff22;color:#bc8cff;border:1px solid #bc8cff44;padding:2px 6px;border-radius:8px;font-size:11px">Grid & Electrical Prod</span></td>
+<td class="num">77.6</td><td class="num">75.6</td><td class="num">65.0</td>
+<td class="num" style="color:#3fb950;font-weight:700">72.8</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #3fb950;color:#3fb950;background:#0d1117">A</div></td>
+<td style="color:#8b949e;font-size:11px">1.0</td></tr><tr>
+<td style="font-weight:600;color:#8b949e">12</td>
+<td style="font-weight:700">AMSC</td>
+<td style="color:#8b949e;font-size:12px">American Superconductor</td>
+<td><span style="background:#8b949e22;color:#8b949e;border:1px solid #8b949e44;padding:2px 6px;border-radius:8px;font-size:11px">Power Electronics / Gr</span></td>
+<td class="num">62.8</td><td class="num">66.0</td><td class="num">52.0</td>
+<td class="num" style="color:#58a6ff;font-weight:700">61.2</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #58a6ff;color:#58a6ff;background:#0d1117">B</div></td>
+<td style="color:#8b949e;font-size:11px">1.0</td></tr><tr>
+<td style="font-weight:600;color:#d29922">13</td>
+<td style="font-weight:700">BE</td>
+<td style="color:#8b949e;font-size:12px">Bloom Energy</td>
+<td><span style="background:#d2992222;color:#d29922;border:1px solid #d2992244;padding:2px 6px;border-radius:8px;font-size:11px">Fuel Cell / Distribute</span></td>
+<td class="num">68.0</td><td class="num">79.6</td><td class="num">47.0</td>
+<td class="num" style="color:#58a6ff;font-weight:700">60.8</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #58a6ff;color:#58a6ff;background:#0d1117">B</div></td>
+<td style="color:#8b949e;font-size:11px">0.9</td></tr><tr>
+<td style="font-weight:600;color:#d29922">14</td>
+<td style="font-weight:700">PLPC</td>
+<td style="color:#8b949e;font-size:12px">Preformed Line Products</td>
+<td><span style="background:#d2992222;color:#d29922;border:1px solid #d2992244;padding:2px 6px;border-radius:8px;font-size:11px">Grid Hardware / Energy</span></td>
+<td class="num">63.6</td><td class="num">66.0</td><td class="num">45.0</td>
+<td class="num" style="color:#d29922;font-weight:700">59.2</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #d29922;color:#d29922;background:#0d1117">C</div></td>
+<td style="color:#8b949e;font-size:11px">1.0</td></tr><tr>
+<td style="font-weight:600;color:#f85149">15</td>
+<td style="font-weight:700">OKLO</td>
+<td style="color:#8b949e;font-size:12px">Oklo Inc.</td>
+<td><span style="background:#f8514922;color:#f85149;border:1px solid #f8514944;padding:2px 6px;border-radius:8px;font-size:11px">Advanced Nuclear / SMR</span></td>
+<td class="num">75.2</td><td class="num">63.6</td><td class="num">46.0</td>
+<td class="num" style="color:#f85149;font-weight:700">36.4 ⚠️</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #f85149;color:#f85149;background:#0d1117">D</div></td>
+<td style="color:#8b949e;font-size:11px">0.6</td></tr><tr>
+<td style="font-weight:600;color:#f85149">16</td>
+<td style="font-weight:700">SMR</td>
+<td style="color:#8b949e;font-size:12px">NuScale Power</td>
+<td><span style="background:#f8514922;color:#f85149;border:1px solid #f8514944;padding:2px 6px;border-radius:8px;font-size:11px">Advanced Nuclear / SMR</span></td>
+<td class="num">73.6</td><td class="num">49.6</td><td class="num">39.0</td>
+<td class="num" style="color:#f85149;font-weight:700">30.7 ⚠️</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #f85149;color:#f85149;background:#0d1117">D</div></td>
+<td style="color:#8b949e;font-size:11px">0.6</td></tr></table></div>
+<div class="g4" style="margin-top:12px">
+<div class="card" style="border-color:#ffd70044"><div style="color:#ffd700;font-weight:700;margin-bottom:6px">⭐ S级</div><div style="margin:3px 0"><strong style="color:#ffd700">CEG</strong> <span class="num">87.8</span> <span style="color:#8b949e;font-size:11px">· Nuclear Power / Clea</span></div><div style="margin:3px 0"><strong style="color:#ffd700">MPWR</strong> <span class="num">84.9</span> <span style="color:#8b949e;font-size:11px">· Power Semiconductors</span></div><div style="margin:3px 0"><strong style="color:#ffd700">EME</strong> <span class="num">82.8</span> <span style="color:#8b949e;font-size:11px">· EPC / Electrical Con</span></div><div style="margin:3px 0"><strong style="color:#ffd700">ETN</strong> <span class="num">81.9</span> <span style="color:#8b949e;font-size:11px">· Power Management / E</span></div><div style="margin:3px 0"><strong style="color:#ffd700">VRT</strong> <span class="num">81.6</span> <span style="color:#8b949e;font-size:11px">· Data Center Infrastr</span></div><div style="margin:3px 0"><strong style="color:#ffd700">PWR</strong> <span class="num">80.3</span> <span style="color:#8b949e;font-size:11px">· EPC / Utility & Ener</span></div></div>
+<div class="card" style="border-color:#3fb95044"><div style="color:#3fb950;font-weight:700;margin-bottom:6px">🟢 A级</div><div style="margin:3px 0"><strong style="color:#3fb950">VST</strong> <span class="num">78.1</span> <span style="color:#8b949e;font-size:11px">· Independent Power Pr</span></div><div style="margin:3px 0"><strong style="color:#3fb950">POWL</strong> <span class="num">78.1</span> <span style="color:#8b949e;font-size:11px">· Switchgear & Power C</span></div><div style="margin:3px 0"><strong style="color:#3fb950">MYRG</strong> <span class="num">77.3</span> <span style="color:#8b949e;font-size:11px">· EPC / Electrical Con</span></div><div style="margin:3px 0"><strong style="color:#3fb950">FSLR</strong> <span class="num">75.7</span> <span style="color:#8b949e;font-size:11px">· Solar Manufacturing </span></div><div style="margin:3px 0"><strong style="color:#3fb950">HUBB</strong> <span class="num">72.8</span> <span style="color:#8b949e;font-size:11px">· Grid & Electrical Pr</span></div></div>
+<div class="card" style="border-color:#58a6ff44"><div style="color:#58a6ff;font-weight:700;margin-bottom:6px">🔵 B级</div><div style="margin:3px 0"><strong style="color:#58a6ff">AMSC</strong> <span class="num">61.2</span> <span style="color:#8b949e;font-size:11px">· Power Electronics / </span></div><div style="margin:3px 0"><strong style="color:#58a6ff">BE</strong> <span class="num">60.8</span> <span style="color:#8b949e;font-size:11px">· Fuel Cell / Distribu</span></div></div>
+<div class="card" style="border-color:#f8514944"><div style="color:#f85149;font-weight:700;margin-bottom:6px">🔴 C/D级</div><div style="margin:3px 0"><strong style="color:#d29922">PLPC</strong> <span class="num">59.2</span> <span style="color:#8b949e;font-size:11px">· Grid Hardware / Ener</span></div><div style="margin:3px 0"><strong style="color:#f85149">OKLO</strong> <span class="num">36.4</span> <span style="color:#8b949e;font-size:11px">· Advanced Nuclear / S</span></div><div style="margin:3px 0"><strong style="color:#f85149">SMR</strong> <span class="num">30.7</span> <span style="color:#8b949e;font-size:11px">· Advanced Nuclear / S</span></div></div>
+</div>
+<div class="sec">公司详细评分</div>
+
+<div class="card" id="co-CEG">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        Constellation Energy <span style="color:#76e3b0;font-size:12px">(Nuclear Power / Clean Energy Utility)</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        CEG · 置信度 <strong>1.0</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>最新数据</strong>: Q1 2026 GAAP net income $1.59B ($4.49/share vs $0.38 Yo
+        &nbsp;|&nbsp; 1 GW nuclear PPA pipeline at $10-25/MWh premium; free c
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:660px">Constellation is the largest pure-play nuclear operator in the US following Calpine acquisition. Q1 2026 GAAP net income surged to $1.59B from $118M YoY on AI-driven nuclear demand. Tech giants have committed 9.8+ GW in nuclear PPAs with Constellation among top beneficiaries (Microsoft 835MW Three Mile Island PPA). Nuclear PPA premiums of $10-25/MWh add $0.20-$0.50 EPS upside. 2028-2029 FCF target of $11.5B-$13.0B underpins multi-year shareholder return capability.</div>
+    </div>
+    <div style="text-align:center;min-width:96px">
+      <div style="font-size:50px;font-weight:800;color:#ffd700;line-height:1">87.8</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;
+                  width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;
+                  border:2px solid #ffd700;color:#ffd700;background:#0d1117">S</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">91.2</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">96.0</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">72.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">AI电力需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">资本强度与回收</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策与监管</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 公司质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI数据中心对齐</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值上行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">相对估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">Nuclear plant operational risk (unplanned outages); regulatory risk with NRC oversight; Calpine integration complexity; sensitivity to power market pricing; potential IRA nuclear PTC changes.</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">Additional nuclear PPA signings with hyperscalers; Three Mile Island Unit 1 restart completion in 2027; nuclear PTC extensions in IRA; potential new nuclear development announcements.</li></ul></div>
+  </div>
+</div>
+<div class="card" id="co-MPWR">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        Monolithic Power Systems <span style="color:#76e3b0;font-size:12px">(Power Semiconductors / AI Compute Power Delivery)</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        MPWR · 置信度 <strong>1.0</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>最新数据</strong>: $804.2M Q1 2026 (+26.1% YoY); Q2 2026 guidance $890M-$9
+        &nbsp;|&nbsp; Diluted EPS $3.92 Q1 2026 (+40.5%); expanding to $6B ma
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:660px">MPWR is a critical enabler of AI compute efficiency—its power management ICs are essential for GPU power delivery and voltage regulation in every major AI server. Q1 2026 revenue +26.1% to $804M with Q2 guidance implying ~35% YoY growth. EPS grew 40.5% YoY. The company is expanding manufacturing capacity target to $6B from $4B, reflecting durable demand visibility. High gross margins (~55%) and fabless model generate excellent ROIC. However, premium valuation (forward PE not disclosed but historically elevated) prices in significant execution.</div>
+    </div>
+    <div style="text-align:center;min-width:96px">
+      <div style="font-size:50px;font-weight:800;color:#ffd700;line-height:1">84.9</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;
+                  width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;
+                  border:2px solid #ffd700;color:#ffd700;background:#0d1117">S</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">90.8</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">98.0</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">59.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">AI电力需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">资本强度与回收</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策与监管</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 公司质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI数据中心对齐</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值上行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">相对估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">High valuation premium; customer concentration risk (NVIDIA/hyperscaler exposure); fabless model subject to TSMC capacity allocation risk; competition from Texas Instruments and Analog Devices in key power delivery segments.</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">GB200/GB300 Blackwell ramp accelerating power management IC content per rack; new enterprise AI server wins; automotive and industrial power management expansion; Q2 2026 earnings beat on strong guidance.</li></ul></div>
+  </div>
+</div>
+<div class="card" id="co-EME">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        EMCOR Group <span style="color:#58a6ff;font-size:12px">(EPC / Electrical Contractor)</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        EME · 置信度 <strong>1.0</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>最新数据</strong>: $4.63B Q1 2026 (+19.7% YoY); FY2026 guidance raised to 
+        &nbsp;|&nbsp; Record backlog $15.62B (+32.9% YoY); EPS guidance $28.2
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:660px">EMCOR's electrical and mechanical contracting divisions are direct beneficiaries of the AI data center construction boom. Q1 2026 record revenue of $4.63B (+19.7% YoY) and record backlog of $15.62B (+32.9% YoY) driven by data center and AI infrastructure. Electrical segment +33% and mechanical +29% in Q1. As a technology-neutral EPC contractor, EMCOR benefits regardless of which energy source powers data centers. FY2026 guidance raise signals strong multi-year visibility.</div>
+    </div>
+    <div style="text-align:center;min-width:96px">
+      <div style="font-size:50px;font-weight:800;color:#ffd700;line-height:1">82.8</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;
+                  width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;
+                  border:2px solid #ffd700;color:#ffd700;background:#0d1117">S</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">81.2</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">90.0</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">72.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">AI电力需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">资本强度与回收</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策与监管</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 公司质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI数据中心对齐</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值上行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">相对估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">Margin compression risk as labor and material costs increase; backlog conversion risk if project delays occur; skilled labor shortage for specialized electrical work; concentration in US market.</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">Continued AI data center construction awards; grid modernization federal funding; potential for UK exit to simplify story and redeploy capital to high-growth US segments.</li></ul></div>
+  </div>
+</div>
+<div class="card" id="co-ETN">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        Eaton Corporation <span style="color:#bc8cff;font-size:12px">(Power Management / Electrical Infrastructure)</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        ETN · 置信度 <strong>1.0</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>最新数据</strong>: $7.5B Q1 2026 (+17% YoY); organic growth 10%; data cent
+        &nbsp;|&nbsp; Electrical backlog +48% YoY; adj. EPS $2.81; FY2026 adj
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:660px">Eaton is the dominant power management company for data center electrical infrastructure. Q1 2026 data center orders surged ~240% YoY with Electrical Americas revenue +50%. Total electrical backlog grew 48% YoY. Q1 2026 revenue $7.5B (+17%) with organic growth of 10%. As a diversified industrial with aerospace, vehicle, and eMobility segments alongside electrical, Eaton has broad exposure but its electrical segment is clearly in a supercycle. Forward PE 31.45x is premium but justified by structural growth. Management calls it a 'data center supercycle.'</div>
+    </div>
+    <div style="text-align:center;min-width:96px">
+      <div style="font-size:50px;font-weight:800;color:#ffd700;line-height:1">81.9</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;
+                  width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;
+                  border:2px solid #ffd700;color:#ffd700;background:#0d1117">S</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">88.0</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">89.6</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">65.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">AI电力需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">资本强度与回收</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策与监管</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 公司质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI数据中心对齐</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值上行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">相对估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">Margin compression from capacity ramp-up costs (segment margins -120bps QoQ); aerospace cycle risk; eMobility headwinds; premium valuation may underperform during market de-rating; FX exposure.</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">Data center electrical infrastructure demand sustaining 240% order growth; Electrical Americas revenue growth acceleration; international grid modernization program awards; margin recovery as capacity investments mature.</li></ul></div>
+  </div>
+</div>
+<div class="card" id="co-VRT">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        Vertiv Holdings <span style="color:#e8b04b;font-size:12px">(Data Center Infrastructure / Thermal Management)</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        VRT · 置信度 <strong>1.0</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>最新数据</strong>: $2.65B Q1 2026 (+30.1% YoY); FY2026 guidance raised to 
+        &nbsp;|&nbsp; Project backlog >$15B (doubled); adj. diluted EPS +83% 
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:660px">Vertiv is the purest play on AI data center thermal management, holding >11.3% market share in liquid cooling. Q1 2026 revenue of $2.65B (+30.1%) with Americas up 53%. Backlog doubled to >$15B. FY2026 guidance of $13.5-$14B implies 30% organic growth with 43-56% EPS growth. As GPU compute density escalates, liquid cooling becomes mandatory—Vertiv's direct-to-chip and immersion cooling portfolio is strategically positioned. Margin expansion (adj. op. margin 20.8%, +430bps) confirms pricing power.</div>
+    </div>
+    <div style="text-align:center;min-width:96px">
+      <div style="font-size:50px;font-weight:800;color:#ffd700;line-height:1">81.6</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;
+                  width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;
+                  border:2px solid #ffd700;color:#ffd700;background:#0d1117">S</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">85.6</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">93.6</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">59.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">AI电力需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">资本强度与回收</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策与监管</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 公司质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI数据中心对齐</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值上行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">相对估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">Premium valuation (forward PE 53.76) prices in much of the upside; supply chain constraints for specialized components; competition from Schneider Electric intensifying; customer concentration with hyperscalers.</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">Continued hyperscaler AI capex acceleration; Vertiv's acquisition expanding EMEA thermal manufacturing; GPU density increases requiring liquid cooling mandates; new data center campus orders.</li></ul></div>
+  </div>
+</div>
+<div class="card" id="co-PWR">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        Quanta Services <span style="color:#58a6ff;font-size:12px">(EPC / Utility & Energy Infrastructure)</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        PWR · 置信度 <strong>1.0</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>最新数据</strong>: $7.87B Q1 2026 (+26.3% YoY); FY2026 guidance raised to 
+        &nbsp;|&nbsp; Record backlog $48.5B (+10.2% from year-end 2025); adj.
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:660px">Quanta Services is the largest specialty EPC contractor in North America with unmatched scale in utility electric T&D. Q1 2026 revenue of $7.87B (+26.3% YoY) and record backlog of $48.5B provide exceptional multi-year revenue visibility. Adj. EPS +50.6% YoY. FY2026 guidance raised to $34.7-$35.2B with adj. EPS $13.55-$14.25. As the dominant grid contractor, Quanta benefits from every dollar of AI infrastructure buildout that requires transmission upgrades, substation construction, and distribution modernization. Technology-neutral as EPC contractor.</div>
+    </div>
+    <div style="text-align:center;min-width:96px">
+      <div style="font-size:50px;font-weight:800;color:#ffd700;line-height:1">80.3</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;
+                  width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;
+                  border:2px solid #ffd700;color:#ffd700;background:#0d1117">S</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">84.8</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">91.2</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">59.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">AI电力需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">资本强度与回收</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策与监管</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 公司质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI数据中心对齐</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值上行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">相对估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">Premium valuation (forward PE 48.13x, trailing PE 92.79x) represents substantial multiple compression risk; execution risk at record scale; skilled labor market tightness; weather-related project delays; acquisition integration risk.</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">Sustained AI data center T&D infrastructure demand; IIJA grid reliability funding deployment; offshore wind interconnection expansion; international utility infrastructure expansion; potential index inclusion or analyst upgrades.</li></ul></div>
+  </div>
+</div>
+<div class="card" id="co-VST">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        Vistra Corp <span style="color:#f0883e;font-size:12px">(Independent Power Producer / Nuclear & Gas)</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        VST · 置信度 <strong>1.0</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>最新数据</strong>: $5.63B Q1 2026 (+26.6% op. margin); FY2026 revenue fore
+        &nbsp;|&nbsp; Adj. EBITDA +20% YoY; ~3,800 MW nuclear PPAs with Amazo
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:660px">Vistra owns the second-largest US nuclear fleet, making it a prime beneficiary of hyperscaler clean power demand. AWS PPAs for ~3,800 MW of nuclear power and Meta PPAs at PJM nuclear sites provide long-term contracted revenue floors. FY2026 adjusted EBITDA guidance of $6.8B-$7.6B with FCF of $3.93B-$4.73B supports material capital return. Forward PE of 17.95x is attractive relative to the nuclear PPA optionality embedded in the business. Q1 2026 revenue $5.63B. Vistra vs. CEG comparison: Vistra trades cheaper but carries more leverage and gas exposure.</div>
+    </div>
+    <div style="text-align:center;min-width:96px">
+      <div style="font-size:50px;font-weight:800;color:#3fb950;line-height:1">78.1</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;
+                  width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;
+                  border:2px solid #3fb950;color:#3fb950;background:#0d1117">A</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">78.4</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">81.6</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">72.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">AI电力需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">资本强度与回收</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策与监管</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 公司质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI数据中心对齐</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值上行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">相对估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">Higher leverage than CEG limits financial flexibility; gas/coal plant exposure creates carbon risk and retirement costs; natural gas price sensitivity; ERCOT market concentration risk; integration of recent acquisitions.</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">Additional hyperscaler nuclear PPA announcements; data center load growth in ERCOT and PJM; nuclear capacity uprates; potential spinoff or monetization of nuclear assets at premium valuation.</li></ul></div>
+  </div>
+</div>
+<div class="card" id="co-POWL">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        Powell Industries <span style="color:#d29922;font-size:12px">(Switchgear & Power Control / Electrical Equipment)</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        POWL · 置信度 <strong>1.0</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>最新数据</strong>: $297M Q2 FY2026; YTD revenue $547.8M; backlog $1.8B (+3
+        &nbsp;|&nbsp; New orders $490M Q2 (+97% YoY); cash $545M; $400M+ data
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:660px">Powell Industries manufactures complex switchgear and power distribution equipment serving data centers, utilities, and oil & gas. Q2 FY2026 backlog surged to $1.8B (+33% YoY) on $490M new orders (+97%). Key catalyst: post-quarter award of a single data center order >$400M (exceptional for a ~$550M/year revenue company). Strong balance sheet with $545M cash (virtually no debt). Gross margin 29.6%. The data center mega-order signals Powell is moving up-market into hyperscaler infrastructure supply chains, where switchgear lead times match the transformer shortage narrative.</div>
+    </div>
+    <div style="text-align:center;min-width:96px">
+      <div style="font-size:50px;font-weight:800;color:#3fb950;line-height:1">78.1</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;
+                  width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;
+                  border:2px solid #3fb950;color:#3fb950;background:#0d1117">A</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">77.6</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">82.0</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">72.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">AI电力需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">资本强度与回收</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策与监管</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 公司质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI数据中心对齐</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值上行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">相对估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">Revenue concentration in oil/gas (petrochemical) creates cyclical exposure; forward PE 30.26x elevated vs. traditional industrials; backlog conversion risk; skilled manufacturing workforce constraint; smaller scale versus Eaton/Hubbell.</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">Additional data center mega-orders (>$75M threshold) converting from recent wins; utility mega-order from electric utility market; oil & gas refinery modernization projects; backlog conversion to revenue in FY2027.</li></ul></div>
+  </div>
+</div>
+<div class="card" id="co-MYRG">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        MYR Group <span style="color:#58a6ff;font-size:12px">(EPC / Electrical Contractor)</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        MYRG · 置信度 <strong>1.0</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>最新数据</strong>: $1.00B Q1 2026 (+20% YoY); LTM revenue record ~$3.82B
+        &nbsp;|&nbsp; Record backlog $2.84B (+7.7% YoY); EPS $2.99 Q1 2026 (+
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:660px">MYR Group is a mid-cap EPC contractor specializing in electrical T&D and commercial/industrial work with growing data center exposure. Q1 2026 marked first-ever $1B quarterly revenue milestone (+20% YoY), EPS of $2.99 beat consensus by 45%. Record backlog of $2.84B with C&I segment at $1.86B primarily driven by data center construction. Data center revenue expected to grow >30% next year from ~6% of revenue today. Technology-neutral positioning allows capture of any power source buildout. Forward PE 34.51x reflects growth premium; smaller scale than EME/PWR creates both risk and upside.</div>
+    </div>
+    <div style="text-align:center;min-width:96px">
+      <div style="font-size:50px;font-weight:800;color:#3fb950;line-height:1">77.3</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;
+                  width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;
+                  border:2px solid #3fb950;color:#3fb950;background:#0d1117">A</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">77.6</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">80.4</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">72.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">AI电力需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">资本强度与回收</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策与监管</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 公司质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI数据中心对齐</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值上行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">相对估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">Smaller scale increases customer concentration risk; limited pricing power vs. larger EPC peers; skilled labor availability constraint; C&I segment may face cyclical headwinds if data center capex slows.</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">Data center C&I segment growing to >10% of revenue; T&D segment benefiting from grid modernization IIJA funding; margin expansion as data center mix improves; potential strategic acquisition by larger EPC.</li></ul></div>
+  </div>
+</div>
+<div class="card" id="co-FSLR">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        First Solar <span style="color:#3fb950;font-size:12px">(Solar Manufacturing / Thin-Film PV)</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        FSLR · 置信度 <strong>1.0</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>最新数据</strong>: $1.04B Q1 2026; FY2026 revenue guided >$6.3B; 45X credi
+        &nbsp;|&nbsp; Gross margin 46.6% Q1 2026; Malaysia/Vietnam facilities
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:660px">First Solar is the only scaled US-domiciled solar manufacturer with proprietary thin-film CdTe technology, largely insulated from Chinese panel competition. Section 45X manufacturing tax credits of $2.10-$2.19B in 2026 are a massive earnings subsidy ($0.17/watt). Q1 2026 revenue $1.04B with 46.6% gross margin. Forward PE of 6.9x on non-GAAP basis is historically cheap. US tariff environment strongly favors domestic manufacturers. However, IRA 45X credit uncertainty and plant underutilization costs ($115-155M) create near-term headwinds.</div>
+    </div>
+    <div style="text-align:center;min-width:96px">
+      <div style="font-size:50px;font-weight:800;color:#3fb950;line-height:1">75.7</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;
+                  width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;
+                  border:2px solid #3fb950;color:#3fb950;background:#0d1117">A</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">69.6</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">75.6</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">80.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">AI电力需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">资本强度与回收</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策与监管</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 公司质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI数据中心对齐</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值上行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">相对估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">IRA 45X credit policy risk if Congress modifies manufacturing credits; plant underutilization expenses $115-155M in 2026 from tariff-driven Malaysia/Vietnam curtailment; technology competition from perovskite and HPBC cells; solar demand concentration risk.</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">IRA 45X credit clarity from Congress; US utility-scale solar demand acceleration for AI data center clean power; geographic production shift fully to US; new bookings from hyperscaler solar PPAs.</li></ul></div>
+  </div>
+</div>
+<div class="card" id="co-HUBB">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        Hubbell Incorporated <span style="color:#bc8cff;font-size:12px">(Grid & Electrical Products / Utility Solutions)</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        HUBB · 置信度 <strong>1.0</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>最新数据</strong>: $1,516.7M Q1 2026 (+11.1% YoY); FY2026 expected ~$6.40B
+        &nbsp;|&nbsp; Adj. EPS $3.93 Q1 2026 (+16% YoY); FY2026 adj. EPS guid
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:660px">Hubbell's Utility Solutions segment (63% of revenue) directly addresses the transmission and distribution infrastructure bottleneck. Q1 2026 revenue +11.1% with 8.2% organic growth. Adj. EPS +16% YoY. Utility Solutions at $948.9M driven by grid infrastructure and data center demand. Forward PE of 24.88x is modest versus peers. FY2026 guidance of 8-11% sales growth with 6-9% organic. High barriers from product certification requirements and utility long-term supplier relationships.</div>
+    </div>
+    <div style="text-align:center;min-width:96px">
+      <div style="font-size:50px;font-weight:800;color:#3fb950;line-height:1">72.8</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;
+                  width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;
+                  border:2px solid #3fb950;color:#3fb950;background:#0d1117">A</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">77.6</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">75.6</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">65.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">AI电力需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">资本强度与回收</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策与监管</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 公司质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI数据中心对齐</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值上行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">相对估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">Lower AI data center direct exposure versus pure-play peers; heavy industrial softness dampening Electrical Solutions segment; tariff impacts on components; utilities delaying capital programs if interest rates stay elevated.</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">Grid hardening and reconductoring programs accelerating; data center electrical buildout orders; IIJA grid resilience funding; potential acquisition synergies from bolt-on M&A.</li></ul></div>
+  </div>
+</div>
+<div class="card" id="co-AMSC">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        American Superconductor <span style="color:#8b949e;font-size:12px">(Power Electronics / Grid & Wind Power Systems)</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        AMSC · 置信度 <strong>1.0</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>最新数据</strong>: FY2025 revenue $299.2M (+34% YoY); Q4 FY2025 revenue $8
+        &nbsp;|&nbsp; Q4 FY2025 non-GAAP EPS $0.31; cash $147.6M as of March 
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:660px">AMSC designs power electronics and superconductor wire for grid and wind industries. FY2025 revenue +34% to $299M with Q4 FY2025 non-GAAP EPS of $0.31. 12-month backlog +40% YoY. Grid business is ~85% of revenue, benefiting from T&D modernization. However, wind segment concentration risk is a key concern—Wind business revenue volatility could impact earnings. Forward PE of 51.59x seems very elevated for a sub-$300M revenue company with modest margins. The company has limited direct AI/data center exposure. Comtrafo acquisition adds transformer capabilities in grid modernization.</div>
+    </div>
+    <div style="text-align:center;min-width:96px">
+      <div style="font-size:50px;font-weight:800;color:#58a6ff;line-height:1">61.2</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;
+                  width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;
+                  border:2px solid #58a6ff;color:#58a6ff;background:#0d1117">B</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">62.8</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">66.0</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">52.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">AI电力需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">资本强度与回收</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策与监管</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 公司质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI数据中心对齐</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值上行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">相对估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">Wind segment revenue concentration and volatility; high forward PE (51.59x) for small-cap growth; limited direct AI data center revenue; superconductor wire commercialization still developing; international exposure to geopolitical risk.</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">Grid modernization orders acceleration; superconducting cable adoption for high-density urban grid upgrades; Comtrafo transformer revenues ramping; wind power grid integration contracts in offshore wind markets.</li></ul></div>
+  </div>
+</div>
+<div class="card" id="co-BE">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        Bloom Energy <span style="color:#d29922;font-size:12px">(Fuel Cell / Distributed Power Generation)</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        BE · 置信度 <strong>0.9</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>最新数据</strong>: $751M Q1 2026; product revenue +208% YoY to $653.3M; FY
+        &nbsp;|&nbsp; Net income $70.65M Q1 2026; adj. EPS $0.44; Oracle deal
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:660px">Bloom Energy's solid oxide fuel cells are rapidly emerging as the on-site power solution for AI data centers that cannot wait for grid interconnection. Q1 2026 product revenue +208% YoY to $653M. FY2026 guidance raised to $3.4-$3.8B implying ~80% growth at midpoint. Oracle agreement for up to 2.8 GW with ~$20B backlog is transformational. Fuel cells offer data centers immediate on-site power bypassing the grid interconnection queue—a direct solution to the primary bottleneck. However, forward PE of 115.86x prices in extreme execution, and analyst average target ($187.85) is well below current price (~$302).</div>
+    </div>
+    <div style="text-align:center;min-width:96px">
+      <div style="font-size:50px;font-weight:800;color:#58a6ff;line-height:1">60.8</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;
+                  width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;
+                  border:2px solid #58a6ff;color:#58a6ff;background:#0d1117">B</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">68.0</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">79.6</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">47.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">AI电力需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">资本强度与回收</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策与监管</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 公司质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI数据中心对齐</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值上行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">相对估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">Extreme valuation (forward PE 115.86x) with wide analyst divergence ($55-$335 targets); negative net income history with recent profitability tenuous; execution risk scaling 2.8 GW Oracle commitment; natural gas feedstock dependency undermines clean energy narrative; service contract margin sustainability.</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">Oracle 2.8 GW deployment execution milestones; additional hyperscaler fuel cell deals; hydrogen-ready fuel cell product for green hydrogen data centers; SOFC efficiency improvements reducing per-kWh cost below grid parity.</li></ul></div>
+  </div>
+</div>
+<div class="card" id="co-PLPC">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        Preformed Line Products <span style="color:#d29922;font-size:12px">(Grid Hardware / Energy & Communications Products)</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        PLPC · 置信度 <strong>1.0</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>最新数据</strong>: $176.3M Q1 2026 (+19% YoY); PLP-USA sales +26%
+        &nbsp;|&nbsp; EPS $2.14 Q1 2026 (vs $2.33 YoY, tax headwind); gross m
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:660px">Preformed Line Products makes hardware for overhead and underground T&D lines—a direct grid modernization beneficiary. Q1 2026 revenue +19% to $176.3M led by PLP-USA +26% on energy and communications demand. However, EPS declined YoY due to tax rate increase and margin compression. The stock appears richly valued at 30.7x P/E versus historical 12.5x, with DCF suggesting significant overvaluation ($84 intrinsic vs ~$366 price). Modest AI data center direct exposure—primarily an indirect grid modernization play on reconductoring and line hardening. Broker downgrade noted post-Q1.</div>
+    </div>
+    <div style="text-align:center;min-width:96px">
+      <div style="font-size:50px;font-weight:800;color:#d29922;line-height:1">59.2</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;
+                  width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;
+                  border:2px solid #d29922;color:#d29922;background:#0d1117">C</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">63.6</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">66.0</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">45.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">AI电力需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">资本强度与回收</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策与监管</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 公司质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI数据中心对齐</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值上行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">相对估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">Elevated valuation (P/E 30.7x vs 12.5x historical) with DCF suggesting heavy overvaluation; EPS declining despite revenue growth from margin/tax pressure; limited direct AI exposure; small market cap with lower liquidity.</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">US grid reconductoring program acceleration using advanced conductors; utility wildfire hardening spending; robotics partnership with FulcrumAir for grid inspection; broader communications grid infrastructure buildout.</li></ul></div>
+  </div>
+</div>
+<div class="card" id="co-OKLO">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        Oklo Inc. <span style="color:#f85149;font-size:12px">(Advanced Nuclear / SMR Pre-Commercial)</span><span class="badge" style="background:#f8514911;color:#f85149;border-color:#f8514944;margin-left:6px">⚠️否决</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        OKLO · 置信度 <strong>0.6</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>最新数据</strong>: $0 revenue Q1 2026; net loss $33.1M; cash $2.5B; 2026 c
+        &nbsp;|&nbsp; 14 GW customer pipeline (Switch, Equinix, Meta); NRC Au
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:660px">Oklo holds a 14 GW customer pipeline anchored by blue-chip tech clients (Meta, Switch, Equinix) and has achieved the NRC Aurora PDC topical report approval in May 2026—a foundational design safety approval. Sam Altman (OpenAI CEO) is chairman. $2.5B cash runway with only $80-100M annual burn. However, zero commercial revenue and first Aurora powerhouse targeting 2028 nuclear heat production means this is purely an option on advanced nuclear commercialization. Pre-revenue veto applies.</div>
+    </div>
+    <div style="text-align:center;min-width:96px">
+      <div style="font-size:50px;font-weight:800;color:#f85149;line-height:1">36.4</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;
+                  width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;
+                  border:2px solid #f85149;color:#f85149;background:#0d1117">D</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">75.2</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">63.6</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">46.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">AI电力需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">资本强度与回收</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策与监管</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 公司质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:20%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">1</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI数据中心对齐</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值上行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">相对估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:20%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">1</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:20%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">1</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">Zero commercial revenue with 2028 earliest reactor operation; NRC licensing timeline uncertainty; construction cost overruns for first-of-kind advanced reactor; competition from NuScale, TerraPower, Kairos; Sam Altman departure risk; dilution from capital raises.</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">NRC Combined License Application (COLA) acceptance and approval milestone; DOE loan guarantee finalization; Idaho National Laboratory first criticality achievement; additional Fortune 500 customer pipeline conversions.</li></ul></div>
+  </div>
+</div>
+<div class="card" id="co-SMR">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        NuScale Power <span style="color:#f85149;font-size:12px">(Advanced Nuclear / SMR Pre-Commercial)</span><span class="badge" style="background:#f8514911;color:#f85149;border-color:#f8514944;margin-left:6px">⚠️否决</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        SMR · 置信度 <strong>0.6</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>最新数据</strong>: $565K Q1 2026 (vs $13.4M Q1 2025); FY2026E $95.71M; net
+        &nbsp;|&nbsp; $1.0B liquidity; Romania RoPower mid-2026 go/no-go deci
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:660px">NuScale is the only US SMR developer with NRC Standard Design Approval (77 MWe module, May 2025). However, Q1 2026 revenue collapsed to $565K vs $13.4M YoY, with net loss widening to $46.7M. Commercial revenue likely waits until early 2030s. Romania RoPower and TVA/ENTRA1 projects represent potential revenue inflection but timelines remain uncertain. FY2026E revenue estimates were cut from $132M to $95.7M. Operating cash outflow of $314.7M in Q1 alone is concerning. Pre-revenue veto applies.</div>
+    </div>
+    <div style="text-align:center;min-width:96px">
+      <div style="font-size:50px;font-weight:800;color:#f85149;line-height:1">30.7</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;
+                  width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;
+                  border:2px solid #f85149;color:#f85149;background:#0d1117">D</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">73.6</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">49.6</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">39.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">AI电力需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">资本强度与回收</td><td><div class="bw"><div class="bb"><div class="bf" style="width:20%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">1</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策与监管</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 公司质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:20%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">1</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:20%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">1</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI数据中心对齐</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值上行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">相对估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:20%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">1</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:20%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">1</span></div></td><td style="width:38px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">Revenue near-zero with accelerating cash burn ($314.7M operating outflow Q1); multiple failed project cancellations historically (UAMPS Carbon-Free Power Project); competitive pressure from Oklo, Kairos, TerraPower; NRC licensing cost and timeline overruns; dilution risk from capital needs.</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">Romania RoPower final investment decision; TVA/ENTRA1 program advancement to binding contracts; US DOE funding commitment; technology licensing revenue from international partners; NRC additional design certifications.</li></ul></div>
+  </div>
+</div>
+</div>
+<div class="ftr"><div class="con">AI电力与能源基础设施投资打分 v2.0 · 2026-06-04 · 基于实时联网搜索 · 仅供参考不构成投资建议</div></div>
+</body></html>
