@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Optical Interconnect & High-Speed Connectivity — 投资打分系统 v4.0</title>
+<style>
+:root {
+  --bg: #0d1117; --bg2: #161b22; --bg3: #1c2128;
+  --border: #30363d; --text: #e6edf3; --text2: #8b949e;
+  --green: #4ade80; --blue: #60a5fa; --yellow: #ffd700;
+  --orange: #fb923c; --red: #f87171; --purple: #c084fc;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 13px; line-height: 1.6; }
+a { color: var(--blue); }
+.header { background: linear-gradient(135deg, #0d1117, #1a2332); border-bottom: 1px solid var(--border); padding: 32px 40px; }
+.header-title { font-size: 28px; font-weight: 700; color: var(--yellow); letter-spacing: 1px; }
+.header-sub { color: var(--text2); margin-top: 6px; }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; background: rgba(255,215,0,0.15); color: var(--yellow); border: 1px solid rgba(255,215,0,0.3); margin-left: 10px; }
+.container { max-width: 1400px; margin: 0 auto; padding: 24px 40px; }
+.section-title { font-size: 16px; font-weight: 700; color: var(--yellow); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+.landscape-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+.landscape-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+.landscape-box h3 { color: var(--blue); font-size: 12px; text-transform: uppercase; margin-bottom: 8px; }
+.landscape-box p { color: var(--text2); line-height: 1.7; }
+.landscape-insight { background: var(--bg2); border: 1px solid #ffd70044; border-radius: 8px; padding: 16px; margin-bottom: 28px; }
+.landscape-insight h3 { color: var(--yellow); font-size: 12px; text-transform: uppercase; margin-bottom: 8px; }
+.landscape-insight p { color: var(--text); line-height: 1.7; }
+.grade-row { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+.grade-box { border: 2px solid; border-radius: 8px; padding: 12px 20px; text-align: center; min-width: 80px; }
+.grade-letter { font-size: 24px; font-weight: 700; }
+.grade-count { font-size: 18px; margin-top: 2px; }
+.ranking-table { width: 100%; border-collapse: collapse; margin-bottom: 32px; }
+.ranking-table th, .ranking-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); text-align: left; cursor: pointer; }
+.ranking-table th { color: var(--text2); font-size: 11px; text-transform: uppercase; background: var(--bg2); }
+.ranking-table tr:hover { background: var(--bg3); }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.company-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 24px; overflow: hidden; }
+.card-header { display: flex; align-items: center; gap: 16px; padding: 16px 20px; }
+.card-rank { font-size: 22px; font-weight: 700; color: var(--text2); min-width: 36px; }
+.card-info { flex: 1; }
+.card-ticker { font-size: 20px; font-weight: 700; color: var(--text); }
+.card-name { color: var(--text2); font-size: 13px; }
+.card-type { color: var(--text2); font-size: 11px; margin-top: 2px; }
+.card-score-box { text-align: center; padding: 8px 16px; border-radius: 8px; min-width: 70px; }
+.score-num { font-size: 26px; font-weight: 700; }
+.score-grade { font-size: 16px; font-weight: 700; }
+.veto-badge { background: rgba(248,113,113,0.2); color: #f87171; border: 1px solid #f87171; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-left: 8px; }
+.realdata-banner { background: rgba(96,165,250,0.08); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 12px; }
+.rd-label { color: var(--text2); }
+.rd-val { color: var(--text); }
+.rd-sep { color: var(--border); }
+.rd-price { color: var(--green); font-weight: 600; }
+.card-body { padding: 20px; }
+.dims-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+.dim-col { background: var(--bg3); border-radius: 6px; padding: 12px; }
+.dim-title { font-size: 11px; color: var(--text2); text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
+.bar-row { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+.bar-label { font-size: 10px; color: var(--text2); min-width: 28px; }
+.bar-track { flex: 1; background: var(--border); border-radius: 2px; height: 8px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 2px; transition: width 0.3s; }
+.bar-val { font-size: 10px; min-width: 24px; text-align: right; color: var(--text); }
+.thesis-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+.thesis-box { background: var(--bg3); border-radius: 6px; padding: 12px; }
+.thesis-title { font-size: 11px; color: var(--text2); text-transform: uppercase; margin-bottom: 8px; font-weight: 600; border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+.thesis-box p { color: var(--text); font-size: 12px; line-height: 1.7; }
+.dcf-box { background: rgba(255,215,0,0.05); border: 1px solid rgba(255,215,0,0.2); border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+.dcf-title { color: var(--yellow); font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 1px; }
+.dcf-step { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,215,0,0.1); }
+.dcf-step:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.dcf-step b { color: var(--yellow); }
+code { display: block; background: rgba(0,0,0,0.3); border-radius: 4px; padding: 8px; margin: 8px 0; color: #79c0ff; font-size: 11px; line-height: 1.8; white-space: pre-wrap; }
+.scenario-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12px; }
+.scenario-table th { color: var(--text2); font-size: 10px; text-transform: uppercase; padding: 4px 8px; border-bottom: 1px solid var(--border); text-align: right; }
+.scenario-table th:first-child { text-align: left; }
+.scenario-table td { padding: 5px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.scenario-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.total-row { background: rgba(255,215,0,0.08); }
+.hl { color: var(--green); font-weight: 600; }
+.evidence-links { font-size: 11px; color: var(--text2); margin-top: 8px; }
+.veto-reason { margin-top: 12px; padding: 10px 14px; background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.3); border-radius: 6px; color: #f87171; font-size: 12px; }
+.footer { text-align: center; color: var(--text2); font-size: 11px; padding: 24px 40px; border-top: 1px solid var(--border); margin-top: 32px; }
+@media (max-width: 900px) {
+  .dims-grid, .thesis-grid, .landscape-grid { grid-template-columns: 1fr; }
+  .container { padding: 16px; }
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-title">Optical Interconnect & High-Speed Connectivity <span class="badge">v4.0</span></div>
+  <div class="header-sub">Investment Score System · 实时数据+DCF数学推导 · 2026-06-05</div>
+  <div style="margin-top:10px;color:#8b949e;font-size:13px"><b style="color:#ffd700">周期:</b> Hypergrowth — AI datacenter buildout driving unprecedented 800G/1.6T demand; CPO transition beginning H2 2026</div>
+</div>
+
+<div class="container">
+
+  <div class="section-title">行业全景</div>
+  <div class="landscape-grid">
+    <div class="landscape-box">
+      <h3>核心瓶颈</h3>
+      <p>EML lasers and CW-LD sources cannot keep pace with 800G/1.6T module order growth even with capacity expansions begun mid-2026.</p>
+    </div>
+    <div class="landscape-box">
+      <h3>周期阶段</h3>
+      <p>Hypergrowth — AI datacenter buildout driving unprecedented 800G/1.6T demand; CPO transition beginning H2 2026</p>
+    </div>
+  </div>
+  <div class="landscape-insight">
+    <h3>关键洞察 (Key Insight)</h3>
+    <p>NVIDIA's $4B equity investments in Coherent and Lumentum for co-packaged optics (CPO) signals structural shift. By 2027-2028 CPO will displace pluggable transceivers in scale-up AI clusters, concentrating value in InP laser/silicon-photonics component makers.</p>
+  </div>
+
+  <div class="section-title">综合排名总览</div>
+  <div class="grade-row"><div class="grade-box" style="border-color:#ffd700;color:#ffd700"><div class="grade-letter">S</div><div class="grade-count">0</div></div><div class="grade-box" style="border-color:#4ade80;color:#4ade80"><div class="grade-letter">A</div><div class="grade-count">0</div></div><div class="grade-box" style="border-color:#60a5fa;color:#60a5fa"><div class="grade-letter">B</div><div class="grade-count">11</div></div><div class="grade-box" style="border-color:#fb923c;color:#fb923c"><div class="grade-letter">C</div><div class="grade-count">2</div></div><div class="grade-box" style="border-color:#f87171;color:#f87171"><div class="grade-letter">D</div><div class="grade-count">0</div></div></div>
+
+  <table class="ranking-table">
+    <thead><tr>
+      <th>#</th><th>代码</th><th>公司</th><th>综合得分</th><th>等级</th>
+      <th>行业(I)</th><th>质量(Q)</th><th>估值(V)</th><th>DCF v1</th><th>市值</th>
+    </tr></thead>
+    <tbody><tr onclick="document.getElementById('COHR').scrollIntoView({behavior:'smooth'})">
+          <td>1</td>
+          <td><a href="#COHR" style="color:#60a5fa;text-decoration:none">COHR </a></td>
+          <td>Coherent Corp.</td>
+          <td style="color:#60a5fa;font-weight:700">68.3</td>
+          <td style="color:#60a5fa">B</td>
+          <td>83.0</td>
+          <td>78.6</td>
+          <td>41.2</td>
+          <td>0</td>
+          <td>$82.5B</td>
+        </tr><tr onclick="document.getElementById('MRVL').scrollIntoView({behavior:'smooth'})">
+          <td>2</td>
+          <td><a href="#MRVL" style="color:#60a5fa;text-decoration:none">MRVL </a></td>
+          <td>Marvell Technology</td>
+          <td style="color:#60a5fa;font-weight:700">67.7</td>
+          <td style="color:#60a5fa">B</td>
+          <td>85.9</td>
+          <td>82.5</td>
+          <td>31.0</td>
+          <td>0</td>
+          <td>$264.0B</td>
+        </tr><tr onclick="document.getElementById('LITE').scrollIntoView({behavior:'smooth'})">
+          <td>3</td>
+          <td><a href="#LITE" style="color:#60a5fa;text-decoration:none">LITE </a></td>
+          <td>Lumentum Holdings</td>
+          <td style="color:#60a5fa;font-weight:700">67.5</td>
+          <td style="color:#60a5fa">B</td>
+          <td>83.0</td>
+          <td>79.4</td>
+          <td>37.2</td>
+          <td>0</td>
+          <td>$73.0B</td>
+        </tr><tr onclick="document.getElementById('MTSI').scrollIntoView({behavior:'smooth'})">
+          <td>4</td>
+          <td><a href="#MTSI" style="color:#60a5fa;text-decoration:none">MTSI </a></td>
+          <td>MACOM Technology Solutions</td>
+          <td style="color:#60a5fa;font-weight:700">67.2</td>
+          <td style="color:#60a5fa">B</td>
+          <td>81.5</td>
+          <td>80.0</td>
+          <td>36.2</td>
+          <td>0</td>
+          <td>$29.4B</td>
+        </tr><tr onclick="document.getElementById('APH').scrollIntoView({behavior:'smooth'})">
+          <td>5</td>
+          <td><a href="#APH" style="color:#60a5fa;text-decoration:none">APH </a></td>
+          <td>Amphenol Corporation</td>
+          <td style="color:#60a5fa;font-weight:700">67.1</td>
+          <td style="color:#60a5fa">B</td>
+          <td>79.9</td>
+          <td>80.5</td>
+          <td>36.2</td>
+          <td>0</td>
+          <td>$183.0B</td>
+        </tr><tr onclick="document.getElementById('CIEN').scrollIntoView({behavior:'smooth'})">
+          <td>6</td>
+          <td><a href="#CIEN" style="color:#60a5fa;text-decoration:none">CIEN </a></td>
+          <td>Ciena Corporation</td>
+          <td style="color:#60a5fa;font-weight:700">66.4</td>
+          <td style="color:#60a5fa">B</td>
+          <td>79.4</td>
+          <td>76.8</td>
+          <td>40.2</td>
+          <td>0</td>
+          <td>$71.7B</td>
+        </tr><tr onclick="document.getElementById('TE').scrollIntoView({behavior:'smooth'})">
+          <td>7</td>
+          <td><a href="#TE" style="color:#60a5fa;text-decoration:none">TE </a></td>
+          <td>TE Connectivity</td>
+          <td style="color:#60a5fa;font-weight:700">65.9</td>
+          <td style="color:#60a5fa">B</td>
+          <td>74.4</td>
+          <td>73.6</td>
+          <td>47.5</td>
+          <td>1</td>
+          <td>$60.7B</td>
+        </tr><tr onclick="document.getElementById('CLS').scrollIntoView({behavior:'smooth'})">
+          <td>8</td>
+          <td><a href="#CLS" style="color:#60a5fa;text-decoration:none">CLS </a></td>
+          <td>Celestica Inc.</td>
+          <td style="color:#60a5fa;font-weight:700">64.7</td>
+          <td style="color:#60a5fa">B</td>
+          <td>76.4</td>
+          <td>75.8</td>
+          <td>38.5</td>
+          <td>0</td>
+          <td>$52.8B</td>
+        </tr><tr onclick="document.getElementById('FN').scrollIntoView({behavior:'smooth'})">
+          <td>9</td>
+          <td><a href="#FN" style="color:#60a5fa;text-decoration:none">FN </a></td>
+          <td>Fabrinet</td>
+          <td style="color:#60a5fa;font-weight:700">64.3</td>
+          <td style="color:#60a5fa">B</td>
+          <td>76.2</td>
+          <td>75.0</td>
+          <td>38.5</td>
+          <td>0</td>
+          <td>$26.0B</td>
+        </tr><tr onclick="document.getElementById('GLW').scrollIntoView({behavior:'smooth'})">
+          <td>10</td>
+          <td><a href="#GLW" style="color:#60a5fa;text-decoration:none">GLW </a></td>
+          <td>Corning Inc.</td>
+          <td style="color:#60a5fa;font-weight:700">64.1</td>
+          <td style="color:#60a5fa">B</td>
+          <td>80.4</td>
+          <td>76.2</td>
+          <td>33.2</td>
+          <td>0</td>
+          <td>$171.5B</td>
+        </tr><tr onclick="document.getElementById('CRDO').scrollIntoView({behavior:'smooth'})">
+          <td>11</td>
+          <td><a href="#CRDO" style="color:#60a5fa;text-decoration:none">CRDO </a></td>
+          <td>Credo Technology Group</td>
+          <td style="color:#60a5fa;font-weight:700">60.6</td>
+          <td style="color:#60a5fa">B</td>
+          <td>83.9</td>
+          <td>82.4</td>
+          <td>31.3</td>
+          <td>0</td>
+          <td>$43.0B</td>
+        </tr><tr onclick="document.getElementById('AAOI').scrollIntoView({behavior:'smooth'})">
+          <td>12</td>
+          <td><a href="#AAOI" style="color:#60a5fa;text-decoration:none">AAOI ⚠</a></td>
+          <td>Applied Optoelectronics</td>
+          <td style="color:#fb923c;font-weight:700">52.4</td>
+          <td style="color:#fb923c">C</td>
+          <td>71.9</td>
+          <td>61.0</td>
+          <td>25.2</td>
+          <td>0</td>
+          <td>$14.8B</td>
+        </tr><tr onclick="document.getElementById('ALAB').scrollIntoView({behavior:'smooth'})">
+          <td>13</td>
+          <td><a href="#ALAB" style="color:#60a5fa;text-decoration:none">ALAB ⚠</a></td>
+          <td>Astera Labs</td>
+          <td style="color:#fb923c;font-weight:700">50.9</td>
+          <td style="color:#fb923c">C</td>
+          <td>83.2</td>
+          <td>79.7</td>
+          <td>23.8</td>
+          <td>0</td>
+          <td>$61.4B</td>
+        </tr></tbody>
+  </table>
+
+  <div class="section-title">公司详情 (按评分排序)</div>
+  
+<div class="company-card" id="COHR">
+  <div class="card-header" style="border-left:4px solid #60a5fa; background:rgba(96,165,250,0.12)">
+    <div class="card-rank">#1</div>
+    <div class="card-info">
+      <div class="card-ticker">COHR </div>
+      <div class="card-name">Coherent Corp.</div>
+      <div class="card-type">Optical Components & Systems · Large Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #60a5fa">
+      <div class="score-num" style="color:#60a5fa">68.3</div>
+      <div class="score-grade" style="color:#60a5fa">B</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">FY2026 TTM $6.60B; Q3 FY26 $1.81B (+20.5%); Q4 guide $1.91-2.05B</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">CPO revenue ramp H2 2026; InP capacity doubling on-track</span>
+    <span class="rd-sep">|</span><span class="rd-price">$413 → 目标 $480</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 83.0)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#60a5fa"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:95.0%;background:#60a5fa"></div></div><span class="bar-val">95</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#60a5fa"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#60a5fa"></div></div><span class="bar-val">70</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 78.6)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#4ade80"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#4ade80"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#4ade80"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:92.0%;background:#4ade80"></div></div><span class="bar-val">92</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 41.2)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#ffd700"></div></div><span class="bar-val">62</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#ffd700"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#ffd700"></div></div><span class="bar-val">55</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>NVIDIA's $2B equity stake + multi-year CPO supply commitment transforms COHR into a structural beneficiary of the pluggable-to-CPO transition. Sole vertically integrated InP laser + silicon photonics player at scale.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>II-VI/Coherent integration complexity; GAAP profitability trailing non-GAAP; NVIDIA + hyperscaler >60% incremental revenue</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Q4 FY26 earnings Aug 2026 confirming CPO revenue start; InP capacity milestone</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$82.5B</span>，来源：<a href="https://stockanalysis.com/stocks/cohr/market-cap/" target="_blank" style="color:#60a5fa">https://stockanalysis.com/stocks/cohr/market-cap/</a>，截止日期 2026-06-04
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $6.6B<br>
+    CAGR: 22%<br>
+    Y5收入 = $6.6B × (1 + 22%)^5 = <b>17.84B</b><br>
+    Y5净利润 = 17.84B × 14% = <b>2.50B</b><br>
+    Y5市值 = 2.50B × 20x = <b>49.95B</b><br>
+    净债务: $2.5B<br>
+    Y5权益价值 = 49.95B - (2.5B) = <b>47.45B</b>
+    </code>
+    <br><small style="color:#888">NVIDIA CPO supply agreement 2028+ visibility; 20x EBITDA CPO leadership</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (47.45B / 82.5B)^(1/5) - 1 = <b>-10.5%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-8.5%</td><td class="num">25%</td><td class="num" style="color:#f87171">-2.12%</td></tr><tr><td>Base Case</td><td class="num">-10.5%</td><td class="num">45%</td><td class="num" style="color:#f87171">-4.71%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-15.5%</td><td class="num">20%</td><td class="num" style="color:#f87171">-3.09%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-25.5%</td><td class="num">10%</td><td class="num" style="color:#f87171">-2.55%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-12.47%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -12.5% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://nvidianews.nvidia.com/news/nvidia-and-coherent-announce-strategic-partnership" target="_blank">[1]</a>
+      <a href="https://www.fool.com/earnings/call-transcripts/2026/05/06/coherent-cohr-q3-2026-earnings-transcript/" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="MRVL">
+  <div class="card-header" style="border-left:4px solid #60a5fa; background:rgba(96,165,250,0.12)">
+    <div class="card-rank">#2</div>
+    <div class="card-info">
+      <div class="card-ticker">MRVL </div>
+      <div class="card-name">Marvell Technology</div>
+      <div class="card-type">AI Networking DSP & Custom ASIC · Large Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #60a5fa">
+      <div class="score-num" style="color:#60a5fa">67.7</div>
+      <div class="score-grade" style="color:#60a5fa">B</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">FY2026 $8.195B (+42%); Q1 FY27 $2.42B (+27.6%); Q2 guide ~$2.7B</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">Custom ASIC pipeline all-time record FY26; coherent DSP interconnect >70% YoY</span>
+    <span class="rd-sep">|</span><span class="rd-price">$216 → 目标 $260</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 85.9)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:92.0%;background:#60a5fa"></div></div><span class="bar-val">92</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#60a5fa"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:92.0%;background:#60a5fa"></div></div><span class="bar-val">92</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:96.0%;background:#60a5fa"></div></div><span class="bar-val">96</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#60a5fa"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 82.5)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:92.0%;background:#4ade80"></div></div><span class="bar-val">92</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#4ade80"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#4ade80"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#4ade80"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#4ade80"></div></div><span class="bar-val">90</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 31.0)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:45.0%;background:#ffd700"></div></div><span class="bar-val">45</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#ffd700"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:40.0%;background:#ffd700"></div></div><span class="bar-val">40</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Marvell's coherent DSPs are in virtually every 400G/800G optical transceiver and custom ASIC business growing exponentially. Jensen Huang explicitly named MRVL potential trillion-dollar company.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>~32x fwd revenue prices perfection; custom ASIC concentration in 2-3 hyperscalers; Broadcom competition</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Q2 FY27 earnings confirming $2.7B+; custom ASIC revenue break-out disclosure</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$264.0B</span>，来源：<a href="https://companiesmarketcap.com/marvell/marketcap/" target="_blank" style="color:#60a5fa">https://companiesmarketcap.com/marvell/marketcap/</a>，截止日期 2026-06-02
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $8.2B<br>
+    CAGR: 28%<br>
+    Y5收入 = $8.2B × (1 + 28%)^5 = <b>28.17B</b><br>
+    Y5净利润 = 28.17B × 22% = <b>6.20B</b><br>
+    Y5市值 = 6.20B × 26x = <b>161.16B</b><br>
+    净债务: $0.5B<br>
+    Y5权益价值 = 161.16B - (0.5B) = <b>160.66B</b>
+    </code>
+    <br><small style="color:#888">Dominant coherent DSP + custom ASIC; Jensen Huang trillion-dollar endorsement</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (160.66B / 264.0B)^(1/5) - 1 = <b>-9.5%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-7.5%</td><td class="num">25%</td><td class="num" style="color:#f87171">-1.86%</td></tr><tr><td>Base Case</td><td class="num">-9.5%</td><td class="num">45%</td><td class="num" style="color:#f87171">-4.26%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-14.5%</td><td class="num">20%</td><td class="num" style="color:#f87171">-2.89%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-24.5%</td><td class="num">10%</td><td class="num" style="color:#f87171">-2.45%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-11.46%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -11.5% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.cnbc.com/2026/06/02/jensen-huang-nvidia-marvell-technology-trillion-dollar-ai.html" target="_blank">[1]</a>
+      <a href="https://investor.marvell.com/news-events/press-releases/detail/1011/" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="LITE">
+  <div class="card-header" style="border-left:4px solid #60a5fa; background:rgba(96,165,250,0.12)">
+    <div class="card-rank">#3</div>
+    <div class="card-info">
+      <div class="card-ticker">LITE </div>
+      <div class="card-name">Lumentum Holdings</div>
+      <div class="card-type">Optical Components & CPO · Large Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #60a5fa">
+      <div class="score-num" style="color:#60a5fa">67.5</div>
+      <div class="score-grade" style="color:#60a5fa">B</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">TTM ~$2.49B (+69%); Q3 FY26 $808M; FY26 forecast ~$2.98B</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">CPO product revenue ramp; non-GAAP gross margin expansion; US fab buildout</span>
+    <span class="rd-sep">|</span><span class="rd-price">$950 → 目标 $1104.68</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 83.0)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#60a5fa"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:95.0%;background:#60a5fa"></div></div><span class="bar-val">95</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#60a5fa"></div></div><span class="bar-val">68</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 79.4)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#4ade80"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#4ade80"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#4ade80"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#4ade80"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:92.0%;background:#4ade80"></div></div><span class="bar-val">92</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 37.2)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#ffd700"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#ffd700"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:48.0%;background:#ffd700"></div></div><span class="bar-val">48</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>NVIDIA's $2B investment in Lumentum to secure CPO supply for Spectrum-6 AI platform is transformational. FY26 revenue +69% YoY. US manufacturing buildout de-risks geopolitical exposure.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>NVIDIA concentration growing share; CPO ramp delays; stock +140% YTD near-term consolidation risk</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>CPO revenue commencement H2 2026; Q4 FY26 confirming $850M+ quarterly</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$73.0B</span>，来源：<a href="https://companiesmarketcap.com/lumentum/marketcap/" target="_blank" style="color:#60a5fa">https://companiesmarketcap.com/lumentum/marketcap/</a>，截止日期 2026-06-03
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $2.5B<br>
+    CAGR: 30%<br>
+    Y5收入 = $2.5B × (1 + 30%)^5 = <b>9.28B</b><br>
+    Y5净利润 = 9.28B × 15% = <b>1.39B</b><br>
+    Y5市值 = 1.39B × 22x = <b>30.63B</b><br>
+    净债务: $0.2B<br>
+    Y5权益价值 = 30.63B - (0.2B) = <b>30.43B</b>
+    </code>
+    <br><small style="color:#888">NVIDIA $2B investment; CPO leadership; US manufacturing buildout; 22x EBITDA</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (30.43B / 73.0B)^(1/5) - 1 = <b>-16.1%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-14.1%</td><td class="num">25%</td><td class="num" style="color:#f87171">-3.51%</td></tr><tr><td>Base Case</td><td class="num">-16.1%</td><td class="num">45%</td><td class="num" style="color:#f87171">-7.22%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-21.1%</td><td class="num">20%</td><td class="num" style="color:#f87171">-4.21%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-31.1%</td><td class="num">10%</td><td class="num" style="color:#f87171">-3.11%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-18.05%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -18.1% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.tradingkey.com/analysis/stocks/us-stocks/261638209-partnering-lumentum-coherent-nvidia-40-billion-cpo-future" target="_blank">[1]</a>
+      <a href="https://www.sec.gov/Archives/edgar/data/0001633978/" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="MTSI">
+  <div class="card-header" style="border-left:4px solid #60a5fa; background:rgba(96,165,250,0.12)">
+    <div class="card-rank">#4</div>
+    <div class="card-info">
+      <div class="card-ticker">MTSI </div>
+      <div class="card-name">MACOM Technology Solutions</div>
+      <div class="card-type">Optical Semiconductors (Analog/RF) · Mid Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #60a5fa">
+      <div class="score-num" style="color:#60a5fa">67.2</div>
+      <div class="score-grade" style="color:#60a5fa">B</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">FY2025 $967M (+33%); Q2 FY26 $289M (+22.5%); Q3 guide $331-339M</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">DC revenue +31% YoY in Q2 FY26; adj gross margin 58.5%</span>
+    <span class="rd-sep">|</span><span class="rd-price">$374.92 → 目标 $430</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 81.5)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#60a5fa"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#60a5fa"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 80.0)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#4ade80"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#4ade80"></div></div><span class="bar-val">62</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 36.2)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#ffd700"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#ffd700"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:50.0%;background:#ffd700"></div></div><span class="bar-val">50</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>MACOM's high-performance analog, coherent lightwave, and data center products riding the 800G/1.6T wave with best-in-class 58%+ gross margins. As data center mix rises from ~30% toward 50%+, multiple expansion continues.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Premium valuation (~27x fwd revenue); military/industrial softness; competition from Marvell/Broadcom in DSP</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Q3 FY26 confirming $335M+ revenue; data center crossing 40% of mix</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$29.4B</span>，来源：<a href="https://companiesmarketcap.com/macom/marketcap/" target="_blank" style="color:#60a5fa">https://companiesmarketcap.com/macom/marketcap/</a>，截止日期 2026-06-04
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $1.1B<br>
+    CAGR: 25%<br>
+    Y5收入 = $1.1B × (1 + 25%)^5 = <b>3.36B</b><br>
+    Y5净利润 = 3.36B × 18% = <b>0.60B</b><br>
+    Y5市值 = 0.60B × 28x = <b>16.92B</b><br>
+    净债务: $-0.1B<br>
+    Y5权益价值 = 16.92B - (-0.1B) = <b>17.02B</b>
+    </code>
+    <br><small style="color:#888">DSP/IC analog 28x PE; 58%+ gross margins data center coherent ramp</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (17.02B / 29.4B)^(1/5) - 1 = <b>-10.4%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-8.4%</td><td class="num">25%</td><td class="num" style="color:#f87171">-2.09%</td></tr><tr><td>Base Case</td><td class="num">-10.4%</td><td class="num">45%</td><td class="num" style="color:#f87171">-4.66%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-15.4%</td><td class="num">20%</td><td class="num" style="color:#f87171">-3.07%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-25.4%</td><td class="num">10%</td><td class="num" style="color:#f87171">-2.54%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-12.36%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -12.4% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.sec.gov/Archives/edgar/data/0001493594/" target="_blank">[1]</a>
+      <a href="https://companiesmarketcap.com/macom/marketcap/" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="APH">
+  <div class="card-header" style="border-left:4px solid #60a5fa; background:rgba(96,165,250,0.12)">
+    <div class="card-rank">#5</div>
+    <div class="card-info">
+      <div class="card-ticker">APH </div>
+      <div class="card-name">Amphenol Corporation</div>
+      <div class="card-type">Connectors & Optical Interconnect · Large Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #60a5fa">
+      <div class="score-num" style="color:#60a5fa">67.1</div>
+      <div class="score-grade" style="color:#60a5fa">B</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">FY2025 $23.095B (+52%); Q1 FY26 $7.62B (+58%); Orders $9.4B book-to-bill 1.24</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">IT/datacom organic +81% Q1 FY26; book-to-bill 1.24; record $9.4B orders</span>
+    <span class="rd-sep">|</span><span class="rd-price">$150.62 → 目标 $175</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 79.9)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#60a5fa"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#60a5fa"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#60a5fa"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 80.5)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#4ade80"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:92.0%;background:#4ade80"></div></div><span class="bar-val">92</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#4ade80"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:92.0%;background:#4ade80"></div></div><span class="bar-val">92</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 36.2)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:52.0%;background:#ffd700"></div></div><span class="bar-val">52</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#ffd700"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#ffd700"></div></div><span class="bar-val">55</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Amphenol is the global connector and fiber optic interconnect leader. CommScope CCS acquisition adds critical fiber optic products. Record $9.4B orders and 81% organic AI datacenter growth.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Valuation ~42x PE; CommScope integration risk; some cyclicality in non-IT segments</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Q2 FY26 July 2026 confirming 50%+ IT datacom growth; CommScope synergy realization</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$183.0B</span>，来源：<a href="https://stockanalysis.com/stocks/aph/" target="_blank" style="color:#60a5fa">https://stockanalysis.com/stocks/aph/</a>，截止日期 2026-06-04
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $23.1B<br>
+    CAGR: 16%<br>
+    Y5收入 = $23.1B × (1 + 16%)^5 = <b>48.52B</b><br>
+    Y5净利润 = 48.52B × 14% = <b>6.79B</b><br>
+    Y5市值 = 6.79B × 20x = <b>135.85B</b><br>
+    净债务: $5.0B<br>
+    Y5权益价值 = 135.85B - (5.0B) = <b>130.85B</b>
+    </code>
+    <br><small style="color:#888">Connectors best-in-class; >40% IT/datacom; CommScope CCS acquisition; 20x EBITDA</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (130.85B / 183.0B)^(1/5) - 1 = <b>-6.5%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-4.5%</td><td class="num">25%</td><td class="num" style="color:#f87171">-1.12%</td></tr><tr><td>Base Case</td><td class="num">-6.5%</td><td class="num">45%</td><td class="num" style="color:#f87171">-2.92%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-11.5%</td><td class="num">20%</td><td class="num" style="color:#f87171">-2.30%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-21.5%</td><td class="num">10%</td><td class="num" style="color:#f87171">-2.15%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-8.49%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -8.5% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.tikr.com/blog/amphenol-stock-surged-after-q1-2026-earnings" target="_blank">[1]</a>
+      <a href="https://investors.amphenol.com/news-and-events/news-details/2026/Amphenol-Reports-Record-Fourth-Quarter-and-Full-Year-2025-Results/" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="CIEN">
+  <div class="card-header" style="border-left:4px solid #60a5fa; background:rgba(96,165,250,0.12)">
+    <div class="card-rank">#6</div>
+    <div class="card-info">
+      <div class="card-ticker">CIEN </div>
+      <div class="card-name">Ciena Corporation</div>
+      <div class="card-type">Optical Networking Systems · Large Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #60a5fa">
+      <div class="score-num" style="color:#60a5fa">66.4</div>
+      <div class="score-grade" style="color:#60a5fa">B</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">FY2025 $4.77B (+19%); Q1 FY26 $1.43B (+33%); Q2 $1.57B (+40%); FY26 guide $6.3B</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">Revenue guide raise cadence; WaveLogic AI hyperscaler and Tier-1 carrier adoption</span>
+    <span class="rd-sep">|</span><span class="rd-price">$499 → 目标 $650</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 79.4)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#60a5fa"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#60a5fa"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#60a5fa"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#60a5fa"></div></div><span class="bar-val">70</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 76.8)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#4ade80"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#4ade80"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 40.2)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#ffd700"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#ffd700"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#ffd700"></div></div><span class="bar-val">55</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Ciena's WaveLogic AI coherent optical platform is the standard for high-bandwidth datacenter interconnect. Revenue accelerating 19%→33%→40% with $6.3B FY26 guidance. 19.6% post-Q2 drop creates compelling entry.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Lumpy order fulfillment creates lumpy revenue; heavy telco exposure; AT&T/Verizon spend cuts</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Q3 FY26 Sept 2026 delivering $1.6B+ run rate; large hyperscaler order announcement</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$71.7B</span>，来源：<a href="https://stockanalysis.com/stocks/cien/" target="_blank" style="color:#60a5fa">https://stockanalysis.com/stocks/cien/</a>，截止日期 2026-06-04
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $4.8B<br>
+    CAGR: 25%<br>
+    Y5收入 = $4.8B × (1 + 25%)^5 = <b>14.56B</b><br>
+    Y5净利润 = 14.56B × 12% = <b>1.75B</b><br>
+    Y5市值 = 1.75B × 18x = <b>31.44B</b><br>
+    净债务: $0.3B<br>
+    Y5权益价值 = 31.44B - (0.3B) = <b>31.14B</b>
+    </code>
+    <br><small style="color:#888">WaveLogic AI leadership; 40% revenue acceleration; 18x EBITDA post-earnings drop opportunity</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (31.14B / 71.7B)^(1/5) - 1 = <b>-15.4%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-13.4%</td><td class="num">25%</td><td class="num" style="color:#f87171">-3.34%</td></tr><tr><td>Base Case</td><td class="num">-15.4%</td><td class="num">45%</td><td class="num" style="color:#f87171">-6.91%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-20.4%</td><td class="num">20%</td><td class="num" style="color:#f87171">-4.07%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-30.4%</td><td class="num">10%</td><td class="num" style="color:#f87171">-3.04%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-17.36%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -17.4% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.stocktitan.net/news/CIEN/ciena-reports-fiscal-second-quarter-2026-financial" target="_blank">[1]</a>
+      <a href="https://www.sec.gov/Archives/edgar/data/0000936395/" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="TE">
+  <div class="card-header" style="border-left:4px solid #60a5fa; background:rgba(96,165,250,0.12)">
+    <div class="card-rank">#7</div>
+    <div class="card-info">
+      <div class="card-ticker">TE </div>
+      <div class="card-name">TE Connectivity</div>
+      <div class="card-type">Connectors & Sensors · Large Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #60a5fa">
+      <div class="score-num" style="color:#60a5fa">65.9</div>
+      <div class="score-grade" style="color:#60a5fa">B</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">FY2025 $17.26B (+9%); Q2 FY26 $4.7B (+15%); record orders $5.3B</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">Datacom segment growth; adj EPS +24% YoY Q2 FY26; record orders $5.3B</span>
+    <span class="rd-sep">|</span><span class="rd-price">$164.32 → 目标 $210</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 74.4)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#60a5fa"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#60a5fa"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#60a5fa"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#60a5fa"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#60a5fa"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#60a5fa"></div></div><span class="bar-val">75</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 73.6)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#4ade80"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#4ade80"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#4ade80"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:52.0%;background:#4ade80"></div></div><span class="bar-val">52</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#4ade80"></div></div><span class="bar-val">68</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 47.5)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:20.0%;background:#ffd700"></div></div><span class="bar-val">20</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#ffd700"></div></div><span class="bar-val">62</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#ffd700"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:58.0%;background:#ffd700"></div></div><span class="bar-val">58</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>TE Connectivity is a defensive compounder with meaningful AI/datacenter exposure through high-speed connectors. Record orders $5.3B. Attractively valued post-7% drop.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Limited AI pure-play (~20% datacom); auto/industrial cyclical headwinds; Ireland re-domicile complexity</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Q3 FY26 showing datacom outperformance; auto connector recovery; EV adoption stabilizes</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$60.7B</span>，来源：<a href="https://stockanalysis.com/stocks/tel/market-cap/" target="_blank" style="color:#60a5fa">https://stockanalysis.com/stocks/tel/market-cap/</a>，截止日期 2026-06-01
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $17.3B<br>
+    CAGR: 12%<br>
+    Y5收入 = $17.3B × (1 + 12%)^5 = <b>30.49B</b><br>
+    Y5净利润 = 30.49B × 14% = <b>4.27B</b><br>
+    Y5市值 = 4.27B × 17x = <b>72.56B</b><br>
+    净债务: $3.5B<br>
+    Y5权益价值 = 72.56B - (3.5B) = <b>69.06B</b>
+    </code>
+    <br><small style="color:#888">Connectors diversified; ~20% datacom; 17x EBITDA lower AI leverage vs APH</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (69.06B / 60.7B)^(1/5) - 1 = <b>2.6%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">4.6%</td><td class="num">25%</td><td class="num" style="color:#4ade80">1.15%</td></tr><tr><td>Base Case</td><td class="num">2.6%</td><td class="num">45%</td><td class="num" style="color:#4ade80">1.18%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-2.4%</td><td class="num">20%</td><td class="num" style="color:#f87171">-0.48%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-12.4%</td><td class="num">10%</td><td class="num" style="color:#f87171">-1.24%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#4ade80;font-weight:700">0.62%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 0.6% > 0% → v1 = 1 (持有)</span><br>
+    <b>v1 = 1</b> → 估值得分 = 1 × 20 = <b>20/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://companiesmarketcap.com/te-connectivity/earnings/" target="_blank">[1]</a>
+      <a href="https://stockanalysis.com/stocks/tel/market-cap/" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="CLS">
+  <div class="card-header" style="border-left:4px solid #60a5fa; background:rgba(96,165,250,0.12)">
+    <div class="card-rank">#8</div>
+    <div class="card-info">
+      <div class="card-ticker">CLS </div>
+      <div class="card-name">Celestica Inc.</div>
+      <div class="card-type">AI Infrastructure EMS · Large Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #60a5fa">
+      <div class="score-num" style="color:#60a5fa">64.7</div>
+      <div class="score-grade" style="color:#60a5fa">B</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">FY2025 $12.4B (+28%); Q1 FY26 $4.05B (+53%); FY26 guide $19B</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">CCS segment +76% YoY Q1 2026; DS6000-Series 1.6TbE switches; $19B FY26 guidance</span>
+    <span class="rd-sep">|</span><span class="rd-price">$425 → 目标 $480</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 76.4)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:58.0%;background:#60a5fa"></div></div><span class="bar-val">58</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#60a5fa"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#60a5fa"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#60a5fa"></div></div><span class="bar-val">62</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#60a5fa"></div></div><span class="bar-val">70</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 75.8)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#4ade80"></div></div><span class="bar-val">62</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#4ade80"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#4ade80"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 38.5)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:58.0%;background:#ffd700"></div></div><span class="bar-val">58</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#ffd700"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:52.0%;background:#ffd700"></div></div><span class="bar-val">52</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Celestica is the cleanest AI infrastructure EMS play. CCS segment (AI servers, networking) grew 76% YoY. Move up value chain toward branded 1.6T networking products.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>EMS structurally low net margins (~5%); hyperscaler concentration top 2-3 >60%; 1.6T switch product success uncertain</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>DS6000-Series switch wins; Q2 FY26 confirming $4.5B+ quarterly; guidance raise</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$52.8B</span>，来源：<a href="https://stockanalysis.com/stocks/cls/" target="_blank" style="color:#60a5fa">https://stockanalysis.com/stocks/cls/</a>，截止日期 2026-06-04
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $12.4B<br>
+    CAGR: 22%<br>
+    Y5收入 = $12.4B × (1 + 22%)^5 = <b>33.51B</b><br>
+    Y5净利润 = 33.51B × 5% = <b>1.68B</b><br>
+    Y5市值 = 1.68B × 11x = <b>18.43B</b><br>
+    净债务: $0.5B<br>
+    Y5权益价值 = 18.43B - (0.5B) = <b>17.93B</b>
+    </code>
+    <br><small style="color:#888">EMS AI server/networking; CCS 76% YoY growth; 11x EBITDA</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (17.93B / 52.8B)^(1/5) - 1 = <b>-19.4%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-17.4%</td><td class="num">25%</td><td class="num" style="color:#f87171">-4.36%</td></tr><tr><td>Base Case</td><td class="num">-19.4%</td><td class="num">45%</td><td class="num" style="color:#f87171">-8.74%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-24.4%</td><td class="num">20%</td><td class="num" style="color:#f87171">-4.88%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-34.4%</td><td class="num">10%</td><td class="num" style="color:#f87171">-3.44%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-21.42%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -21.4% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://corporate.celestica.com/news-releases/news-release-details/celestica-announces-first-quarter-2026-financial-results" target="_blank">[1]</a>
+      <a href="https://finance.yahoo.com/news/celestica-inc-cls-q4-2025-190344323.html" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="FN">
+  <div class="card-header" style="border-left:4px solid #60a5fa; background:rgba(96,165,250,0.12)">
+    <div class="card-rank">#9</div>
+    <div class="card-info">
+      <div class="card-ticker">FN </div>
+      <div class="card-name">Fabrinet</div>
+      <div class="card-type">Optical EMS (Contract Manufacturing) · Mid Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #60a5fa">
+      <div class="score-num" style="color:#60a5fa">64.3</div>
+      <div class="score-grade" style="color:#60a5fa">B</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">FY2025 $3.42B (+19%); Q3 FY26 $1.214B (+39%); 9-month FY26 $3.33B</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">Optical Comms +35% Q3 FY26; High-Performance Compute +25% sequential</span>
+    <span class="rd-sep">|</span><span class="rd-price">$725 → 目标 $800</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 76.2)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#60a5fa"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#60a5fa"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#60a5fa"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 75.0)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#4ade80"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#4ade80"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#4ade80"></div></div><span class="bar-val">78</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 38.5)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:58.0%;background:#ffd700"></div></div><span class="bar-val">58</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#ffd700"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:52.0%;background:#ffd700"></div></div><span class="bar-val">52</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Fabrinet is the premier contract manufacturer for optical transceivers. Manufacturing for COHR, LITE, others. 39% revenue growth in Q3 FY26 reflects explosive 800G demand surge.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>EMS structurally lower margins (~9-10%); customer concentration COHR/LITE ~15-20% each; Thailand risk</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Q4 FY26 showing >35% Optical Comms growth; CPO module manufacturing win</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$26.0B</span>，来源：<a href="https://public.com/stocks/fn/market-cap" target="_blank" style="color:#60a5fa">https://public.com/stocks/fn/market-cap</a>，截止日期 2026-06-03
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $3.4B<br>
+    CAGR: 20%<br>
+    Y5收入 = $3.4B × (1 + 20%)^5 = <b>8.51B</b><br>
+    Y5净利润 = 8.51B × 9% = <b>0.77B</b><br>
+    Y5市值 = 0.77B × 12x = <b>9.19B</b><br>
+    净债务: $-0.5B<br>
+    Y5权益价值 = 9.19B - (-0.5B) = <b>9.69B</b>
+    </code>
+    <br><small style="color:#888">EMS optical premium; 800G/1.6T module manufacturing; 12x EBITDA</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (9.69B / 26.0B)^(1/5) - 1 = <b>-17.9%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-15.9%</td><td class="num">25%</td><td class="num" style="color:#f87171">-3.98%</td></tr><tr><td>Base Case</td><td class="num">-17.9%</td><td class="num">45%</td><td class="num" style="color:#f87171">-8.06%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-22.9%</td><td class="num">20%</td><td class="num" style="color:#f87171">-4.58%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-32.9%</td><td class="num">10%</td><td class="num" style="color:#f87171">-3.29%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-19.91%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -19.9% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.quiverquant.com/news/Fabrinet+(FN)+Stock+Falls+on+Q3+2026+Earnings" target="_blank">[1]</a>
+      <a href="https://www.sec.gov/Archives/edgar/data/0001408710/" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="GLW">
+  <div class="card-header" style="border-left:4px solid #60a5fa; background:rgba(96,165,250,0.12)">
+    <div class="card-rank">#10</div>
+    <div class="card-info">
+      <div class="card-ticker">GLW </div>
+      <div class="card-name">Corning Inc.</div>
+      <div class="card-type">Optical Fiber & Glass · Large Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #60a5fa">
+      <div class="score-num" style="color:#60a5fa">64.1</div>
+      <div class="score-grade" style="color:#60a5fa">B</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">FY2025 $15.63B (+19%); Q1 2026 $4.14B (+20%); Optical Comms $1.85B (+36%)</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">Optical Communications +36% YoY Q1; $6B Meta supply agreement</span>
+    <span class="rd-sep">|</span><span class="rd-price">$197.7 → 目标 $215</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 80.4)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#60a5fa"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#60a5fa"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#60a5fa"></div></div><span class="bar-val">75</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 76.2)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:58.0%;background:#4ade80"></div></div><span class="bar-val">58</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#4ade80"></div></div><span class="bar-val">78</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 33.2)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:48.0%;background:#ffd700"></div></div><span class="bar-val">48</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#ffd700"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:50.0%;background:#ffd700"></div></div><span class="bar-val">50</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Corning is the infrastructure backbone of AI optical connectivity. Hyperscaler demand for fiber and multicore cables supercharging Optical Communications. $6B Meta deal + additional hyperscaler contracts de-risk revenue ramp.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Only ~37% of revenue is optical; display/specialty are cyclical; premium valuation after 300%+ run</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Q2 2026 Optical Comms sustaining 30%+ growth; additional hyperscaler supply agreements</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$171.5B</span>，来源：<a href="https://stockanalysis.com/stocks/glw/" target="_blank" style="color:#60a5fa">https://stockanalysis.com/stocks/glw/</a>，截止日期 2026-06-05
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $15.6B<br>
+    CAGR: 19%<br>
+    Y5收入 = $15.6B × (1 + 19%)^5 = <b>37.23B</b><br>
+    Y5净利润 = 37.23B × 13% = <b>4.84B</b><br>
+    Y5市值 = 4.84B × 18x = <b>87.11B</b><br>
+    净债务: $3.0B<br>
+    Y5权益价值 = 87.11B - (3.0B) = <b>84.11B</b>
+    </code>
+    <br><small style="color:#888">Dominant fiber market + $6B Meta deal; 18x EBITDA; Springboard plan $30B by 2028</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (84.11B / 171.5B)^(1/5) - 1 = <b>-13.3%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-11.3%</td><td class="num">25%</td><td class="num" style="color:#f87171">-2.82%</td></tr><tr><td>Base Case</td><td class="num">-13.3%</td><td class="num">45%</td><td class="num" style="color:#f87171">-5.98%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-18.3%</td><td class="num">20%</td><td class="num" style="color:#f87171">-3.66%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-28.3%</td><td class="num">10%</td><td class="num" style="color:#f87171">-2.83%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-15.28%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -15.3% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://investor.corning.com/news-and-events/news/news-details/2026/Corning-Announces-Outstanding-2025-Financial-Results/" target="_blank">[1]</a>
+      <a href="https://www.sec.gov/Archives/edgar/data/0000024741/" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="CRDO">
+  <div class="card-header" style="border-left:4px solid #60a5fa; background:rgba(96,165,250,0.12)">
+    <div class="card-rank">#11</div>
+    <div class="card-info">
+      <div class="card-ticker">CRDO </div>
+      <div class="card-name">Credo Technology Group</div>
+      <div class="card-type">Active Electrical Cables & Optical DSP · Mid Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #60a5fa">
+      <div class="score-num" style="color:#60a5fa">60.6</div>
+      <div class="score-grade" style="color:#60a5fa">B</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">FY2026 $1.34B (+206%); non-GAAP gross margin 68.6%</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">AEC growth and optical DSP (SIFO PIX) $600M+ contribution target FY27</span>
+    <span class="rd-sep">|</span><span class="rd-price">$214.6 → 目标 $251</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 83.9)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#60a5fa"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:96.0%;background:#60a5fa"></div></div><span class="bar-val">96</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#60a5fa"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#60a5fa"></div></div><span class="bar-val">68</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 82.4)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:96.0%;background:#4ade80"></div></div><span class="bar-val">96</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#4ade80"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 31.3)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:45.0%;background:#ffd700"></div></div><span class="bar-val">45</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#ffd700"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:42.0%;background:#ffd700"></div></div><span class="bar-val">42</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Credo's AEC technology has become preferred short-reach interconnect in NVIDIA GPU clusters. 206% revenue growth in FY26. Expanding into optical DSP targeting $600M+ FY27 revenue.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>IPO <4 years (2022); heavy Microsoft/hyperscaler concentration; AEC margin pressure as competition enters</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>FY27 Q1 showing optical DSP materializing at scale; new hyperscaler AEC contracts</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$43.0B</span>，来源：<a href="https://companiesmarketcap.com/credo-technology/marketcap/" target="_blank" style="color:#60a5fa">https://companiesmarketcap.com/credo-technology/marketcap/</a>，截止日期 2026-06-04
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $1.3B<br>
+    CAGR: 35%<br>
+    Y5收入 = $1.3B × (1 + 35%)^5 = <b>6.01B</b><br>
+    Y5净利润 = 6.01B × 20% = <b>1.20B</b><br>
+    Y5市值 = 1.20B × 25x = <b>30.04B</b><br>
+    净债务: $-1.0B<br>
+    Y5权益价值 = 30.04B - (-1.0B) = <b>31.04B</b>
+    </code>
+    <br><small style="color:#888">AEC dominant + optical DSP expansion; 25x PE high-growth premium</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (31.04B / 43.0B)^(1/5) - 1 = <b>-6.3%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-4.3%</td><td class="num">25%</td><td class="num" style="color:#f87171">-1.08%</td></tr><tr><td>Base Case</td><td class="num">-6.3%</td><td class="num">45%</td><td class="num" style="color:#f87171">-2.84%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-11.3%</td><td class="num">20%</td><td class="num" style="color:#f87171">-2.26%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-21.3%</td><td class="num">10%</td><td class="num" style="color:#f87171">-2.13%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-8.31%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -8.3% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.gurufocus.com/news/8895026/credo-technology-group" target="_blank">[1]</a>
+      <a href="https://www.macrotrends.net/stocks/charts/CRDO/credo-technology/market-cap" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="AAOI">
+  <div class="card-header" style="border-left:4px solid #fb923c; background:rgba(251,146,60,0.12)">
+    <div class="card-rank">#12</div>
+    <div class="card-info">
+      <div class="card-ticker">AAOI <span class="veto-badge">⚠ VETO</span></div>
+      <div class="card-name">Applied Optoelectronics</div>
+      <div class="card-type">Optical Transceiver Modules · Small Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #fb923c">
+      <div class="score-num" style="color:#fb923c">52.4</div>
+      <div class="score-grade" style="color:#fb923c">C</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">FY2025 $455.7M (+83%); Q1 2026 $151.1M (+51%); FY26 guide >$1.1B</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">Path to GAAP profitability; gross margin at 800G scale (29% GAAP)</span>
+    <span class="rd-sep">|</span><span class="rd-price">$189.47 → 目标 $200</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 71.9)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#60a5fa"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#60a5fa"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#60a5fa"></div></div><span class="bar-val">62</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#60a5fa"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#60a5fa"></div></div><span class="bar-val">65</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 61.0)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:35.0%;background:#4ade80"></div></div><span class="bar-val">35</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#4ade80"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#4ade80"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:50.0%;background:#4ade80"></div></div><span class="bar-val">50</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#4ade80"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#4ade80"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#4ade80"></div></div><span class="bar-val">65</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 25.2)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:38.0%;background:#ffd700"></div></div><span class="bar-val">38</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:42.0%;background:#ffd700"></div></div><span class="bar-val">42</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:35.0%;background:#ffd700"></div></div><span class="bar-val">35</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>AAOI is high-growth 800G transceiver manufacturer but persistent GAAP losses and low 29% gross margins indicate limited IP moat vs peers (CRDO at 68%).</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>GAAP losses persisting (veto trigger); gross margin compression; heavy capex; stock +439% YTD</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>First GAAP profitable quarter; 400G to 800G mix shift improving margins</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$14.8B</span>，来源：<a href="https://stockanalysis.com/stocks/aaoi/market-cap/" target="_blank" style="color:#60a5fa">https://stockanalysis.com/stocks/aaoi/market-cap/</a>，截止日期 2026-06-04
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $0.5B<br>
+    CAGR: 35%<br>
+    Y5收入 = $0.5B × (1 + 35%)^5 = <b>2.06B</b><br>
+    Y5净利润 = 2.06B × 4% = <b>0.08B</b><br>
+    Y5市值 = 0.08B × 15x = <b>1.24B</b><br>
+    净债务: $0.3B<br>
+    Y5权益价值 = 1.24B - (0.3B) = <b>0.94B</b>
+    </code>
+    <br><small style="color:#888">Small-cap transceiver; limited moat; GAAP losses; 15x EBITDA below sector average</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (0.94B / 14.8B)^(1/5) - 1 = <b>-42.4%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-40.4%</td><td class="num">25%</td><td class="num" style="color:#f87171">-10.10%</td></tr><tr><td>Base Case</td><td class="num">-42.4%</td><td class="num">45%</td><td class="num" style="color:#f87171">-19.08%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-47.4%</td><td class="num">20%</td><td class="num" style="color:#f87171">-9.48%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-57.4%</td><td class="num">10%</td><td class="num" style="color:#f87171">-5.74%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-44.41%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -44.4% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.globenewswire.com/news-release/2026/05/07/3290613/" target="_blank">[1]</a>
+      <a href="https://investors.ao-inc.com/news-releases/news-release-details/applied-optoelectronics-reports-fourth-quarter-and-full-year-5" target="_blank">[2]</a>
+    </div>
+    <div class="veto-reason">⚠ VETO原因: Persistent GAAP net losses: Q1 2026 GAAP net loss $14.3M (widening); FY2025 GAAP net loss $38.2M; despite >$1.1B 2026 revenue guide, remains GAAP unprofitable.</div>
+  </div>
+</div>
+<div class="company-card" id="ALAB">
+  <div class="card-header" style="border-left:4px solid #fb923c; background:rgba(251,146,60,0.12)">
+    <div class="card-rank">#13</div>
+    <div class="card-info">
+      <div class="card-ticker">ALAB <span class="veto-badge">⚠ VETO</span></div>
+      <div class="card-name">Astera Labs</div>
+      <div class="card-type">PCIe/CXL Connectivity Semiconductors · Mid Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #fb923c">
+      <div class="score-num" style="color:#fb923c">50.9</div>
+      <div class="score-grade" style="color:#fb923c">C</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">FY2025 $852.5M (+115%); Q1 2026 $308.4M (+93%); FY26 forecast ~$1.35B</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">Scorpio scale-up switching as % of total; PCIe 6.0 >1/3 of revenue</span>
+    <span class="rd-sep">|</span><span class="rd-price">$358.05 → 目标 $400</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 83.2)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#60a5fa"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:94.0%;background:#60a5fa"></div></div><span class="bar-val">94</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#60a5fa"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#60a5fa"></div></div><span class="bar-val">65</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 79.7)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:92.0%;background:#4ade80"></div></div><span class="bar-val">92</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#4ade80"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#4ade80"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#4ade80"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 23.8)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:35.0%;background:#ffd700"></div></div><span class="bar-val">35</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:42.0%;background:#ffd700"></div></div><span class="bar-val">42</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:30.0%;background:#ffd700"></div></div><span class="bar-val">30</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Astera Labs designs mission-critical PCIe/CXL retimers and scale-up switching chips for AI datacenter fabric. PCIe 6.0 now >1/3 of revenue. IPO vintage limits full conviction.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>IPO <3 years — veto applied; heavy NVIDIA concentration; ~45x fwd revenue prices near-perfection</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Scorpio becoming #1 product by Q4 FY26; new hyperscaler design wins</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$61.4B</span>，来源：<a href="https://stockanalysis.com/stocks/alab/" target="_blank" style="color:#60a5fa">https://stockanalysis.com/stocks/alab/</a>，截止日期 2026-06-05
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $0.8B<br>
+    CAGR: 40%<br>
+    Y5收入 = $0.8B × (1 + 40%)^5 = <b>4.57B</b><br>
+    Y5净利润 = 4.57B × 18% = <b>0.82B</b><br>
+    Y5市值 = 0.82B × 26x = <b>21.39B</b><br>
+    净债务: $-1.2B<br>
+    Y5权益价值 = 21.39B - (-1.2B) = <b>22.59B</b>
+    </code>
+    <br><small style="color:#888">DSP/IC PCIe 6.0 leadership; Scorpio switching ramp; IPO vintage limits conviction</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (22.59B / 61.4B)^(1/5) - 1 = <b>-18.1%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-16.1%</td><td class="num">25%</td><td class="num" style="color:#f87171">-4.03%</td></tr><tr><td>Base Case</td><td class="num">-18.1%</td><td class="num">45%</td><td class="num" style="color:#f87171">-8.15%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-23.1%</td><td class="num">20%</td><td class="num" style="color:#f87171">-4.62%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-33.1%</td><td class="num">10%</td><td class="num" style="color:#f87171">-3.31%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-20.12%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -20.1% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://ir.asteralabs.com/news-releases/news-release-details/astera-labs-reports-first-quarter-2026-financial-results" target="_blank">[1]</a>
+      <a href="https://www.macrotrends.net/stocks/charts/ALAB/astera-labs/market-cap" target="_blank">[2]</a>
+    </div>
+    <div class="veto-reason">⚠ VETO原因: IPO March 2024 — less than 3 years public track record; insufficient history for full-cycle confidence.</div>
+  </div>
+</div>
+
+</div>
+<div class="footer">v4.0 · 2026-06-05 · 实时数据+DCF数学推导 | Powered by Claude Code</div>
+</body>
+</html>
