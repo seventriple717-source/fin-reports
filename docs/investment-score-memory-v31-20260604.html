@@ -231,8 +231,8 @@ tr:hover td{background:#1c2128}
     <table style="font-size:12px">
       <tr><th>假设项</th><th>基准值</th><th>来源依据</th></tr>
       <tr><td>当前年化营收</td><td class="num">$80B</td><td style="color:#8b949e">最新季度×4或最新全年数据</td></tr>
-      <tr><td>当前市值</td><td class="num">$120B</td><td style="color:#8b949e">最新收盘价×股份数（估算）</td></tr>
-      <tr><td>净负债（负=净现金）</td><td class="num">$-12000M</td><td style="color:#8b949e">资产负债表</td></tr>
+      <tr><td>当前市值</td><td class="num">$1191B</td><td style="color:#8b949e">最新收盘价×股份数（估算）</td></tr>
+      <tr><td>净负债（负=净现金）</td><td class="num">$6B</td><td style="color:#8b949e">资产负债表</td></tr>
       <tr><td>5年营收 CAGR</td><td class="num" style="color:#3fb950">22%</td><td style="color:#8b949e">通算法：FY2026年化~$80B，基准CAGR 22%，AI HBM结构性+DRAM通算</td></tr>
       <tr><td>Year 5 净利润率</td><td class="num">28%</td><td style="color:#8b949e">行业基准+公司运营杠杆</td></tr>
       <tr><td>退出估值倍数</td><td class="num">15x P/E</td><td style="color:#8b949e">同类公司成熟期历史均值</td></tr>
@@ -248,10 +248,10 @@ tr:hover td{background:#1c2128}
 Year 5 营收  = $80B × (1+22%)^5 = <strong style="color:#79c0ff">$216B</strong><br>
 Year 5 净利润 = $216B × 28% = <strong style="color:#79c0ff">$61B</strong><br>
 Year 5 目标市值 = $61B × 15x = <strong style="color:#79c0ff">$908B</strong><br>
-Year 5 目标股权价值 = $908B - ($-12000M) = <strong style="color:#ffd700">$920B</strong><br>
+Year 5 目标股权价值 = $908B - ($6B) = <strong style="color:#ffd700">$903B</strong><br>
 <br>
-基准情景年化回报 = ($920B/$120B)^(1/5) - 1
-  = <strong style="color:#3fb950">50.3%/年</strong>
+基准情景年化回报 = ($903B/$1191B)^(1/5) - 1
+  = <strong style="color:#f85149">-5.4%/年</strong>
     </div>
   </div>
 
@@ -269,26 +269,26 @@ Year 5 目标股权价值 = $908B - ($-12000M) = <strong style="color:#ffd700">$
           <td class="num">35%</td>
           <td class="num">20x</td>
           <td class="num">$359B</td>
-          <td class="num">$2523B</td>
-          <td class="num" style="color:#3fb950;font-weight:700">83.9%/年</td>
+          <td class="num">$2505B</td>
+          <td class="num" style="color:#3fb950;font-weight:700">16.0%/年</td>
         </tr><tr>
-          <td style="font-weight:600;color:#3fb950">基准（45%）</td>
+          <td style="font-weight:600;color:#f85149">基准（45%）</td>
           <td style="font-size:11px;color:#8b949e">管理层指引兑现，AI需求按当前路径增长</td>
           <td class="num">22%</td>
           <td class="num">28%</td>
           <td class="num">15x</td>
           <td class="num">$216B</td>
-          <td class="num">$920B</td>
-          <td class="num" style="color:#3fb950;font-weight:700">50.3%/年</td>
+          <td class="num">$903B</td>
+          <td class="num" style="color:#f85149;font-weight:700">-5.4%/年</td>
         </tr><tr>
-          <td style="font-weight:600;color:#3fb950">悲观（20%）</td>
+          <td style="font-weight:600;color:#f85149">悲观（20%）</td>
           <td style="font-size:11px;color:#8b949e">DRAM/NAND供给过剩，SK Hynix/Samsung价格战</td>
           <td class="num">10%</td>
           <td class="num">18%</td>
           <td class="num">10x</td>
           <td class="num">$129B</td>
-          <td class="num">$244B</td>
-          <td class="num" style="color:#3fb950;font-weight:700">15.2%/年</td>
+          <td class="num">$226B</td>
+          <td class="num" style="color:#f85149;font-weight:700">-28.3%/年</td>
         </tr><tr>
           <td style="font-weight:600;color:#f85149">颠覆（10%）</td>
           <td style="font-size:11px;color:#8b949e">HBM被CXL/PIM新架构分流，内存价格崩溃</td>
@@ -296,14 +296,14 @@ Year 5 目标股权价值 = $908B - ($-12000M) = <strong style="color:#ffd700">$
           <td class="num">8%</td>
           <td class="num">6x</td>
           <td class="num">$62B</td>
-          <td class="num">$42B</td>
-          <td class="num" style="color:#f85149;font-weight:700">-19.0%/年</td>
+          <td class="num">$24B</td>
+          <td class="num" style="color:#f85149;font-weight:700">-54.2%/年</td>
         </tr>
     </table>
-    <div style="margin-top:10px;padding:10px 14px;background:#0d1117;border-radius:6px;border-left:3px solid #3fb950">
+    <div style="margin-top:10px;padding:10px 14px;background:#0d1117;border-radius:6px;border-left:3px solid #f85149">
       <strong>概率加权年化回报</strong> =
-      <span style="font-size:18px;font-weight:800;color:#3fb950">44.7%/年</span>
-      &nbsp;（5年总回报 ≈ 535%）
+      <span style="font-size:18px;font-weight:800;color:#f85149">-9.5%/年</span>
+      &nbsp;（5年总回报 ≈ -39%）
       <br>
       <span style="font-size:11px;color:#8b949e;margin-top:4px;display:block">
         分析师均价 $135 vs 当前 $108（+25%）
@@ -319,13 +319,13 @@ Year 5 目标股权价值 = $908B - ($-12000M) = <strong style="color:#ffd700">$
     <table style="font-size:12px">
       <tr><th>维度</th><th>5年（精确建模）</th><th>10年（方向性判断）</th></tr>
       <tr><td>目标营收量级</td><td class="num">$216B</td><td class="num">$450B</td></tr>
-      <tr><td>目标市值区间</td><td class="num">$920B</td><td style="color:#79c0ff">$600-900B</td></tr>
+      <tr><td>目标市值区间</td><td class="num">$903B</td><td style="color:#79c0ff">$600-900B</td></tr>
       <tr><td>行业地位</td><td style="color:#8b949e">基准情景假设下维持</td><td style="color:#3fb950">全球最大AI内存供应商</td></tr>
       <tr><td>核心结构性前提</td><td style="color:#8b949e">AI Capex持续 + 技术路线验证</td><td style="color:#8b949e">AI算力继续扩张 + 无颠覆性替代</td></tr>
-      <tr><td>年化隐含回报</td><td class="num" style="color:#3fb950">44.7%（加权）</td><td style="color:#8b949e">方向性：乐观</td></tr>
+      <tr><td>年化隐含回报</td><td class="num" style="color:#f85149">-9.5%（加权）</td><td style="color:#8b949e">方向性：谨慎</td></tr>
     </table>
     <div style="font-size:11px;color:#8b949e;margin-top:8px">
-      ✅ 一致性校验：5年高回报与10年行业地位判断一致，假设合理
+      ✅ 一致性校验：⚠️ 5年回报偏低，需等待更好买入时机或估值修正
     </div>
   </div>
 </div>
@@ -393,8 +393,8 @@ Year 5 目标股权价值 = $908B - ($-12000M) = <strong style="color:#ffd700">$
     <table style="font-size:12px">
       <tr><th>假设项</th><th>基准值</th><th>来源依据</th></tr>
       <tr><td>当前年化营收</td><td class="num">$18B</td><td style="color:#8b949e">最新季度×4或最新全年数据</td></tr>
-      <tr><td>当前市值</td><td class="num">$20B</td><td style="color:#8b949e">最新收盘价×股份数（估算）</td></tr>
-      <tr><td>净负债（负=净现金）</td><td class="num">$6B</td><td style="color:#8b949e">资产负债表</td></tr>
+      <tr><td>当前市值</td><td class="num">$197B</td><td style="color:#8b949e">最新收盘价×股份数（估算）</td></tr>
+      <tr><td>净负债（负=净现金）</td><td class="num">$8B</td><td style="color:#8b949e">资产负债表</td></tr>
       <tr><td>5年营收 CAGR</td><td class="num" style="color:#3fb950">12%</td><td style="color:#8b949e">HDD+Flash拆分后，HDD业务独立；SanDisk Flash已拆分上市</td></tr>
       <tr><td>Year 5 净利润率</td><td class="num">10%</td><td style="color:#8b949e">行业基准+公司运营杠杆</td></tr>
       <tr><td>退出估值倍数</td><td class="num">12x P/E</td><td style="color:#8b949e">同类公司成熟期历史均值</td></tr>
@@ -410,10 +410,10 @@ Year 5 目标股权价值 = $908B - ($-12000M) = <strong style="color:#ffd700">$
 Year 5 营收  = $18B × (1+12%)^5 = <strong style="color:#79c0ff">$32B</strong><br>
 Year 5 净利润 = $32B × 10% = <strong style="color:#79c0ff">$3B</strong><br>
 Year 5 目标市值 = $3B × 12x = <strong style="color:#79c0ff">$38B</strong><br>
-Year 5 目标股权价值 = $38B - ($6B) = <strong style="color:#ffd700">$32B</strong><br>
+Year 5 目标股权价值 = $38B - ($8B) = <strong style="color:#ffd700">$30B</strong><br>
 <br>
-基准情景年化回报 = ($32B/$20B)^(1/5) - 1
-  = <strong style="color:#d29922">9.9%/年</strong>
+基准情景年化回报 = ($30B/$197B)^(1/5) - 1
+  = <strong style="color:#f85149">-31.3%/年</strong>
     </div>
   </div>
 
@@ -425,23 +425,23 @@ Year 5 目标股权价值 = $38B - ($6B) = <strong style="color:#ffd700">$32B</s
     <table style="font-size:12px">
       <tr><th>情景</th><th>核心假设</th><th>CAGR</th><th>净利率</th><th>退出倍数</th><th>Year5营收</th><th>Year5股权价值</th><th>年化回报</th></tr>
       <tr>
-          <td style="font-weight:600;color:#3fb950">乐观（25%）</td>
+          <td style="font-weight:600;color:#f85149">乐观（25%）</td>
           <td style="font-size:11px;color:#8b949e">企业SSD+HDD双线恢复，AI数据中心采购加速</td>
           <td class="num">18%</td>
           <td class="num">15%</td>
           <td class="num">16x</td>
           <td class="num">$41B</td>
-          <td class="num">$93B</td>
-          <td class="num" style="color:#3fb950;font-weight:700">35.9%/年</td>
+          <td class="num">$91B</td>
+          <td class="num" style="color:#f85149;font-weight:700">-14.3%/年</td>
         </tr><tr>
-          <td style="font-weight:600;color:#d29922">基准（45%）</td>
+          <td style="font-weight:600;color:#f85149">基准（45%）</td>
           <td style="font-size:11px;color:#8b949e">管理层指引兑现，HDD稳定增长</td>
           <td class="num">12%</td>
           <td class="num">10%</td>
           <td class="num">12x</td>
           <td class="num">$32B</td>
-          <td class="num">$32B</td>
-          <td class="num" style="color:#d29922;font-weight:700">9.9%/年</td>
+          <td class="num">$30B</td>
+          <td class="num" style="color:#f85149;font-weight:700">-31.3%/年</td>
         </tr><tr>
           <td style="font-weight:600;color:#f85149">悲观（20%）</td>
           <td style="font-size:11px;color:#8b949e">NVMe SSD继续蚕食HDD，定价压力</td>
@@ -449,8 +449,8 @@ Year 5 目标股权价值 = $38B - ($6B) = <strong style="color:#ffd700">$32B</s
           <td class="num">6%</td>
           <td class="num">8x</td>
           <td class="num">$23B</td>
-          <td class="num">$5B</td>
-          <td class="num" style="color:#f85149;font-weight:700">-24.1%/年</td>
+          <td class="num">$3B</td>
+          <td class="num" style="color:#f85149;font-weight:700">-56.6%/年</td>
         </tr><tr>
           <td style="font-weight:600;color:#f85149">颠覆（10%）</td>
           <td style="font-size:11px;color:#8b949e">HDD市场加速萎缩，结构性下滑</td>
@@ -464,8 +464,8 @@ Year 5 目标股权价值 = $38B - ($6B) = <strong style="color:#ffd700">$32B</s
     </table>
     <div style="margin-top:10px;padding:10px 14px;background:#0d1117;border-radius:6px;border-left:3px solid #f85149">
       <strong>概率加权年化回报</strong> =
-      <span style="font-size:18px;font-weight:800;color:#f85149">3.6%/年</span>
-      &nbsp;（5年总回报 ≈ 19%）
+      <span style="font-size:18px;font-weight:800;color:#f85149">-34.0%/年</span>
+      &nbsp;（5年总回报 ≈ -87%）
       <br>
       <span style="font-size:11px;color:#8b949e;margin-top:4px;display:block">
         分析师均价 $80 vs 当前 $65（+23%）
@@ -481,10 +481,10 @@ Year 5 目标股权价值 = $38B - ($6B) = <strong style="color:#ffd700">$32B</s
     <table style="font-size:12px">
       <tr><th>维度</th><th>5年（精确建模）</th><th>10年（方向性判断）</th></tr>
       <tr><td>目标营收量级</td><td class="num">$32B</td><td class="num">$22B</td></tr>
-      <tr><td>目标市值区间</td><td class="num">$32B</td><td style="color:#79c0ff">$20-35B</td></tr>
+      <tr><td>目标市值区间</td><td class="num">$30B</td><td style="color:#79c0ff">$20-35B</td></tr>
       <tr><td>行业地位</td><td style="color:#8b949e">基准情景假设下维持</td><td style="color:#3fb950">HDD存储#2，企业级存储重要供应商</td></tr>
       <tr><td>核心结构性前提</td><td style="color:#8b949e">AI Capex持续 + 技术路线验证</td><td style="color:#8b949e">AI算力继续扩张 + 无颠覆性替代</td></tr>
-      <tr><td>年化隐含回报</td><td class="num" style="color:#f85149">3.6%（加权）</td><td style="color:#8b949e">方向性：谨慎</td></tr>
+      <tr><td>年化隐含回报</td><td class="num" style="color:#f85149">-34.0%（加权）</td><td style="color:#8b949e">方向性：谨慎</td></tr>
     </table>
     <div style="font-size:11px;color:#8b949e;margin-top:8px">
       ✅ 一致性校验：⚠️ 5年回报偏低，需等待更好买入时机或估值修正
@@ -555,7 +555,7 @@ Year 5 目标股权价值 = $38B - ($6B) = <strong style="color:#ffd700">$32B</s
     <table style="font-size:12px">
       <tr><th>假设项</th><th>基准值</th><th>来源依据</th></tr>
       <tr><td>当前年化营收</td><td class="num">$12B</td><td style="color:#8b949e">最新季度×4或最新全年数据</td></tr>
-      <tr><td>当前市值</td><td class="num">$22B</td><td style="color:#8b949e">最新收盘价×股份数（估算）</td></tr>
+      <tr><td>当前市值</td><td class="num">$210B</td><td style="color:#8b949e">最新收盘价×股份数（估算）</td></tr>
       <tr><td>净负债（负=净现金）</td><td class="num">$4B</td><td style="color:#8b949e">资产负债表</td></tr>
       <tr><td>5年营收 CAGR</td><td class="num" style="color:#3fb950">8%</td><td style="color:#8b949e">Nearline HDD AI数据湖需求结构性，HAMR 44TB+技术护城河</td></tr>
       <tr><td>Year 5 净利润率</td><td class="num">12%</td><td style="color:#8b949e">行业基准+公司运营杠杆</td></tr>
@@ -574,8 +574,8 @@ Year 5 净利润 = $18B × 12% = <strong style="color:#79c0ff">$2B</strong><br>
 Year 5 目标市值 = $2B × 12x = <strong style="color:#79c0ff">$25B</strong><br>
 Year 5 目标股权价值 = $25B - ($4B) = <strong style="color:#ffd700">$21B</strong><br>
 <br>
-基准情景年化回报 = ($21B/$22B)^(1/5) - 1
-  = <strong style="color:#f85149">-0.6%/年</strong>
+基准情景年化回报 = ($21B/$210B)^(1/5) - 1
+  = <strong style="color:#f85149">-36.6%/年</strong>
     </div>
   </div>
 
@@ -587,14 +587,14 @@ Year 5 目标股权价值 = $25B - ($4B) = <strong style="color:#ffd700">$21B</s
     <table style="font-size:12px">
       <tr><th>情景</th><th>核心假设</th><th>CAGR</th><th>净利率</th><th>退出倍数</th><th>Year5营收</th><th>Year5股权价值</th><th>年化回报</th></tr>
       <tr>
-          <td style="font-weight:600;color:#3fb950">乐观（25%）</td>
+          <td style="font-weight:600;color:#f85149">乐观（25%）</td>
           <td style="font-size:11px;color:#8b949e">AI训练数据集存储需求超预期，每TB定价上升</td>
           <td class="num">15%</td>
           <td class="num">18%</td>
           <td class="num">16x</td>
           <td class="num">$24B</td>
           <td class="num">$66B</td>
-          <td class="num" style="color:#3fb950;font-weight:700">24.4%/年</td>
+          <td class="num" style="color:#f85149;font-weight:700">-20.7%/年</td>
         </tr><tr>
           <td style="font-weight:600;color:#f85149">基准（45%）</td>
           <td style="font-size:11px;color:#8b949e">管理层指引兑现，HDD容量+价格双升</td>
@@ -603,7 +603,7 @@ Year 5 目标股权价值 = $25B - ($4B) = <strong style="color:#ffd700">$21B</s
           <td class="num">12x</td>
           <td class="num">$18B</td>
           <td class="num">$21B</td>
-          <td class="num" style="color:#f85149;font-weight:700">-0.6%/年</td>
+          <td class="num" style="color:#f85149;font-weight:700">-36.6%/年</td>
         </tr><tr>
           <td style="font-weight:600;color:#f85149">悲观（20%）</td>
           <td style="font-size:11px;color:#8b949e">SSD/QLC进一步侵蚀HDD市场份额</td>
@@ -612,7 +612,7 @@ Year 5 目标股权价值 = $25B - ($4B) = <strong style="color:#ffd700">$21B</s
           <td class="num">9x</td>
           <td class="num">$14B</td>
           <td class="num">$6B</td>
-          <td class="num" style="color:#f85149;font-weight:700">-22.8%/年</td>
+          <td class="num" style="color:#f85149;font-weight:700">-50.8%/年</td>
         </tr><tr>
           <td style="font-weight:600;color:#f85149">颠覆（10%）</td>
           <td style="font-size:11px;color:#8b949e">AI训练迁移至分布式存储，HDD需求下降</td>
@@ -626,8 +626,8 @@ Year 5 目标股权价值 = $25B - ($4B) = <strong style="color:#ffd700">$21B</s
     </table>
     <div style="margin-top:10px;padding:10px 14px;background:#0d1117;border-radius:6px;border-left:3px solid #f85149">
       <strong>概率加权年化回报</strong> =
-      <span style="font-size:18px;font-weight:800;color:#f85149">-3.7%/年</span>
-      &nbsp;（5年总回报 ≈ -17%）
+      <span style="font-size:18px;font-weight:800;color:#f85149">-36.8%/年</span>
+      &nbsp;（5年总回报 ≈ -90%）
       <br>
       <span style="font-size:11px;color:#8b949e;margin-top:4px;display:block">
         分析师均价 $130 vs 当前 $109（+19%）
@@ -646,7 +646,7 @@ Year 5 目标股权价值 = $25B - ($4B) = <strong style="color:#ffd700">$21B</s
       <tr><td>目标市值区间</td><td class="num">$21B</td><td style="color:#79c0ff">$25-40B</td></tr>
       <tr><td>行业地位</td><td style="color:#8b949e">基准情景假设下维持</td><td style="color:#3fb950">AI冷存储HDD绝对领导者</td></tr>
       <tr><td>核心结构性前提</td><td style="color:#8b949e">AI Capex持续 + 技术路线验证</td><td style="color:#8b949e">AI算力继续扩张 + 无颠覆性替代</td></tr>
-      <tr><td>年化隐含回报</td><td class="num" style="color:#f85149">-3.7%（加权）</td><td style="color:#8b949e">方向性：谨慎</td></tr>
+      <tr><td>年化隐含回报</td><td class="num" style="color:#f85149">-36.8%（加权）</td><td style="color:#8b949e">方向性：谨慎</td></tr>
     </table>
     <div style="font-size:11px;color:#8b949e;margin-top:8px">
       ✅ 一致性校验：⚠️ 5年回报偏低，需等待更好买入时机或估值修正
@@ -717,8 +717,8 @@ Year 5 目标股权价值 = $25B - ($4B) = <strong style="color:#ffd700">$21B</s
     <table style="font-size:12px">
       <tr><th>假设项</th><th>基准值</th><th>来源依据</th></tr>
       <tr><td>当前年化营收</td><td class="num">$146B</td><td style="color:#8b949e">最新季度×4或最新全年数据</td></tr>
-      <tr><td>当前市值</td><td class="num">$125B</td><td style="color:#8b949e">最新收盘价×股份数（估算）</td></tr>
-      <tr><td>净负债（负=净现金）</td><td class="num">$-8000M</td><td style="color:#8b949e">资产负债表</td></tr>
+      <tr><td>当前市值</td><td class="num">$1110B</td><td style="color:#8b949e">最新收盘价×股份数（估算）</td></tr>
+      <tr><td>净负债（负=净现金）</td><td class="num">$8B</td><td style="color:#8b949e">资产负债表</td></tr>
       <tr><td>5年营收 CAGR</td><td class="num" style="color:#3fb950">20%</td><td style="color:#8b949e">韩元营收折算，62%HBM份额溢价，通算去除峰值扭曲</td></tr>
       <tr><td>Year 5 净利润率</td><td class="num">30%</td><td style="color:#8b949e">行业基准+公司运营杠杆</td></tr>
       <tr><td>退出估值倍数</td><td class="num">18x P/E</td><td style="color:#8b949e">同类公司成熟期历史均值</td></tr>
@@ -734,10 +734,10 @@ Year 5 目标股权价值 = $25B - ($4B) = <strong style="color:#ffd700">$21B</s
 Year 5 营收  = $146B × (1+20%)^5 = <strong style="color:#79c0ff">$363B</strong><br>
 Year 5 净利润 = $363B × 30% = <strong style="color:#79c0ff">$109B</strong><br>
 Year 5 目标市值 = $109B × 18x = <strong style="color:#79c0ff">$1962B</strong><br>
-Year 5 目标股权价值 = $1962B - ($-8000M) = <strong style="color:#ffd700">$1970B</strong><br>
+Year 5 目标股权价值 = $1962B - ($8B) = <strong style="color:#ffd700">$1954B</strong><br>
 <br>
-基准情景年化回报 = ($1970B/$125B)^(1/5) - 1
-  = <strong style="color:#3fb950">73.6%/年</strong>
+基准情景年化回报 = ($1954B/$1110B)^(1/5) - 1
+  = <strong style="color:#d29922">12.0%/年</strong>
     </div>
   </div>
 
@@ -755,26 +755,26 @@ Year 5 目标股权价值 = $1962B - ($-8000M) = <strong style="color:#ffd700">$
           <td class="num">38%</td>
           <td class="num">22x</td>
           <td class="num">$542B</td>
-          <td class="num">$4540B</td>
-          <td class="num" style="color:#3fb950;font-weight:700">105.1%/年</td>
+          <td class="num">$4524B</td>
+          <td class="num" style="color:#3fb950;font-weight:700">32.4%/年</td>
         </tr><tr>
-          <td style="font-weight:600;color:#3fb950">基准（45%）</td>
+          <td style="font-weight:600;color:#d29922">基准（45%）</td>
           <td style="font-size:11px;color:#8b949e">HBM份额60%±5%，DRAM通算盈利</td>
           <td class="num">20%</td>
           <td class="num">30%</td>
           <td class="num">18x</td>
           <td class="num">$363B</td>
-          <td class="num">$1970B</td>
-          <td class="num" style="color:#3fb950;font-weight:700">73.6%/年</td>
+          <td class="num">$1954B</td>
+          <td class="num" style="color:#d29922;font-weight:700">12.0%/年</td>
         </tr><tr>
-          <td style="font-weight:600;color:#3fb950">悲观（20%）</td>
+          <td style="font-weight:600;color:#f85149">悲观（20%）</td>
           <td style="font-size:11px;color:#8b949e">Samsung追上HBM4E，份额降至45%</td>
           <td class="num">10%</td>
           <td class="num">18%</td>
           <td class="num">12x</td>
           <td class="num">$235B</td>
-          <td class="num">$516B</td>
-          <td class="num" style="color:#3fb950;font-weight:700">32.8%/年</td>
+          <td class="num">$500B</td>
+          <td class="num" style="color:#f85149;font-weight:700">-14.7%/年</td>
         </tr><tr>
           <td style="font-weight:600;color:#f85149">颠覆（10%）</td>
           <td style="font-size:11px;color:#8b949e">中国禁令+HBM替代技术</td>
@@ -782,14 +782,14 @@ Year 5 目标股权价值 = $1962B - ($-8000M) = <strong style="color:#ffd700">$
           <td class="num">10%</td>
           <td class="num">8x</td>
           <td class="num">$146B</td>
-          <td class="num">$125B</td>
-          <td class="num" style="color:#f85149;font-weight:700">-0.0%/年</td>
+          <td class="num">$109B</td>
+          <td class="num" style="color:#f85149;font-weight:700">-37.2%/年</td>
         </tr>
     </table>
-    <div style="margin-top:10px;padding:10px 14px;background:#0d1117;border-radius:6px;border-left:3px solid #3fb950">
+    <div style="margin-top:10px;padding:10px 14px;background:#0d1117;border-radius:6px;border-left:3px solid #d29922">
       <strong>概率加权年化回报</strong> =
-      <span style="font-size:18px;font-weight:800;color:#3fb950">65.9%/年</span>
-      &nbsp;（5年总回报 ≈ 1158%）
+      <span style="font-size:18px;font-weight:800;color:#d29922">6.8%/年</span>
+      &nbsp;（5年总回报 ≈ 39%）
       <br>
       <span style="font-size:11px;color:#8b949e;margin-top:4px;display:block">
         分析师均价数据待补充
@@ -805,13 +805,13 @@ Year 5 目标股权价值 = $1962B - ($-8000M) = <strong style="color:#ffd700">$
     <table style="font-size:12px">
       <tr><th>维度</th><th>5年（精确建模）</th><th>10年（方向性判断）</th></tr>
       <tr><td>目标营收量级</td><td class="num">$363B</td><td class="num">$380B</td></tr>
-      <tr><td>目标市值区间</td><td class="num">$1970B</td><td style="color:#79c0ff">$500-800B</td></tr>
+      <tr><td>目标市值区间</td><td class="num">$1954B</td><td style="color:#79c0ff">$500-800B</td></tr>
       <tr><td>行业地位</td><td style="color:#8b949e">基准情景假设下维持</td><td style="color:#3fb950">HBM/AI内存绝对领导者</td></tr>
       <tr><td>核心结构性前提</td><td style="color:#8b949e">AI Capex持续 + 技术路线验证</td><td style="color:#8b949e">AI算力继续扩张 + 无颠覆性替代</td></tr>
-      <tr><td>年化隐含回报</td><td class="num" style="color:#3fb950">65.9%（加权）</td><td style="color:#8b949e">方向性：乐观</td></tr>
+      <tr><td>年化隐含回报</td><td class="num" style="color:#d29922">6.8%（加权）</td><td style="color:#8b949e">方向性：中性</td></tr>
     </table>
     <div style="font-size:11px;color:#8b949e;margin-top:8px">
-      ✅ 一致性校验：5年高回报与10年行业地位判断一致，假设合理
+      ✅ 一致性校验：⚠️ 5年回报偏低，需等待更好买入时机或估值修正
     </div>
   </div>
 </div>
@@ -879,8 +879,8 @@ Year 5 目标股权价值 = $1962B - ($-8000M) = <strong style="color:#ffd700">$
     <table style="font-size:12px">
       <tr><th>假设项</th><th>基准值</th><th>来源依据</th></tr>
       <tr><td>当前年化营收</td><td class="num">$500B</td><td style="color:#8b949e">最新季度×4或最新全年数据</td></tr>
-      <tr><td>当前市值</td><td class="num">$280B</td><td style="color:#8b949e">最新收盘价×股份数（估算）</td></tr>
-      <tr><td>净负债（负=净现金）</td><td class="num">$40B</td><td style="color:#8b949e">资产负债表</td></tr>
+      <tr><td>当前市值</td><td class="num">$1440B</td><td style="color:#8b949e">最新收盘价×股份数（估算）</td></tr>
+      <tr><td>净负债（负=净现金）</td><td class="num">$-30000M</td><td style="color:#8b949e">资产负债表</td></tr>
       <tr><td>5年营收 CAGR</td><td class="num" style="color:#3fb950">12%</td><td style="color:#8b949e">全集团估值，DS半导体部门驱动；P/E 25.3x vs行业68.6x，最大折价</td></tr>
       <tr><td>Year 5 净利润率</td><td class="num">15%</td><td style="color:#8b949e">行业基准+公司运营杠杆</td></tr>
       <tr><td>退出估值倍数</td><td class="num">20x P/E</td><td style="color:#8b949e">同类公司成熟期历史均值</td></tr>
@@ -896,10 +896,10 @@ Year 5 目标股权价值 = $1962B - ($-8000M) = <strong style="color:#ffd700">$
 Year 5 营收  = $500B × (1+12%)^5 = <strong style="color:#79c0ff">$881B</strong><br>
 Year 5 净利润 = $881B × 15% = <strong style="color:#79c0ff">$132B</strong><br>
 Year 5 目标市值 = $132B × 20x = <strong style="color:#79c0ff">$2644B</strong><br>
-Year 5 目标股权价值 = $2644B - ($40B) = <strong style="color:#ffd700">$2604B</strong><br>
+Year 5 目标股权价值 = $2644B - ($-30000M) = <strong style="color:#ffd700">$2674B</strong><br>
 <br>
-基准情景年化回报 = ($2604B/$280B)^(1/5) - 1
-  = <strong style="color:#3fb950">56.2%/年</strong>
+基准情景年化回报 = ($2674B/$1440B)^(1/5) - 1
+  = <strong style="color:#3fb950">13.2%/年</strong>
     </div>
   </div>
 
@@ -917,8 +917,8 @@ Year 5 目标股权价值 = $2644B - ($40B) = <strong style="color:#ffd700">$260
           <td class="num">20%</td>
           <td class="num">25x</td>
           <td class="num">$1144B</td>
-          <td class="num">$5679B</td>
-          <td class="num" style="color:#3fb950;font-weight:700">82.6%/年</td>
+          <td class="num">$5749B</td>
+          <td class="num" style="color:#3fb950;font-weight:700">31.9%/年</td>
         </tr><tr>
           <td style="font-weight:600;color:#3fb950">基准（45%）</td>
           <td style="font-size:11px;color:#8b949e">HBM份额小幅回升，代工稳定</td>
@@ -926,17 +926,17 @@ Year 5 目标股权价值 = $2644B - ($40B) = <strong style="color:#ffd700">$260
           <td class="num">15%</td>
           <td class="num">20x</td>
           <td class="num">$881B</td>
-          <td class="num">$2604B</td>
-          <td class="num" style="color:#3fb950;font-weight:700">56.2%/年</td>
+          <td class="num">$2674B</td>
+          <td class="num" style="color:#3fb950;font-weight:700">13.2%/年</td>
         </tr><tr>
-          <td style="font-weight:600;color:#3fb950">悲观（20%）</td>
+          <td style="font-weight:600;color:#f85149">悲观（20%）</td>
           <td style="font-size:11px;color:#8b949e">HBM再度延迟，代工SFAB持续亏损</td>
           <td class="num">5%</td>
           <td class="num">10%</td>
           <td class="num">14x</td>
           <td class="num">$638B</td>
-          <td class="num">$853B</td>
-          <td class="num" style="color:#3fb950;font-weight:700">25.0%/年</td>
+          <td class="num">$923B</td>
+          <td class="num" style="color:#f85149;font-weight:700">-8.5%/年</td>
         </tr><tr>
           <td style="font-weight:600;color:#f85149">颠覆（10%）</td>
           <td style="font-size:11px;color:#8b949e">地缘事件+HBM彻底落后</td>
@@ -944,14 +944,14 @@ Year 5 目标股权价值 = $2644B - ($40B) = <strong style="color:#ffd700">$260
           <td class="num">5%</td>
           <td class="num">10x</td>
           <td class="num">$429B</td>
-          <td class="num">$175B</td>
-          <td class="num" style="color:#f85149;font-weight:700">-9.0%/年</td>
+          <td class="num">$245B</td>
+          <td class="num" style="color:#f85149;font-weight:700">-29.8%/年</td>
         </tr>
     </table>
-    <div style="margin-top:10px;padding:10px 14px;background:#0d1117;border-radius:6px;border-left:3px solid #3fb950">
+    <div style="margin-top:10px;padding:10px 14px;background:#0d1117;border-radius:6px;border-left:3px solid #d29922">
       <strong>概率加权年化回报</strong> =
-      <span style="font-size:18px;font-weight:800;color:#3fb950">50.0%/年</span>
-      &nbsp;（5年总回报 ≈ 660%）
+      <span style="font-size:18px;font-weight:800;color:#d29922">9.2%/年</span>
+      &nbsp;（5年总回报 ≈ 55%）
       <br>
       <span style="font-size:11px;color:#8b949e;margin-top:4px;display:block">
         分析师均价数据待补充
@@ -967,10 +967,10 @@ Year 5 目标股权价值 = $2644B - ($40B) = <strong style="color:#ffd700">$260
     <table style="font-size:12px">
       <tr><th>维度</th><th>5年（精确建模）</th><th>10年（方向性判断）</th></tr>
       <tr><td>目标营收量级</td><td class="num">$881B</td><td class="num">$700B</td></tr>
-      <tr><td>目标市值区间</td><td class="num">$2604B</td><td style="color:#79c0ff">$400-700B</td></tr>
+      <tr><td>目标市值区间</td><td class="num">$2674B</td><td style="color:#79c0ff">$400-700B</td></tr>
       <tr><td>行业地位</td><td style="color:#8b949e">基准情景假设下维持</td><td style="color:#3fb950">全球半导体综合集团第一</td></tr>
       <tr><td>核心结构性前提</td><td style="color:#8b949e">AI Capex持续 + 技术路线验证</td><td style="color:#8b949e">AI算力继续扩张 + 无颠覆性替代</td></tr>
-      <tr><td>年化隐含回报</td><td class="num" style="color:#3fb950">50.0%（加权）</td><td style="color:#8b949e">方向性：乐观</td></tr>
+      <tr><td>年化隐含回报</td><td class="num" style="color:#d29922">9.2%（加权）</td><td style="color:#8b949e">方向性：中性</td></tr>
     </table>
     <div style="font-size:11px;color:#8b949e;margin-top:8px">
       ✅ 一致性校验：5年高回报与10年行业地位判断一致，假设合理
@@ -1041,7 +1041,7 @@ Year 5 目标股权价值 = $2644B - ($40B) = <strong style="color:#ffd700">$260
     <table style="font-size:12px">
       <tr><th>假设项</th><th>基准值</th><th>来源依据</th></tr>
       <tr><td>当前年化营收</td><td class="num">$4B</td><td style="color:#8b949e">最新季度×4或最新全年数据</td></tr>
-      <tr><td>当前市值</td><td class="num">$22B</td><td style="color:#8b949e">最新收盘价×股份数（估算）</td></tr>
+      <tr><td>当前市值</td><td class="num">$28B</td><td style="color:#8b949e">最新收盘价×股份数（估算）</td></tr>
       <tr><td>净负债（负=净现金）</td><td class="num">$-2500M</td><td style="color:#8b949e">资产负债表</td></tr>
       <tr><td>5年营收 CAGR</td><td class="num" style="color:#3fb950">16%</td><td style="color:#8b949e">软件+硬件混合，Evergreen订阅粘性高；以软件公司溢价估值</td></tr>
       <tr><td>Year 5 净利润率</td><td class="num">12%</td><td style="color:#8b949e">行业基准+公司运营杠杆</td></tr>
@@ -1060,8 +1060,8 @@ Year 5 净利润 = $8B × 12% = <strong style="color:#79c0ff">$907M</strong><br>
 Year 5 目标市值 = $907M × 45x = <strong style="color:#79c0ff">$41B</strong><br>
 Year 5 目标股权价值 = $41B - ($-2500M) = <strong style="color:#ffd700">$43B</strong><br>
 <br>
-基准情景年化回报 = ($43B/$22B)^(1/5) - 1
-  = <strong style="color:#3fb950">14.5%/年</strong>
+基准情景年化回报 = ($43B/$28B)^(1/5) - 1
+  = <strong style="color:#d29922">9.4%/年</strong>
     </div>
   </div>
 
@@ -1080,16 +1080,16 @@ Year 5 目标股权价值 = $41B - ($-2500M) = <strong style="color:#ffd700">$43
           <td class="num">55x</td>
           <td class="num">$10B</td>
           <td class="num">$99B</td>
-          <td class="num" style="color:#3fb950;font-weight:700">35.0%/年</td>
+          <td class="num" style="color:#3fb950;font-weight:700">29.1%/年</td>
         </tr><tr>
-          <td style="font-weight:600;color:#3fb950">基准（45%）</td>
+          <td style="font-weight:600;color:#d29922">基准（45%）</td>
           <td style="font-size:11px;color:#8b949e">$5B AI收入目标2027实现</td>
           <td class="num">16%</td>
           <td class="num">12%</td>
           <td class="num">45x</td>
           <td class="num">$8B</td>
           <td class="num">$43B</td>
-          <td class="num" style="color:#3fb950;font-weight:700">14.5%/年</td>
+          <td class="num" style="color:#d29922;font-weight:700">9.4%/年</td>
         </tr><tr>
           <td style="font-weight:600;color:#f85149">悲观（20%）</td>
           <td style="font-size:11px;color:#8b949e">Dell/NetApp竞争加剧，增速放缓</td>
@@ -1098,7 +1098,7 @@ Year 5 目标股权价值 = $41B - ($-2500M) = <strong style="color:#ffd700">$43
           <td class="num">30x</td>
           <td class="num">$5B</td>
           <td class="num">$15B</td>
-          <td class="num" style="color:#f85149;font-weight:700">-7.1%/年</td>
+          <td class="num" style="color:#f85149;font-weight:700">-11.3%/年</td>
         </tr><tr>
           <td style="font-weight:600;color:#f85149">颠覆（10%）</td>
           <td style="font-size:11px;color:#8b949e">超大规模自建存储替代第三方方案</td>
@@ -1107,13 +1107,13 @@ Year 5 目标股权价值 = $41B - ($-2500M) = <strong style="color:#ffd700">$43
           <td class="num">20x</td>
           <td class="num">$4B</td>
           <td class="num">$6B</td>
-          <td class="num" style="color:#f85149;font-weight:700">-23.3%/年</td>
+          <td class="num" style="color:#f85149;font-weight:700">-26.7%/年</td>
         </tr>
     </table>
     <div style="margin-top:10px;padding:10px 14px;background:#0d1117;border-radius:6px;border-left:3px solid #d29922">
       <strong>概率加权年化回报</strong> =
-      <span style="font-size:18px;font-weight:800;color:#d29922">11.5%/年</span>
-      &nbsp;（5年总回报 ≈ 73%）
+      <span style="font-size:18px;font-weight:800;color:#d29922">6.6%/年</span>
+      &nbsp;（5年总回报 ≈ 38%）
       <br>
       <span style="font-size:11px;color:#8b949e;margin-top:4px;display:block">
         分析师均价 $60 vs 当前 $53（+13%）
@@ -1132,10 +1132,10 @@ Year 5 目标股权价值 = $41B - ($-2500M) = <strong style="color:#ffd700">$43
       <tr><td>目标市值区间</td><td class="num">$43B</td><td style="color:#79c0ff">$35-60B</td></tr>
       <tr><td>行业地位</td><td style="color:#8b949e">基准情景假设下维持</td><td style="color:#3fb950">企业AI存储平台领导者</td></tr>
       <tr><td>核心结构性前提</td><td style="color:#8b949e">AI Capex持续 + 技术路线验证</td><td style="color:#8b949e">AI算力继续扩张 + 无颠覆性替代</td></tr>
-      <tr><td>年化隐含回报</td><td class="num" style="color:#d29922">11.5%（加权）</td><td style="color:#8b949e">方向性：中性</td></tr>
+      <tr><td>年化隐含回报</td><td class="num" style="color:#d29922">6.6%（加权）</td><td style="color:#8b949e">方向性：中性</td></tr>
     </table>
     <div style="font-size:11px;color:#8b949e;margin-top:8px">
-      ✅ 一致性校验：5年高回报与10年行业地位判断一致，假设合理
+      ✅ 一致性校验：⚠️ 5年回报偏低，需等待更好买入时机或估值修正
     </div>
   </div>
 </div>
@@ -1203,7 +1203,7 @@ Year 5 目标股权价值 = $41B - ($-2500M) = <strong style="color:#ffd700">$43
     <table style="font-size:12px">
       <tr><th>假设项</th><th>基准值</th><th>来源依据</th></tr>
       <tr><td>当前年化营收</td><td class="num">$14B</td><td style="color:#8b949e">最新季度×4或最新全年数据</td></tr>
-      <tr><td>当前市值</td><td class="num">$28B</td><td style="color:#8b949e">最新收盘价×股份数（估算）</td></tr>
+      <tr><td>当前市值</td><td class="num">$260B</td><td style="color:#8b949e">最新收盘价×股份数（估算）</td></tr>
       <tr><td>净负债（负=净现金）</td><td class="num">$6B</td><td style="color:#8b949e">资产负债表</td></tr>
       <tr><td>5年营收 CAGR</td><td class="num" style="color:#3fb950">10%</td><td style="color:#8b949e">⚠️ 2025年2月才从WDC拆分，上市不足3年，否决项触发；通算估值参考</td></tr>
       <tr><td>Year 5 净利润率</td><td class="num">8%</td><td style="color:#8b949e">行业基准+公司运营杠杆</td></tr>
@@ -1222,8 +1222,8 @@ Year 5 净利润 = $23B × 8% = <strong style="color:#79c0ff">$2B</strong><br>
 Year 5 目标市值 = $2B × 12x = <strong style="color:#79c0ff">$22B</strong><br>
 Year 5 目标股权价值 = $22B - ($6B) = <strong style="color:#ffd700">$16B</strong><br>
 <br>
-基准情景年化回报 = ($16B/$28B)^(1/5) - 1
-  = <strong style="color:#f85149">-11.0%/年</strong>
+基准情景年化回报 = ($16B/$260B)^(1/5) - 1
+  = <strong style="color:#f85149">-43.0%/年</strong>
     </div>
   </div>
 
@@ -1235,14 +1235,14 @@ Year 5 目标股权价值 = $22B - ($6B) = <strong style="color:#ffd700">$16B</s
     <table style="font-size:12px">
       <tr><th>情景</th><th>核心假设</th><th>CAGR</th><th>净利率</th><th>退出倍数</th><th>Year5营收</th><th>Year5股权价值</th><th>年化回报</th></tr>
       <tr>
-          <td style="font-weight:600;color:#3fb950">乐观（20%）</td>
+          <td style="font-weight:600;color:#f85149">乐观（20%）</td>
           <td style="font-size:11px;color:#8b949e">NAND价格持续恢复，HBF期权价值兑现</td>
           <td class="num">18%</td>
           <td class="num">15%</td>
           <td class="num">16x</td>
           <td class="num">$32B</td>
           <td class="num">$71B</td>
-          <td class="num" style="color:#3fb950;font-weight:700">20.4%/年</td>
+          <td class="num" style="color:#f85149;font-weight:700">-22.9%/年</td>
         </tr><tr>
           <td style="font-weight:600;color:#f85149">基准（40%）</td>
           <td style="font-size:11px;color:#8b949e">NAND周期正常恢复，拆分价值释放</td>
@@ -1251,7 +1251,7 @@ Year 5 目标股权价值 = $22B - ($6B) = <strong style="color:#ffd700">$16B</s
           <td class="num">12x</td>
           <td class="num">$23B</td>
           <td class="num">$16B</td>
-          <td class="num" style="color:#f85149;font-weight:700">-11.0%/年</td>
+          <td class="num" style="color:#f85149;font-weight:700">-43.0%/年</td>
         </tr><tr>
           <td style="font-weight:600;color:#f85149">悲观（30%）</td>
           <td style="font-size:11px;color:#8b949e">NAND再度过剩，独立运营成本高</td>
@@ -1274,8 +1274,8 @@ Year 5 目标股权价值 = $22B - ($6B) = <strong style="color:#ffd700">$16B</s
     </table>
     <div style="margin-top:10px;padding:10px 14px;background:#0d1117;border-radius:6px;border-left:3px solid #f85149">
       <strong>概率加权年化回报</strong> =
-      <span style="font-size:18px;font-weight:800;color:#f85149">-20.3%/年</span>
-      &nbsp;（5年总回报 ≈ -68%）
+      <span style="font-size:18px;font-weight:800;color:#f85149">-41.8%/年</span>
+      &nbsp;（5年总回报 ≈ -93%）
       <br>
       <span style="font-size:11px;color:#8b949e;margin-top:4px;display:block">
         分析师均价数据待补充
@@ -1294,7 +1294,7 @@ Year 5 目标股权价值 = $22B - ($6B) = <strong style="color:#ffd700">$16B</s
       <tr><td>目标市值区间</td><td class="num">$16B</td><td style="color:#79c0ff">$20-40B</td></tr>
       <tr><td>行业地位</td><td style="color:#8b949e">基准情景假设下维持</td><td style="color:#3fb950">NAND闪存独立公司</td></tr>
       <tr><td>核心结构性前提</td><td style="color:#8b949e">AI Capex持续 + 技术路线验证</td><td style="color:#8b949e">AI算力继续扩张 + 无颠覆性替代</td></tr>
-      <tr><td>年化隐含回报</td><td class="num" style="color:#f85149">-20.3%（加权）</td><td style="color:#8b949e">方向性：谨慎</td></tr>
+      <tr><td>年化隐含回报</td><td class="num" style="color:#f85149">-41.8%（加权）</td><td style="color:#8b949e">方向性：谨慎</td></tr>
     </table>
     <div style="font-size:11px;color:#8b949e;margin-top:8px">
       ✅ 一致性校验：⚠️ 5年回报偏低，需等待更好买入时机或估值修正
@@ -1365,8 +1365,8 @@ Year 5 目标股权价值 = $22B - ($6B) = <strong style="color:#ffd700">$16B</s
     <table style="font-size:12px">
       <tr><th>假设项</th><th>基准值</th><th>来源依据</th></tr>
       <tr><td>当前年化营收</td><td class="num">$17B</td><td style="color:#8b949e">最新季度×4或最新全年数据</td></tr>
-      <tr><td>当前市值</td><td class="num">$30B</td><td style="color:#8b949e">最新收盘价×股份数（估算）</td></tr>
-      <tr><td>净负债（负=净现金）</td><td class="num">$8B</td><td style="color:#8b949e">资产负债表</td></tr>
+      <tr><td>当前市值</td><td class="num">$268B</td><td style="color:#8b949e">最新收盘价×股份数（估算）</td></tr>
+      <tr><td>净负债（负=净现金）</td><td class="num">$6B</td><td style="color:#8b949e">资产负债表</td></tr>
       <tr><td>5年营收 CAGR</td><td class="num" style="color:#3fb950">8%</td><td style="color:#8b949e">⚠️ 2024年12月IPO，上市不足1年，否决项触发；NAND Flash #3供应商</td></tr>
       <tr><td>Year 5 净利润率</td><td class="num">10%</td><td style="color:#8b949e">行业基准+公司运营杠杆</td></tr>
       <tr><td>退出估值倍数</td><td class="num">12x P/E</td><td style="color:#8b949e">同类公司成熟期历史均值</td></tr>
@@ -1382,10 +1382,10 @@ Year 5 目标股权价值 = $22B - ($6B) = <strong style="color:#ffd700">$16B</s
 Year 5 营收  = $17B × (1+8%)^5 = <strong style="color:#79c0ff">$25B</strong><br>
 Year 5 净利润 = $25B × 10% = <strong style="color:#79c0ff">$2B</strong><br>
 Year 5 目标市值 = $2B × 12x = <strong style="color:#79c0ff">$30B</strong><br>
-Year 5 目标股权价值 = $30B - ($8B) = <strong style="color:#ffd700">$22B</strong><br>
+Year 5 目标股权价值 = $30B - ($6B) = <strong style="color:#ffd700">$24B</strong><br>
 <br>
-基准情景年化回报 = ($22B/$30B)^(1/5) - 1
-  = <strong style="color:#f85149">-6.0%/年</strong>
+基准情景年化回报 = ($24B/$268B)^(1/5) - 1
+  = <strong style="color:#f85149">-38.3%/年</strong>
     </div>
   </div>
 
@@ -1397,14 +1397,14 @@ Year 5 目标股权价值 = $30B - ($8B) = <strong style="color:#ffd700">$22B</s
     <table style="font-size:12px">
       <tr><th>情景</th><th>核心假设</th><th>CAGR</th><th>净利率</th><th>退出倍数</th><th>Year5营收</th><th>Year5股权价值</th><th>年化回报</th></tr>
       <tr>
-          <td style="font-weight:600;color:#3fb950">乐观（20%）</td>
+          <td style="font-weight:600;color:#f85149">乐观（20%）</td>
           <td style="font-size:11px;color:#8b949e">NAND回暖，Kioxia独立战略清晰化</td>
           <td class="num">15%</td>
           <td class="num">15%</td>
           <td class="num">16x</td>
           <td class="num">$34B</td>
-          <td class="num">$74B</td>
-          <td class="num" style="color:#3fb950;font-weight:700">19.8%/年</td>
+          <td class="num">$76B</td>
+          <td class="num" style="color:#f85149;font-weight:700">-22.3%/年</td>
         </tr><tr>
           <td style="font-weight:600;color:#f85149">基准（45%）</td>
           <td style="font-size:11px;color:#8b949e">NAND通算盈利，市场份额维持16%</td>
@@ -1412,8 +1412,8 @@ Year 5 目标股权价值 = $30B - ($8B) = <strong style="color:#ffd700">$22B</s
           <td class="num">10%</td>
           <td class="num">12x</td>
           <td class="num">$25B</td>
-          <td class="num">$22B</td>
-          <td class="num" style="color:#f85149;font-weight:700">-6.0%/年</td>
+          <td class="num">$24B</td>
+          <td class="num" style="color:#f85149;font-weight:700">-38.3%/年</td>
         </tr><tr>
           <td style="font-weight:600;color:#f85149">悲观（25%）</td>
           <td style="font-size:11px;color:#8b949e">三星/SK Hynix/Micron竞争压价</td>
@@ -1421,8 +1421,8 @@ Year 5 目标股权价值 = $30B - ($8B) = <strong style="color:#ffd700">$22B</s
           <td class="num">5%</td>
           <td class="num">8x</td>
           <td class="num">$19B</td>
-          <td class="num">$0M</td>
-          <td class="num" style="color:#f85149;font-weight:700">-50.0%/年</td>
+          <td class="num">$2B</td>
+          <td class="num" style="color:#f85149;font-weight:700">-64.5%/年</td>
         </tr><tr>
           <td style="font-weight:600;color:#f85149">颠覆（10%）</td>
           <td style="font-size:11px;color:#8b949e">YMTC中国替代加速</td>
@@ -1436,8 +1436,8 @@ Year 5 目标股权价值 = $30B - ($8B) = <strong style="color:#ffd700">$22B</s
     </table>
     <div style="margin-top:10px;padding:10px 14px;background:#0d1117;border-radius:6px;border-left:3px solid #f85149">
       <strong>概率加权年化回报</strong> =
-      <span style="font-size:18px;font-weight:800;color:#f85149">-16.3%/年</span>
-      &nbsp;（5年总回报 ≈ -59%）
+      <span style="font-size:18px;font-weight:800;color:#f85149">-42.8%/年</span>
+      &nbsp;（5年总回报 ≈ -94%）
       <br>
       <span style="font-size:11px;color:#8b949e;margin-top:4px;display:block">
         分析师均价数据待补充
@@ -1453,10 +1453,10 @@ Year 5 目标股权价值 = $30B - ($8B) = <strong style="color:#ffd700">$22B</s
     <table style="font-size:12px">
       <tr><th>维度</th><th>5年（精确建模）</th><th>10年（方向性判断）</th></tr>
       <tr><td>目标营收量级</td><td class="num">$25B</td><td class="num">$22B</td></tr>
-      <tr><td>目标市值区间</td><td class="num">$22B</td><td style="color:#79c0ff">$20-35B</td></tr>
+      <tr><td>目标市值区间</td><td class="num">$24B</td><td style="color:#79c0ff">$20-35B</td></tr>
       <tr><td>行业地位</td><td style="color:#8b949e">基准情景假设下维持</td><td style="color:#3fb950">NAND闪存#3，日本存储独立公司</td></tr>
       <tr><td>核心结构性前提</td><td style="color:#8b949e">AI Capex持续 + 技术路线验证</td><td style="color:#8b949e">AI算力继续扩张 + 无颠覆性替代</td></tr>
-      <tr><td>年化隐含回报</td><td class="num" style="color:#f85149">-16.3%（加权）</td><td style="color:#8b949e">方向性：谨慎</td></tr>
+      <tr><td>年化隐含回报</td><td class="num" style="color:#f85149">-42.8%（加权）</td><td style="color:#8b949e">方向性：谨慎</td></tr>
     </table>
     <div style="font-size:11px;color:#8b949e;margin-top:8px">
       ✅ 一致性校验：⚠️ 5年回报偏低，需等待更好买入时机或估值修正
