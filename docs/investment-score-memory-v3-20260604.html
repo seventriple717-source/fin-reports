@@ -1,884 +1,570 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>存储器行业投资打分 v3 · 2026-06-04</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#0d1117;color:#c9d1d9;font-family:-apple-system,"PingFang SC","Hiragino Sans GB",sans-serif;font-size:14px;line-height:1.6}
-.hdr{background:linear-gradient(135deg,#0d1117,#161b22);border-bottom:1px solid #30363d;padding:28px 20px 20px}
-.hdr h1{font-size:24px;font-weight:700;color:#e6edf3}
-.hdr .sub{color:#8b949e;font-size:12px;margin-top:5px}
-.bx{display:inline-block;padding:2px 8px;border-radius:9px;font-size:11px;margin-left:6px}
-.bx-blue{background:#1f6feb22;color:#58a6ff;border:1px solid #1f6feb44}
-.bx-green{background:#2ea04322;color:#3fb950;border:1px solid #2ea04344}
-.bx-red{background:#da363322;color:#f85149;border:1px solid #da363344}
-.bx-gold{background:#b8860b22;color:#ffd700;border:1px solid #b8860b44}
-.con{max-width:1600px;margin:0 auto;padding:0 16px}
-.navt{background:#161b22;border-bottom:1px solid #30363d;padding:0 12px;overflow-x:auto;white-space:nowrap;position:sticky;top:0;z-index:100}
-.tb{display:inline-block;padding:10px 14px;cursor:pointer;color:#8b949e;background:none;border:none;border-bottom:2px solid transparent;font-size:13px;transition:all .2s}
-.tb:hover{color:#c9d1d9}
-.tb.act{color:#58a6ff;border-bottom-color:#58a6ff}
-.tc{display:none;padding:20px 0}
-.tc.act{display:block}
-.card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;margin-bottom:14px}
-.ct{font-size:15px;font-weight:600;color:#e6edf3;margin-bottom:12px}
-.sec{font-size:17px;font-weight:700;color:#e6edf3;margin:20px 0 12px;padding-left:10px;border-left:3px solid #58a6ff}
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>存储器行业投资打分 v3.0 · 2026-06-04</title>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d1117;color:#c9d1d9;font-family:-apple-system,'PingFang SC',sans-serif;font-size:14px;line-height:1.6}
+.hdr{padding:22px 20px 14px;border-bottom:1px solid #30363d}
+.hdr h1{font-size:21px;font-weight:700;color:#e6edf3}
+.sub{color:#8b949e;font-size:12px;margin-top:4px}
+.bx{display:inline-block;padding:2px 8px;border-radius:9px;font-size:11px;margin-left:6px;background:#1f6feb22;color:#58a6ff;border:1px solid #1f6feb44}
+.bx-g{background:#2ea04322;color:#3fb950;border-color:#2ea04344}
+.con{max-width:1500px;margin:0 auto;padding:0 16px}
+.card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:14px;margin-bottom:12px}
+.sec{font-size:16px;font-weight:700;color:#e6edf3;margin:18px 0 10px;padding-left:10px;border-left:3px solid #58a6ff}
 table{width:100%;border-collapse:collapse;font-size:13px}
-th{background:#21262d;color:#8b949e;padding:9px 10px;text-align:left;border-bottom:2px solid #30363d}
-td{padding:8px 10px;border-bottom:1px solid #21262d;vertical-align:top}
+th{background:#21262d;color:#8b949e;padding:8px 10px;text-align:left;border-bottom:2px solid #30363d}
+td{padding:7px 10px;border-bottom:1px solid #21262d;vertical-align:middle}
 tr:hover td{background:#1c2128}
-.num{font-family:"SF Mono","Fira Code",monospace;color:#79c0ff}
-.pos{color:#3fb950}
-.neg{color:#f85149}
-.neu{color:#8b949e}
-.r1{color:#ffd700}
-.r2{color:#c0c0c0}
-.r3{color:#cd7f32}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.num{font-family:'SF Mono',monospace;color:#79c0ff}
+.pos{color:#3fb950}.neg{color:#f85149}.neu{color:#8b949e}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 @media(max-width:900px){.g2,.g3,.g4{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.g2,.g3,.g4{grid-template-columns:1fr}}
-.warn{background:#f0883e11;border:1px solid #f0883e44;padding:9px 12px;border-radius:6px;font-size:12px;color:#f0883e;margin:6px 0}
-.wbox{background:#d2992211;border:1px solid #d2992244;padding:9px 12px;border-radius:6px;font-size:12px;color:#d29922;margin:6px 0}
-.ibox{background:#58a6ff11;border:1px solid #58a6ff44;padding:9px 12px;border-radius:6px;font-size:12px;color:#79c0ff;margin:6px 0}
-.gbox{background:#2ea04311;border:1px solid #2ea04344;padding:9px 12px;border-radius:6px;font-size:12px;color:#3fb950;margin:6px 0}
-.pbox{background:#bc8cff11;border:1px solid #bc8cff44;padding:9px 12px;border-radius:6px;font-size:13px;color:#bc8cff;margin:6px 0}
-.kpi-box{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;text-align:center}
-.kpi-val{font-size:28px;font-weight:800;color:#58a6ff;font-family:"SF Mono",monospace}
-.kpi-lbl{font-size:12px;color:#8b949e;margin-top:4px}
-.kpi-sub{font-size:11px;color:#3fb950;margin-top:2px}
-.bar-wrap{background:#21262d;border-radius:4px;height:8px;margin:4px 0;overflow:hidden}
-.bar-fill{height:100%;border-radius:4px;transition:width .3s}
-.cohdr{display:flex;gap:16px;margin-bottom:14px;align-items:flex-start}
-.coleft{flex:1}
-.coname{font-size:22px;font-weight:700;color:#e6edf3}
-.cometa{font-size:12px;color:#8b949e;margin-top:3px}
-.coscore{text-align:center;flex-shrink:0;min-width:100px}
-.bigscore{font-size:56px;font-weight:800;letter-spacing:-2px;line-height:1}
-.grade-S{color:#ffd700}
-.grade-A{color:#3fb950}
-.grade-B{color:#d29922}
-.grade-C{color:#f0883e}
-.grade-D{color:#f85149}
-.grade-V{color:#8b949e}
-.rcircle{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;font-size:20px;font-weight:800;border:2px solid;background:#0d1117}
-.veto-banner{background:#f8514911;border:2px solid #f8514944;border-radius:8px;padding:12px 16px;margin-bottom:12px;color:#f85149;font-weight:600}
-.timeline-item{padding:10px 0;border-bottom:1px solid #21262d;display:flex;gap:16px}
-.tl-date{font-family:"SF Mono",monospace;color:#58a6ff;font-size:12px;min-width:90px;padding-top:2px}
-.tl-content{flex:1}
-.tl-title{font-weight:600;color:#e6edf3;font-size:13px}
-.tl-desc{font-size:12px;color:#8b949e;margin-top:3px}
-.grade-dist{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-.gd-box{padding:12px 20px;border-radius:8px;text-align:center;min-width:80px}
-.gd-s{background:#b8860b22;border:2px solid #ffd700}
-.gd-a{background:#2ea04322;border:2px solid #3fb950}
-.gd-b{background:#d2992222;border:2px solid #d29922}
-.gd-c{background:#f0883e22;border:2px solid #f0883e}
-.gd-d{background:#f8514922;border:2px solid #f85149}
-.gd-v{background:#30363d;border:2px solid #8b949e}
-.gd-count{font-size:28px;font-weight:800}
-.gd-lbl{font-size:12px;margin-top:2px}
-.watermark{position:fixed;bottom:20px;right:20px;background:#161b22;border:1px solid #30363d;border-radius:6px;padding:6px 12px;font-size:11px;color:#8b949e;opacity:0.8;z-index:999}
-.ftr{text-align:center;padding:24px 0;color:#8b949e;font-size:12px;border-top:1px solid #30363d;margin-top:40px}
-.supply-badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:600}
-.sb-critical{background:#f8514922;color:#f85149;border:1px solid #f8514944}
-.sb-tight{background:#f0883e22;color:#f0883e;border:1px solid #f0883e44}
-.sb-normal{background:#d2992222;color:#d29922;border:1px solid #d2992244}
-.sb-ample{background:#2ea04322;color:#3fb950;border:1px solid #2ea04344}
-</style>
-</head>
-<body>
-
-<div class="watermark">基于实时联网搜索数据 · 2026-06-04</div>
-
-<div class="hdr">
-  <div class="con">
-    <h1>存储器行业投资打分系统 v3
-      <span class="bx bx-gold">结构性超级周期 2026-2028</span>
-      <span class="bx bx-green">8家公司覆盖</span>
-      <span class="bx bx-blue">实时数据更新</span>
-    </h1>
-    <div class="sub">更新日期：2026-06-04 &nbsp;|&nbsp; 覆盖板块：HBM / DRAM / NAND / 全闪存 / HDD &nbsp;|&nbsp;
-      <strong style="color:#3fb950">市场状态：DRAM合约价QoQ+90-95%，HBM供应至2027年售罄</strong>
-    </div>
-  </div>
-</div>
-
+.ibox{background:#3fb95011;border:1px solid #3fb95033;padding:8px 12px;border-radius:6px;font-size:12px;color:#56d364;margin:5px 0}
+.gbox{background:#2ea04311;border:1px solid #2ea04333;padding:8px 12px;border-radius:6px;font-size:12px;color:#3fb950;margin:5px 0}
+.warn{background:#f0883e11;border:1px solid #f0883e33;padding:8px 12px;border-radius:6px;font-size:12px;color:#f0883e;margin:5px 0}
+.rbox{background:#f8514911;border:1px solid #f8514933;padding:8px 12px;border-radius:6px;font-size:12px;color:#f85149;margin:5px 0}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;border:1px solid}
+.ftr{text-align:center;padding:20px 0;color:#8b949e;font-size:12px;border-top:1px solid #30363d;margin-top:32px}
+.bw{display:flex;align-items:center;gap:6px}
+.bb{flex:1;background:#21262d;border-radius:4px;overflow:hidden;height:7px}
+.bf{height:7px;border-radius:4px}
+.sp{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:11px;font-weight:700;border:1.5px solid}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:10px 0}
+.kpi-box{background:#21262d;border-radius:8px;padding:12px;text-align:center}
+.kpi-val{font-size:22px;font-weight:800;color:#79c0ff;line-height:1.2}
+.kpi-lbl{font-size:11px;color:#8b949e;margin-top:4px}
+.tl{padding-left:0;list-style:none;margin:8px 0}
+.tl li{padding:6px 0 6px 20px;border-left:2px solid #30363d;margin-left:10px;font-size:12px;color:#c9d1d9;position:relative}
+.tl li::before{content:'';width:8px;height:8px;border-radius:50%;background:#58a6ff;position:absolute;left:-5px;top:10px}
+.sec{border-left-color:#76e3b0}</style>
+</head><body>
+<div class="hdr" style="background:linear-gradient(135deg,#0d1117,#1c2128);border-bottom:1px solid #30363d">
 <div class="con">
-<div class="navt">
-  <button class="tb act" onclick="showTab('overview')">综合评级</button>
-  <button class="tb" onclick="showTab('landscape')">行业全景</button>
-  <button class="tb" onclick="showTab('skhynix')">SK海力士</button>
-  <button class="tb" onclick="showTab('micron')">Micron</button>
-  <button class="tb" onclick="showTab('samsung')">三星电子</button>
-  <button class="tb" onclick="showTab('seagate')">Seagate</button>
-  <button class="tb" onclick="showTab('wdc')">Western Digital</button>
-  <button class="tb" onclick="showTab('pure')">Pure Storage</button>
-  <button class="tb" onclick="showTab('sandisk')">SanDisk ⚠️</button>
-  <button class="tb" onclick="showTab('kioxia')">铠侠 ⚠️</button>
+  <h1>存储器行业投资打分报告
+    <span class="bx">v3.0</span>
+    <span class="bx bx-g">全景增强版</span>
+    <span class="bx">实时数据 · 2026-06-04</span>
+  </h1>
+  <div class="sub">HBM结构性超级周期（2026-2028）· SK Hynix 62%份额 · Micron 11.4x P/E极度低估 · DRAM合同价Q1+90-95%</div>
+</div></div>
+<div class="con">
+<div class="card" style="border-color:#76e3b044;margin-top:14px">
+  <strong style="color:#3fb950">✅ v3.0升级：</strong>
+  全部基于实时联网搜索（WebSearch工具）；完整行业全景图谱（HBM五层AI内存架构、供应链卡点、竞争格局、技术路线时间线）；
+  置信度固定（MU/STX/WDC/PSTG=1.0，韩国上市=0.85，IPO新股=0.80-0.85）；i6=周期位置与供给纪律（周期底+供给纪律=高分）
+</div>
+<div class="sec" style="margin-top:16px">🌐 存储器行业全景扫描（实时研究数据）</div>
+
+<div class="kpi-grid">
+  <div class="kpi-box"><div class="kpi-val">₩52.5T</div><div class="kpi-lbl">SK Hynix Q1 2026营收（+144% YoY）</div></div>
+  <div class="kpi-box"><div class="kpi-val">$23.9B</div><div class="kpi-lbl">Micron Q2 FY2026营收（+196% YoY，75%毛利率）</div></div>
+  <div class="kpi-box"><div class="kpi-val">62% / 21%</div><div class="kpi-lbl">SK Hynix / Micron HBM市场份额（2026）</div></div>
+  <div class="kpi-box"><div class="kpi-val">2026-2028</div><div class="kpi-lbl">内存结构性超级周期持续窗口</div></div>
 </div>
 
-<!-- OVERVIEW TAB -->
-<div id="tab-overview" class="tc act">
-  <div class="sec">综合评级总览 · 存储器行业 2026-06-04</div>
-
-  <div class="ibox">📌 <strong>评分方法论：</strong>最终分 = (行业分×0.20 + 质量分×0.50 + 估值分×0.30) × 置信度 | 权重：行业[18,14,15,18,12,15,8] 质量[20,10,18,12,10,12,12,6] 估值[35,25,25,15] | Veto上限59分</div>
-
-  <div class="grade-dist">
-    <div class="gd-box gd-s"><div class="gd-count grade-S">1</div><div class="gd-lbl" style="color:#ffd700">S级 ≥80</div></div>
-    <div class="gd-box gd-a"><div class="gd-count grade-A">4</div><div class="gd-lbl" style="color:#3fb950">A级 ≥70</div></div>
-    <div class="gd-box gd-b"><div class="gd-count grade-B">1</div><div class="gd-lbl" style="color:#d29922">B级 ≥60</div></div>
-    <div class="gd-box gd-c"><div class="gd-count grade-C">0</div><div class="gd-lbl" style="color:#f0883e">C级 ≥50</div></div>
-    <div class="gd-box gd-d"><div class="gd-count grade-D">0</div><div class="gd-lbl" style="color:#f85149">D级 &lt;50</div></div>
-    <div class="gd-box gd-v"><div class="gd-count grade-V">2</div><div class="gd-lbl" style="color:#8b949e">Veto ≤59</div></div>
-  </div>
-
-  <div class="card">
-    <table>
-      <tr>
-        <th>#</th><th>公司</th><th>代码</th><th>子板块</th>
-        <th>行业分</th><th>质量分</th><th>估值分</th>
-        <th>置信度</th><th>最终分</th><th>评级</th>
-        <th>最新营收</th><th>核心指标</th>
-      </tr>
-      <tr>
-        <td class="r1">1</td>
-        <td><strong>Micron Technology</strong></td>
-        <td class="num">MU</td>
-        <td>DRAM/HBM/NAND</td>
-        <td class="num">94.4</td><td class="num">92.8</td><td class="num">95.0</td>
-        <td class="num">×1.00</td>
-        <td><span style="font-size:22px;font-weight:800;" class="grade-S">93.8</span></td>
-        <td><span class="rcircle" style="border-color:#ffd700;color:#ffd700">S</span></td>
-        <td class="num" style="font-size:12px">$23.9B Q2 FY26 (+196% YoY)</td>
-        <td style="font-size:12px;color:#8b949e">75%毛利率; 前瞻P/E 11.4x; EPS增682%</td>
-      </tr>
-      <tr>
-        <td class="r2">2</td>
-        <td><strong>Western Digital</strong></td>
-        <td class="num">WDC</td>
-        <td>HDD存储</td>
-        <td class="num">61.4</td><td class="num">79.2</td><td class="num">87.0</td>
-        <td class="num">×1.00</td>
-        <td><span style="font-size:22px;font-weight:800;" class="grade-A">78.0</span></td>
-        <td><span class="rcircle" style="border-color:#3fb950;color:#3fb950">A</span></td>
-        <td class="num" style="font-size:12px">$3.34B Q3 FY26 (+45% YoY)</td>
-        <td style="font-size:12px;color:#8b949e">50.2%毛利率; PEG 0.65; 净现金$450M</td>
-      </tr>
-      <tr>
-        <td class="r3">3</td>
-        <td><strong>Seagate Technology</strong></td>
-        <td class="num">STX</td>
-        <td>HDD存储</td>
-        <td class="num">61.4</td><td class="num">81.6</td><td class="num">80.0</td>
-        <td class="num">×1.00</td>
-        <td><span style="font-size:22px;font-weight:800;" class="grade-A">77.1</span></td>
-        <td><span class="rcircle" style="border-color:#3fb950;color:#3fb950">A</span></td>
-        <td class="num" style="font-size:12px">$3.11B Q3 FY26 (+44% YoY)</td>
-        <td style="font-size:12px;color:#8b949e">47%毛利率; 近线HDD产能售罄至2027</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td><strong>SK海力士</strong></td>
-        <td class="num">000660.KS</td>
-        <td>DRAM/HBM</td>
-        <td class="num">94.4</td><td class="num">98.0</td><td class="num">75.0</td>
-        <td class="num">×0.85</td>
-        <td><span style="font-size:22px;font-weight:800;" class="grade-A">76.8</span></td>
-        <td><span class="rcircle" style="border-color:#3fb950;color:#3fb950">A</span></td>
-        <td class="num" style="font-size:12px">₩52.5T Q1 2026 (+144% YoY)</td>
-        <td style="font-size:12px;color:#8b949e">HBM全球市占率62%; 营业利润率72%</td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td><strong>三星电子</strong></td>
-        <td class="num">005930.KS</td>
-        <td>DRAM/HBM/NAND/逻辑</td>
-        <td class="num">94.4</td><td class="num">75.6</td><td class="num">92.0</td>
-        <td class="num">×0.85</td>
-        <td><span style="font-size:22px;font-weight:800;" class="grade-A">71.6</span></td>
-        <td><span class="rcircle" style="border-color:#3fb950;color:#3fb950">A</span></td>
-        <td class="num" style="font-size:12px">₩133.9T Q1 2026 (+69% YoY)</td>
-        <td style="font-size:12px;color:#8b949e">P/E 25.3x vs同行均值68.6x; DS部门利润₩53.7T</td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td><strong>Pure Storage</strong></td>
-        <td class="num">PSTG</td>
-        <td>全闪存存储</td>
-        <td class="num">61.2</td><td class="num">78.8</td><td class="num">58.0</td>
-        <td class="num">×1.00</td>
-        <td><span style="font-size:22px;font-weight:800;" class="grade-B">69.0</span></td>
-        <td><span class="rcircle" style="border-color:#d29922;color:#d29922">B</span></td>
-        <td class="num" style="font-size:12px">$3.6B+ FY2026全年 (+16% YoY)</td>
-        <td style="font-size:12px;color:#8b949e">订阅ARR $1.924B; RPO $3.67B (+40%)</td>
-      </tr>
-      <tr style="opacity:0.75">
-        <td>7</td>
-        <td><strong>SanDisk Corporation</strong> <span style="color:#f85149;font-size:11px">⚠ Veto</span></td>
-        <td class="num">SNDK</td>
-        <td>NAND闪存/企业SSD</td>
-        <td class="num">67.2</td><td class="num">79.6</td><td class="num">60.0</td>
-        <td class="num">×0.85</td>
-        <td><span style="font-size:22px;font-weight:800;" class="grade-V">59.0</span></td>
-        <td><span class="rcircle" style="border-color:#8b949e;color:#8b949e">V</span></td>
-        <td class="num" style="font-size:12px">$5.95B Q3 FY26 (+97% QoQ)</td>
-        <td style="font-size:12px;color:#8b949e">Veto: IPO 2025年2月，公开历史不足3年</td>
-      </tr>
-      <tr style="opacity:0.75">
-        <td>8</td>
-        <td><strong>铠侠 Kioxia</strong> <span style="color:#f85149;font-size:11px">⚠ Veto</span></td>
-        <td class="num">285A.JP</td>
-        <td>NAND闪存</td>
-        <td class="num">64.4</td><td class="num">71.2</td><td class="num">60.0</td>
-        <td class="num">×0.80</td>
-        <td><span style="font-size:22px;font-weight:800;" class="grade-V">53.2</span></td>
-        <td><span class="rcircle" style="border-color:#8b949e;color:#8b949e">V</span></td>
-        <td class="num" style="font-size:12px">¥1,002.9B Q1 CY2026 (+189% YoY)</td>
-        <td style="font-size:12px;color:#8b949e">Veto: IPO 2024年12月，不足1年公开历史</td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="warn">⚠ Veto规则：IPO不足3年的公司评级上限59分（V级）。SanDisk（2025年2月分拆上市）和铠侠（2024年12月IPO）均受此规则约束，基本面强劲但评级受限。</div>
+<div class="g3">
+<div class="card">
+  <div style="font-weight:600;color:#e6edf3;margin-bottom:8px">⛓️ 存储器价值链图谱与卡点</div>
+  <table style="font-size:12px">
+    <tr><th>品类</th><th>市场状态</th><th>关键数据（实时）</th><th>主要受益方</th></tr>
+    <tr><td style="color:#76e3b0">HBM（高带宽内存）</td><td class="neg">结构性稀缺</td><td>SKH 62%份额；2026全年售罄，供不应求至2027</td><td>SK Hynix, Micron</td></tr>
+    <tr><td style="color:#58a6ff">服务器DRAM（DDR5）</td><td class="neg">合同价Q1+90-95% QoQ</td><td>AI服务器64→384GB+升级；KV Cache激增</td><td>SKH, Micron, Samsung</td></tr>
+    <tr><td style="color:#d29922">企业级NAND（NVMe SSD）</td><td class="neu">回暖中</td><td>AI训练数据集/向量DB需求拉动；NAND价格企稳</td><td>SanDisk, Kioxia, Samsung</td></tr>
+    <tr><td style="color:#d29922">HDD Nearline（AI冷存储）</td><td class="pos">AI结构性</td><td>STX Q3 FY2026 $3.11B +44% YoY；容量全配；HAMR 44TB+</td><td>Seagate, WDC</td></tr>
+    <tr><td style="color:#3fb950">企业全闪存（软件主导）</td><td class="pos">AI工厂受益</td><td>PSTG Q4 FY2026 首$10亿季度；Meta 1-2EB部署</td><td>Pure Storage</td></tr>
+    <tr><td style="color:#f85149">NAND（消费级）</td><td class="neg">仍过剩</td><td>中国竞争者（YMTC）持续压价</td><td>SanDisk, Kioxia</td></tr>
+  </table>
 </div>
-
-<!-- LANDSCAPE TAB -->
-<div id="tab-landscape" class="tc">
-  <div class="sec">存储器行业全景 · 结构性超级周期 2026-2028</div>
-
-  <div class="gbox">📊 <strong>市场状态判断：结构性超级周期（非传统周期）</strong> — AI数据中心需求、KV缓存内存墙、HBM供应约束共同驱动存储器市场进入历史级别的盈利超级周期，三大HBM供应商均售罄至2026-2027年。</div>
-
-  <!-- KPI Grid -->
-  <div class="sec">关键市场数据</div>
-  <div class="g4" style="margin-bottom:20px">
-    <div class="kpi-box">
-      <div class="kpi-val">+90-95%</div>
-      <div class="kpi-lbl">DRAM合约价 QoQ涨幅</div>
-      <div class="kpi-sub">Q1 2026 TrendForce数据</div>
-    </div>
-    <div class="kpi-box">
-      <div class="kpi-val">62%</div>
-      <div class="kpi-lbl">SK海力士 HBM市占率</div>
-      <div class="kpi-sub">NVIDIA Vera Rubin 70%份额</div>
-    </div>
-    <div class="kpi-box">
-      <div class="kpi-val">+196%</div>
-      <div class="kpi-lbl">Micron Q2 FY2026营收YoY</div>
-      <div class="kpi-sub">$23.9B季度营收 75%毛利率</div>
-    </div>
-    <div class="kpi-box">
-      <div class="kpi-val">2027+</div>
-      <div class="kpi-lbl">HBM供应售罄至</div>
-      <div class="kpi-sub">三大供应商全部需求积压</div>
-    </div>
-  </div>
-
-  <div class="g4" style="margin-bottom:20px">
-    <div class="kpi-box">
-      <div class="kpi-val">32x</div>
-      <div class="kpi-lbl">KV缓存内存带宽需求倍增</div>
-      <div class="kpi-sub">128K上下文 vs 4K上下文</div>
-    </div>
-    <div class="kpi-box">
-      <div class="kpi-val">+51%</div>
-      <div class="kpi-lbl">DRAM收入预测YoY</div>
-      <div class="kpi-sub">美国银行 2026-2028预测</div>
-    </div>
-    <div class="kpi-box">
-      <div class="kpi-val">+45%</div>
-      <div class="kpi-lbl">NAND收入预测YoY</div>
-      <div class="kpi-sub">同期Bank of America预测</div>
-    </div>
-    <div class="kpi-box">
-      <div class="kpi-val">72%</div>
-      <div class="kpi-lbl">SK海力士营业利润率</div>
-      <div class="kpi-sub">Q1 2026历史最高水平</div>
-    </div>
-  </div>
-
-  <!-- Supply Chain Table -->
-  <div class="sec">供应链结构分析</div>
-  <div class="card">
-    <table>
-      <tr>
-        <th>供应链层级</th><th>关键瓶颈</th><th>核心数据</th><th>供应状态</th><th>主要受益公司</th>
-      </tr>
-      <tr>
-        <td><strong>HBM (高带宽内存)</strong></td>
-        <td>CoW封装产能; TSMC先进封装</td>
-        <td>三大供应商(海力士/美光/三星)全部至2026-2027年售罄; 需求积压至2028年</td>
-        <td><span class="supply-badge sb-critical">极度紧张</span></td>
-        <td>SK海力士(62%), 美光(21%), 三星(17%)</td>
-      </tr>
-      <tr>
-        <td><strong>DDR5 DRAM</strong></td>
-        <td>晶圆转向HBM导致常规DRAM供应稀缺</td>
-        <td>合约价Q1 2026 QoQ+90-95%; 服务器DRAM需求AI训练拉动</td>
-        <td><span class="supply-badge sb-tight">供应偏紧</span></td>
-        <td>SK海力士, 美光, 三星电子</td>
-      </tr>
-      <tr>
-        <td><strong>企业级NAND/SSD</strong></td>
-        <td>AI训练数据集存储; KV缓存卸载</td>
-        <td>SanDisk数据中心Q3 FY2026 +233% QoQ; 铠侠Q1 CY2026 +189% YoY</td>
-        <td><span class="supply-badge sb-tight">需求强劲</span></td>
-        <td>SanDisk(V), 铠侠(V), 美光, 三星</td>
-      </tr>
-      <tr>
-        <td><strong>近线HDD</strong></td>
-        <td>AI训练数据湖; 推理KV缓存卸载</td>
-        <td>希捷/WD近线产能至2027年建单订满; HAMR技术44TB+驱动密度提升</td>
-        <td><span class="supply-badge sb-tight">供应偏紧</span></td>
-        <td>Seagate, Western Digital</td>
-      </tr>
-      <tr>
-        <td><strong>全闪存存储系统</strong></td>
-        <td>AI工厂企业存储需求; 超大规模部署</td>
-        <td>Pure Storage Q4 FY2026首次季度$1B+; Meta部署1-2艾字节</td>
-        <td><span class="supply-badge sb-normal">需求增长</span></td>
-        <td>Pure Storage</td>
-      </tr>
-    </table>
-  </div>
-
-  <!-- Technology Roadmap -->
-  <div class="sec">技术路线图</div>
-  <div class="card">
-    <div class="timeline-item">
-      <div class="tl-date">2025 Q4</div>
-      <div class="tl-content">
-        <div class="tl-title">三星通过NVIDIA HBM3E资格认证</div>
-        <div class="tl-desc">三星在HBM3E认证方面落后SK海力士18个月后终于通过NVIDIA资格认证</div>
-      </div>
-    </div>
-    <div class="timeline-item">
-      <div class="tl-date">2026 Q1</div>
-      <div class="tl-content">
-        <div class="tl-title">SK海力士启动HBM4量产 · Micron Q2 FY26创纪录</div>
-        <div class="tl-desc">SK海力士2026年2月开始HBM4量产; Micron实现$23.9B季度营收(+196%)、75%毛利率、$6.9B自由现金流</div>
-      </div>
-    </div>
-    <div class="timeline-item">
-      <div class="tl-date">2026 Q2</div>
-      <div class="tl-content">
-        <div class="tl-title">三星发出业界首款HBM4E样品 · Micron Q3指引$33.5B</div>
-        <div class="tl-desc">三星2026年5月发出HBM4E样品(3.6 TB/s带宽), 领先SK海力士6个月; Micron Q3 FY26指引$33.5B (81%毛利率)</div>
-      </div>
-    </div>
-    <div class="timeline-item">
-      <div class="tl-date">2026 H2</div>
-      <div class="tl-content">
-        <div class="tl-title">SK海力士 HBM4E取样计划 · M15X扩产</div>
-        <div class="tl-desc">SK海力士计划H2 2026取样HBM4E; M15X晶圆厂扩产加速HBM资本开支; TSMC CoW封装配合</div>
-      </div>
-    </div>
-    <div class="timeline-item">
-      <div class="tl-date">2027 H1</div>
-      <div class="tl-content">
-        <div class="tl-title">HBM4E量产 · 希捷44TB+ HAMR驱动</div>
-        <div class="tl-desc">SK海力士目标2027年HBM4E量产(TSMC CoW封装); 希捷Mozaic平台44TB+ HAMR驱动成为主流</div>
-      </div>
-    </div>
-    <div class="timeline-item">
-      <div class="tl-date">2027-2028</div>
-      <div class="tl-content">
-        <div class="tl-title">HBM供需持续紧张 · 超级周期延续</div>
-        <div class="tl-desc">分析师预测DRAM收入+51% YoY、NAND +45% YoY维持至2026-2028年; KV缓存内存墙问题创造持久结构性需求底部</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Competitive Landscape Table -->
-  <div class="sec">竞争格局矩阵</div>
-  <div class="card">
-    <table>
-      <tr>
-        <th>公司</th><th>HBM地位</th><th>DRAM地位</th><th>NAND地位</th><th>技术领先性</th><th>NVIDIA依赖度</th><th>核心竞争优势</th>
-      </tr>
-      <tr>
-        <td><strong>SK海力士</strong></td>
-        <td><span class="pos">全球第一 62%</span></td>
-        <td><span class="pos">全球第二</span></td>
-        <td class="neu">有限参与</td>
-        <td><span class="pos">HBM领先12-18个月</span></td>
-        <td class="neg">NVIDIA Vera Rubin 70%</td>
-        <td>HBM4量产首发; 3年需求积压</td>
-      </tr>
-      <tr>
-        <td><strong>Micron</strong></td>
-        <td><span class="pos">全球第三 21%</span></td>
-        <td><span class="pos">全球第三</span></td>
-        <td><span class="pos">全球第三</span></td>
-        <td><span class="pos">HBM4 16-Hi量产</span></td>
-        <td class="neg">NVIDIA Vera Rubin供应</td>
-        <td>估值最低(P/E 11.4x); 全产品线; SOCAMM2</td>
-      </tr>
-      <tr>
-        <td><strong>三星电子</strong></td>
-        <td class="neg">全球第三 17%</td>
-        <td><span class="pos">全球第一</span></td>
-        <td><span class="pos">全球第一</span></td>
-        <td class="neg">HBM落后, HBM4E首发样品</td>
-        <td class="neu">Google TPU主供(60%+)</td>
-        <td>最低估值(P/E 25.3x vs均值68.6x); 规模最大</td>
-      </tr>
-      <tr>
-        <td><strong>Seagate</strong></td>
-        <td class="neu">不参与</td>
-        <td class="neu">不参与</td>
-        <td class="neu">不参与</td>
-        <td><span class="pos">HAMR Mozaic 4TB/盘</span></td>
-        <td class="neu">AI数据湖间接</td>
-        <td>HAMR技术护城河; 近线产能锁定至2027</td>
-      </tr>
-      <tr>
-        <td><strong>Western Digital</strong></td>
-        <td class="neu">不参与</td>
-        <td class="neu">不参与</td>
-        <td class="neu">SanDisk分拆</td>
-        <td><span class="pos">EPMR 32TB; OptiNAND</span></td>
-        <td class="neu">AI数据湖间接</td>
-        <td>分拆后纯HDD再定价; PEG 0.65</td>
-      </tr>
-      <tr>
-        <td><strong>Pure Storage</strong></td>
-        <td class="neu">不参与</td>
-        <td class="neu">不参与</td>
-        <td class="neu">NAND采购商</td>
-        <td class="neu">全闪存软件定义</td>
-        <td class="neu">AI工作负载存储</td>
-        <td>订阅ARR $1.924B; Meta超大规模合作</td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="sec">行业关键风险</div>
-  <div class="g2">
-    <div class="warn">⚠ <strong>周期风险：</strong>当前DRAM合约价QoQ+90-95%处于景气顶部，历史上超级周期后通常出现价格回撤。若AI训练需求增速放缓或HBM产能扩张超预期，价格可能在2027-2028年承压。</div>
-    <div class="warn">⚠ <strong>地缘政治风险：</strong>美国对华出口管制可能限制DRAM/NAND对中国客户的销售；台湾地缘政治风险影响三星和SK海力士部分产能；韩元/日元汇率波动影响报告利润。</div>
-  </div>
+<div class="card">
+  <div style="font-weight:600;color:#e6edf3;margin-bottom:8px">🗓️ HBM技术路线图（2026-2028）</div>
+  <ul class="tl">
+    <li><strong>2026 Q1-Q2（当前）</strong>：SK Hynix HBM4 量产（2月），Micron HBM4 量产（NVIDIA Vera Rubin）；三星HBM3E通过NVIDIA认证（2025年9月，延迟18个月）</li>
+    <li><strong>2026年5月</strong>：三星HBM4E样品首发（业界首个，3.6 TB/s带宽），领先SK Hynix约6个月</li>
+    <li><strong>2026 H2</strong>：NVIDIA Vera Rubin平台上线，单GPU HBM容量288GB（6颗HBM4），拉动SK Hynix/Micron需求</li>
+    <li><strong>2027</strong>：HBM4E量产（SK Hynix），配合TSMC CoW封装；16层堆叠技术验证</li>
+    <li><strong>2027-2028</strong>：HBF（High Bandwidth Flash）技术标准化初期；SanDisk+SK Hynix联合推进OCP规格</li>
+    <li><strong>2028+</strong>：CXL内存池化技术开始规模商用；传统DRAM架构面临挑战</li>
+  </ul>
+  <div class="warn" style="margin-top:8px">⚠️ AI KV Cache问题：128K上下文窗口比4K上下文需要32倍内存带宽，是HBM结构性需求的持久底座</div>
 </div>
+<div class="card">
+  <div style="font-weight:600;color:#e6edf3;margin-bottom:8px">🏆 竞争格局（2026年HBM市场份额）</div>
+  <table style="font-size:12px">
+    <tr><th>公司</th><th>HBM份额</th><th>技术优势</th><th>估值（远期P/E）</th></tr>
+    <tr><td style="color:#76e3b0">SK Hynix (000660)</td><td class="pos">62%</td><td>HBM4量产，70%NVIDIA Vera Rubin分配</td><td class="neu">~20x（韩国市场折价）</td></tr>
+    <tr><td style="color:#58a6ff">Micron (MU)</td><td class="pos">21%（追赶）</td><td>HBM4量产，75%毛利率，<strong>11.4x P/E极低估</strong></td><td class="pos">11.4x（682% EPS增速）</td></tr>
+    <tr><td style="color:#f0883e">Samsung (005930)</td><td class="neg">17%（落后）</td><td>HBM4E样品首发（5月），Google TPU主供应商</td><td class="pos">25.3x（vs同行68.6x均值）</td></tr>
+    <tr><td style="color:#3fb950">Pure Storage (PSTG)</td><td class="neu">N/A（全闪存）</td><td>企业AI存储，Meta 1-2EB部署，ARR $1.924B</td><td class="neu">高P/S（软件溢价）</td></tr>
+    <tr><td style="color:#d29922">Seagate (STX)</td><td class="neu">N/A（HDD）</td><td>AI冷存储nearline，全额产能外卖，HAMR技术</td><td class="pos">合理区间</td></tr>
+  </table>
+  <div class="ibox" style="margin-top:8px">关键不对称性：Micron 11.4x P/E vs 682% EPS增速，是板块中最极端的价值洼地信号</div>
+</div>
+</div>
+<div class="sec">📊 综合评分排名（8家公司）</div>
+<div class="card"><table>
+<tr><th>#</th><th>代码</th><th>公司</th><th>子赛道</th><th>行业分</th><th>质量分</th><th>估值分</th><th>最终分</th><th>级别</th><th>置信度</th></tr>
+<tr>
+<td style="font-weight:600;color:#58a6ff">1</td>
+<td style="font-weight:700">MU</td>
+<td style="color:#8b949e;font-size:12px">Micron Technology</td>
+<td><span style="background:#58a6ff22;color:#58a6ff;border:1px solid #58a6ff44;padding:2px 6px;border-radius:8px;font-size:11px">DRAM/HBM/NAND</span></td>
+<td class="num">94.4</td><td class="num">92.8</td><td class="num">95.0</td>
+<td class="num" style="color:#ffd700;font-weight:700">93.8</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #ffd700;color:#ffd700;background:#0d1117">S</div></td>
+<td style="color:#8b949e;font-size:11px">1</td></tr><tr>
+<td style="font-weight:600;color:#d29922">2</td>
+<td style="font-weight:700">WDC</td>
+<td style="color:#8b949e;font-size:12px">Western Digital</td>
+<td><span style="background:#d2992222;color:#d29922;border:1px solid #d2992244;padding:2px 6px;border-radius:8px;font-size:11px">HDD Storage</span></td>
+<td class="num">61.4</td><td class="num">79.2</td><td class="num">87.0</td>
+<td class="num" style="color:#3fb950;font-weight:700">78.0</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #3fb950;color:#3fb950;background:#0d1117">A</div></td>
+<td style="color:#8b949e;font-size:11px">1</td></tr><tr>
+<td style="font-weight:600;color:#d29922">3</td>
+<td style="font-weight:700">STX</td>
+<td style="color:#8b949e;font-size:12px">Seagate Technology</td>
+<td><span style="background:#d2992222;color:#d29922;border:1px solid #d2992244;padding:2px 6px;border-radius:8px;font-size:11px">HDD Storage</span></td>
+<td class="num">61.4</td><td class="num">81.6</td><td class="num">80.0</td>
+<td class="num" style="color:#3fb950;font-weight:700">77.1</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #3fb950;color:#3fb950;background:#0d1117">A</div></td>
+<td style="color:#8b949e;font-size:11px">1</td></tr><tr>
+<td style="font-weight:600;color:#76e3b0">4</td>
+<td style="font-weight:700">000660.KS</td>
+<td style="color:#8b949e;font-size:12px">SK Hynix</td>
+<td><span style="background:#76e3b022;color:#76e3b0;border:1px solid #76e3b044;padding:2px 6px;border-radius:8px;font-size:11px">DRAM/HBM</span></td>
+<td class="num">94.4</td><td class="num">98.0</td><td class="num">75.0</td>
+<td class="num" style="color:#3fb950;font-weight:700">76.8</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #3fb950;color:#3fb950;background:#0d1117">A</div></td>
+<td style="color:#8b949e;font-size:11px">0.85</td></tr><tr>
+<td style="font-weight:600;color:#f0883e">5</td>
+<td style="font-weight:700">005930.KS</td>
+<td style="color:#8b949e;font-size:12px">Samsung Electronic</td>
+<td><span style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e44;padding:2px 6px;border-radius:8px;font-size:11px">DRAM/HBM/NAND/Logic</span></td>
+<td class="num">94.4</td><td class="num">75.6</td><td class="num">92.0</td>
+<td class="num" style="color:#3fb950;font-weight:700">71.6</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #3fb950;color:#3fb950;background:#0d1117">A</div></td>
+<td style="color:#8b949e;font-size:11px">0.85</td></tr><tr>
+<td style="font-weight:600;color:#3fb950">6</td>
+<td style="font-weight:700">PSTG</td>
+<td style="color:#8b949e;font-size:12px">Pure Storage</td>
+<td><span style="background:#3fb95022;color:#3fb950;border:1px solid #3fb95044;padding:2px 6px;border-radius:8px;font-size:11px">All-Flash Storage</span></td>
+<td class="num">61.2</td><td class="num">78.8</td><td class="num">58.0</td>
+<td class="num" style="color:#58a6ff;font-weight:700">69.0</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #58a6ff;color:#58a6ff;background:#0d1117">B</div></td>
+<td style="color:#8b949e;font-size:11px">1</td></tr><tr>
+<td style="font-weight:600;color:#f85149">7</td>
+<td style="font-weight:700">SNDK</td>
+<td style="color:#8b949e;font-size:12px">SanDisk Corporatio</td>
+<td><span style="background:#f8514922;color:#f85149;border:1px solid #f8514944;padding:2px 6px;border-radius:8px;font-size:11px">NAND Flash/Enterprise </span></td>
+<td class="num">67.2</td><td class="num">79.6</td><td class="num">60.0</td>
+<td class="num" style="color:#d29922;font-weight:700">59.0 ⚠️</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #d29922;color:#d29922;background:#0d1117">C</div></td>
+<td style="color:#8b949e;font-size:11px">0.85</td></tr><tr>
+<td style="font-weight:600;color:#f85149">8</td>
+<td style="font-weight:700">285A.JP</td>
+<td style="color:#8b949e;font-size:12px">Kioxia Holdings</td>
+<td><span style="background:#f8514922;color:#f85149;border:1px solid #f8514944;padding:2px 6px;border-radius:8px;font-size:11px">NAND Flash</span></td>
+<td class="num">64.4</td><td class="num">71.2</td><td class="num">60.0</td>
+<td class="num" style="color:#d29922;font-weight:700">53.2 ⚠️</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #d29922;color:#d29922;background:#0d1117">C</div></td>
+<td style="color:#8b949e;font-size:11px">0.8</td></tr></table></div>
+<div class="g4" style="margin-top:12px">
+<div class="card" style="border-color:#ffd70044"><div style="color:#ffd700;font-weight:700;margin-bottom:6px">⭐ S级</div><div style="margin:3px 0"><strong style="color:#ffd700">MU</strong> <span class="num">93.8</span> <span style="color:#8b949e;font-size:11px">· DRAM/HBM/NAND</span></div></div>
+<div class="card" style="border-color:#3fb95044"><div style="color:#3fb950;font-weight:700;margin-bottom:6px">🟢 A级</div><div style="margin:3px 0"><strong style="color:#3fb950">WDC</strong> <span class="num">78.0</span> <span style="color:#8b949e;font-size:11px">· HDD Storage</span></div><div style="margin:3px 0"><strong style="color:#3fb950">STX</strong> <span class="num">77.1</span> <span style="color:#8b949e;font-size:11px">· HDD Storage</span></div><div style="margin:3px 0"><strong style="color:#3fb950">000660.KS</strong> <span class="num">76.8</span> <span style="color:#8b949e;font-size:11px">· DRAM/HBM</span></div><div style="margin:3px 0"><strong style="color:#3fb950">005930.KS</strong> <span class="num">71.6</span> <span style="color:#8b949e;font-size:11px">· DRAM/HBM/NAND/Logic</span></div></div>
+<div class="card" style="border-color:#58a6ff44"><div style="color:#58a6ff;font-weight:700;margin-bottom:6px">🔵 B级</div><div style="margin:3px 0"><strong style="color:#58a6ff">PSTG</strong> <span class="num">69.0</span> <span style="color:#8b949e;font-size:11px">· All-Flash Storage</span></div></div>
+<div class="card" style="border-color:#f8514944"><div style="color:#f85149;font-weight:700;margin-bottom:6px">🔴 C/D</div><div style="margin:3px 0"><strong style="color:#d29922">SNDK</strong> <span class="num">59.0</span> <span style="color:#8b949e;font-size:11px">· NAND Flash/Enterpris</span></div><div style="margin:3px 0"><strong style="color:#d29922">285A.JP</strong> <span class="num">53.2</span> <span style="color:#8b949e;font-size:11px">· NAND Flash</span></div></div>
+</div>
+<div class="sec">🔍 公司详细评分（含真实财报数据+来源）</div>
 
-<!-- SK HYNIX TAB -->
-<div id="tab-skhynix" class="tc">
-  <div class="cohdr">
-    <div class="coleft">
-      <div class="coname">SK海力士 (SK Hynix)</div>
-      <div class="cometa">000660.KS · DRAM/HBM · 韩国上市公司</div>
-      <div style="font-size:13px;color:#8b949e;margin-top:8px">全球HBM市场绝对领导者，62%市场份额，Q1 2026营业利润率72%历史最高水平</div>
-    </div>
-    <div class="coscore">
-      <div class="bigscore grade-A">76.8</div>
-      <div style="margin-top:8px"><span class="rcircle" style="border-color:#3fb950;color:#3fb950;font-size:24px;width:48px;height:48px">A</span></div>
-      <div style="font-size:11px;color:#8b949e;margin-top:6px">置信度 ×0.85</div>
-    </div>
-  </div>
-
-  <div class="g2">
-    <div class="card">
-      <div class="ct">最新财务数据</div>
-      <div class="gbox">营收：₩52.5T Q1 2026 (+144% YoY)</div>
-      <div style="margin-top:8px">
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">HBM全球市占率</span><span class="num pos">62%</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">Q1 2026营业利润率</span><span class="num pos">72%</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">NVIDIA Vera Rubin HBM4配额</span><span class="num pos">~70%</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">需求积压期</span><span class="num pos">3年以上</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">HBM4量产启动</span><span class="num pos">2026年2月</span></div>
+<div class="card" id="co-MU">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        Micron Technology <span style="color:#58a6ff;font-size:12px">(DRAM/HBM/NAND)</span>
       </div>
-    </div>
-    <div class="card">
-      <div class="ct">维度评分</div>
-      <div style="font-size:12px;margin-bottom:8px;color:#8b949e">行业分：94.4 &nbsp;|&nbsp; 质量分：98.0 &nbsp;|&nbsp; 估值分：75.0</div>
-      <div style="font-size:12px;color:#8b949e">行业维度 (IW=[18,14,15,18,12,15,8])</div>
-      <div style="font-size:12px;margin:4px 0">宏观顺风 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">行业成长 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">竞争壁垒 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">供需结构 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">政策监管 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">周期位置 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">地缘政治 <span class="num">3/5</span><div class="bar-wrap"><div class="bar-fill" style="width:60%;background:#f0883e"></div></div></div>
-    </div>
-  </div>
-
-  <div class="g2">
-    <div class="card">
-      <div class="ct">质量维度评分 (QW=[20,10,18,12,10,12,12,6])</div>
-      <div style="font-size:12px;margin:4px 0">收入质量与持续性 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">盈利能力 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">财务健康度 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">管理层能力 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">执行力 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">护城河 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">增长可持续性 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">股东回报 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-    </div>
-    <div class="card">
-      <div class="ct">估值维度评分 (VW=[35,25,25,15])</div>
-      <div style="font-size:12px;margin:4px 0">绝对估值 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">相对估值 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">历史估值区间 <span class="num">3/5</span><div class="bar-wrap"><div class="bar-fill" style="width:60%;background:#f0883e"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">催化剂确定性 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="ct">投资论点</div>
-    <div class="gbox">SK海力士是无可争议的HBM之王，拥有62%市场份额，占NVIDIA Vera Rubin HBM4配额的70%，Q1 2026营业利润率达72%历史最高水平。自2026年2月启动HBM4量产，计划H2 2026取样HBM4E，在AI存储竞争中领先三星12-18个月。客户未来三年的需求已超过生产能力，使其成为结构性复利标的而非周期性赌注。</div>
-    <div class="warn">⚠ <strong>核心风险：</strong>三星于2026年5月发出HBM4E样品，比SK海力士早6个月——可能在2027年资格认证周期侵蚀定价权；地缘政治出口管制可能扰乱对中国客户的供应</div>
-    <div class="ibox">🚀 <strong>主要催化剂：</strong>HBM4E量产目标2027年（TSMC CoW封装）；M15X晶圆厂扩产加速HBM资本开支；NVIDIA Vera Rubin平台H2 2026放量</div>
-  </div>
-</div>
-
-<!-- MICRON TAB -->
-<div id="tab-micron" class="tc">
-  <div class="cohdr">
-    <div class="coleft">
-      <div class="coname">Micron Technology</div>
-      <div class="cometa">MU · DRAM/HBM/NAND · 纳斯达克上市</div>
-      <div style="font-size:13px;color:#8b949e;margin-top:8px">存储器超级周期中风险收益比最具吸引力的标的，前瞻P/E仅11.4x但EPS同比增长682%</div>
-    </div>
-    <div class="coscore">
-      <div class="bigscore grade-S">93.8</div>
-      <div style="margin-top:8px"><span class="rcircle" style="border-color:#ffd700;color:#ffd700;font-size:24px;width:48px;height:48px">S</span></div>
-      <div style="font-size:11px;color:#8b949e;margin-top:6px">置信度 ×1.00</div>
-    </div>
-  </div>
-
-  <div class="g2">
-    <div class="card">
-      <div class="ct">最新财务数据</div>
-      <div class="gbox">营收：$23.9B Q2 FY2026 (+196% YoY)</div>
-      <div style="margin-top:8px">
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">Q2 FY2026毛利率</span><span class="num pos">75%</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">Q2 FY2026自由现金流</span><span class="num pos">$6.9B (历史最高)</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">EPS同比增长</span><span class="num pos">+682% YoY</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">前瞻P/E</span><span class="num pos">11.4x</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">Q3 FY2026指引</span><span class="num pos">$33.5B (81%毛利率)</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">2026 HBM产能</span><span class="num pos">全部售罄</span></div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        MU · 置信度<strong>1</strong>（固定值）· 2026-06-04
       </div>
-    </div>
-    <div class="card">
-      <div class="ct">维度评分</div>
-      <div style="font-size:12px;margin-bottom:8px;color:#8b949e">行业分：94.4 &nbsp;|&nbsp; 质量分：92.8 &nbsp;|&nbsp; 估值分：95.0</div>
-      <div style="font-size:12px;color:#8b949e">行业维度 (IW=[18,14,15,18,12,15,8])</div>
-      <div style="font-size:12px;margin:4px 0">宏观顺风 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">行业成长 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">竞争壁垒 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">供需结构 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">政策监管 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">周期位置 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">地缘政治 <span class="num">3/5</span><div class="bar-wrap"><div class="bar-fill" style="width:60%;background:#f0883e"></div></div></div>
-    </div>
-  </div>
-
-  <div class="g2">
-    <div class="card">
-      <div class="ct">质量维度评分 (QW=[20,10,18,12,10,12,12,6])</div>
-      <div style="font-size:12px;margin:4px 0">收入质量与持续性 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">盈利能力 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">财务健康度 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">管理层能力 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">执行力 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">护城河 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">增长可持续性 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">股东回报 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-    </div>
-    <div class="card">
-      <div class="ct">估值维度评分 (VW=[35,25,25,15])</div>
-      <div style="font-size:12px;margin:4px 0">绝对估值 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">相对估值 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">历史估值区间 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">催化剂确定性 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="ct">投资论点</div>
-    <div class="gbox">Micron是存储器超级周期中风险收益比最具吸引力的标的，前瞻P/E仅11.4x，而Q2 FY2026 EPS同比增长682%。季度营收$23.9B、75%毛利率、创纪录的$6.9B自由现金流，Micron已从商品周期性股票结构性重估为AI基础设施复利标的。HBM4为NVIDIA Vera Rubin量产，2026年全部HBM产能售罄，Q3 FY2026指引$33.5B代表又一次创纪录的超预期。</div>
-    <div class="warn">⚠ <strong>核心风险：</strong>21% HBM市场份额落后SK海力士(62%)；HBM4 16-Hi爬坡执行风险；美中出口管制地缘政治风险限制中国客户营收</div>
-    <div class="ibox">🚀 <strong>主要催化剂：</strong>Q3 FY2026指引$33.5B (81%毛利率)；HBM4 48GB 16-Hi客户样品；SOCAMM2为下一代AI服务器量产</div>
-  </div>
-</div>
-
-<!-- SAMSUNG TAB -->
-<div id="tab-samsung" class="tc">
-  <div class="cohdr">
-    <div class="coleft">
-      <div class="coname">三星电子 (Samsung Electronics)</div>
-      <div class="cometa">005930.KS · DRAM/HBM/NAND/逻辑 · 韩国上市公司</div>
-      <div style="font-size:13px;color:#8b949e;margin-top:8px">存储器板块估值最低，P/E 25.3x vs同行均值68.6x，HBM4E首发样品或是2027年市场份额反转催化剂</div>
-    </div>
-    <div class="coscore">
-      <div class="bigscore grade-A">71.6</div>
-      <div style="margin-top:8px"><span class="rcircle" style="border-color:#3fb950;color:#3fb950;font-size:24px;width:48px;height:48px">A</span></div>
-      <div style="font-size:11px;color:#8b949e;margin-top:6px">置信度 ×0.85</div>
-    </div>
-  </div>
-
-  <div class="g2">
-    <div class="card">
-      <div class="ct">最新财务数据</div>
-      <div class="gbox">营收：₩133.9T Q1 2026 (+69% YoY)</div>
-      <div style="margin-top:8px">
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">DS部门营收</span><span class="num pos">₩81.7T (+225% YoY)</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">DS部门营业利润</span><span class="num pos">₩53.7T (占全公司94%)</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">P/E (vs同行均值68.6x)</span><span class="num pos">25.3x</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">Google TPU HBM3E主供</span><span class="num pos">60%+</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">HBM4E样品发出</span><span class="num pos">2026年5月(业界首发)</span></div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>实时数据</strong>: $23.9B Q2 FY2026 (+196% YoY)
+        &nbsp;|&nbsp; 75% gross margin Q2 FY2026; HBM4 in volume production for NV
       </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:700px">Micron offers the most compelling risk-reward in the memory supercycle trading at a forward P/E of 11.4x despite 682% YoY EPS growth in Q2 FY2026. With $23.9B quarterly revenue, 75% gross margins, and a record $6.9B FCF quarter, Micron has structurally re-rated from a commodity cyclical to an AI infrastructure compounder. HBM4 in volume production for NVIDIA Vera Rubin and all 2026 HBM capacity sold out, with Q3 FY2026 guidance of $33.5B representing another record beat.</div>
     </div>
-    <div class="card">
-      <div class="ct">维度评分</div>
-      <div style="font-size:12px;margin-bottom:8px;color:#8b949e">行业分：94.4 &nbsp;|&nbsp; 质量分：75.6 &nbsp;|&nbsp; 估值分：92.0</div>
-      <div style="font-size:12px;color:#8b949e">质量维度 (QW=[20,10,18,12,10,12,12,6])</div>
-      <div style="font-size:12px;margin:4px 0">收入质量与持续性 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">盈利能力 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">财务健康度 <span class="num">3/5</span><div class="bar-wrap"><div class="bar-fill" style="width:60%;background:#f0883e"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">管理层能力 <span class="num">3/5</span><div class="bar-wrap"><div class="bar-fill" style="width:60%;background:#f0883e"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">执行力 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">护城河 <span class="num">3/5</span><div class="bar-wrap"><div class="bar-fill" style="width:60%;background:#f0883e"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">增长可持续性 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">股东回报 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
+    <div style="text-align:center;min-width:100px">
+      <div style="font-size:52px;font-weight:800;color:#ffd700;line-height:1">93.8</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;
+                  border-radius:50%;font-size:18px;font-weight:800;border:2px solid #ffd700;
+                  color:#ffd700;background:#0d1117">S</div>
+      <div style="font-size:10px;color:#8b949e;margin-top:4px">×1</div>
     </div>
   </div>
-
-  <div class="card">
-    <div class="ct">投资论点</div>
-    <div class="gbox">三星以P/E 25.3x交易，与同行均值68.6x相比提供了存储器板块最具吸引力的估值，DS部门利润Q1 2026飙升48倍至₩53.7T。然而，三星HBM执行一贯落后SK海力士——直到2025年9月才通过NVIDIA HBM3E资格认证，17%的HBM市场份额大幅落后。2026年5月业界首发HBM4E样品(3.6 TB/s带宽)可能是进入2027年资格认证周期HBM市场份额反转的真正催化剂。</div>
-    <div class="warn">⚠ <strong>核心风险：</strong>HBM资格认证慢18个月让三星损失了大量NVIDIA营收；铸造厂(SFAB)亏损稀释半导体盈利能力；移动部门营收Q1 2026大幅下滑</div>
-    <div class="ibox">🚀 <strong>主要催化剂：</strong>HBM4E样品发出(2026年5月), 3.6TB/s带宽；NVIDIA HBM4 Vera Rubin第二批订单资格认证进行中；Google TPU HBM3E主供地位(60%+)</div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">94.4</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">92.8</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">95.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
   </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">HBM/AI存储需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">周期位置与供给纪律</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策地缘</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">通算盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术节点+市占</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI/HBM战略</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层执行轨迹</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性/HBF</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户结构</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">通算相对估值+共识偏差</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">21% HBM market share trails SK Hynix (62%)</li><li style="color:#f85149;margin:2px 0"> execution risk on HBM4 16-Hi ramp</li><li style="color:#f85149;margin:2px 0"> geopolitical risk from US-China export controls limiting China revenue</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">Q3 FY2026 guidance of $33.5B at 81% gross margin</li><li style="color:#3fb950;margin:2px 0"> HBM4 48GB 16-Hi customer samples</li><li style="color:#3fb950;margin:2px 0"> SOCAMM2 production for next-gen AI servers</li></ul></div>
+  </div>
+  <div style="margin-top:6px;font-size:11px;color:#8b949e">数据来源: <a href="https://www.cnbc.com/2026/03/18/micron-mu-q2-earnings-report-2026.html" style="color:#79c0ff;font-size:11px">[来源]</a> | <a href="https://investors.micron.com/news-releases/news-release-details/micron-high-volume-production-hbm4-designed-nvidia-vera-rubin" style="color:#79c0ff;font-size:11px">[来源]</a></div>
 </div>
-
-<!-- SEAGATE TAB -->
-<div id="tab-seagate" class="tc">
-  <div class="cohdr">
-    <div class="coleft">
-      <div class="coname">Seagate Technology</div>
-      <div class="cometa">STX · HDD存储 · 纳斯达克上市</div>
-      <div style="font-size:13px;color:#8b949e;margin-top:8px">HAMR技术护城河+近线产能至2027年锁定，AI数据湖层的结构性受益者</div>
-    </div>
-    <div class="coscore">
-      <div class="bigscore grade-A">77.1</div>
-      <div style="margin-top:8px"><span class="rcircle" style="border-color:#3fb950;color:#3fb950;font-size:24px;width:48px;height:48px">A</span></div>
-      <div style="font-size:11px;color:#8b949e;margin-top:6px">置信度 ×1.00</div>
-    </div>
-  </div>
-
-  <div class="g2">
-    <div class="card">
-      <div class="ct">最新财务数据</div>
-      <div class="gbox">营收：$3.11B Q3 FY2026 (+44% YoY)</div>
-      <div style="margin-top:8px">
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">Non-GAAP毛利率</span><span class="num pos">47% (历史新高)</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">Q3 FY2026 FCF</span><span class="num pos">$953M</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">近线HDD产能</span><span class="num pos">至2027年售罄</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">HAMR技术</span><span class="num pos">Mozaic 3+ 44TB+/驱动</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">中期营收增长指引</span><span class="num pos">20%+年增长</span></div>
+<div class="card" id="co-WDC">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        Western Digital <span style="color:#d29922;font-size:12px">(HDD Storage)</span>
       </div>
-    </div>
-    <div class="card">
-      <div class="ct">维度评分</div>
-      <div style="font-size:12px;margin-bottom:8px;color:#8b949e">行业分：61.4 &nbsp;|&nbsp; 质量分：81.6 &nbsp;|&nbsp; 估值分：80.0</div>
-      <div style="font-size:12px;color:#8b949e">质量维度 (QW=[20,10,18,12,10,12,12,6])</div>
-      <div style="font-size:12px;margin:4px 0">收入质量与持续性 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">盈利能力 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">财务健康度 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">管理层能力 <span class="num">3/5</span><div class="bar-wrap"><div class="bar-fill" style="width:60%;background:#f0883e"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">执行力 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">护城河 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">增长可持续性 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">股东回报 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="ct">投资论点</div>
-    <div class="gbox">Seagate是AI存储受益者，通过数据湖/归档层——AI训练数据集和推理KV缓存卸载需要大量近线HDD容量，每TB成本比NAND低90%。HAMR技术(Mozaic平台)以44TB+驱动和4TB/盘面密度创造专有护城河，使近线生产实际上至2027年订满。Q3 FY2026实现$3.11B营收(+44% YoY)和47%非GAAP毛利率——历史新高。</div>
-    <div class="warn">⚠ <strong>核心风险：</strong>HDD处于内存层次的低端——若NAND价格下跌，HDD经济性将受挑战；中期固态存储替代近线层风险；缺乏HBM/DRAM参与最高利润率AI内存细分市场</div>
-    <div class="ibox">🚀 <strong>主要催化剂：</strong>HAMR爬坡至44TB驱动扩展每机架可寻址容量；近线供应至2027年按订单生产合同锁定；中期营收指引提升至20%+年增长</div>
-  </div>
-</div>
-
-<!-- WDC TAB -->
-<div id="tab-wdc" class="tc">
-  <div class="cohdr">
-    <div class="coleft">
-      <div class="coname">Western Digital</div>
-      <div class="cometa">WDC · HDD存储(分拆后纯HDD) · 纳斯达克上市</div>
-      <div style="font-size:13px;color:#8b949e;margin-top:8px">分拆后纯HDD再定价，PEG 0.65仍显低估，AI数据中心近线需求持续高增</div>
-    </div>
-    <div class="coscore">
-      <div class="bigscore grade-A">78.0</div>
-      <div style="margin-top:8px"><span class="rcircle" style="border-color:#3fb950;color:#3fb950;font-size:24px;width:48px;height:48px">A</span></div>
-      <div style="font-size:11px;color:#8b949e;margin-top:6px">置信度 ×1.00</div>
-    </div>
-  </div>
-
-  <div class="g2">
-    <div class="card">
-      <div class="ct">最新财务数据</div>
-      <div class="gbox">营收：$3.34B Q3 FY2026 (+45% YoY)</div>
-      <div style="margin-top:8px">
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">Q3 FY2026毛利率</span><span class="num pos">50.2%</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">Q3 FY2026出货量</span><span class="num pos">222艾字节 (+34% YoY)</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">净现金头寸</span><span class="num pos">+$450M</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">PEG比率</span><span class="num pos">0.65 (低估)</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">Q4 FY2026指引</span><span class="num pos">$3.65B (+40% YoY)</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">分拆后12个月回报</span><span class="num pos">+481%</span></div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        WDC · 置信度<strong>1</strong>（固定值）· 2026-06-04
       </div>
-    </div>
-    <div class="card">
-      <div class="ct">维度评分</div>
-      <div style="font-size:12px;margin-bottom:8px;color:#8b949e">行业分：61.4 &nbsp;|&nbsp; 质量分：79.2 &nbsp;|&nbsp; 估值分：87.0</div>
-      <div style="font-size:12px;color:#8b949e">质量维度 (QW=[20,10,18,12,10,12,12,6])</div>
-      <div style="font-size:12px;margin:4px 0">收入质量与持续性 <span class="num">5/5</span><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#3fb950"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">盈利能力 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">财务健康度 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">管理层能力 <span class="num">3/5</span><div class="bar-wrap"><div class="bar-fill" style="width:60%;background:#f0883e"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">执行力 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">护城河 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">增长可持续性 <span class="num">3/5</span><div class="bar-wrap"><div class="bar-fill" style="width:60%;background:#f0883e"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">股东回报 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="ct">投资论点</div>
-    <div class="gbox">2025年2月SanDisk分拆后，西部数据现在是纯HDD公司，被重新定价为AI基础设施。Q3 FY2026营收$3.34B(+45% YoY)，50.2%毛利率反映AI数据中心近线需求带来的结构性提升。股票在分拆后12个月内获得481%回报，分析师将HDD业务重新评级为AI存储基础设施，PEG比率0.65——相对增长前景仍显低估。Q4 FY2026指引$3.65B意味着持续40% YoY增长。</div>
-    <div class="warn">⚠ <strong>核心风险：</strong>分拆后纯HDD集中消除NAND上涨参与；在近线市场与希捷竞争加剧；长期企业存储NAND SSD替代风险</div>
-    <div class="ibox">🚀 <strong>主要催化剂：</strong>Q4 FY2026指引$3.65B；EPMR驱动器32TB容量在最高密度近线层夺取份额；OptiNAND混合HDD性能技术；持续股票回购($452M已回购)</div>
-  </div>
-</div>
-
-<!-- PURE STORAGE TAB -->
-<div id="tab-pure" class="tc">
-  <div class="cohdr">
-    <div class="coleft">
-      <div class="coname">Pure Storage</div>
-      <div class="cometa">PSTG · 全闪存存储系统 · 纽交所上市</div>
-      <div style="font-size:13px;color:#8b949e;margin-top:8px">AI基础设施建设受益者，首季$1B+营收里程碑，订阅ARR $1.924B增长稳健</div>
-    </div>
-    <div class="coscore">
-      <div class="bigscore grade-B">69.0</div>
-      <div style="margin-top:8px"><span class="rcircle" style="border-color:#d29922;color:#d29922;font-size:24px;width:48px;height:48px">B</span></div>
-      <div style="font-size:11px;color:#8b949e;margin-top:6px">置信度 ×1.00</div>
-    </div>
-  </div>
-
-  <div class="g2">
-    <div class="card">
-      <div class="ct">最新财务数据</div>
-      <div class="gbox">营收：$3.6B+ FY2026全年 (+16% YoY); Q4 FY26 $1.06B</div>
-      <div style="margin-top:8px">
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">订阅ARR</span><span class="num pos">$1.924B (+16% YoY)</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">剩余履约义务(RPO)</span><span class="num pos">$3.67B (+40% YoY)</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">Q4 FY2026里程碑</span><span class="num pos">首次季度$1B+</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">Meta超大规模合作</span><span class="num pos">部署1-2艾字节</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">AI营收目标(2027)</span><span class="num pos">$5B</span></div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>实时数据</strong>: $3.34B Q3 FY2026 (+45% YoY)
+        &nbsp;|&nbsp; 222 exabytes shipped Q3 FY2026 (+34% YoY); 50.2% gross margi
       </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:700px">Following the February 2025 SanDisk spin-off, Western Digital is now a pure-play HDD company re-rated as AI infrastructure. Q3 FY2026 revenue of $3.34B (+45% YoY) with 50.2% gross margins reflects the structural uplift from AI data center nearline demand. The stock delivered 481% return in the 12 months post-spin-off as analysts re-rated the HDD business as an AI storage infrastructure play with PEG ratio of 0.65 — still undervalued versus growth prospects. Q4 FY2026 guidance of $3.65B implies continued 40% YoY growth.</div>
     </div>
-    <div class="card">
-      <div class="ct">维度评分</div>
-      <div style="font-size:12px;margin-bottom:8px;color:#8b949e">行业分：61.2 &nbsp;|&nbsp; 质量分：78.8 &nbsp;|&nbsp; 估值分：58.0</div>
-      <div style="font-size:12px;color:#8b949e">质量维度 (QW=[20,10,18,12,10,12,12,6])</div>
-      <div style="font-size:12px;margin:4px 0">收入质量 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">盈利能力 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">财务健康度 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">管理层能力 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">执行力 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">护城河 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">增长可持续性 <span class="num">4/5</span><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#d29922"></div></div></div>
-      <div style="font-size:12px;margin:4px 0">股东回报 <span class="num">3/5</span><div class="bar-wrap"><div class="bar-fill" style="width:60%;background:#f0883e"></div></div></div>
+    <div style="text-align:center;min-width:100px">
+      <div style="font-size:52px;font-weight:800;color:#3fb950;line-height:1">78.0</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;
+                  border-radius:50%;font-size:18px;font-weight:800;border:2px solid #3fb950;
+                  color:#3fb950;background:#0d1117">A</div>
+      <div style="font-size:10px;color:#8b949e;margin-top:4px">×1</div>
     </div>
   </div>
-
-  <div class="card">
-    <div class="ct">投资论点</div>
-    <div class="gbox">Pure Storage是AI基础设施建设通过企业全闪存存储的受益者，而非直接的存储器超级周期参与者。公司在Q4 FY2026实现首次单季$1B+营收，同比增长16%，由AI工作负载存储需求和Meta超大规模合作伙伴关系（部署1-2艾字节）驱动。订阅ARR $1.924B，RPO增长40%，提供持久的营收可见度。然而，Pure是存储软件/系统公司，在存储器价值链中属间接参与。</div>
-    <div class="warn">⚠ <strong>核心风险：</strong>戴尔科技按规模主导企业存储；高估值(高P/S)安全边际有限；客户集中于Meta；NAND零部件成本超级周期推高输入成本约20%</div>
-    <div class="ibox">🚀 <strong>主要催化剂：</strong>2027年$5B AI营收目标；FlashArray//XL和FlashBlade//EXA统一组合服务AI工厂；超大规模扩展至Meta以外</div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">61.4</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">79.2</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">87.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
   </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">HBM/AI存储需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">周期位置与供给纪律</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策地缘</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">通算盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术节点+市占</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI/HBM战略</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层执行轨迹</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性/HBF</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户结构</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">通算相对估值+共识偏差</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">Pure-play HDD concentration post-spin-off eliminates NAND upside participation</li><li style="color:#f85149;margin:2px 0"> competition with Seagate in nearline is intensifying</li><li style="color:#f85149;margin:2px 0"> forward NAND SSD displacement risk in enterprise storage long-term</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">Q4 FY2026 guidance $3.65B</li><li style="color:#3fb950;margin:2px 0"> EPMR drives with 32TB capacity capturing share in highest-density nearline tier</li><li style="color:#3fb950;margin:2px 0"> OptiNAND technology for hybrid HDD performance</li><li style="color:#3fb950;margin:2px 0"> continued share buybacks with $452M repurchased</li></ul></div>
+  </div>
+  <div style="margin-top:6px;font-size:11px;color:#8b949e">数据来源: <a href="https://investor.wdc.com/news-releases/news-release-details/wd-reports-fiscal-third-quarter-2026-financial-results" style="color:#79c0ff;font-size:11px">[来源]</a> | <a href="https://www.tikr.com/blog/why-western-digital-stock-still-looks-undervalued-even-after-a-150-run-in-2026" style="color:#79c0ff;font-size:11px">[来源]</a></div>
 </div>
-
-<!-- SANDISK TAB -->
-<div id="tab-sandisk" class="tc">
-  <div class="veto-banner">⚠ VETO 规则触发 — SanDisk Corporation (SNDK) 于2025年2月21日从Western Digital分拆上市，公开历史不足3年，评级上限59分(V级)</div>
-  <div class="cohdr">
-    <div class="coleft">
-      <div class="coname">SanDisk Corporation</div>
-      <div class="cometa">SNDK · NAND闪存/企业SSD · 纳斯达克上市 (2025年2月21日分拆)</div>
-      <div style="font-size:13px;color:#8b949e;margin-top:8px">纯NAND和企业SSD公司，AI存储超级周期受益者，但公开历史不足限制评级</div>
+<div class="card" id="co-STX">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        Seagate Technology <span style="color:#d29922;font-size:12px">(HDD Storage)</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        STX · 置信度<strong>1</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>实时数据</strong>: $3.11B Q3 FY2026 (+44% YoY)
+        &nbsp;|&nbsp; Nearline HDD capacity fully allocated through calendar 2027;
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:700px">Seagate is an AI storage beneficiary via the data lake/archival layer — AI training datasets and inference KV cache offload require massive nearline HDD capacity at 90% lower cost per TB versus NAND. HAMR technology (Mozaic platform) creates a proprietary moat with 44TB+ drives and 4TB/disk areal density, making nearline production effectively fully booked through 2027. Q3 FY2026 delivered $3.11B revenue (+44% YoY) with 47% non-GAAP gross margins — a new high.</div>
     </div>
-    <div class="coscore">
-      <div class="bigscore grade-V">59.0</div>
-      <div style="margin-top:8px"><span class="rcircle" style="border-color:#8b949e;color:#8b949e;font-size:24px;width:48px;height:48px">V</span></div>
-      <div style="font-size:11px;color:#8b949e;margin-top:6px">置信度 ×0.85 | Veto上限59</div>
+    <div style="text-align:center;min-width:100px">
+      <div style="font-size:52px;font-weight:800;color:#3fb950;line-height:1">77.1</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;
+                  border-radius:50%;font-size:18px;font-weight:800;border:2px solid #3fb950;
+                  color:#3fb950;background:#0d1117">A</div>
+      <div style="font-size:10px;color:#8b949e;margin-top:4px">×1</div>
     </div>
   </div>
-
-  <div class="card">
-    <div class="ct">基本面（受Veto限制，基础分未被使用）</div>
-    <div class="gbox">营收：$5.95B Q3 FY2026 (+97% QoQ)；Q4 FY2026指引 $7.75-8.25B</div>
-    <div style="margin-top:8px">
-      <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">数据中心细分 Q3 YoY</span><span class="num pos">+233% QoQ</span></div>
-      <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">Non-GAAP EPS Q3 FY2026</span><span class="num pos">$23.41</span></div>
-      <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">Veto原因</span><span class="neg">IPO 2025年2月，公开历史&lt;3年</span></div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">61.4</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
     </div>
-    <div class="warn">⚠ <strong>Veto原因：</strong>IPO 2025年2月21日（从Western Digital分拆），公开运营历史不足3年。尽管基本面强劲（Q3 FY2026营收$5.95B，数据中心+233% QoQ），但按评分框架规则触发Veto，评级上限59分。</div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">81.6</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">80.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
   </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">HBM/AI存储需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">周期位置与供给纪律</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策地缘</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">通算盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术节点+市占</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI/HBM战略</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层执行轨迹</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性/HBF</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户结构</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">通算相对估值+共识偏差</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">HDD is the low end of the memory hierarchy — if NAND prices drop, HDD economics are challenged</li><li style="color:#f85149;margin:2px 0"> medium-term risk of solid-state displacement in nearline tier</li><li style="color:#f85149;margin:2px 0"> lacks HBM/DRAM participation in highest-margin AI memory segment</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">HAMR ramp to 44TB drives expands addressable capacity per rack</li><li style="color:#3fb950;margin:2px 0"> nearline supply locked through 2027 under build-to-order contracts</li><li style="color:#3fb950;margin:2px 0"> medium-term revenue guidance raised to 20%+ annual growth</li></ul></div>
+  </div>
+  <div style="margin-top:6px;font-size:11px;color:#8b949e">数据来源: <a href="https://tickeron.com/earnings/STX/" style="color:#79c0ff;font-size:11px">[来源]</a> | <a href="https://www.sahmcapital.com/news/content/why-seagate-stx-is-up-138-after-strong-earnings-ai-storage-demand-and-board-changes-2026-05-10" style="color:#79c0ff;font-size:11px">[来源]</a></div>
 </div>
-
-<!-- KIOXIA TAB -->
-<div id="tab-kioxia" class="tc">
-  <div class="veto-banner">⚠ VETO 规则触发 — 铠侠 Kioxia (285A.JP) 于2024年12月在东京证券交易所IPO，公开历史不足1年，评级上限59分(V级)</div>
-  <div class="cohdr">
-    <div class="coleft">
-      <div class="coname">铠侠控股 (Kioxia Holdings)</div>
-      <div class="cometa">285A.JP · NAND闪存 · 东京证交所 (2024年12月IPO)</div>
-      <div style="font-size:13px;color:#8b949e;margin-top:8px">全球第二大NAND厂商，AI存储超级周期受益，但不足1年公开历史触发Veto</div>
+<div class="card" id="co-000660.KS">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        SK Hynix <span style="color:#76e3b0;font-size:12px">(DRAM/HBM)</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        000660.KS · 置信度<strong>0.85</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>实时数据</strong>: ₩52.5T Q1 2026 (+144% YoY)
+        &nbsp;|&nbsp; 62% HBM global market share; 72% operating margin Q1 2026; 3
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:700px">SK Hynix is the undisputed HBM king with 62% market share, 70% of NVIDIA's HBM4 Vera Rubin allocation, and a record 72% operating margin in Q1 2026. With HBM4 mass production since February 2026 and HBM4E sampling scheduled H2 2026, SK Hynix is structurally positioned 12-18 months ahead of Samsung in the AI memory race. Customer demand for the next three years already exceeds production capacity, making this a structural compounder rather than a cyclical bet.</div>
     </div>
-    <div class="coscore">
-      <div class="bigscore grade-V">53.2</div>
-      <div style="margin-top:8px"><span class="rcircle" style="border-color:#8b949e;color:#8b949e;font-size:24px;width:48px;height:48px">V</span></div>
-      <div style="font-size:11px;color:#8b949e;margin-top:6px">置信度 ×0.80 | Veto上限59</div>
+    <div style="text-align:center;min-width:100px">
+      <div style="font-size:52px;font-weight:800;color:#3fb950;line-height:1">76.8</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;
+                  border-radius:50%;font-size:18px;font-weight:800;border:2px solid #3fb950;
+                  color:#3fb950;background:#0d1117">A</div>
+      <div style="font-size:10px;color:#8b949e;margin-top:4px">×0.85</div>
     </div>
   </div>
-
-  <div class="card">
-    <div class="ct">基本面（受Veto限制，基础分未被使用）</div>
-    <div class="gbox">营收：¥1,002.9B Q1 CY2026 (+189% YoY)；FY2026全年 ¥2,337.6B (+37% YoY)</div>
-    <div style="margin-top:8px">
-      <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">Q1 CY2026营业利润</span><span class="num pos">¥596.8B (同比15倍)</span></div>
-      <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">Q2 CY2026净利润预测</span><span class="num pos">¥869B (同比48倍)</span></div>
-      <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">股价YTD涨幅</span><span class="num pos">+660% (截至2026年6月)</span></div>
-      <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0"><span style="color:#8b949e">Veto原因</span><span class="neg">IPO 2024年12月，公开历史&lt;1年</span></div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">94.4</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
     </div>
-    <div class="warn">⚠ <strong>Veto原因：</strong>2024年12月在东京证券交易所IPO，公开运营历史不足1年。尽管Q1 CY2026营收猛增189% YoY，Q2净利润预测同比48倍，股价YTD上涨660%，但按评分框架规则触发Veto，评级上限59分。</div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">98.0</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">75.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
   </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">HBM/AI存储需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">周期位置与供给纪律</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策地缘</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">通算盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术节点+市占</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI/HBM战略</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层执行轨迹</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性/HBF</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户结构</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">通算相对估值+共识偏差</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">Samsung shipping HBM4E samples in May 2026 — six months ahead of SK Hynix — could erode pricing power in the 2027 qualification cycle</li><li style="color:#f85149;margin:2px 0"> geopolitical export controls could disrupt supply to Chinese customers</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">HBM4E mass production targeting 2027 with TSMC CoW packaging</li><li style="color:#3fb950;margin:2px 0"> M15X fab expansion accelerating HBM capex</li><li style="color:#3fb950;margin:2px 0"> NVIDIA Vera Rubin platform ramp in H2 2026</li></ul></div>
+  </div>
+  <div style="margin-top:6px;font-size:11px;color:#8b949e">数据来源: <a href="https://finance.biggo.com/news/KR_000660.KS_2026-04-24" style="color:#79c0ff;font-size:11px">[来源]</a> | <a href="https://www.astutegroup.com/news/general/sk-hynix-holds-62-of-hbm-micron-overtakes-samsung-2026-battle-pivots-to-hbm4/" style="color:#79c0ff;font-size:11px">[来源]</a></div>
 </div>
-
-</div><!-- end .con -->
-
-<div class="ftr">
-  <div class="con">
-    存储器行业投资打分系统 v3 &nbsp;|&nbsp; 数据更新：2026-06-04 &nbsp;|&nbsp; 基于实时联网搜索数据<br>
-    评分模型：(行业×0.20 + 质量×0.50 + 估值×0.30) × 置信度 &nbsp;|&nbsp; S≥80 A≥70 B≥60 C≥50 D&lt;50 Veto≤59<br>
-    数据来源：TrendForce、公司季报、Bank of America Research、CNBC、SEC EDGAR、各公司投资者关系
+<div class="card" id="co-005930.KS">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        Samsung Electronics <span style="color:#f0883e;font-size:12px">(DRAM/HBM/NAND/Logic)</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        005930.KS · 置信度<strong>0.85</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>实时数据</strong>: ₩133.9T Q1 2026 (+69% YoY); DS Division ₩81.7T (+225% YoY)
+        &nbsp;|&nbsp; DS Division operating profit ₩53.7T (94% of total company pr
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:700px">Samsung offers the most attractive valuation in the memory sector trading at 25.3x P/E versus a peer average of 68.6x, with DS Division profit surging 48-fold to ₩53.7T in Q1 2026. However, Samsung's HBM execution has been consistently behind SK Hynix — it only passed NVIDIA's HBM3E qualification in September 2025, and its 17% HBM market share trails dramatically. The first-mover advantage in HBM4E sampling (May 2026) could be a genuine catalyst for HBM market share recovery heading into 2027 qualification cycles.</div>
+    </div>
+    <div style="text-align:center;min-width:100px">
+      <div style="font-size:52px;font-weight:800;color:#3fb950;line-height:1">71.6</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;
+                  border-radius:50%;font-size:18px;font-weight:800;border:2px solid #3fb950;
+                  color:#3fb950;background:#0d1117">A</div>
+      <div style="font-size:10px;color:#8b949e;margin-top:4px">×0.85</div>
+    </div>
   </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">94.4</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">75.6</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">92.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">HBM/AI存储需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">周期位置与供给纪律</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策地缘</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">通算盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术节点+市占</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI/HBM战略</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层执行轨迹</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性/HBF</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户结构</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">通算相对估值+共识偏差</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">Chronic HBM qualification delays cost Samsung 18 months of NVIDIA revenue</li><li style="color:#f85149;margin:2px 0"> foundry (SFAB) losses dilute semiconductor profitability</li><li style="color:#f85149;margin:2px 0"> mobile segment revenue declining significantly in Q1 2026</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">HBM4E industry-first sample shipment May 2026 with 3.6 TB/s bandwidth</li><li style="color:#3fb950;margin:2px 0"> NVIDIA HBM4 qualification in progress for Vera Rubin second-wave orders</li><li style="color:#3fb950;margin:2px 0"> Google TPU HBM3E primary supplier status (60%+)</li></ul></div>
+  </div>
+  <div style="margin-top:6px;font-size:11px;color:#8b949e">数据来源: <a href="https://www.cnbc.com/2026/04/30/samsung-q1-earnings-ai-memory-chip-demand-profit-record.html" style="color:#79c0ff;font-size:11px">[来源]</a> | <a href="http://www.techtimes.com/articles/317400/20260530/samsung-ships-industry-first-hbm4e-samples-36-tb-s-bandwidth-beats-sk-hynix-six-months.htm" style="color:#79c0ff;font-size:11px">[来源]</a></div>
 </div>
-
-<script>
-function showTab(id) {
-  document.querySelectorAll('.tc').forEach(t => t.classList.remove('act'));
-  document.querySelectorAll('.tb').forEach(t => t.classList.remove('act'));
-  document.getElementById('tab-' + id).classList.add('act');
-  event.target.classList.add('act');
-}
-</script>
-</body>
-</html>
+<div class="card" id="co-PSTG">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        Pure Storage <span style="color:#3fb950;font-size:12px">(All-Flash Storage)</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        PSTG · 置信度<strong>1</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>实时数据</strong>: $3.6B+ FY2026 full year (+16% YoY); Q4 FY2026 $1.06B (first $1B+ 
+        &nbsp;|&nbsp; Subscription ARR $1.924B (+16% YoY); RPO $3.67B (+40%); Q4 F
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:700px">Pure Storage is a beneficiary of AI infrastructure buildout through enterprise all-flash storage, not a direct memory supercycle play. The company achieved its first $1B+ quarterly revenue in Q4 FY2026 with 16% YoY growth, driven by AI workload storage demand and a Meta hyperscaler partnership deploying 1-2 exabytes. Subscription ARR at $1.924B with 40% RPO growth provides durable revenue visibility. However, Pure is a storage software/systems company competing indirectly in the memory value chain.</div>
+    </div>
+    <div style="text-align:center;min-width:100px">
+      <div style="font-size:52px;font-weight:800;color:#58a6ff;line-height:1">69.0</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;
+                  border-radius:50%;font-size:18px;font-weight:800;border:2px solid #58a6ff;
+                  color:#58a6ff;background:#0d1117">B</div>
+      <div style="font-size:10px;color:#8b949e;margin-top:4px">×1</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">61.2</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">78.8</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">58.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">HBM/AI存储需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">周期位置与供给纪律</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策地缘</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">通算盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术节点+市占</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI/HBM战略</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层执行轨迹</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性/HBF</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户结构</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">通算相对估值+共识偏差</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">Dell Technologies dominates enterprise storage by scale</li><li style="color:#f85149;margin:2px 0"> premium valuation (high P/S) leaves little margin of safety</li><li style="color:#f85149;margin:2px 0"> customer concentration with Meta</li><li style="color:#f85149;margin:2px 0"> NAND component cost supercycle raises input costs ~20%</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">$5B AI revenue target by 2027</li><li style="color:#3fb950;margin:2px 0"> unified portfolio across FlashArray//XL and FlashBlade//EXA for AI factories</li><li style="color:#3fb950;margin:2px 0"> hyperscaler expansion beyond Meta</li></ul></div>
+  </div>
+  <div style="margin-top:6px;font-size:11px;color:#8b949e">数据来源: <a href="https://www.investing.com/news/company-news/pure-storage-q4-2026-presentation-revenue-tops-1b-milestone-93CH-4526226" style="color:#79c0ff;font-size:11px">[来源]</a> | <a href="https://www.prnewswire.com/news-releases/pure-storage-announces-first-quarter-fiscal-2026-financial-results-302467396.html" style="color:#79c0ff;font-size:11px">[来源]</a></div>
+</div>
+<div class="card" id="co-SNDK">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        SanDisk Corporation <span style="color:#f85149;font-size:12px">(NAND Flash/Enterprise SSD)</span><span class="badge" style="background:#f8514911;color:#f85149;border-color:#f8514944;margin-left:6px">⚠️否决</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        SNDK · 置信度<strong>0.85</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>实时数据</strong>: $5.95B Q3 FY2026 (+97% QoQ); Q4 FY2026 guidance $7.75-8.25B
+        &nbsp;|&nbsp; Datacenter segment +233% QoQ in Q3 FY2026; Non-GAAP EPS $23.
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:700px">SanDisk is a pure-play NAND flash and enterprise SSD company spun off from Western Digital in February 2025, now riding the AI storage supercycle. Q3 FY2026 revenue of $5.95B (+97% QoQ) with Datacenter up 233% demonstrates explosive demand for AI training and inference storage. Q4 FY2026 guidance of $7.75-8.25B implies continued acceleration. However, the company has less than 18 months of public operating history, triggering the scoring veto rule despite strong fundamentals.</div>
+    </div>
+    <div style="text-align:center;min-width:100px">
+      <div style="font-size:52px;font-weight:800;color:#d29922;line-height:1">59.0</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;
+                  border-radius:50%;font-size:18px;font-weight:800;border:2px solid #d29922;
+                  color:#d29922;background:#0d1117">C</div>
+      <div style="font-size:10px;color:#8b949e;margin-top:4px">×0.85</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">67.2</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">79.6</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">60.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">HBM/AI存储需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">周期位置与供给纪律</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策地缘</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">通算盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术节点+市占</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI/HBM战略</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层执行轨迹</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性/HBF</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户结构</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">通算相对估值+共识偏差</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">Less than 3 years public — limited track record as independent company</li><li style="color:#f85149;margin:2px 0"> NAND is most commoditized memory segment versus HBM</li><li style="color:#f85149;margin:2px 0"> execution risk on independent operations</li><li style="color:#f85149;margin:2px 0"> Kioxia/Samsung/Micron NAND competition</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">Q4 FY2026 revenue guidance $7.75-8.25B</li><li style="color:#3fb950;margin:2px 0"> enterprise SSD AI data center demand</li><li style="color:#3fb950;margin:2px 0"> NAND price supercycle extending through 2027</li></ul></div>
+  </div>
+  <div style="margin-top:6px;font-size:11px;color:#8b949e">数据来源: <a href="https://investor.sandisk.com/news-releases/news-release-details/sandisk-reports-fiscal-second-quarter-2026-financial-results" style="color:#79c0ff;font-size:11px">[来源]</a> | <a href="https://www.sec.gov/Archives/edgar/data/0002023554/000162828026028879/sndkq3-26ex991xpressrelease.htm" style="color:#79c0ff;font-size:11px">[来源]</a></div>
+</div>
+<div class="card" id="co-285A.JP">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">
+        Kioxia Holdings <span style="color:#f85149;font-size:12px">(NAND Flash)</span><span class="badge" style="background:#f8514911;color:#f85149;border-color:#f8514944;margin-left:6px">⚠️否决</span>
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">
+        285A.JP · 置信度<strong>0.8</strong>（固定值）· 2026-06-04
+      </div>
+      <div class="ibox" style="margin-top:5px;font-size:12px">
+        <strong>实时数据</strong>: ¥1,002.9B Q1 CY2026 (+189% YoY); FY2026 full year ¥2,337.6B (+37%
+        &nbsp;|&nbsp; Q1 CY2026 operating profit ¥596.8B (15x YoY); Q2 CY2026 net 
+      </div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:700px">Kioxia is the world's second-largest NAND flash manufacturer (BiCS FLASH technology), benefiting from the AI storage supercycle with Q1 CY2026 revenue surging 189% YoY and Q2 net profit guided at 48x the prior year level. The stock has surged 660%+ year-to-date on Tokyo Stock Exchange. However, Kioxia lacks HBM capability, remains focused on NAND/SSD, and as an IPO from December 2024 has less than 1 year of public operating history, triggering the scoring veto rule.</div>
+    </div>
+    <div style="text-align:center;min-width:100px">
+      <div style="font-size:52px;font-weight:800;color:#d29922;line-height:1">53.2</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;
+                  border-radius:50%;font-size:18px;font-weight:800;border:2px solid #d29922;
+                  color:#d29922;background:#0d1117">C</div>
+      <div style="font-size:10px;color:#8b949e;margin-top:4px">×0.8</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#3fb950">64.4</div>
+      <div style="font-size:11px;color:#8b949e">行业分 ×20%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#58a6ff">71.2</div>
+      <div style="font-size:11px;color:#8b949e">质量分 ×50%</div>
+    </div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center">
+      <div style="font-size:20px;font-weight:700;color:#f0883e">60.0</div>
+      <div style="font-size:11px;color:#8b949e">估值分 ×30%</div>
+    </div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">HBM/AI存储需求</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">周期位置与供给纪律</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">政策地缘</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 质量</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">通算盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">技术节点+市占</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">AI/HBM战略</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">管理层执行轨迹</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">未来可选性/HBF</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">客户结构</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值</div><table><tr><td style="width:160px;color:#8b949e;font-size:12px">情景估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">通算相对估值+共识偏差</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">下行保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:160px;color:#8b949e;font-size:12px">历史同行</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">IPO December 2024 — less than 1 year as public company</li><li style="color:#f85149;margin:2px 0"> no HBM capability limits participation in highest-margin AI memory segment</li><li style="color:#f85149;margin:2px 0"> legacy debt burden from pre-IPO period</li><li style="color:#f85149;margin:2px 0"> NAND commoditization risk when supply eases in 2027-2028</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">Q2 CY2026 net profit forecast ¥869B (48x YoY)</li><li style="color:#3fb950;margin:2px 0"> AI data center SSD demand surge</li><li style="color:#3fb950;margin:2px 0"> potential WD/Kioxia fab JV synergies continuing</li></ul></div>
+  </div>
+  <div style="margin-top:6px;font-size:11px;color:#8b949e">数据来源: <a href="https://finance.biggo.com/news/9Ua6OJ4BoQmpnl36DI9F" style="color:#79c0ff;font-size:11px">[来源]</a> | <a href="https://www.tradingkey.com/analysis/stocks/more/261942560-kioxia-nand-ai-datacenter-demand-pricing-power-earnings-surge-valuation-discrepancy-listing-supply-shortage-cyclicality-risk-tradingkey" style="color:#79c0ff;font-size:11px">[来源]</a></div>
+</div>
+</div>
+<div class="ftr"><div class="con">
+  存储器行业专项投资打分系统 v3.0 · 2026-06-04 · 基于实时联网搜索数据<br>
+  本报告仅供参考，不构成投资建议
+</div></div>
+</body></html>
