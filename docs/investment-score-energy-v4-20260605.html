@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Energy Infrastructure — 投资打分系统 v4.0</title>
+<style>
+:root {
+  --bg: #0d1117; --bg2: #161b22; --bg3: #1c2128;
+  --border: #30363d; --text: #e6edf3; --text2: #8b949e;
+  --green: #4ade80; --blue: #60a5fa; --yellow: #ffd700;
+  --orange: #fb923c; --red: #f87171; --purple: #c084fc;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 13px; line-height: 1.6; }
+a { color: var(--blue); }
+.header { background: linear-gradient(135deg, #0d1117, #1a2332); border-bottom: 1px solid var(--border); padding: 32px 40px; }
+.header-title { font-size: 28px; font-weight: 700; color: var(--yellow); letter-spacing: 1px; }
+.header-sub { color: var(--text2); margin-top: 6px; }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; background: rgba(255,215,0,0.15); color: var(--yellow); border: 1px solid rgba(255,215,0,0.3); margin-left: 10px; }
+.container { max-width: 1400px; margin: 0 auto; padding: 24px 40px; }
+.section-title { font-size: 16px; font-weight: 700; color: var(--yellow); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+.landscape-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+.landscape-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+.landscape-box h3 { color: var(--blue); font-size: 12px; text-transform: uppercase; margin-bottom: 8px; }
+.landscape-box p { color: var(--text2); line-height: 1.7; }
+.landscape-insight { background: var(--bg2); border: 1px solid #ffd70044; border-radius: 8px; padding: 16px; margin-bottom: 28px; }
+.landscape-insight h3 { color: var(--yellow); font-size: 12px; text-transform: uppercase; margin-bottom: 8px; }
+.landscape-insight p { color: var(--text); line-height: 1.7; }
+.grade-row { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+.grade-box { border: 2px solid; border-radius: 8px; padding: 12px 20px; text-align: center; min-width: 80px; }
+.grade-letter { font-size: 24px; font-weight: 700; }
+.grade-count { font-size: 18px; margin-top: 2px; }
+.ranking-table { width: 100%; border-collapse: collapse; margin-bottom: 32px; }
+.ranking-table th, .ranking-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); text-align: left; cursor: pointer; }
+.ranking-table th { color: var(--text2); font-size: 11px; text-transform: uppercase; background: var(--bg2); }
+.ranking-table tr:hover { background: var(--bg3); }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.company-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 24px; overflow: hidden; }
+.card-header { display: flex; align-items: center; gap: 16px; padding: 16px 20px; }
+.card-rank { font-size: 22px; font-weight: 700; color: var(--text2); min-width: 36px; }
+.card-info { flex: 1; }
+.card-ticker { font-size: 20px; font-weight: 700; color: var(--text); }
+.card-name { color: var(--text2); font-size: 13px; }
+.card-type { color: var(--text2); font-size: 11px; margin-top: 2px; }
+.card-score-box { text-align: center; padding: 8px 16px; border-radius: 8px; min-width: 70px; }
+.score-num { font-size: 26px; font-weight: 700; }
+.score-grade { font-size: 16px; font-weight: 700; }
+.veto-badge { background: rgba(248,113,113,0.2); color: #f87171; border: 1px solid #f87171; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-left: 8px; }
+.realdata-banner { background: rgba(96,165,250,0.08); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 12px; }
+.rd-label { color: var(--text2); }
+.rd-val { color: var(--text); }
+.rd-sep { color: var(--border); }
+.rd-price { color: var(--green); font-weight: 600; }
+.card-body { padding: 20px; }
+.dims-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+.dim-col { background: var(--bg3); border-radius: 6px; padding: 12px; }
+.dim-title { font-size: 11px; color: var(--text2); text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
+.bar-row { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+.bar-label { font-size: 10px; color: var(--text2); min-width: 28px; }
+.bar-track { flex: 1; background: var(--border); border-radius: 2px; height: 8px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 2px; transition: width 0.3s; }
+.bar-val { font-size: 10px; min-width: 24px; text-align: right; color: var(--text); }
+.thesis-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+.thesis-box { background: var(--bg3); border-radius: 6px; padding: 12px; }
+.thesis-title { font-size: 11px; color: var(--text2); text-transform: uppercase; margin-bottom: 8px; font-weight: 600; border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+.thesis-box p { color: var(--text); font-size: 12px; line-height: 1.7; }
+.dcf-box { background: rgba(255,215,0,0.05); border: 1px solid rgba(255,215,0,0.2); border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+.dcf-title { color: var(--yellow); font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 1px; }
+.dcf-step { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,215,0,0.1); }
+.dcf-step:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.dcf-step b { color: var(--yellow); }
+code { display: block; background: rgba(0,0,0,0.3); border-radius: 4px; padding: 8px; margin: 8px 0; color: #79c0ff; font-size: 11px; line-height: 1.8; white-space: pre-wrap; }
+.scenario-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12px; }
+.scenario-table th { color: var(--text2); font-size: 10px; text-transform: uppercase; padding: 4px 8px; border-bottom: 1px solid var(--border); text-align: right; }
+.scenario-table th:first-child { text-align: left; }
+.scenario-table td { padding: 5px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.scenario-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.total-row { background: rgba(255,215,0,0.08); }
+.hl { color: var(--green); font-weight: 600; }
+.evidence-links { font-size: 11px; color: var(--text2); margin-top: 8px; }
+.veto-reason { margin-top: 12px; padding: 10px 14px; background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.3); border-radius: 6px; color: #f87171; font-size: 12px; }
+.footer { text-align: center; color: var(--text2); font-size: 11px; padding: 24px 40px; border-top: 1px solid var(--border); margin-top: 32px; }
+@media (max-width: 900px) {
+  .dims-grid, .thesis-grid, .landscape-grid { grid-template-columns: 1fr; }
+  .container { padding: 16px; }
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-title">AI Energy Infrastructure <span class="badge">v4.0</span></div>
+  <div class="header-sub">Investment Score System · 实时数据+DCF数学推导 · 2026-06-05</div>
+  <div style="margin-top:10px;color:#8b949e;font-size:13px"><b style="color:#ffd700">周期:</b> Infrastructure Build-Out — Cycle Peak Approaching</div>
+</div>
+
+<div class="container">
+
+  <div class="section-title">行业全景</div>
+  <div class="landscape-grid">
+    <div class="landscape-box">
+      <h3>核心瓶颈</h3>
+      <p>Power delivery: transformer lead times now extend to 4 years with a ~30% supply deficit, constraining data center commissioning timelines and amplifying pricing power for switchgear, EPC, and grid hardware companies. Nuclear PPA demand exceeds supply, keeping baseload clean-power premiums elevated.</p>
+    </div>
+    <div class="landscape-box">
+      <h3>周期阶段</h3>
+      <p>Infrastructure Build-Out — Cycle Peak Approaching</p>
+    </div>
+  </div>
+  <div class="landscape-insight">
+    <h3>关键洞察 (Key Insight)</h3>
+    <p>The AI power supercycle is real and multi-year, but capital markets have front-loaded the premium into the highest-visibility names (VRT, PWR, MPWR, BE, POWL). The best risk-adjusted opportunities are in the electrification infrastructure mid-caps — EME, CEG, HUBB, VST — where secular demand is already showing up in backlogs but valuations remain more disciplined. Pre-revenue nuclear specials (OKLO, SMR) warrant maximum caution.</p>
+  </div>
+
+  <div class="section-title">综合排名总览</div>
+  <div class="grade-row"><div class="grade-box" style="border-color:#ffd700;color:#ffd700"><div class="grade-letter">S</div><div class="grade-count">0</div></div><div class="grade-box" style="border-color:#4ade80;color:#4ade80"><div class="grade-letter">A</div><div class="grade-count">3</div></div><div class="grade-box" style="border-color:#60a5fa;color:#60a5fa"><div class="grade-letter">B</div><div class="grade-count">7</div></div><div class="grade-box" style="border-color:#fb923c;color:#fb923c"><div class="grade-letter">C</div><div class="grade-count">4</div></div><div class="grade-box" style="border-color:#f87171;color:#f87171"><div class="grade-letter">D</div><div class="grade-count">2</div></div></div>
+
+  <table class="ranking-table">
+    <thead><tr>
+      <th>#</th><th>代码</th><th>公司</th><th>综合得分</th><th>等级</th>
+      <th>行业(I)</th><th>质量(Q)</th><th>估值(V)</th><th>DCF v1</th><th>市值</th>
+    </tr></thead>
+    <tbody><tr onclick="document.getElementById('EME').scrollIntoView({behavior:'smooth'})">
+          <td>1</td>
+          <td><a href="#EME" style="color:#60a5fa;text-decoration:none">EME </a></td>
+          <td>EMCOR Group</td>
+          <td style="color:#4ade80;font-weight:700">73.7</td>
+          <td style="color:#4ade80">A</td>
+          <td>83.3</td>
+          <td>82.5</td>
+          <td>52.5</td>
+          <td>1</td>
+          <td>$37.0B</td>
+        </tr><tr onclick="document.getElementById('ETN').scrollIntoView({behavior:'smooth'})">
+          <td>2</td>
+          <td><a href="#ETN" style="color:#60a5fa;text-decoration:none">ETN </a></td>
+          <td>Eaton Corporation</td>
+          <td style="color:#4ade80;font-weight:700">72.0</td>
+          <td style="color:#4ade80">A</td>
+          <td>84.4</td>
+          <td>84.6</td>
+          <td>42.7</td>
+          <td>1</td>
+          <td>$160.0B</td>
+        </tr><tr onclick="document.getElementById('MPWR').scrollIntoView({behavior:'smooth'})">
+          <td>3</td>
+          <td><a href="#MPWR" style="color:#60a5fa;text-decoration:none">MPWR </a></td>
+          <td>Monolithic Power Systems</td>
+          <td style="color:#4ade80;font-weight:700">71.2</td>
+          <td style="color:#4ade80">A</td>
+          <td>86.2</td>
+          <td>87.3</td>
+          <td>34.4</td>
+          <td>1</td>
+          <td>$80.0B</td>
+        </tr><tr onclick="document.getElementById('CEG').scrollIntoView({behavior:'smooth'})">
+          <td>4</td>
+          <td><a href="#CEG" style="color:#60a5fa;text-decoration:none">CEG </a></td>
+          <td>Constellation Energy</td>
+          <td style="color:#60a5fa;font-weight:700">69.6</td>
+          <td style="color:#60a5fa">B</td>
+          <td>83.7</td>
+          <td>79.2</td>
+          <td>44.1</td>
+          <td>0</td>
+          <td>$96.0B</td>
+        </tr><tr onclick="document.getElementById('VRT').scrollIntoView({behavior:'smooth'})">
+          <td>5</td>
+          <td><a href="#VRT" style="color:#60a5fa;text-decoration:none">VRT </a></td>
+          <td>Vertiv Holdings</td>
+          <td style="color:#60a5fa;font-weight:700">69.0</td>
+          <td style="color:#60a5fa">B</td>
+          <td>89.5</td>
+          <td>86.2</td>
+          <td>26.4</td>
+          <td>0</td>
+          <td>$117.0B</td>
+        </tr><tr onclick="document.getElementById('PWR').scrollIntoView({behavior:'smooth'})">
+          <td>6</td>
+          <td><a href="#PWR" style="color:#60a5fa;text-decoration:none">PWR </a></td>
+          <td>Quanta Services</td>
+          <td style="color:#60a5fa;font-weight:700">68.0</td>
+          <td style="color:#60a5fa">B</td>
+          <td>85.3</td>
+          <td>83.6</td>
+          <td>30.5</td>
+          <td>0</td>
+          <td>$107.0B</td>
+        </tr><tr onclick="document.getElementById('VST').scrollIntoView({behavior:'smooth'})">
+          <td>7</td>
+          <td><a href="#VST" style="color:#60a5fa;text-decoration:none">VST </a></td>
+          <td>Vistra Corp</td>
+          <td style="color:#60a5fa;font-weight:700">67.0</td>
+          <td style="color:#60a5fa">B</td>
+          <td>80.6</td>
+          <td>75.9</td>
+          <td>43.2</td>
+          <td>0</td>
+          <td>$52.0B</td>
+        </tr><tr onclick="document.getElementById('HUBB').scrollIntoView({behavior:'smooth'})">
+          <td>8</td>
+          <td><a href="#HUBB" style="color:#60a5fa;text-decoration:none">HUBB </a></td>
+          <td>Hubbell</td>
+          <td style="color:#60a5fa;font-weight:700">66.4</td>
+          <td style="color:#60a5fa">B</td>
+          <td>76.2</td>
+          <td>78.0</td>
+          <td>40.4</td>
+          <td>0</td>
+          <td>$25.5B</td>
+        </tr><tr onclick="document.getElementById('FSLR').scrollIntoView({behavior:'smooth'})">
+          <td>9</td>
+          <td><a href="#FSLR" style="color:#60a5fa;text-decoration:none">FSLR </a></td>
+          <td>First Solar</td>
+          <td style="color:#60a5fa;font-weight:700">62.9</td>
+          <td style="color:#60a5fa">B</td>
+          <td>70.4</td>
+          <td>73.8</td>
+          <td>39.5</td>
+          <td>0</td>
+          <td>$33.5B</td>
+        </tr><tr onclick="document.getElementById('POWL').scrollIntoView({behavior:'smooth'})">
+          <td>10</td>
+          <td><a href="#POWL" style="color:#60a5fa;text-decoration:none">POWL </a></td>
+          <td>Powell Industries</td>
+          <td style="color:#60a5fa;font-weight:700">62.5</td>
+          <td style="color:#60a5fa">B</td>
+          <td>79.9</td>
+          <td>77.3</td>
+          <td>26.4</td>
+          <td>0</td>
+          <td>$10.9B</td>
+        </tr><tr onclick="document.getElementById('MYRG').scrollIntoView({behavior:'smooth'})">
+          <td>11</td>
+          <td><a href="#MYRG" style="color:#60a5fa;text-decoration:none">MYRG </a></td>
+          <td>MYR Group</td>
+          <td style="color:#fb923c;font-weight:700">59.8</td>
+          <td style="color:#fb923c">C</td>
+          <td>74.1</td>
+          <td>69.9</td>
+          <td>33.5</td>
+          <td>0</td>
+          <td>$7.1B</td>
+        </tr><tr onclick="document.getElementById('PLPC').scrollIntoView({behavior:'smooth'})">
+          <td>12</td>
+          <td><a href="#PLPC" style="color:#60a5fa;text-decoration:none">PLPC </a></td>
+          <td>Preformed Line Products</td>
+          <td style="color:#fb923c;font-weight:700">54.2</td>
+          <td style="color:#fb923c">C</td>
+          <td>67.8</td>
+          <td>64.9</td>
+          <td>27.2</td>
+          <td>0</td>
+          <td>$1.9B</td>
+        </tr><tr onclick="document.getElementById('AMSC').scrollIntoView({behavior:'smooth'})">
+          <td>13</td>
+          <td><a href="#AMSC" style="color:#60a5fa;text-decoration:none">AMSC </a></td>
+          <td>American Superconductor</td>
+          <td style="color:#fb923c;font-weight:700">52.0</td>
+          <td style="color:#fb923c">C</td>
+          <td>66.2</td>
+          <td>62.4</td>
+          <td>25.1</td>
+          <td>0</td>
+          <td>$2.5B</td>
+        </tr><tr onclick="document.getElementById('BE').scrollIntoView({behavior:'smooth'})">
+          <td>14</td>
+          <td><a href="#BE" style="color:#60a5fa;text-decoration:none">BE </a></td>
+          <td>Bloom Energy</td>
+          <td style="color:#fb923c;font-weight:700">51.1</td>
+          <td style="color:#fb923c">C</td>
+          <td>82.7</td>
+          <td>70.0</td>
+          <td>17.4</td>
+          <td>0</td>
+          <td>$65.0B</td>
+        </tr><tr onclick="document.getElementById('OKLO').scrollIntoView({behavior:'smooth'})">
+          <td>15</td>
+          <td><a href="#OKLO" style="color:#60a5fa;text-decoration:none">OKLO ⚠</a></td>
+          <td>Oklo Inc</td>
+          <td style="color:#f87171;font-weight:700">21.1</td>
+          <td style="color:#f87171">D</td>
+          <td>66.1</td>
+          <td>39.3</td>
+          <td>7.5</td>
+          <td>0</td>
+          <td>$11.4B</td>
+        </tr><tr onclick="document.getElementById('SMR').scrollIntoView({behavior:'smooth'})">
+          <td>16</td>
+          <td><a href="#SMR" style="color:#60a5fa;text-decoration:none">SMR ⚠</a></td>
+          <td>NuScale Power</td>
+          <td style="color:#f87171;font-weight:700">17.7</td>
+          <td style="color:#f87171">D</td>
+          <td>55.1</td>
+          <td>33.2</td>
+          <td>6.0</td>
+          <td>0</td>
+          <td>$4.4B</td>
+        </tr></tbody>
+  </table>
+
+  <div class="section-title">公司详情 (按评分排序)</div>
+  
+<div class="company-card" id="EME">
+  <div class="card-header" style="border-left:4px solid #4ade80; background:rgba(74,222,128,0.12)">
+    <div class="card-rank">#1</div>
+    <div class="card-info">
+      <div class="card-ticker">EME </div>
+      <div class="card-name">EMCOR Group</div>
+      <div class="card-type">EPC Contractor (Electrical/Mechanical) · EPC_secular</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #4ade80">
+      <div class="score-num" style="color:#4ade80">73.7</div>
+      <div class="score-grade" style="color:#4ade80">A</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">Q1 2026: $4.63B (+19.7% YoY); FY2026 guidance raised to $18.50-$19.25B</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">Data center RPO +112% YoY; FY2026 EPS guidance $28.25-$29.75</span>
+    <span class="rd-sep">|</span><span class="rd-price">$826.82 → 目标 $1000</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 83.3)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#60a5fa"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#60a5fa"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#60a5fa"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 82.5)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#4ade80"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#4ade80"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 52.5)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:20.0%;background:#ffd700"></div></div><span class="bar-val">20</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#ffd700"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#ffd700"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#ffd700"></div></div><span class="bar-val">62</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>EMCOR is the dominant electrical/mechanical EPC contractor uniquely positioned at the intersection of AI data center build-out, grid modernization, and industrial reshoring. Record backlog and expanding margins provide multi-year earnings visibility.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Skilled labor shortage and project execution risk could compress margins; data center concentration risk if hyperscaler capex decelerates</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Continued data center RPO expansion; potential for FY2026 guidance raise again in Q2 earnings</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$37.0B</span>，来源：<a href="https://stockanalysis.com/stocks/eme/market-cap/" target="_blank" style="color:#60a5fa">https://stockanalysis.com/stocks/eme/market-cap/</a>，截止日期 2026-06-03
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $17.5B<br>
+    CAGR: 14%<br>
+    Y5收入 = $17.5B × (1 + 14%)^5 = <b>33.69B</b><br>
+    Y5净利润 = 33.69B × 9% = <b>3.03B</b><br>
+    Y5市值 = 3.03B × 16x = <b>48.52B</b><br>
+    净债务: $-0.5B<br>
+    Y5权益价值 = 48.52B - (-0.5B) = <b>49.02B</b>
+    </code>
+    <br><small style="color:#888">EPC contractor with secular AI/data center tailwind; 16x EV/EBITDA reflects quality franchise premium</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (49.02B / 37.0B)^(1/5) - 1 = <b>5.8%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">7.8%</td><td class="num">25%</td><td class="num" style="color:#4ade80">1.95%</td></tr><tr><td>Base Case</td><td class="num">5.8%</td><td class="num">45%</td><td class="num" style="color:#4ade80">2.60%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">0.8%</td><td class="num">20%</td><td class="num" style="color:#4ade80">0.16%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-9.2%</td><td class="num">10%</td><td class="num" style="color:#f87171">-0.92%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#4ade80;font-weight:700">3.79%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 3.8% > 0% → v1 = 1 (持有)</span><br>
+    <b>v1 = 1</b> → 估值得分 = 1 × 20 = <b>20/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.stocktitan.net/sec-filings/EME/10-q-emcor-group-inc-quarterly-earnings-report-4f70c63c158a.html" target="_blank">[1]</a>
+      <a href="https://finance.yahoo.com/markets/stocks/articles/emcor-group-eme-narrative-shifting-151315581.html" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="ETN">
+  <div class="card-header" style="border-left:4px solid #4ade80; background:rgba(74,222,128,0.12)">
+    <div class="card-rank">#2</div>
+    <div class="card-info">
+      <div class="card-ticker">ETN </div>
+      <div class="card-name">Eaton Corporation</div>
+      <div class="card-type">Diversified Electrical / Grid Infra · grid_hardware</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #4ade80">
+      <div class="score-num" style="color:#4ade80">72.0</div>
+      <div class="score-grade" style="color:#4ade80">A</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">Q1 2026: $7.5B (+17% YoY); adj. EPS $2.81 (record); closed $11B of acquisitions in Q1</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">228GW data center backlog (12 years at 2025 build rate); Electrical Americas 10% organic growth</span>
+    <span class="rd-sep">|</span><span class="rd-price">$421.21 → 目标 $480</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 84.4)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 84.6)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#4ade80"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 42.7)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:20.0%;background:#ffd700"></div></div><span class="bar-val">20</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:45.0%;background:#ffd700"></div></div><span class="bar-val">45</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#ffd700"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:49.7%;background:#ffd700"></div></div><span class="bar-val">50</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Eaton is the largest electrical equipment manufacturer in North America with an unmatched 228GW data center backlog. Electrical Americas segment is the single largest revenue beneficiary of hyperscaler AI build-out.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Integration risk from $11B Q1 acquisitions; margin compression during capacity ramp</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Electrical Americas margin recovery; organic order acceleration; data center backlog expansion</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$160.0B</span>，来源：<a href="https://www.macrotrends.net/stocks/charts/ETN/eaton/market-cap" target="_blank" style="color:#60a5fa">https://www.macrotrends.net/stocks/charts/ETN/eaton/market-c</a>，截止日期 2026-06-03
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $28.0B<br>
+    CAGR: 14%<br>
+    Y5收入 = $28.0B × (1 + 14%)^5 = <b>53.91B</b><br>
+    Y5净利润 = 53.91B × 18% = <b>9.70B</b><br>
+    Y5市值 = 9.70B × 20x = <b>194.08B</b><br>
+    净债务: $8.0B<br>
+    Y5权益价值 = 194.08B - (8.0B) = <b>186.08B</b>
+    </code>
+    <br><small style="color:#888">Diversified electrical industrial with 228GW data center backlog; 20x EV/EBITDA quality franchise</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (186.08B / 160.0B)^(1/5) - 1 = <b>3.1%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">5.1%</td><td class="num">25%</td><td class="num" style="color:#4ade80">1.27%</td></tr><tr><td>Base Case</td><td class="num">3.1%</td><td class="num">45%</td><td class="num" style="color:#4ade80">1.38%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-1.9%</td><td class="num">20%</td><td class="num" style="color:#f87171">-0.39%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-11.9%</td><td class="num">10%</td><td class="num" style="color:#f87171">-1.19%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#4ade80;font-weight:700">1.07%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 1.1% > 0% → v1 = 1 (持有)</span><br>
+    <b>v1 = 1</b> → 估值得分 = 1 × 20 = <b>20/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.stocktitan.net/sec-filings/ETN/10-q-eaton-corp-plc-quarterly-earnings-report-f357b7eecf1f.html" target="_blank">[1]</a>
+      <a href="https://www.tikr.com/blog/eaton-stock-200-data-center-order-growth-and-a-7-trillion-market-puts-590-target-in-sight" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="MPWR">
+  <div class="card-header" style="border-left:4px solid #4ade80; background:rgba(74,222,128,0.12)">
+    <div class="card-rank">#3</div>
+    <div class="card-info">
+      <div class="card-ticker">MPWR </div>
+      <div class="card-name">Monolithic Power Systems</div>
+      <div class="card-type">Power Management Semiconductors · DC_power</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #4ade80">
+      <div class="score-num" style="color:#4ade80">71.2</div>
+      <div class="score-grade" style="color:#4ade80">A</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">Q1 2026: $804.2M (+26.1% YoY); Enterprise Data +97.7% YoY; non-GAAP EPS $5.10</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">Enterprise Data segment +97.7% YoY; non-GAAP gross margin 56%; 86.5% YTD stock return</span>
+    <span class="rd-sep">|</span><span class="rd-price">$1671.91 → 目标 $1800</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 86.2)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:92.0%;background:#60a5fa"></div></div><span class="bar-val">92</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#60a5fa"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#60a5fa"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 87.3)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:92.0%;background:#4ade80"></div></div><span class="bar-val">92</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#4ade80"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#4ade80"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 34.4)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:20.0%;background:#ffd700"></div></div><span class="bar-val">20</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:30.0%;background:#ffd700"></div></div><span class="bar-val">30</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#ffd700"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:40.9%;background:#ffd700"></div></div><span class="bar-val">41</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>MPWR is a pure-play beneficiary of AI accelerator power density requirements. Its power management ICs are design-wins across Nvidia GPU clusters, with Enterprise Data now ~33% of revenue.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Customer concentration in hyperscaler AI builds; gross margin compression risk as pricing competition intensifies</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>AI GPU next-generation design wins; Enterprise Data guidance raise; new 3nm power management launches</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$80.0B</span>，来源：<a href="https://www.macrotrends.net/stocks/charts/MPWR/monolithic-power-systems/market-cap" target="_blank" style="color:#60a5fa">https://www.macrotrends.net/stocks/charts/MPWR/monolithic-po</a>，截止日期 2026-06-03
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $3.1B<br>
+    CAGR: 30%<br>
+    Y5收入 = $3.1B × (1 + 30%)^5 = <b>11.51B</b><br>
+    Y5净利润 = 11.51B × 28% = <b>3.22B</b><br>
+    Y5市值 = 3.22B × 30x = <b>96.68B</b><br>
+    净债务: $-0.5B<br>
+    Y5权益价值 = 96.68B - (-0.5B) = <b>97.18B</b>
+    </code>
+    <br><small style="color:#888">Best-in-class AI power management chips; 30x EV/EBITDA semiconductor growth franchise premium</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (97.18B / 80.0B)^(1/5) - 1 = <b>4.0%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">6.0%</td><td class="num">25%</td><td class="num" style="color:#4ade80">1.49%</td></tr><tr><td>Base Case</td><td class="num">4.0%</td><td class="num">45%</td><td class="num" style="color:#4ade80">1.79%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-1.0%</td><td class="num">20%</td><td class="num" style="color:#f87171">-0.21%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-11.0%</td><td class="num">10%</td><td class="num" style="color:#f87171">-1.10%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#4ade80;font-weight:700">1.97%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 2.0% > 0% → v1 = 1 (持有)</span><br>
+    <b>v1 = 1</b> → 估值得分 = 1 × 20 = <b>20/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.gurufocus.com/news/8836450/monolithic-power-systems-inc-mpwr-q1-2026-earnings-call-highlights" target="_blank">[1]</a>
+      <a href="https://www.stocktitan.net/sec-filings/MPWR/8-k-monolithic-power-systems-inc-reports-material-event-768e9bcd4f38.html" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="CEG">
+  <div class="card-header" style="border-left:4px solid #60a5fa; background:rgba(96,165,250,0.12)">
+    <div class="card-rank">#4</div>
+    <div class="card-info">
+      <div class="card-ticker">CEG </div>
+      <div class="card-name">Constellation Energy</div>
+      <div class="card-type">Nuclear Utility / IPP · nuclear_utility</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #60a5fa">
+      <div class="score-num" style="color:#60a5fa">69.6</div>
+      <div class="score-grade" style="color:#60a5fa">B</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">Q1 2026: GAAP net income $1.59B; adj. EPS $2.74 vs $2.14 prior year; nuclear fleet 44,666 GWh</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">45U nuclear PTC + long-term PPAs with Microsoft, Meta, US Govt; ~55GW post-Calpine capacity</span>
+    <span class="rd-sep">|</span><span class="rd-price">$272.65 → 目标 $368</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 83.7)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#60a5fa"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#60a5fa"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#60a5fa"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 79.2)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#4ade80"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#4ade80"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#4ade80"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#4ade80"></div></div><span class="bar-val">78</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 44.1)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#ffd700"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#ffd700"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:57.2%;background:#ffd700"></div></div><span class="bar-val">57</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Post-Calpine, Constellation is the largest private power producer in the US with unrivaled nuclear baseload. The 45U PTC provides $15-30/MWh floor support through 2032.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Calpine integration complexity; nuclear regulatory risk; 45U PTC could face legislative modification</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Successful Calpine integration milestones; new nuclear PPA announcements with tech companies</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$96.0B</span>，来源：<a href="https://www.macrotrends.net/stocks/charts/CEG/constellation-energy/market-cap" target="_blank" style="color:#60a5fa">https://www.macrotrends.net/stocks/charts/CEG/constellation-</a>，截止日期 2026-06-03
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $25.5B<br>
+    CAGR: 10%<br>
+    Y5收入 = $25.5B × (1 + 10%)^5 = <b>41.07B</b><br>
+    Y5净利润 = 41.07B × 14% = <b>5.75B</b><br>
+    Y5市值 = 5.75B × 18x = <b>103.49B</b><br>
+    净债务: $12.0B<br>
+    Y5权益价值 = 103.49B - (12.0B) = <b>91.49B</b>
+    </code>
+    <br><small style="color:#888">Largest clean nuclear fleet in US; 18x EV/EBITDA is mid-range for nuclear utility with 45U PTC support</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (91.49B / 96.0B)^(1/5) - 1 = <b>-1.0%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">1.0%</td><td class="num">25%</td><td class="num" style="color:#4ade80">0.26%</td></tr><tr><td>Base Case</td><td class="num">-1.0%</td><td class="num">45%</td><td class="num" style="color:#f87171">-0.43%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-6.0%</td><td class="num">20%</td><td class="num" style="color:#f87171">-1.19%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-16.0%</td><td class="num">10%</td><td class="num" style="color:#f87171">-1.60%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-2.96%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -3.0% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.constellationenergy.com/news/2026/05/constellation-reports-first-quarter-2026-results.html" target="_blank">[1]</a>
+      <a href="https://seekingalpha.com/article/4905011-the-ai-power-bottleneck-makes-constellation-energy-a-strong-buy" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="VRT">
+  <div class="card-header" style="border-left:4px solid #60a5fa; background:rgba(96,165,250,0.12)">
+    <div class="card-rank">#5</div>
+    <div class="card-info">
+      <div class="card-ticker">VRT </div>
+      <div class="card-name">Vertiv Holdings</div>
+      <div class="card-type">Liquid Cooling / DC Power Infrastructure · DC_power</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #60a5fa">
+      <div class="score-num" style="color:#60a5fa">69.0</div>
+      <div class="score-grade" style="color:#60a5fa">B</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">Q1 2026: $2.65B (+30% YoY); FY2026 guidance raised to $13.5-$14.0B</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">$15B backlog; book-to-bill ~2.9x; adjusted operating margin expanded 430bps to 20.8%</span>
+    <span class="rd-sep">|</span><span class="rd-price">$337.92 → 目标 $370</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 89.5)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:95.0%;background:#60a5fa"></div></div><span class="bar-val">95</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:92.0%;background:#60a5fa"></div></div><span class="bar-val">92</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:95.0%;background:#60a5fa"></div></div><span class="bar-val">95</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 86.2)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#4ade80"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 26.4)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:35.0%;background:#ffd700"></div></div><span class="bar-val">35</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:48.0%;background:#ffd700"></div></div><span class="bar-val">48</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:37.9%;background:#ffd700"></div></div><span class="bar-val">38</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Vertiv is the premier pure-play on AI data center thermal management and power distribution. Its liquid cooling technology leadership and record $15B backlog make it a structural compounder.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Premium valuation leaves little room for execution misses; competition from emerging liquid cooling entrants</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Q2 2026 earnings confirming margin expansion cadence; new liquid cooling customer wins at hyperscalers</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$117.0B</span>，来源：<a href="https://www.macrotrends.net/stocks/charts/VRT/vertiv-holdings/market-cap" target="_blank" style="color:#60a5fa">https://www.macrotrends.net/stocks/charts/VRT/vertiv-holding</a>，截止日期 2026-06-03
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $10.5B<br>
+    CAGR: 28%<br>
+    Y5收入 = $10.5B × (1 + 28%)^5 = <b>36.08B</b><br>
+    Y5净利润 = 36.08B × 15% = <b>5.41B</b><br>
+    Y5市值 = 5.41B × 22x = <b>119.06B</b><br>
+    净债务: $3.5B<br>
+    Y5权益价值 = 119.06B - (3.5B) = <b>115.56B</b>
+    </code>
+    <br><small style="color:#888">Liquid cooling pure-play with $15B backlog; 22x EV/EBITDA reflects premium for secular AI capex exposure</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (115.56B / 117.0B)^(1/5) - 1 = <b>-0.2%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">1.8%</td><td class="num">25%</td><td class="num" style="color:#4ade80">0.44%</td></tr><tr><td>Base Case</td><td class="num">-0.2%</td><td class="num">45%</td><td class="num" style="color:#f87171">-0.11%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-5.2%</td><td class="num">20%</td><td class="num" style="color:#f87171">-1.05%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-15.2%</td><td class="num">10%</td><td class="num" style="color:#f87171">-1.52%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-2.25%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -2.2% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.heygotrade.com/en/blog/vertiv-vrt-data-center-cooling-ai-2026/" target="_blank">[1]</a>
+      <a href="https://seekingalpha.com/article/4890719-vertiv-holdings-the-15-billion-backlog-liquid-cooling-dominance" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="PWR">
+  <div class="card-header" style="border-left:4px solid #60a5fa; background:rgba(96,165,250,0.12)">
+    <div class="card-rank">#6</div>
+    <div class="card-info">
+      <div class="card-ticker">PWR </div>
+      <div class="card-name">Quanta Services</div>
+      <div class="card-type">EPC / Infrastructure Services · EPC_secular</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #60a5fa">
+      <div class="score-num" style="color:#60a5fa">68.0</div>
+      <div class="score-grade" style="color:#60a5fa">B</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">Q1 2026: $7.87B (+26.4% YoY); record backlog $48.5B (+37% YoY); FY2026 guidance $34.7-35.2B</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">Record $48.5B backlog; adj. EPS $2.68 (+50.6% YoY); raised FY2026 adj. EPS to $13.55-14.25</span>
+    <span class="rd-sep">|</span><span class="rd-price">$715.67 → 目标 $800</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 85.3)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#60a5fa"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 83.6)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#4ade80"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 30.5)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:38.0%;background:#ffd700"></div></div><span class="bar-val">38</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#ffd700"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:39.8%;background:#ffd700"></div></div><span class="bar-val">40</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Quanta is the largest specialty infrastructure services company in North America, with a record $48.5B backlog spanning grid hardening, renewable energy, data center interconnection, and LNG.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Premium 42x forward PE limits upside; working capital intensity of large infrastructure projects</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Backlog exceeding $50B; data center and clean energy project awards; international expansion milestones</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$107.0B</span>，来源：<a href="https://www.marketbeat.com/stocks/NYSE/PWR/chart/" target="_blank" style="color:#60a5fa">https://www.marketbeat.com/stocks/NYSE/PWR/chart/</a>，截止日期 2026-06-03
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $30.0B<br>
+    CAGR: 18%<br>
+    Y5收入 = $30.0B × (1 + 18%)^5 = <b>68.63B</b><br>
+    Y5净利润 = 68.63B × 7% = <b>4.80B</b><br>
+    Y5市值 = 4.80B × 16x = <b>76.87B</b><br>
+    净债务: $3.5B<br>
+    Y5权益价值 = 76.87B - (3.5B) = <b>73.37B</b>
+    </code>
+    <br><small style="color:#888">Premier EPC infrastructure services franchise; 16x EV/EBITDA at top of secular contractor range</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (73.37B / 107.0B)^(1/5) - 1 = <b>-7.3%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-5.3%</td><td class="num">25%</td><td class="num" style="color:#f87171">-1.32%</td></tr><tr><td>Base Case</td><td class="num">-7.3%</td><td class="num">45%</td><td class="num" style="color:#f87171">-3.27%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-12.3%</td><td class="num">20%</td><td class="num" style="color:#f87171">-2.45%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-22.3%</td><td class="num">10%</td><td class="num" style="color:#f87171">-2.23%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-9.27%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -9.3% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://investors.quantaservices.com/news-events/press-releases/detail/396/quanta-services-reports-first-quarter-2026-results" target="_blank">[1]</a>
+      <a href="https://www.gurufocus.com/news/8836275/quanta-services-inc-pwr-q1-2026-earnings-call-highlights" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="VST">
+  <div class="card-header" style="border-left:4px solid #60a5fa; background:rgba(96,165,250,0.12)">
+    <div class="card-rank">#7</div>
+    <div class="card-info">
+      <div class="card-ticker">VST </div>
+      <div class="card-name">Vistra Corp</div>
+      <div class="card-type">Integrated Power Producer (Nuclear + Gas) · IPP_power_gen</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #60a5fa">
+      <div class="score-num" style="color:#60a5fa">67.0</div>
+      <div class="score-grade" style="color:#60a5fa">B</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">Q1 2026: $5.64B (+43.4% YoY); adj. EBITDA $1.494B (record); 100% nuclear uptime</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">3,800MW nuclear PPA with AWS; 2.1GW nuclear PPA with Meta; $6.8-7.6B adj. EBITDA 2026 guidance</span>
+    <span class="rd-sep">|</span><span class="rd-price">$153.8 → 目标 $230</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 80.6)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#60a5fa"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#60a5fa"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 75.9)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#4ade80"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#4ade80"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#4ade80"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#4ade80"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 43.2)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#ffd700"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#ffd700"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:54.7%;background:#ffd700"></div></div><span class="bar-val">55</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Vistra is the most attractively valued large-cap AI power infrastructure play, trading at only ~8x EV/EBITDA despite 100% nuclear uptime and signed nuclear PPAs with AWS and Meta.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Leverage remains elevated post-energy acquisitions; commodity power price exposure</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Additional nuclear PPA announcements; EBITDA beat vs guidance; nuclear capacity expansion</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$52.0B</span>，来源：<a href="https://www.macrotrends.net/stocks/charts/VST/vistra/market-cap" target="_blank" style="color:#60a5fa">https://www.macrotrends.net/stocks/charts/VST/vistra/market-</a>，截止日期 2026-06-03
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $20.0B<br>
+    CAGR: 10%<br>
+    Y5收入 = $20.0B × (1 + 10%)^5 = <b>32.21B</b><br>
+    Y5净利润 = 32.21B × 15% = <b>4.83B</b><br>
+    Y5市值 = 4.83B × 10x = <b>48.32B</b><br>
+    净债务: $8.0B<br>
+    Y5权益价值 = 48.32B - (8.0B) = <b>40.32B</b>
+    </code>
+    <br><small style="color:#888">IPP/power generator with nuclear+gas mix; 10x EV/EBITDA mid-range for diversified power generator</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (40.32B / 52.0B)^(1/5) - 1 = <b>-5.0%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-3.0%</td><td class="num">25%</td><td class="num" style="color:#f87171">-0.74%</td></tr><tr><td>Base Case</td><td class="num">-5.0%</td><td class="num">45%</td><td class="num" style="color:#f87171">-2.23%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-10.0%</td><td class="num">20%</td><td class="num" style="color:#f87171">-1.99%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-20.0%</td><td class="num">10%</td><td class="num" style="color:#f87171">-2.00%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-6.96%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -7.0% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.tikr.com/blog/vistra-q1-2026-earnings-beat-hides-a-bigger-story" target="_blank">[1]</a>
+      <a href="https://www.sec.gov/Archives/edgar/data/0001692819/000169281926000014/vistra-20260331.htm" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="HUBB">
+  <div class="card-header" style="border-left:4px solid #60a5fa; background:rgba(96,165,250,0.12)">
+    <div class="card-rank">#8</div>
+    <div class="card-info">
+      <div class="card-ticker">HUBB </div>
+      <div class="card-name">Hubbell</div>
+      <div class="card-type">Electrical Grid Hardware · grid_hardware</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #60a5fa">
+      <div class="score-num" style="color:#60a5fa">66.4</div>
+      <div class="score-grade" style="color:#60a5fa">B</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">Q1 2026: $1.52B (+11% YoY); adj. EPS $3.93; raised FY2026 EPS guidance to $19.30-$19.85</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">Grid infrastructure double-digit organic growth; 33.3% gross margin; 8.2% organic growth Q1</span>
+    <span class="rd-sep">|</span><span class="rd-price">$484.91 → 目标 $540</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 76.2)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#60a5fa"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#60a5fa"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#60a5fa"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#60a5fa"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#60a5fa"></div></div><span class="bar-val">75</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 78.0)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#4ade80"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#4ade80"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#4ade80"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#4ade80"></div></div><span class="bar-val">75</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 40.4)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:58.0%;background:#ffd700"></div></div><span class="bar-val">58</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#ffd700"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:52.6%;background:#ffd700"></div></div><span class="bar-val">53</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Hubbell's Utility Solutions segment (transformers, switchgear, meters) benefits directly from grid modernization, IRA grid funding, and data center interconnection demand.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Transformer production ramp constraints; slower grid investment if utility CapEx budgets cut</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Accelerating grid infrastructure orders; transformer supply constraints driving pricing power</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$25.5B</span>，来源：<a href="https://public.com/stocks/hubb/market-cap" target="_blank" style="color:#60a5fa">https://public.com/stocks/hubb/market-cap</a>，截止日期 2026-06-03
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $5.8B<br>
+    CAGR: 10%<br>
+    Y5收入 = $5.8B × (1 + 10%)^5 = <b>9.34B</b><br>
+    Y5净利润 = 9.34B × 16% = <b>1.49B</b><br>
+    Y5市值 = 1.49B × 16x = <b>23.91B</b><br>
+    净债务: $1.2B<br>
+    Y5权益价值 = 23.91B - (1.2B) = <b>22.71B</b>
+    </code>
+    <br><small style="color:#888">Grid hardware with utility solutions exposure; 16x EV/EBITDA reflects stable industrial franchise</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (22.71B / 25.5B)^(1/5) - 1 = <b>-2.3%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-0.3%</td><td class="num">25%</td><td class="num" style="color:#f87171">-0.07%</td></tr><tr><td>Base Case</td><td class="num">-2.3%</td><td class="num">45%</td><td class="num" style="color:#f87171">-1.03%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-7.3%</td><td class="num">20%</td><td class="num" style="color:#f87171">-1.46%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-17.3%</td><td class="num">10%</td><td class="num" style="color:#f87171">-1.73%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-4.29%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -4.3% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://news.alphastreet.com/hubbell-hubb-q1-2026-deep-dive-3-93-eps-revenue-up-11/" target="_blank">[1]</a>
+      <a href="https://www.stocktitan.net/sec-filings/HUBB/10-q-hubbell-inc-quarterly-earnings-report-28bd61f25eef.html" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="FSLR">
+  <div class="card-header" style="border-left:4px solid #60a5fa; background:rgba(96,165,250,0.12)">
+    <div class="card-rank">#9</div>
+    <div class="card-info">
+      <div class="card-ticker">FSLR </div>
+      <div class="card-name">First Solar</div>
+      <div class="card-type">Solar Module Manufacturer · solar_manufacturer</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #60a5fa">
+      <div class="score-num" style="color:#60a5fa">62.9</div>
+      <div class="score-grade" style="color:#60a5fa">B</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">Q1 2026: $1.04B (+24% YoY); record revenue; 47% gross margin; EPS $3.22</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">47% gross margin (record); 1.9GW gross bookings Q1; CuRe tech advantage; $2B net cash</span>
+    <span class="rd-sep">|</span><span class="rd-price">$318.25 → 目标 $255</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 70.4)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#60a5fa"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#60a5fa"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#60a5fa"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#60a5fa"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#60a5fa"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#60a5fa"></div></div><span class="bar-val">70</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 73.8)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#4ade80"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#4ade80"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#4ade80"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#4ade80"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#4ade80"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 39.5)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#ffd700"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#ffd700"></div></div><span class="bar-val">62</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:51.9%;background:#ffd700"></div></div><span class="bar-val">52</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>First Solar is the only US-manufactured thin-film solar with CuRe technology moat (8% energy yield advantage vs silicon). IRA domestic content credits provide structural pricing power.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>IRA policy reversal; Chinese panel competition if tariffs ease; FY2026 guidance implied flat before Q1 beat</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>FY2026 guidance raise following Q1 beat; further CuRe technology deployment; utility-scale demand acceleration</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$33.5B</span>，来源：<a href="https://public.com/stocks/fslr/market-cap" target="_blank" style="color:#60a5fa">https://public.com/stocks/fslr/market-cap</a>，截止日期 2026-06-03
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $4.2B<br>
+    CAGR: 12%<br>
+    Y5收入 = $4.2B × (1 + 12%)^5 = <b>7.40B</b><br>
+    Y5净利润 = 7.40B × 30% = <b>2.22B</b><br>
+    Y5市值 = 2.22B × 13x = <b>28.87B</b><br>
+    净债务: $-2.0B<br>
+    Y5权益价值 = 28.87B - (-2.0B) = <b>30.87B</b>
+    </code>
+    <br><small style="color:#888">Thin-film solar with US manufacturing moat; 13x EV/EBITDA reflects solar sector discount plus tariff uncertainty</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (30.87B / 33.5B)^(1/5) - 1 = <b>-1.6%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">0.4%</td><td class="num">25%</td><td class="num" style="color:#4ade80">0.09%</td></tr><tr><td>Base Case</td><td class="num">-1.6%</td><td class="num">45%</td><td class="num" style="color:#f87171">-0.73%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-6.6%</td><td class="num">20%</td><td class="num" style="color:#f87171">-1.32%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-16.6%</td><td class="num">10%</td><td class="num" style="color:#f87171">-1.66%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-3.62%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -3.6% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.gurufocus.com/news/8834541/first-solar-fslr-reports-record-q1-2026-revenue-and-strong-outlook" target="_blank">[1]</a>
+      <a href="https://www.stocktitan.net/sec-filings/FSLR/10-q-first-solar-inc-quarterly-earnings-report-9624adc81009.html" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="POWL">
+  <div class="card-header" style="border-left:4px solid #60a5fa; background:rgba(96,165,250,0.12)">
+    <div class="card-rank">#10</div>
+    <div class="card-info">
+      <div class="card-ticker">POWL </div>
+      <div class="card-name">Powell Industries</div>
+      <div class="card-type">Switchgear / Electrical Distribution · DC_power</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #60a5fa">
+      <div class="score-num" style="color:#60a5fa">62.5</div>
+      <div class="score-grade" style="color:#60a5fa">B</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">Q2 FY2026 (Mar'26): $297M (+6% YoY); new orders $490M (+97%); backlog $1.8B (+33%)</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">Orders +97% YoY; $400M+ largest single order in company history (data center); backlog $1.8B</span>
+    <span class="rd-sep">|</span><span class="rd-price">$292.04 → 目标 $400</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 79.9)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#60a5fa"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#60a5fa"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 77.3)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#4ade80"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#4ade80"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#4ade80"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#4ade80"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#4ade80"></div></div><span class="bar-val">75</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 26.4)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:32.0%;background:#ffd700"></div></div><span class="bar-val">32</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:52.0%;background:#ffd700"></div></div><span class="bar-val">52</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:35.9%;background:#ffd700"></div></div><span class="bar-val">36</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Powell Industries is the premier mid-voltage switchgear manufacturer experiencing an unprecedented order surge from data center build-outs. The $400M+ single data center order win is transformational.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Stock has risen 162% in 12 months already pricing in considerable growth; execution risk on mega-orders</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Additional mega data center order wins; Q3 FY2026 revenue step-up as backlog converts</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$10.9B</span>，来源：<a href="https://www.macrotrends.net/stocks/charts/POWL/powell-industries/market-cap" target="_blank" style="color:#60a5fa">https://www.macrotrends.net/stocks/charts/POWL/powell-indust</a>，截止日期 2026-06-04
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $1.1B<br>
+    CAGR: 25%<br>
+    Y5收入 = $1.1B × (1 + 25%)^5 = <b>3.36B</b><br>
+    Y5净利润 = 3.36B × 15% = <b>0.50B</b><br>
+    Y5市值 = 0.50B × 16x = <b>8.06B</b><br>
+    净债务: $-0.3B<br>
+    Y5权益价值 = 8.06B - (-0.3B) = <b>8.36B</b>
+    </code>
+    <br><small style="color:#888">Specialist MV switchgear with massive DC order pipeline; 16x EV/EBITDA data center electrical specialization</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (8.36B / 10.9B)^(1/5) - 1 = <b>-5.2%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-3.2%</td><td class="num">25%</td><td class="num" style="color:#f87171">-0.79%</td></tr><tr><td>Base Case</td><td class="num">-5.2%</td><td class="num">45%</td><td class="num" style="color:#f87171">-2.33%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-10.2%</td><td class="num">20%</td><td class="num" style="color:#f87171">-2.04%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-20.2%</td><td class="num">10%</td><td class="num" style="color:#f87171">-2.02%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-7.18%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -7.2% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.stocktitan.net/news/POWL/powell-industries-announces-second-quarter-fiscal-2026-4kx5spwkrt8c.html" target="_blank">[1]</a>
+      <a href="https://simplywall.st/stocks/us/capital-goods/nasdaq-powl/powell-industries/news/why-powell-industries-powl-is-up-103-after-record-q2-backlog" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="MYRG">
+  <div class="card-header" style="border-left:4px solid #fb923c; background:rgba(251,146,60,0.12)">
+    <div class="card-rank">#11</div>
+    <div class="card-info">
+      <div class="card-ticker">MYRG </div>
+      <div class="card-name">MYR Group</div>
+      <div class="card-type">EPC Contractor (T&D / C&I Electrical) · EPC_secular</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #fb923c">
+      <div class="score-num" style="color:#fb923c">59.8</div>
+      <div class="score-grade" style="color:#fb923c">C</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">Q1 2026: $1.0B (+20% YoY); record net income $46.8M; record backlog $2.84B</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">Record backlog $2.84B (+7.7% YoY); gross margin expanded to 13.4% from 11.6%; net income doubled</span>
+    <span class="rd-sep">|</span><span class="rd-price">$450.5 → 目标 $315</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 74.1)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#60a5fa"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#60a5fa"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#60a5fa"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#60a5fa"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#60a5fa"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 69.9)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#4ade80"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#4ade80"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#4ade80"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#4ade80"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#4ade80"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#4ade80"></div></div><span class="bar-val">62</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#4ade80"></div></div><span class="bar-val">68</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 33.5)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:52.0%;background:#ffd700"></div></div><span class="bar-val">52</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#ffd700"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:44.7%;background:#ffd700"></div></div><span class="bar-val">45</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>MYR Group is a high-quality specialty electrical contractor serving T&D infrastructure and commercial/industrial markets. Record backlog driven by grid hardening, renewable interconnection, and data center electrical work.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Thin EPC margins (4-5%) leave limited buffer for cost overruns; labor market tightness</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Continued backlog build; margin expansion on C&I segment; potential M&A premium as consolidation target</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$7.1B</span>，来源：<a href="https://public.com/stocks/myrg/market-cap" target="_blank" style="color:#60a5fa">https://public.com/stocks/myrg/market-cap</a>，截止日期 2026-06-03
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $3.8B<br>
+    CAGR: 18%<br>
+    Y5收入 = $3.8B × (1 + 18%)^5 = <b>8.69B</b><br>
+    Y5净利润 = 8.69B × 5% = <b>0.43B</b><br>
+    Y5市值 = 0.43B × 15x = <b>6.52B</b><br>
+    净债务: $0.3B<br>
+    Y5权益价值 = 6.52B - (0.3B) = <b>6.22B</b>
+    </code>
+    <br><small style="color:#888">Specialty electrical EPC with T&D and C&I exposure; 15x EV/EBITDA mid-range for quality specialty contractor</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (6.22B / 7.1B)^(1/5) - 1 = <b>-2.6%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-0.6%</td><td class="num">25%</td><td class="num" style="color:#f87171">-0.15%</td></tr><tr><td>Base Case</td><td class="num">-2.6%</td><td class="num">45%</td><td class="num" style="color:#f87171">-1.18%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-7.6%</td><td class="num">20%</td><td class="num" style="color:#f87171">-1.52%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-17.6%</td><td class="num">10%</td><td class="num" style="color:#f87171">-1.76%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-4.61%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -4.6% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.stocktitan.net/news/MYRG/myr-group-inc-announces-first-quarter-2026-q4b7lmfecak6.html" target="_blank">[1]</a>
+      <a href="https://simplywall.st/stocks/us/capital-goods/nasdaq-myrg/myr-group/news/how-record-revenue-earnings-and-backlog-strength-at-myr-grou" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="PLPC">
+  <div class="card-header" style="border-left:4px solid #fb923c; background:rgba(251,146,60,0.12)">
+    <div class="card-rank">#12</div>
+    <div class="card-info">
+      <div class="card-ticker">PLPC </div>
+      <div class="card-name">Preformed Line Products</div>
+      <div class="card-type">Grid Hardware / T&D Components · grid_hardware</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #fb923c">
+      <div class="score-num" style="color:#fb923c">54.2</div>
+      <div class="score-grade" style="color:#fb923c">C</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">Q1 2026: $176.3M (+19% YoY); PLP-USA +26%; gross profit $55.2M</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">PLP-USA +26% YoY; 31.3% gross margin; global grid infrastructure exposure</span>
+    <span class="rd-sep">|</span><span class="rd-price">$387.69 → 目标 $275</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 67.8)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#60a5fa"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#60a5fa"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#60a5fa"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#60a5fa"></div></div><span class="bar-val">62</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#60a5fa"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#60a5fa"></div></div><span class="bar-val">65</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 64.9)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#4ade80"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#4ade80"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#4ade80"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#4ade80"></div></div><span class="bar-val">62</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#4ade80"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#4ade80"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:58.0%;background:#4ade80"></div></div><span class="bar-val">58</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#4ade80"></div></div><span class="bar-val">62</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 27.2)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:28.0%;background:#ffd700"></div></div><span class="bar-val">28</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:58.0%;background:#ffd700"></div></div><span class="bar-val">58</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:37.7%;background:#ffd700"></div></div><span class="bar-val">38</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>PLPC is a niche manufacturer of overhead line hardware benefiting from grid modernization globally. However, at ~56x P/E the valuation has significantly outrun fundamentals.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Stretched valuation at 56x P/E; earnings declined despite revenue growth; thin margins; micro-cap illiquidity</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>US grid investment acceleration; international grid modernization contracts</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$1.9B</span>，来源：<a href="https://public.com/stocks/plpc/market-cap" target="_blank" style="color:#60a5fa">https://public.com/stocks/plpc/market-cap</a>，截止日期 2026-06-03
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $0.7B<br>
+    CAGR: 18%<br>
+    Y5收入 = $0.7B × (1 + 18%)^5 = <b>1.53B</b><br>
+    Y5净利润 = 1.53B × 8% = <b>0.12B</b><br>
+    Y5市值 = 0.12B × 14x = <b>1.72B</b><br>
+    净债务: $0.1B<br>
+    Y5权益价值 = 1.72B - (0.1B) = <b>1.67B</b>
+    </code>
+    <br><small style="color:#888">Niche grid hardware manufacturer; 14x EV/EBITDA reflects small-cap premium but limited market ceiling</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (1.67B / 1.9B)^(1/5) - 1 = <b>-2.6%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-0.6%</td><td class="num">25%</td><td class="num" style="color:#f87171">-0.15%</td></tr><tr><td>Base Case</td><td class="num">-2.6%</td><td class="num">45%</td><td class="num" style="color:#f87171">-1.16%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-7.6%</td><td class="num">20%</td><td class="num" style="color:#f87171">-1.52%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-17.6%</td><td class="num">10%</td><td class="num" style="color:#f87171">-1.76%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-4.59%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -4.6% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.stocktitan.net/news/PLPC/preformed-line-products-announces-first-quarter-2026-financial-dm4i2am072it.html" target="_blank">[1]</a>
+      <a href="https://www.quiverquant.com/news/Preformed+Line+Products+Company+(PLPC)+Releases+Q1+2026+Earnings" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="AMSC">
+  <div class="card-header" style="border-left:4px solid #fb923c; background:rgba(251,146,60,0.12)">
+    <div class="card-rank">#13</div>
+    <div class="card-info">
+      <div class="card-ticker">AMSC </div>
+      <div class="card-name">American Superconductor</div>
+      <div class="card-type">Grid Technology / Wind Power Electronics · grid_hardware</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #fb923c">
+      <div class="score-num" style="color:#fb923c">52.0</div>
+      <div class="score-grade" style="color:#fb923c">C</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">FY2026 (ended Mar'26): $299.2M (+34% YoY); record annual revenue; backlog ~$280M</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">FY revenue +34% to $299M record; backlog +40% to ~$280M; Grid segment ~85% of revenue</span>
+    <span class="rd-sep">|</span><span class="rd-price">$50.6 → 目标 $58</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 66.2)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#60a5fa"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#60a5fa"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#60a5fa"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#60a5fa"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#60a5fa"></div></div><span class="bar-val">65</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 62.4)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#4ade80"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#4ade80"></div></div><span class="bar-val">62</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#4ade80"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#4ade80"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:58.0%;background:#4ade80"></div></div><span class="bar-val">58</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#4ade80"></div></div><span class="bar-val">62</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#4ade80"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#4ade80"></div></div><span class="bar-val">60</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 25.1)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:42.0%;background:#ffd700"></div></div><span class="bar-val">42</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:40.0%;background:#ffd700"></div></div><span class="bar-val">40</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:30.5%;background:#ffd700"></div></div><span class="bar-val">30</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>AMSC provides grid resiliency solutions (SPS, D-VAR, Shipboard systems) and wind power electronics. Revenue grew 34% to record levels, driven by naval defense and grid modernization.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Very small revenue base ($300M); wind segment faces Chinese competition; thin GAAP profitability</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Large US Navy superconductor contracts; further grid infrastructure orders; DOD program wins</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$2.5B</span>，来源：<a href="https://stockanalysis.com/stocks/amsc/" target="_blank" style="color:#60a5fa">https://stockanalysis.com/stocks/amsc/</a>，截止日期 2026-06-03
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $0.3B<br>
+    CAGR: 22%<br>
+    Y5收入 = $0.3B × (1 + 22%)^5 = <b>0.81B</b><br>
+    Y5净利润 = 0.81B × 7% = <b>0.06B</b><br>
+    Y5市值 = 0.06B × 14x = <b>0.79B</b><br>
+    净债务: $0.1B<br>
+    Y5权益价值 = 0.79B - (0.1B) = <b>0.74B</b>
+    </code>
+    <br><small style="color:#888">Small-cap grid tech with wind electronics; 14x EV/EBITDA reflects specialty technology value but limited scale</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (0.74B / 2.5B)^(1/5) - 1 = <b>-21.2%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-19.2%</td><td class="num">25%</td><td class="num" style="color:#f87171">-4.80%</td></tr><tr><td>Base Case</td><td class="num">-21.2%</td><td class="num">45%</td><td class="num" style="color:#f87171">-9.54%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-26.2%</td><td class="num">20%</td><td class="num" style="color:#f87171">-5.24%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-36.2%</td><td class="num">10%</td><td class="num" style="color:#f87171">-3.62%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-23.20%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -23.2% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.sec.gov/Archives/edgar/data/0000880807/000143774926018539/ex_919739.htm" target="_blank">[1]</a>
+      <a href="https://www.dailypolitical.com/2026/05/29/american-superconductor-q4-earnings-call-highlights.html" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="BE">
+  <div class="card-header" style="border-left:4px solid #fb923c; background:rgba(251,146,60,0.12)">
+    <div class="card-rank">#14</div>
+    <div class="card-info">
+      <div class="card-ticker">BE </div>
+      <div class="card-name">Bloom Energy</div>
+      <div class="card-type">Fuel Cell / Distributed Power Generation · DC_power</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #fb923c">
+      <div class="score-num" style="color:#fb923c">51.1</div>
+      <div class="score-grade" style="color:#fb923c">C</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">Q1 2026: $751M (+130% YoY); first profitable GAAP quarter ever; FY2026 guidance raised to $3.4-3.8B</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">$20B total backlog; Q1 revenue +130% YoY; 2.8GW Oracle agreement; GAAP profitable for first time</span>
+    <span class="rd-sep">|</span><span class="rd-price">$291.48 → 目标 $263</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 82.7)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#60a5fa"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#60a5fa"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#60a5fa"></div></div><span class="bar-val">82</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 70.0)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#4ade80"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#4ade80"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#4ade80"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#4ade80"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#4ade80"></div></div><span class="bar-val">62</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#4ade80"></div></div><span class="bar-val">68</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 17.4)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:25.0%;background:#ffd700"></div></div><span class="bar-val">25</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:30.0%;background:#ffd700"></div></div><span class="bar-val">30</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:24.2%;background:#ffd700"></div></div><span class="bar-val">24</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Bloom Energy achieved a breakthrough moment: first profitable GAAP quarter, 130% revenue growth, and a $20B+ backlog anchored by the Oracle AI data center partnership.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Extreme valuation at ~90x forward PE; fuel cell remains expensive vs grid power; supply chain scaling risks</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Q2 2026 revenue confirming $3.4B+ annual run-rate; additional hyperscaler fuel cell agreements</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$65.0B</span>，来源：<a href="https://www.macrotrends.net/stocks/charts/BE/bloom-energy/market-cap" target="_blank" style="color:#60a5fa">https://www.macrotrends.net/stocks/charts/BE/bloom-energy/ma</a>，截止日期 2026-06-04
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $2.0B<br>
+    CAGR: 55%<br>
+    Y5收入 = $2.0B × (1 + 55%)^5 = <b>17.89B</b><br>
+    Y5净利润 = 17.89B × 12% = <b>2.15B</b><br>
+    Y5市值 = 2.15B × 18x = <b>38.65B</b><br>
+    净债务: $1.5B<br>
+    Y5权益价值 = 38.65B - (1.5B) = <b>37.15B</b>
+    </code>
+    <br><small style="color:#888">Distributed fuel cell power with $20B+ backlog and Oracle/hyperscaler partnerships; 18x EV/EBITDA</small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (37.15B / 65.0B)^(1/5) - 1 = <b>-10.6%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-8.6%</td><td class="num">25%</td><td class="num" style="color:#f87171">-2.15%</td></tr><tr><td>Base Case</td><td class="num">-10.6%</td><td class="num">45%</td><td class="num" style="color:#f87171">-4.76%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-15.6%</td><td class="num">20%</td><td class="num" style="color:#f87171">-3.12%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-25.6%</td><td class="num">10%</td><td class="num" style="color:#f87171">-2.56%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-12.59%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -12.6% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.bitget.com/news/detail/12560605389805" target="_blank">[1]</a>
+      <a href="https://www.gurufocus.com/news/8836450" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="OKLO">
+  <div class="card-header" style="border-left:4px solid #f87171; background:rgba(248,113,113,0.12)">
+    <div class="card-rank">#15</div>
+    <div class="card-info">
+      <div class="card-ticker">OKLO <span class="veto-badge">⚠ VETO</span></div>
+      <div class="card-name">Oklo Inc</div>
+      <div class="card-type">Advanced Fission / SMR Developer · pre_revenue_nuclear</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #f87171">
+      <div class="score-num" style="color:#f87171">21.1</div>
+      <div class="score-grade" style="color:#f87171">D</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">No commercial revenue; Q1 2026 still pre-revenue</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">45GW SMR PPA pipeline; Meta 1.2GW deal; NRC NSDA approval March 2026; first power target 2027</span>
+    <span class="rd-sep">|</span><span class="rd-price">$65.32 → 目标 $100</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 66.1)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#60a5fa"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#60a5fa"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#60a5fa"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#60a5fa"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:50.0%;background:#60a5fa"></div></div><span class="bar-val">50</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#60a5fa"></div></div><span class="bar-val">68</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 39.3)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:35.0%;background:#4ade80"></div></div><span class="bar-val">35</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:40.0%;background:#4ade80"></div></div><span class="bar-val">40</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:45.0%;background:#4ade80"></div></div><span class="bar-val">45</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:30.0%;background:#4ade80"></div></div><span class="bar-val">30</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:50.0%;background:#4ade80"></div></div><span class="bar-val">50</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:42.0%;background:#4ade80"></div></div><span class="bar-val">42</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:38.0%;background:#4ade80"></div></div><span class="bar-val">38</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:35.0%;background:#4ade80"></div></div><span class="bar-val">35</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 7.5)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:10.0%;background:#ffd700"></div></div><span class="bar-val">10</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:15.0%;background:#ffd700"></div></div><span class="bar-val">15</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:8.3%;background:#ffd700"></div></div><span class="bar-val">8</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Oklo is the leading private advanced fission company backed by Sam Altman with a 45GW pipeline. Pure option play on SMR commercialization.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Zero commercial revenue; NRC licensing timeline highly uncertain; first-of-kind construction cost overruns</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Full NRC construction permit; construction start; firm binding contracts; first power milestone</p>
+      </div>
+    </div>
+
+    <div class="dcf-box"><p style="color:#666">Pre-revenue / no DCF applicable (veto or zero revenue).</p></div>
+
+    <div class="evidence-links">
+      来源: <a href="https://carboncredits.com/oklo-oklo-reports-q1-financial-results-stock-climbs-as-it-expands-ai-nuclear-push-with-nvidia-and-advances-reactor-licensing/" target="_blank">[1]</a>
+      <a href="https://www.fool.com/investing/2026/05/07/where-will-stock-stock-be-in-3-years/" target="_blank">[2]</a>
+    </div>
+    <div class="veto-reason">⚠ VETO原因: No commercial revenue; pre-revenue SMR developer with first reactor deployment not expected until 2027+. $11.4B market cap is purely speculative option value. First commercial power generation still years away.</div>
+  </div>
+</div>
+<div class="company-card" id="SMR">
+  <div class="card-header" style="border-left:4px solid #f87171; background:rgba(248,113,113,0.12)">
+    <div class="card-rank">#16</div>
+    <div class="card-info">
+      <div class="card-ticker">SMR <span class="veto-badge">⚠ VETO</span></div>
+      <div class="card-name">NuScale Power</div>
+      <div class="card-type">Small Modular Reactor Technology · pre_revenue_nuclear</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #f87171">
+      <div class="score-num" style="color:#f87171">17.7</div>
+      <div class="score-grade" style="color:#f87171">D</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">Q1 2026 revenue declined YoY; FY2025 revenue $31.5M (down from $37M); near zero commercial revenue</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">TVA 6GW program progress; Romania RoPower shareholder approval; revenue declining</span>
+    <span class="rd-sep">|</span><span class="rd-price">$12.03 → 目标 $15</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 55.1)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#60a5fa"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:45.0%;background:#60a5fa"></div></div><span class="bar-val">45</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#60a5fa"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:58.0%;background:#60a5fa"></div></div><span class="bar-val">58</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#60a5fa"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:42.0%;background:#60a5fa"></div></div><span class="bar-val">42</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#60a5fa"></div></div><span class="bar-val">55</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 33.2)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:30.0%;background:#4ade80"></div></div><span class="bar-val">30</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:35.0%;background:#4ade80"></div></div><span class="bar-val">35</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:38.0%;background:#4ade80"></div></div><span class="bar-val">38</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:28.0%;background:#4ade80"></div></div><span class="bar-val">28</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:40.0%;background:#4ade80"></div></div><span class="bar-val">40</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:35.0%;background:#4ade80"></div></div><span class="bar-val">35</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:30.0%;background:#4ade80"></div></div><span class="bar-val">30</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:28.0%;background:#4ade80"></div></div><span class="bar-val">28</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 6.0)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:8.0%;background:#ffd700"></div></div><span class="bar-val">8</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:12.0%;background:#ffd700"></div></div><span class="bar-val">12</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:6.7%;background:#ffd700"></div></div><span class="bar-val">7</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>NuScale pioneered SMR technology with the only NRC-approved SMR design, but its first project (UAMPS) was cancelled. Current strategy pivots to TVA and Romania. Revenue declining, Goldman/Citi Sell/Neutral.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Revenue declining; converting agreements consistently slower than expected; first meaningful revenue 2030s</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>TVA firm contract signing; Romania construction start; new US utility customer; NRC approval for updated design</p>
+      </div>
+    </div>
+
+    <div class="dcf-box"><p style="color:#666">Pre-revenue / no DCF applicable (veto or zero revenue).</p></div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.sec.gov/Archives/edgar/data/0001822966/000182296626000054/smr-20260331.htm" target="_blank">[1]</a>
+      <a href="https://www.timothysykes.com/news/nuscale-power-corporation-smr-news-2026_05_29-2/" target="_blank">[2]</a>
+    </div>
+    <div class="veto-reason">⚠ VETO原因: Near pre-revenue; Q1 2026 revenue declined $12.8M YoY as RoPower license revenue burned off. No new commercial contracts. Meaningful reactor revenue delayed to early 2030s per Bank of America. Hold consensus from analysts.</div>
+  </div>
+</div>
+
+</div>
+<div class="footer">v4.0 · 2026-06-05 · 实时数据+DCF数学推导 | Powered by Claude Code</div>
+</body>
+</html>
