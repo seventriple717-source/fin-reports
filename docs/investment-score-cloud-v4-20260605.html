@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cloud Services & AI Infrastructure — 投资打分系统 v4.0</title>
+<style>
+:root {
+  --bg: #0d1117; --bg2: #161b22; --bg3: #1c2128;
+  --border: #30363d; --text: #e6edf3; --text2: #8b949e;
+  --green: #4ade80; --blue: #60a5fa; --yellow: #ffd700;
+  --orange: #fb923c; --red: #f87171; --purple: #c084fc;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 13px; line-height: 1.6; }
+a { color: var(--blue); }
+.header { background: linear-gradient(135deg, #0d1117, #1a2332); border-bottom: 1px solid var(--border); padding: 32px 40px; }
+.header-title { font-size: 28px; font-weight: 700; color: var(--yellow); letter-spacing: 1px; }
+.header-sub { color: var(--text2); margin-top: 6px; }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; background: rgba(255,215,0,0.15); color: var(--yellow); border: 1px solid rgba(255,215,0,0.3); margin-left: 10px; }
+.container { max-width: 1400px; margin: 0 auto; padding: 24px 40px; }
+.section-title { font-size: 16px; font-weight: 700; color: var(--yellow); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+.landscape-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+.landscape-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+.landscape-box h3 { color: var(--blue); font-size: 12px; text-transform: uppercase; margin-bottom: 8px; }
+.landscape-box p { color: var(--text2); line-height: 1.7; }
+.landscape-insight { background: var(--bg2); border: 1px solid #ffd70044; border-radius: 8px; padding: 16px; margin-bottom: 28px; }
+.landscape-insight h3 { color: var(--yellow); font-size: 12px; text-transform: uppercase; margin-bottom: 8px; }
+.landscape-insight p { color: var(--text); line-height: 1.7; }
+.grade-row { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+.grade-box { border: 2px solid; border-radius: 8px; padding: 12px 20px; text-align: center; min-width: 80px; }
+.grade-letter { font-size: 24px; font-weight: 700; }
+.grade-count { font-size: 18px; margin-top: 2px; }
+.ranking-table { width: 100%; border-collapse: collapse; margin-bottom: 32px; }
+.ranking-table th, .ranking-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); text-align: left; cursor: pointer; }
+.ranking-table th { color: var(--text2); font-size: 11px; text-transform: uppercase; background: var(--bg2); }
+.ranking-table tr:hover { background: var(--bg3); }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.company-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 24px; overflow: hidden; }
+.card-header { display: flex; align-items: center; gap: 16px; padding: 16px 20px; }
+.card-rank { font-size: 22px; font-weight: 700; color: var(--text2); min-width: 36px; }
+.card-info { flex: 1; }
+.card-ticker { font-size: 20px; font-weight: 700; color: var(--text); }
+.card-name { color: var(--text2); font-size: 13px; }
+.card-type { color: var(--text2); font-size: 11px; margin-top: 2px; }
+.card-score-box { text-align: center; padding: 8px 16px; border-radius: 8px; min-width: 70px; }
+.score-num { font-size: 26px; font-weight: 700; }
+.score-grade { font-size: 16px; font-weight: 700; }
+.veto-badge { background: rgba(248,113,113,0.2); color: #f87171; border: 1px solid #f87171; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-left: 8px; }
+.realdata-banner { background: rgba(96,165,250,0.08); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 12px; }
+.rd-label { color: var(--text2); }
+.rd-val { color: var(--text); }
+.rd-sep { color: var(--border); }
+.rd-price { color: var(--green); font-weight: 600; }
+.card-body { padding: 20px; }
+.dims-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+.dim-col { background: var(--bg3); border-radius: 6px; padding: 12px; }
+.dim-title { font-size: 11px; color: var(--text2); text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
+.bar-row { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+.bar-label { font-size: 10px; color: var(--text2); min-width: 28px; }
+.bar-track { flex: 1; background: var(--border); border-radius: 2px; height: 8px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 2px; transition: width 0.3s; }
+.bar-val { font-size: 10px; min-width: 24px; text-align: right; color: var(--text); }
+.thesis-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+.thesis-box { background: var(--bg3); border-radius: 6px; padding: 12px; }
+.thesis-title { font-size: 11px; color: var(--text2); text-transform: uppercase; margin-bottom: 8px; font-weight: 600; border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+.thesis-box p { color: var(--text); font-size: 12px; line-height: 1.7; }
+.dcf-box { background: rgba(255,215,0,0.05); border: 1px solid rgba(255,215,0,0.2); border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+.dcf-title { color: var(--yellow); font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 1px; }
+.dcf-step { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,215,0,0.1); }
+.dcf-step:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.dcf-step b { color: var(--yellow); }
+code { display: block; background: rgba(0,0,0,0.3); border-radius: 4px; padding: 8px; margin: 8px 0; color: #79c0ff; font-size: 11px; line-height: 1.8; white-space: pre-wrap; }
+.scenario-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12px; }
+.scenario-table th { color: var(--text2); font-size: 10px; text-transform: uppercase; padding: 4px 8px; border-bottom: 1px solid var(--border); text-align: right; }
+.scenario-table th:first-child { text-align: left; }
+.scenario-table td { padding: 5px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.scenario-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.total-row { background: rgba(255,215,0,0.08); }
+.hl { color: var(--green); font-weight: 600; }
+.evidence-links { font-size: 11px; color: var(--text2); margin-top: 8px; }
+.veto-reason { margin-top: 12px; padding: 10px 14px; background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.3); border-radius: 6px; color: #f87171; font-size: 12px; }
+.footer { text-align: center; color: var(--text2); font-size: 11px; padding: 24px 40px; border-top: 1px solid var(--border); margin-top: 32px; }
+@media (max-width: 900px) {
+  .dims-grid, .thesis-grid, .landscape-grid { grid-template-columns: 1fr; }
+  .container { padding: 16px; }
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-title">Cloud Services & AI Infrastructure <span class="badge">v4.0</span></div>
+  <div class="header-sub">Investment Score System · 实时数据+DCF数学推导 · 2026-06-05</div>
+  <div style="margin-top:10px;color:#8b949e;font-size:13px"><b style="color:#ffd700">周期:</b> Hyper-Growth / AI Capex Supercycle (2024-2027)</div>
+</div>
+
+<div class="container">
+
+  <div class="section-title">行业全景</div>
+  <div class="landscape-grid">
+    <div class="landscape-box">
+      <h3>核心瓶颈</h3>
+      <p>GPU compute capacity and power infrastructure — hyperscalers collectively committing $600-725B in 2026 capex, but data center power permitting and transformer lead times limit speed.</p>
+    </div>
+    <div class="landscape-box">
+      <h3>周期阶段</h3>
+      <p>Hyper-Growth / AI Capex Supercycle (2024-2027)</p>
+    </div>
+  </div>
+  <div class="landscape-insight">
+    <h3>关键洞察 (Key Insight)</h3>
+    <p>The cloud sector has bifurcated sharply: hyperscalers (MSFT/GOOG/AMZN/ORCL) are compounding AI revenue at 20-60% with expanding margins, while ex-BTC miners pivoting to AI carry heavy debt loads and execution risk, and pure-play AI cloud providers (CRWV/NBIS) trade at extreme revenue multiples but remain deeply loss-making.</p>
+  </div>
+
+  <div class="section-title">综合排名总览</div>
+  <div class="grade-row"><div class="grade-box" style="border-color:#ffd700;color:#ffd700"><div class="grade-letter">S</div><div class="grade-count">3</div></div><div class="grade-box" style="border-color:#4ade80;color:#4ade80"><div class="grade-letter">A</div><div class="grade-count">1</div></div><div class="grade-box" style="border-color:#60a5fa;color:#60a5fa"><div class="grade-letter">B</div><div class="grade-count">0</div></div><div class="grade-box" style="border-color:#fb923c;color:#fb923c"><div class="grade-letter">C</div><div class="grade-count">1</div></div><div class="grade-box" style="border-color:#f87171;color:#f87171"><div class="grade-letter">D</div><div class="grade-count">8</div></div></div>
+
+  <table class="ranking-table">
+    <thead><tr>
+      <th>#</th><th>代码</th><th>公司</th><th>综合得分</th><th>等级</th>
+      <th>行业(I)</th><th>质量(Q)</th><th>估值(V)</th><th>DCF v1</th><th>市值</th>
+    </tr></thead>
+    <tbody><tr onclick="document.getElementById('MSFT').scrollIntoView({behavior:'smooth'})">
+          <td>1</td>
+          <td><a href="#MSFT" style="color:#60a5fa;text-decoration:none">MSFT </a></td>
+          <td>Microsoft Corporation</td>
+          <td style="color:#ffd700;font-weight:700">84.3</td>
+          <td style="color:#ffd700">S</td>
+          <td>89.5</td>
+          <td>90.6</td>
+          <td>70.5</td>
+          <td>3</td>
+          <td>$3193.0B</td>
+        </tr><tr onclick="document.getElementById('AMZN').scrollIntoView({behavior:'smooth'})">
+          <td>2</td>
+          <td><a href="#AMZN" style="color:#60a5fa;text-decoration:none">AMZN </a></td>
+          <td>Amazon.com Inc.</td>
+          <td style="color:#ffd700;font-weight:700">84.1</td>
+          <td style="color:#ffd700">S</td>
+          <td>90.1</td>
+          <td>87.1</td>
+          <td>75.0</td>
+          <td>3</td>
+          <td>$2630.0B</td>
+        </tr><tr onclick="document.getElementById('GOOG').scrollIntoView({behavior:'smooth'})">
+          <td>3</td>
+          <td><a href="#GOOG" style="color:#60a5fa;text-decoration:none">GOOG </a></td>
+          <td>Alphabet Inc.</td>
+          <td style="color:#ffd700;font-weight:700">82.8</td>
+          <td style="color:#ffd700">S</td>
+          <td>90.0</td>
+          <td>89.3</td>
+          <td>67.2</td>
+          <td>2</td>
+          <td>$4400.0B</td>
+        </tr><tr onclick="document.getElementById('ORCL').scrollIntoView({behavior:'smooth'})">
+          <td>4</td>
+          <td><a href="#ORCL" style="color:#60a5fa;text-decoration:none">ORCL </a></td>
+          <td>Oracle Corporation</td>
+          <td style="color:#4ade80;font-weight:700">74.0</td>
+          <td style="color:#4ade80">A</td>
+          <td>81.9</td>
+          <td>81.6</td>
+          <td>56.0</td>
+          <td>1</td>
+          <td>$660.0B</td>
+        </tr><tr onclick="document.getElementById('CRWV').scrollIntoView({behavior:'smooth'})">
+          <td>5</td>
+          <td><a href="#CRWV" style="color:#60a5fa;text-decoration:none">CRWV ⚠</a></td>
+          <td>CoreWeave Inc.</td>
+          <td style="color:#fb923c;font-weight:700">51.2</td>
+          <td style="color:#fb923c">C</td>
+          <td>78.8</td>
+          <td>72.8</td>
+          <td>26.9</td>
+          <td>0</td>
+          <td>$60.5B</td>
+        </tr><tr onclick="document.getElementById('NBIS').scrollIntoView({behavior:'smooth'})">
+          <td>6</td>
+          <td><a href="#NBIS" style="color:#60a5fa;text-decoration:none">NBIS ⚠</a></td>
+          <td>Nebius Group N.V.</td>
+          <td style="color:#f87171;font-weight:700">41.3</td>
+          <td style="color:#f87171">D</td>
+          <td>74.7</td>
+          <td>67.6</td>
+          <td>21.1</td>
+          <td>0</td>
+          <td>$62.7B</td>
+        </tr><tr onclick="document.getElementById('CORZ').scrollIntoView({behavior:'smooth'})">
+          <td>7</td>
+          <td><a href="#CORZ" style="color:#60a5fa;text-decoration:none">CORZ ⚠</a></td>
+          <td>Core Scientific Inc.</td>
+          <td style="color:#f87171;font-weight:700">37.3</td>
+          <td style="color:#f87171">D</td>
+          <td>68.1</td>
+          <td>60.5</td>
+          <td>31.2</td>
+          <td>0</td>
+          <td>$9.1B</td>
+        </tr><tr onclick="document.getElementById('APLD').scrollIntoView({behavior:'smooth'})">
+          <td>8</td>
+          <td><a href="#APLD" style="color:#60a5fa;text-decoration:none">APLD ⚠</a></td>
+          <td>Applied Digital Corporation</td>
+          <td style="color:#f87171;font-weight:700">36.3</td>
+          <td style="color:#f87171">D</td>
+          <td>67.5</td>
+          <td>58.9</td>
+          <td>29.6</td>
+          <td>0</td>
+          <td>$13.0B</td>
+        </tr><tr onclick="document.getElementById('IREN').scrollIntoView({behavior:'smooth'})">
+          <td>9</td>
+          <td><a href="#IREN" style="color:#60a5fa;text-decoration:none">IREN ⚠</a></td>
+          <td>IREN Limited</td>
+          <td style="color:#f87171;font-weight:700">35.8</td>
+          <td style="color:#f87171">D</td>
+          <td>66.5</td>
+          <td>58.0</td>
+          <td>29.6</td>
+          <td>0</td>
+          <td>$23.4B</td>
+        </tr><tr onclick="document.getElementById('CIFR').scrollIntoView({behavior:'smooth'})">
+          <td>10</td>
+          <td><a href="#CIFR" style="color:#60a5fa;text-decoration:none">CIFR ⚠</a></td>
+          <td>Cipher Digital Inc.</td>
+          <td style="color:#f87171;font-weight:700">34.3</td>
+          <td style="color:#f87171">D</td>
+          <td>64.0</td>
+          <td>55.7</td>
+          <td>27.8</td>
+          <td>0</td>
+          <td>$9.8B</td>
+        </tr><tr onclick="document.getElementById('WULF').scrollIntoView({behavior:'smooth'})">
+          <td>11</td>
+          <td><a href="#WULF" style="color:#60a5fa;text-decoration:none">WULF ⚠</a></td>
+          <td>TeraWulf Inc.</td>
+          <td style="color:#f87171;font-weight:700">33.2</td>
+          <td style="color:#f87171">D</td>
+          <td>63.5</td>
+          <td>53.8</td>
+          <td>26.2</td>
+          <td>0</td>
+          <td>$10.0B</td>
+        </tr><tr onclick="document.getElementById('BTDR').scrollIntoView({behavior:'smooth'})">
+          <td>12</td>
+          <td><a href="#BTDR" style="color:#60a5fa;text-decoration:none">BTDR ⚠</a></td>
+          <td>Bitdeer Technologies</td>
+          <td style="color:#f87171;font-weight:700">33.0</td>
+          <td style="color:#f87171">D</td>
+          <td>61.5</td>
+          <td>53.2</td>
+          <td>27.5</td>
+          <td>0</td>
+          <td>$4.8B</td>
+        </tr><tr onclick="document.getElementById('HIVE').scrollIntoView({behavior:'smooth'})">
+          <td>13</td>
+          <td><a href="#HIVE" style="color:#60a5fa;text-decoration:none">HIVE ⚠</a></td>
+          <td>HIVE Digital Technologies</td>
+          <td style="color:#f87171;font-weight:700">31.1</td>
+          <td style="color:#f87171">D</td>
+          <td>58.9</td>
+          <td>50.5</td>
+          <td>24.8</td>
+          <td>0</td>
+          <td>$1.2B</td>
+        </tr></tbody>
+  </table>
+
+  <div class="section-title">公司详情 (按评分排序)</div>
+  
+<div class="company-card" id="MSFT">
+  <div class="card-header" style="border-left:4px solid #ffd700; background:rgba(255,215,0,0.15)">
+    <div class="card-rank">#1</div>
+    <div class="card-info">
+      <div class="card-ticker">MSFT </div>
+      <div class="card-name">Microsoft Corporation</div>
+      <div class="card-type">Hyperscale Cloud · Large Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #ffd700">
+      <div class="score-num" style="color:#ffd700">84.3</div>
+      <div class="score-grade" style="color:#ffd700">S</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">Q2 FY2026: $81.3B quarterly; Azure +39% YoY; Cloud >$50B/qtr</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">Azure +39% YoY; Cloud >$50B/qtr; RPO $625B (+110%)</span>
+    <span class="rd-sep">|</span><span class="rd-price">$429.87 → 目标 $500</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 89.5)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:92.0%;background:#60a5fa"></div></div><span class="bar-val">92</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#60a5fa"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:95.0%;background:#60a5fa"></div></div><span class="bar-val">95</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#60a5fa"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#60a5fa"></div></div><span class="bar-val">90</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 90.6)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:95.0%;background:#4ade80"></div></div><span class="bar-val">95</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:92.0%;background:#4ade80"></div></div><span class="bar-val">92</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#4ade80"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#4ade80"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:92.0%;background:#4ade80"></div></div><span class="bar-val">92</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 70.5)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#ffd700"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#ffd700"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#ffd700"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#ffd700"></div></div><span class="bar-val">80</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Microsoft is the premier AI-native enterprise cloud, with Azure capturing hyperscaler tailwinds via OpenAI integration, Copilot monetization, and $190B 2026 capex. $625B RPO backlog provides multi-year visibility.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Azure deceleration if OpenAI relationship weakens; enterprise AI shift to competing clouds; ~11.5x fwd revenue limited error margin</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Azure re-acceleration above 40% in Q3 FY2026; Copilot enterprise seat expansion; RPO continued growth</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$3193.0B</span>，来源：<a href="https://stockanalysis.com/stocks/msft/market-cap/" target="_blank" style="color:#60a5fa">https://stockanalysis.com/stocks/msft/market-cap/</a>，截止日期 2026-06-04
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $277.0B<br>
+    CAGR: 16%<br>
+    Y5收入 = $277.0B × (1 + 16%)^5 = <b>581.79B</b><br>
+    Y5净利润 = 581.79B × 35% = <b>203.63B</b><br>
+    Y5市值 = 203.63B × 28x = <b>5701.59B</b><br>
+    净债务: $-70.0B<br>
+    Y5权益价值 = 5701.59B - (-70.0B) = <b>5771.59B</b>
+    </code>
+    <br><small style="color:#888"></small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (5771.59B / 3193.0B)^(1/5) - 1 = <b>12.6%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">14.6%</td><td class="num">25%</td><td class="num" style="color:#4ade80">3.64%</td></tr><tr><td>Base Case</td><td class="num">12.6%</td><td class="num">45%</td><td class="num" style="color:#4ade80">5.66%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">7.6%</td><td class="num">20%</td><td class="num" style="color:#4ade80">1.51%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-2.4%</td><td class="num">10%</td><td class="num" style="color:#f87171">-0.24%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#4ade80;font-weight:700">10.57%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 10.6% > 10% → v1 = 3 (中性偏多)</span><br>
+    <b>v1 = 3</b> → 估值得分 = 3 × 20 = <b>60/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://futurumgroup.com/insights/microsoft-q2-fy-2026-cloud-surpasses-50b-azure-up-38-cc/" target="_blank">[1]</a>
+      <a href="https://www.microsoft.com/en-us/investor/earnings/fy-2026-q2/press-release-webcast" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="AMZN">
+  <div class="card-header" style="border-left:4px solid #ffd700; background:rgba(255,215,0,0.15)">
+    <div class="card-rank">#2</div>
+    <div class="card-info">
+      <div class="card-ticker">AMZN </div>
+      <div class="card-name">Amazon.com Inc.</div>
+      <div class="card-type">Hyperscale Cloud · Large Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #ffd700">
+      <div class="score-num" style="color:#ffd700">84.1</div>
+      <div class="score-grade" style="color:#ffd700">S</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">Q1 2026: $181.5B total (+16.6%); AWS $37.6B (+28%, 15-qtr high growth)</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">AWS Q1 2026: $37.6B (+28%), $150B ARR; Q1 capex $43.2B; $200B 2026 capex</span>
+    <span class="rd-sep">|</span><span class="rd-price">$253.61 → 目标 $290</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 90.1)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#60a5fa"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:92.0%;background:#60a5fa"></div></div><span class="bar-val">92</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:95.0%;background:#60a5fa"></div></div><span class="bar-val">95</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#60a5fa"></div></div><span class="bar-val">90</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 87.1)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#4ade80"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:92.0%;background:#4ade80"></div></div><span class="bar-val">92</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:86.0%;background:#4ade80"></div></div><span class="bar-val">86</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 75.0)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#ffd700"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#ffd700"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#ffd700"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#ffd700"></div></div><span class="bar-val">82</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>AWS is reaccelerating as market leader with 28% growth at 15-quarter high momentum. Amazon trades at discount to Azure on a cloud-only basis despite similar scale and higher growth.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Retail margin compression if consumer weakens; $200B capex commitment execution risk; AI shift to specialized clouds</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>AWS sustaining above 25% in Q2 2026; Trainium-3 launch; advertising maintaining 20%+ growth</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$2630.0B</span>，来源：<a href="https://public.com/stocks/amzn/market-cap" target="_blank" style="color:#60a5fa">https://public.com/stocks/amzn/market-cap</a>，截止日期 2026-06-04
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $680.0B<br>
+    CAGR: 16%<br>
+    Y5收入 = $680.0B × (1 + 16%)^5 = <b>1428.23B</b><br>
+    Y5净利润 = 1428.23B × 12% = <b>171.39B</b><br>
+    Y5市值 = 171.39B × 30x = <b>5141.64B</b><br>
+    净债务: $5.0B<br>
+    Y5权益价值 = 5141.64B - (5.0B) = <b>5136.64B</b>
+    </code>
+    <br><small style="color:#888"></small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (5136.64B / 2630.0B)^(1/5) - 1 = <b>14.3%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">16.3%</td><td class="num">25%</td><td class="num" style="color:#4ade80">4.08%</td></tr><tr><td>Base Case</td><td class="num">14.3%</td><td class="num">45%</td><td class="num" style="color:#4ade80">6.45%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">9.3%</td><td class="num">20%</td><td class="num" style="color:#4ade80">1.87%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-0.7%</td><td class="num">10%</td><td class="num" style="color:#f87171">-0.07%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#4ade80;font-weight:700">12.33%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 12.3% > 10% → v1 = 3 (中性偏多)</span><br>
+    <b>v1 = 3</b> → 估值得分 = 3 × 20 = <b>60/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.tikr.com/blog/amazons-aws-hit-37-6-billion-in-q1-2026" target="_blank">[1]</a>
+      <a href="https://www.gurufocus.com/news/8857084/amazon-amzn-posts-record-q1-revenue-of-18152-billion" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="GOOG">
+  <div class="card-header" style="border-left:4px solid #ffd700; background:rgba(255,215,0,0.15)">
+    <div class="card-rank">#3</div>
+    <div class="card-info">
+      <div class="card-ticker">GOOG </div>
+      <div class="card-name">Alphabet Inc.</div>
+      <div class="card-type">Hyperscale Cloud · Large Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #ffd700">
+      <div class="score-num" style="color:#ffd700">82.8</div>
+      <div class="score-grade" style="color:#ffd700">S</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">Q1 2026: $109.9B total (+22%); GCP $20B (+63%); Cloud backlog $460B</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">GCP Q1 2026 $20B (+63%); Cloud backlog $460B; $190B 2026 capex</span>
+    <span class="rd-sep">|</span><span class="rd-price">$367.52 → 目标 $430</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 90.0)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:93.0%;background:#60a5fa"></div></div><span class="bar-val">93</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:91.0%;background:#60a5fa"></div></div><span class="bar-val">91</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:89.0%;background:#60a5fa"></div></div><span class="bar-val">89</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:94.0%;background:#60a5fa"></div></div><span class="bar-val">94</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:87.0%;background:#60a5fa"></div></div><span class="bar-val">87</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:91.0%;background:#60a5fa"></div></div><span class="bar-val">91</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 89.3)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:94.0%;background:#4ade80"></div></div><span class="bar-val">94</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#4ade80"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:91.0%;background:#4ade80"></div></div><span class="bar-val">91</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:83.0%;background:#4ade80"></div></div><span class="bar-val">83</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#4ade80"></div></div><span class="bar-val">90</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 67.2)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:40.0%;background:#ffd700"></div></div><span class="bar-val">40</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#ffd700"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#ffd700"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#ffd700"></div></div><span class="bar-val">85</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Alphabet is the best value among hyperscalers — GCP is the fastest-growing major cloud at 63%, total company trades at ~11x forward revenue vs MSFT at ~11.5x despite faster cloud growth.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>DOJ antitrust remedies could erode Search revenue; AI search cannibalization; $190B capex compresses FCF</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>GCP sustaining 50%+ through 2026; Search resilience despite AI overviews; quantum commercialization</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$4400.0B</span>，来源：<a href="https://public.com/stocks/goog/market-cap" target="_blank" style="color:#60a5fa">https://public.com/stocks/goog/market-cap</a>，截止日期 2026-06-04
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $400.0B<br>
+    CAGR: 17%<br>
+    Y5收入 = $400.0B × (1 + 17%)^5 = <b>876.98B</b><br>
+    Y5净利润 = 876.98B × 28% = <b>245.55B</b><br>
+    Y5市值 = 245.55B × 26x = <b>6384.41B</b><br>
+    净债务: $-80.0B<br>
+    Y5权益价值 = 6384.41B - (-80.0B) = <b>6464.41B</b>
+    </code>
+    <br><small style="color:#888"></small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (6464.41B / 4400.0B)^(1/5) - 1 = <b>8.0%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">10.0%</td><td class="num">25%</td><td class="num" style="color:#4ade80">2.50%</td></tr><tr><td>Base Case</td><td class="num">8.0%</td><td class="num">45%</td><td class="num" style="color:#4ade80">3.60%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">3.0%</td><td class="num">20%</td><td class="num" style="color:#4ade80">0.60%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-7.0%</td><td class="num">10%</td><td class="num" style="color:#f87171">-0.70%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#4ade80;font-weight:700">6.00%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 6.0% > 5% → v1 = 2 (中性)</span><br>
+    <b>v1 = 2</b> → 估值得分 = 2 × 20 = <b>40/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.heygotrade.com/en/blog/alphabet-q1-2026-earnings-reaction/" target="_blank">[1]</a>
+      <a href="https://s206.q4cdn.com/479360582/files/doc_financials/2026/q1/2026q1-alphabet-earnings-release.pdf" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="ORCL">
+  <div class="card-header" style="border-left:4px solid #4ade80; background:rgba(74,222,128,0.12)">
+    <div class="card-rank">#4</div>
+    <div class="card-info">
+      <div class="card-ticker">ORCL </div>
+      <div class="card-name">Oracle Corporation</div>
+      <div class="card-type">Enterprise Cloud · Large Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #4ade80">
+      <div class="score-num" style="color:#4ade80">74.0</div>
+      <div class="score-grade" style="color:#4ade80">A</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">Q3 FY2026: $17.2B total (+22%); OCI cloud $4.9B (+84%); RPO $553B (+325%)</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">OCI +84% YoY; RPO $553B (+325%); first 20%+ total revenue growth in 15 years</span>
+    <span class="rd-sep">|</span><span class="rd-price">$223.51 → 目标 $260</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 81.9)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#60a5fa"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#60a5fa"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#60a5fa"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 81.6)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#4ade80"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#4ade80"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#4ade80"></div></div><span class="bar-val">78</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 56.0)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:20.0%;background:#ffd700"></div></div><span class="bar-val">20</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#ffd700"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#ffd700"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#ffd700"></div></div><span class="bar-val">72</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Oracle's $553B RPO backlog (325% YoY) represents dramatic demand-supply gap in enterprise cloud. OCI winning AI infrastructure contracts from Meta, Cohere, sovereign cloud mandates globally.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Net debt $75B leverage; converting backlog to revenue at scale without capex overrun; legacy database decline</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Q4 FY2026 OCI above 80%; multi-cloud database wins; national AI infrastructure contracts</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$660.0B</span>，来源：<a href="https://capital.com/en-int/markets/shares/oracle-share-price/market-cap" target="_blank" style="color:#60a5fa">https://capital.com/en-int/markets/shares/oracle-share-price</a>，截止日期 2026-06-04
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $64.0B<br>
+    CAGR: 20%<br>
+    Y5收入 = $64.0B × (1 + 20%)^5 = <b>159.25B</b><br>
+    Y5净利润 = 159.25B × 25% = <b>39.81B</b><br>
+    Y5市值 = 39.81B × 25x = <b>995.33B</b><br>
+    净债务: $75.0B<br>
+    Y5权益价值 = 995.33B - (75.0B) = <b>920.33B</b>
+    </code>
+    <br><small style="color:#888"></small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (920.33B / 660.0B)^(1/5) - 1 = <b>6.9%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">8.9%</td><td class="num">25%</td><td class="num" style="color:#4ade80">2.22%</td></tr><tr><td>Base Case</td><td class="num">6.9%</td><td class="num">45%</td><td class="num" style="color:#4ade80">3.09%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">1.9%</td><td class="num">20%</td><td class="num" style="color:#4ade80">0.38%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-8.1%</td><td class="num">10%</td><td class="num" style="color:#f87171">-0.81%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#4ade80;font-weight:700">4.88%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 4.9% > 0% → v1 = 1 (持有)</span><br>
+    <b>v1 = 1</b> → 估值得分 = 1 × 20 = <b>20/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://futurumgroup.com/insights/oracle-q3-fy-2026-earnings-driven-by-oci-ai-infrastructure-demand/" target="_blank">[1]</a>
+      <a href="https://investor.oracle.com/investor-news/news-details/2026/Oracle-Announces-Fiscal-Year-2026-Third-Quarter-Financial-Results/" target="_blank">[2]</a>
+    </div>
+    
+  </div>
+</div>
+<div class="company-card" id="CRWV">
+  <div class="card-header" style="border-left:4px solid #fb923c; background:rgba(251,146,60,0.12)">
+    <div class="card-rank">#5</div>
+    <div class="card-info">
+      <div class="card-ticker">CRWV <span class="veto-badge">⚠ VETO</span></div>
+      <div class="card-name">CoreWeave Inc.</div>
+      <div class="card-type">AI Cloud Infrastructure · Mid Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #fb923c">
+      <div class="score-num" style="color:#fb923c">51.2</div>
+      <div class="score-grade" style="color:#fb923c">C</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">FY2025: $5.13B (+168%); Q1 2026: $2.08B; FY2026 guide $12-13B; backlog $99.4B</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">FY2026 guide $12-13B; backlog $99.4B; Q1 2026 $2.08B (+112%)</span>
+    <span class="rd-sep">|</span><span class="rd-price">$109.38 → 目标 $140.18</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 78.8)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:90.0%;background:#60a5fa"></div></div><span class="bar-val">90</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#60a5fa"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#60a5fa"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#60a5fa"></div></div><span class="bar-val">78</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 72.8)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#4ade80"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#4ade80"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#4ade80"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#4ade80"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#4ade80"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#4ade80"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#4ade80"></div></div><span class="bar-val">65</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 26.9)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:40.0%;background:#ffd700"></div></div><span class="bar-val">40</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:45.0%;background:#ffd700"></div></div><span class="bar-val">45</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:38.0%;background:#ffd700"></div></div><span class="bar-val">38</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>CoreWeave is de-facto GPU cloud for AI frontier labs with $99.4B contracted backlog. Meta $21B commitment validates model. But debt-financed GPU fleets and near-zero margins unproven.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>$8B+ net debt refinancing risk; Microsoft ~40% revenue; GPU depreciation cycle; IPO <3 years with losses</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Q2 2026 sequential margin improvement; new GPU cluster deals beyond Meta/Microsoft; positive EBITDA</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$60.5B</span>，来源：<a href="https://stockanalysis.com/stocks/crwv/" target="_blank" style="color:#60a5fa">https://stockanalysis.com/stocks/crwv/</a>，截止日期 2026-06-04
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $5.1B<br>
+    CAGR: 55%<br>
+    Y5收入 = $5.1B × (1 + 55%)^5 = <b>45.90B</b><br>
+    Y5净利润 = 45.90B × 5% = <b>2.29B</b><br>
+    Y5市值 = 2.29B × 15x = <b>34.42B</b><br>
+    净债务: $8.0B<br>
+    Y5权益价值 = 34.42B - (8.0B) = <b>26.42B</b>
+    </code>
+    <br><small style="color:#888"></small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (26.42B / 60.5B)^(1/5) - 1 = <b>-15.3%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-13.3%</td><td class="num">25%</td><td class="num" style="color:#f87171">-3.32%</td></tr><tr><td>Base Case</td><td class="num">-15.3%</td><td class="num">45%</td><td class="num" style="color:#f87171">-6.87%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-20.3%</td><td class="num">20%</td><td class="num" style="color:#f87171">-4.05%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-30.3%</td><td class="num">10%</td><td class="num" style="color:#f87171">-3.03%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-17.27%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -17.3% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://247wallst.com/investing/2026/06/02/buy-hold-or-sell-is-coreweave-a-multibagger-in-the-making" target="_blank">[1]</a>
+      <a href="https://stockanalysis.com/stocks/crwv/" target="_blank">[2]</a>
+    </div>
+    <div class="veto-reason">⚠ VETO原因: IPO March 2025 (<3 years); deeply loss-making despite $5B+ revenue; debt-funded GPU lease model creates significant financial risk.</div>
+  </div>
+</div>
+<div class="company-card" id="NBIS">
+  <div class="card-header" style="border-left:4px solid #f87171; background:rgba(248,113,113,0.12)">
+    <div class="card-rank">#6</div>
+    <div class="card-info">
+      <div class="card-ticker">NBIS <span class="veto-badge">⚠ VETO</span></div>
+      <div class="card-name">Nebius Group N.V.</div>
+      <div class="card-type">AI Cloud Infrastructure · Mid Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #f87171">
+      <div class="score-num" style="color:#f87171">41.3</div>
+      <div class="score-grade" style="color:#f87171">D</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">Q1 2026: $399M (+684%); AI cloud $389.7M (+841%); FY2026 guide $3.2B</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">Q1 2026 AI cloud +841%; $46B contracts with Meta and Microsoft; NVIDIA strategic alliance</span>
+    <span class="rd-sep">|</span><span class="rd-price">$249 → 目标 $300</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 74.7)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:85.0%;background:#60a5fa"></div></div><span class="bar-val">85</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#60a5fa"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#60a5fa"></div></div><span class="bar-val">80</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#60a5fa"></div></div><span class="bar-val">88</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#60a5fa"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#60a5fa"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 67.6)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#4ade80"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#4ade80"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:82.0%;background:#4ade80"></div></div><span class="bar-val">82</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#4ade80"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:50.0%;background:#4ade80"></div></div><span class="bar-val">50</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#4ade80"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#4ade80"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#4ade80"></div></div><span class="bar-val">60</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 21.1)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:30.0%;background:#ffd700"></div></div><span class="bar-val">30</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:35.0%;background:#ffd700"></div></div><span class="bar-val">35</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:32.0%;background:#ffd700"></div></div><span class="bar-val">32</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Nebius is fastest-growing AI cloud globally at 841% YoY, backed by NVIDIA equity investment and $46B signed contracts. European AI infrastructure gap creates structural need.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>P/S ~19.6x extreme for loss-making; Yandex heritage geopolitical complexity; $46B backlog execution requires enormous capital</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Path to profitability H2 2026; additional hyperscaler wins; NVIDIA GPU priority allocation</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$62.7B</span>，来源：<a href="https://public.com/stocks/nbis/market-cap" target="_blank" style="color:#60a5fa">https://public.com/stocks/nbis/market-cap</a>，截止日期 2026-06-04
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $1.4B<br>
+    CAGR: 70%<br>
+    Y5收入 = $1.4B × (1 + 70%)^5 = <b>19.88B</b><br>
+    Y5净利润 = 19.88B × 2% = <b>0.40B</b><br>
+    Y5市值 = 0.40B × 12x = <b>4.77B</b><br>
+    净债务: $1.5B<br>
+    Y5权益价值 = 4.77B - (1.5B) = <b>3.27B</b>
+    </code>
+    <br><small style="color:#888"></small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (3.27B / 62.7B)^(1/5) - 1 = <b>-44.6%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-42.6%</td><td class="num">25%</td><td class="num" style="color:#f87171">-10.65%</td></tr><tr><td>Base Case</td><td class="num">-44.6%</td><td class="num">45%</td><td class="num" style="color:#f87171">-20.07%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-49.6%</td><td class="num">20%</td><td class="num" style="color:#f87171">-9.92%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-59.6%</td><td class="num">10%</td><td class="num" style="color:#f87171">-5.96%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-46.60%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -46.6% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.fool.com/investing/2026/06/02/nebius-is-targeting-540-data-center-revenue-growth/" target="_blank">[1]</a>
+      <a href="https://seekingalpha.com/article/4897944-nebius-group-ai-bottleneck-play" target="_blank">[2]</a>
+    </div>
+    <div class="veto-reason">⚠ VETO原因: Persistent losses; P/S ~19.6x at $62.7B vs $3.2B 2026 guide; European-listed with limited history post-Yandex restructuring.</div>
+  </div>
+</div>
+<div class="company-card" id="CORZ">
+  <div class="card-header" style="border-left:4px solid #f87171; background:rgba(248,113,113,0.12)">
+    <div class="card-rank">#7</div>
+    <div class="card-info">
+      <div class="card-ticker">CORZ <span class="veto-badge">⚠ VETO</span></div>
+      <div class="card-name">Core Scientific Inc.</div>
+      <div class="card-type">BTC Mining / AI Pivot · Small-Mid Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #f87171">
+      <div class="score-num" style="color:#f87171">37.3</div>
+      <div class="score-grade" style="color:#f87171">D</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">Q1 2026: $115.2M (+45%); colocation +800% to $77.5M; CoreWeave 590MW contract $10B+</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">CoreWeave 590MW colocation >$10B total; Q1 colocation +800% YoY; Pecos TX 1.5GW; Q1 net loss $347M</span>
+    <span class="rd-sep">|</span><span class="rd-price">$28.55 → 目标 $38</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 68.1)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#60a5fa"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:74.0%;background:#60a5fa"></div></div><span class="bar-val">74</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#60a5fa"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#60a5fa"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:58.0%;background:#60a5fa"></div></div><span class="bar-val">58</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#60a5fa"></div></div><span class="bar-val">65</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 60.5)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#4ade80"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#4ade80"></div></div><span class="bar-val">62</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:58.0%;background:#4ade80"></div></div><span class="bar-val">58</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:48.0%;background:#4ade80"></div></div><span class="bar-val">48</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:52.0%;background:#4ade80"></div></div><span class="bar-val">52</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#4ade80"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#4ade80"></div></div><span class="bar-val">55</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 31.2)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:48.0%;background:#ffd700"></div></div><span class="bar-val">48</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:50.0%;background:#ffd700"></div></div><span class="bar-val">50</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:45.0%;background:#ffd700"></div></div><span class="bar-val">45</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Core Scientific has largest single-tenant AI colocation contract in ex-miner space — 590MW for CoreWeave at 12-year terms. Pecos expansion to 1.5GW credible path.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>CoreWeave single-tenant risk; heavy construction capital; $347M Q1 loss; CoreWeave itself has solvency risk</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Pecos campus milestones; revenue crossing $500M annualized; REIT conversion; additional AI tenants</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$9.1B</span>，来源：<a href="https://simplywall.st/stocks/us/software/nasdaq-corz/core-scientific/" target="_blank" style="color:#60a5fa">https://simplywall.st/stocks/us/software/nasdaq-corz/core-sc</a>，截止日期 2026-06-01
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $0.3B<br>
+    CAGR: 45%<br>
+    Y5收入 = $0.3B × (1 + 45%)^5 = <b>2.24B</b><br>
+    Y5净利润 = 2.24B × -5% = <b>-0.11B</b><br>
+    Y5市值 = -0.11B × 12x = <b>-1.35B</b><br>
+    净债务: $2.0B<br>
+    Y5权益价值 = -1.35B - (2.0B) = <b>-3.35B</b>
+    </code>
+    <br><small style="color:#888"></small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (-3.35B / 9.1B)^(1/5) - 1 = <b>-50.0%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-48.0%</td><td class="num">25%</td><td class="num" style="color:#f87171">-12.00%</td></tr><tr><td>Base Case</td><td class="num">-50.0%</td><td class="num">45%</td><td class="num" style="color:#f87171">-22.50%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-55.0%</td><td class="num">20%</td><td class="num" style="color:#f87171">-11.00%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-65.0%</td><td class="num">10%</td><td class="num" style="color:#f87171">-6.50%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-52.00%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -52.0% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://stocktitan.net/sec-filings/CORZ/" target="_blank">[1]</a>
+      <a href="https://simplywall.st/stocks/us/software/nasdaq-corz/core-scientific/" target="_blank">[2]</a>
+    </div>
+    <div class="veto-reason">⚠ VETO原因: $347M Q1 2026 net loss; BTC mining still primary historical revenue; rapid AI pivot creates execution and capital risk.</div>
+  </div>
+</div>
+<div class="company-card" id="APLD">
+  <div class="card-header" style="border-left:4px solid #f87171; background:rgba(248,113,113,0.12)">
+    <div class="card-rank">#8</div>
+    <div class="card-info">
+      <div class="card-ticker">APLD <span class="veto-badge">⚠ VETO</span></div>
+      <div class="card-name">Applied Digital Corporation</div>
+      <div class="card-type">AI Datacenter · Small-Mid Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #f87171">
+      <div class="score-num" style="color:#f87171">36.3</div>
+      <div class="score-grade" style="color:#f87171">D</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">FY2026 est ~$300M+; $7.5B Polaris Forge 3 lease; Strong Buy consensus $64.59 target</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">$7.5B Polaris Forge 3 lease; Strong Buy consensus +44% upside ($64.59 target)</span>
+    <span class="rd-sep">|</span><span class="rd-price">$42.6 → 目标 $64.59</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 67.5)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#60a5fa"></div></div><span class="bar-val">62</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#60a5fa"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#60a5fa"></div></div><span class="bar-val">78</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:52.0%;background:#60a5fa"></div></div><span class="bar-val">52</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:58.0%;background:#60a5fa"></div></div><span class="bar-val">58</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#60a5fa"></div></div><span class="bar-val">65</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 58.9)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#4ade80"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#4ade80"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#4ade80"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#4ade80"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:45.0%;background:#4ade80"></div></div><span class="bar-val">45</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:50.0%;background:#4ade80"></div></div><span class="bar-val">50</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:58.0%;background:#4ade80"></div></div><span class="bar-val">58</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:52.0%;background:#4ade80"></div></div><span class="bar-val">52</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 29.6)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:45.0%;background:#ffd700"></div></div><span class="bar-val">45</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:48.0%;background:#ffd700"></div></div><span class="bar-val">48</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:42.0%;background:#ffd700"></div></div><span class="bar-val">42</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Applied Digital is a pure-play AI datacenter operator differentiated from BTC miners. $7.5B lease validates demand. Analyst consensus Strong Buy with 44% upside.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Unprofitable; high leverage and equity dilution; customer concentration; campus development timeline</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>$7.5B lease commencement; additional large AI enterprise leases; EBITDA break-even H2 2026/2027</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$13.0B</span>，来源：<a href="https://www.macrotrends.net/stocks/charts/APLD/applied-digital/market-cap" target="_blank" style="color:#60a5fa">https://www.macrotrends.net/stocks/charts/APLD/applied-digit</a>，截止日期 2026-06-04
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $0.3B<br>
+    CAGR: 45%<br>
+    Y5收入 = $0.3B × (1 + 45%)^5 = <b>1.92B</b><br>
+    Y5净利润 = 1.92B × 2% = <b>0.04B</b><br>
+    Y5市值 = 0.04B × 11x = <b>0.42B</b><br>
+    净债务: $2.0B<br>
+    Y5权益价值 = 0.42B - (2.0B) = <b>-1.58B</b>
+    </code>
+    <br><small style="color:#888"></small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (-1.58B / 13.0B)^(1/5) - 1 = <b>-50.0%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-48.0%</td><td class="num">25%</td><td class="num" style="color:#f87171">-12.00%</td></tr><tr><td>Base Case</td><td class="num">-50.0%</td><td class="num">45%</td><td class="num" style="color:#f87171">-22.50%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-55.0%</td><td class="num">20%</td><td class="num" style="color:#f87171">-11.00%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-65.0%</td><td class="num">10%</td><td class="num" style="color:#f87171">-6.50%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-52.00%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -52.0% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://stockanalysis.com/stocks/apld/" target="_blank">[1]</a>
+      <a href="https://www.macrotrends.net/stocks/charts/APLD/applied-digital/market-cap" target="_blank">[2]</a>
+    </div>
+    <div class="veto-reason">⚠ VETO原因: Unprofitable; aggressive expansion financed by debt and equity dilution; BTC mining historical roots; AI datacenter still pre-scale profitability.</div>
+  </div>
+</div>
+<div class="company-card" id="IREN">
+  <div class="card-header" style="border-left:4px solid #f87171; background:rgba(248,113,113,0.12)">
+    <div class="card-rank">#9</div>
+    <div class="card-info">
+      <div class="card-ticker">IREN <span class="veto-badge">⚠ VETO</span></div>
+      <div class="card-name">IREN Limited</div>
+      <div class="card-type">BTC Mining / AI Pivot · Small-Mid Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #f87171">
+      <div class="score-num" style="color:#f87171">35.8</div>
+      <div class="score-grade" style="color:#f87171">D</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">TTM ~$750M; Q3 2026 $144.8M; AI ~9%; $9.7B Microsoft contract</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">Microsoft $9.7B 5-year AI contract; AI cloud 9% of Q4; $3.7B convertible notes</span>
+    <span class="rd-sep">|</span><span class="rd-price">$61.35 → 目标 $75</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 66.5)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#60a5fa"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#60a5fa"></div></div><span class="bar-val">62</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#60a5fa"></div></div><span class="bar-val">75</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#60a5fa"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:58.0%;background:#60a5fa"></div></div><span class="bar-val">58</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#60a5fa"></div></div><span class="bar-val">65</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 58.0)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#4ade80"></div></div><span class="bar-val">62</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#4ade80"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#4ade80"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#4ade80"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:45.0%;background:#4ade80"></div></div><span class="bar-val">45</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:50.0%;background:#4ade80"></div></div><span class="bar-val">50</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:58.0%;background:#4ade80"></div></div><span class="bar-val">58</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:52.0%;background:#4ade80"></div></div><span class="bar-val">52</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 29.6)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:45.0%;background:#ffd700"></div></div><span class="bar-val">45</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:48.0%;background:#ffd700"></div></div><span class="bar-val">48</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:42.0%;background:#ffd700"></div></div><span class="bar-val">42</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>IREN holds the most credible hyperscaler AI contract among BTC miner pivots — $9.7B Microsoft deal. But AI still 9% of revenue, BTC mining dominates.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>BTC price decline impacts 90%+ revenue; $3.7B convertibles; AI ramp timeline vs datacenter construction</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>AI crossing 30% threshold Q3/Q4 2026; Microsoft colocation deployments at scale; BTC halving tailwinds</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$23.4B</span>，来源：<a href="https://public.com/stocks/iren/market-cap" target="_blank" style="color:#60a5fa">https://public.com/stocks/iren/market-cap</a>，截止日期 2026-06-04
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $0.8B<br>
+    CAGR: 35%<br>
+    Y5收入 = $0.8B × (1 + 35%)^5 = <b>3.36B</b><br>
+    Y5净利润 = 3.36B × 8% = <b>0.27B</b><br>
+    Y5市值 = 0.27B × 10x = <b>2.69B</b><br>
+    净债务: $3.5B<br>
+    Y5权益价值 = 2.69B - (3.5B) = <b>-0.81B</b>
+    </code>
+    <br><small style="color:#888"></small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (-0.81B / 23.4B)^(1/5) - 1 = <b>-50.0%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-48.0%</td><td class="num">25%</td><td class="num" style="color:#f87171">-12.00%</td></tr><tr><td>Base Case</td><td class="num">-50.0%</td><td class="num">45%</td><td class="num" style="color:#f87171">-22.50%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-55.0%</td><td class="num">20%</td><td class="num" style="color:#f87171">-11.00%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-65.0%</td><td class="num">10%</td><td class="num" style="color:#f87171">-6.50%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-52.00%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -52.0% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.nasdaq.com/articles/cifr-or-iren-which-bitcoin-miner-leads-ai-infrastructure-now" target="_blank">[1]</a>
+      <a href="https://iren.com/investors/stock" target="_blank">[2]</a>
+    </div>
+    <div class="veto-reason">⚠ VETO原因: Primary revenue still Bitcoin mining; AI cloud only ~9% of Q4 2025 revenue (<30% threshold); heavy debt from $3.7B convertible notes.</div>
+  </div>
+</div>
+<div class="company-card" id="CIFR">
+  <div class="card-header" style="border-left:4px solid #f87171; background:rgba(248,113,113,0.12)">
+    <div class="card-rank">#10</div>
+    <div class="card-info">
+      <div class="card-ticker">CIFR <span class="veto-badge">⚠ VETO</span></div>
+      <div class="card-name">Cipher Digital Inc.</div>
+      <div class="card-type">BTC Mining / AI Pivot · Small-Mid Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #f87171">
+      <div class="score-num" style="color:#f87171">34.3</div>
+      <div class="score-grade" style="color:#f87171">D</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">FY2025: $223.9M (+48%); AI/HPC growing; Fluidstack (Google-backed) multi-billion agreement</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">Rebranded Cipher Digital Feb 2026; Amazon and Google AI colocation; $1.7B senior secured notes</span>
+    <span class="rd-sep">|</span><span class="rd-price">$24.01 → 目标 $28</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 64.0)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#60a5fa"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#60a5fa"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#60a5fa"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:52.0%;background:#60a5fa"></div></div><span class="bar-val">52</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#60a5fa"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#60a5fa"></div></div><span class="bar-val">62</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 55.7)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#4ade80"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:58.0%;background:#4ade80"></div></div><span class="bar-val">58</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#4ade80"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:52.0%;background:#4ade80"></div></div><span class="bar-val">52</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:42.0%;background:#4ade80"></div></div><span class="bar-val">42</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:48.0%;background:#4ade80"></div></div><span class="bar-val">48</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#4ade80"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:50.0%;background:#4ade80"></div></div><span class="bar-val">50</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 27.8)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:42.0%;background:#ffd700"></div></div><span class="bar-val">42</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:45.0%;background:#ffd700"></div></div><span class="bar-val">45</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:40.0%;background:#ffd700"></div></div><span class="bar-val">40</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Cipher Digital's rebranding reflects genuine pivot — Amazon and Google as tenants validates AI infrastructure quality. Texas power infrastructure is strategic asset.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>High leverage ($1.7B notes); BTC still dominant revenue; market cap ~44x 2025 revenue stretched</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>AI colocation crossing 30%+ of total Q2/Q3 2026; additional hyperscaler contracts; debt refinancing</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$9.8B</span>，来源：<a href="https://public.com/stocks/cifr/market-cap" target="_blank" style="color:#60a5fa">https://public.com/stocks/cifr/market-cap</a>，截止日期 2026-06-01
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $0.2B<br>
+    CAGR: 40%<br>
+    Y5收入 = $0.2B × (1 + 40%)^5 = <b>1.18B</b><br>
+    Y5净利润 = 1.18B × 6% = <b>0.07B</b><br>
+    Y5市值 = 0.07B × 10x = <b>0.71B</b><br>
+    净债务: $1.5B<br>
+    Y5权益价值 = 0.71B - (1.5B) = <b>-0.79B</b>
+    </code>
+    <br><small style="color:#888"></small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (-0.79B / 9.8B)^(1/5) - 1 = <b>-50.0%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-48.0%</td><td class="num">25%</td><td class="num" style="color:#f87171">-12.00%</td></tr><tr><td>Base Case</td><td class="num">-50.0%</td><td class="num">45%</td><td class="num" style="color:#f87171">-22.50%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-55.0%</td><td class="num">20%</td><td class="num" style="color:#f87171">-11.00%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-65.0%</td><td class="num">10%</td><td class="num" style="color:#f87171">-6.50%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-52.00%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -52.0% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://www.nasdaq.com/articles/cifr-or-iren-which-bitcoin-miner-leads-ai-infrastructure-now" target="_blank">[1]</a>
+      <a href="https://public.com/stocks/cifr/market-cap" target="_blank">[2]</a>
+    </div>
+    <div class="veto-reason">⚠ VETO原因: Primary revenue Bitcoin mining; AI/HPC colocation growing but still minority; $1.7B senior secured notes create solvency risk.</div>
+  </div>
+</div>
+<div class="company-card" id="WULF">
+  <div class="card-header" style="border-left:4px solid #f87171; background:rgba(248,113,113,0.12)">
+    <div class="card-rank">#11</div>
+    <div class="card-info">
+      <div class="card-ticker">WULF <span class="veto-badge">⚠ VETO</span></div>
+      <div class="card-name">TeraWulf Inc.</div>
+      <div class="card-type">BTC Mining / AI Pivot · Small Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #f87171">
+      <div class="score-num" style="color:#f87171">33.2</div>
+      <div class="score-grade" style="color:#f87171">D</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">FY2025: $168.5M (+20%); Q1 2026 HPC leasing $21M; AI 27% Q4; $12.8B contracted HPC</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">$12.8B contracted HPC; nuclear-powered campus (ESG moat); 27% AI Q4 2025; $5.7B debt</span>
+    <span class="rd-sep">|</span><span class="rd-price">$25.29 → 目标 $30</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 63.5)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#60a5fa"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#60a5fa"></div></div><span class="bar-val">60</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#60a5fa"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#60a5fa"></div></div><span class="bar-val">72</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:50.0%;background:#60a5fa"></div></div><span class="bar-val">50</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#60a5fa"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#60a5fa"></div></div><span class="bar-val">60</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 53.8)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:58.0%;background:#4ade80"></div></div><span class="bar-val">58</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#4ade80"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#4ade80"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:50.0%;background:#4ade80"></div></div><span class="bar-val">50</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:40.0%;background:#4ade80"></div></div><span class="bar-val">40</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:45.0%;background:#4ade80"></div></div><span class="bar-val">45</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:52.0%;background:#4ade80"></div></div><span class="bar-val">52</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:48.0%;background:#4ade80"></div></div><span class="bar-val">48</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 26.2)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:40.0%;background:#ffd700"></div></div><span class="bar-val">40</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:42.0%;background:#ffd700"></div></div><span class="bar-val">42</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:38.0%;background:#ffd700"></div></div><span class="bar-val">38</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>TeraWulf's nuclear-powered Lake Mariner campus offers carbon-free power for ESG-mandated hyperscalers. $12.8B HPC backlog dwarfs revenues, but $5.7B debt means execution must be near-perfect.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>Leverage 34x revenue is most extreme in sector; BTC 73% of revenue binary downside; HPC construction timing</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>AI revenue crossing 30% threshold; nuclear power driving premium HPC contracts; debt restructuring</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$10.0B</span>，来源：<a href="https://stockanalysis.com/stocks/wulf/" target="_blank" style="color:#60a5fa">https://stockanalysis.com/stocks/wulf/</a>，截止日期 2026-06-05
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $0.2B<br>
+    CAGR: 40%<br>
+    Y5收入 = $0.2B × (1 + 40%)^5 = <b>0.91B</b><br>
+    Y5净利润 = 0.91B × 5% = <b>0.05B</b><br>
+    Y5市值 = 0.05B × 10x = <b>0.46B</b><br>
+    净债务: $5.5B<br>
+    Y5权益价值 = 0.46B - (5.5B) = <b>-5.04B</b>
+    </code>
+    <br><small style="color:#888"></small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (-5.04B / 10.0B)^(1/5) - 1 = <b>-50.0%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-48.0%</td><td class="num">25%</td><td class="num" style="color:#f87171">-12.00%</td></tr><tr><td>Base Case</td><td class="num">-50.0%</td><td class="num">45%</td><td class="num" style="color:#f87171">-22.50%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-55.0%</td><td class="num">20%</td><td class="num" style="color:#f87171">-11.00%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-65.0%</td><td class="num">10%</td><td class="num" style="color:#f87171">-6.50%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-52.00%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -52.0% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://intellectia.ai/blog/bitcoin-miners-ai-pivot-2026" target="_blank">[1]</a>
+      <a href="https://stockanalysis.com/stocks/wulf/" target="_blank">[2]</a>
+    </div>
+    <div class="veto-reason">⚠ VETO原因: AI revenue only 27% of Q4 2025 (<30% threshold); $5.7B total debt extreme relative to $168M annual revenue; BTC mining primary.</div>
+  </div>
+</div>
+<div class="company-card" id="BTDR">
+  <div class="card-header" style="border-left:4px solid #f87171; background:rgba(248,113,113,0.12)">
+    <div class="card-rank">#12</div>
+    <div class="card-info">
+      <div class="card-ticker">BTDR <span class="veto-badge">⚠ VETO</span></div>
+      <div class="card-name">Bitdeer Technologies</div>
+      <div class="card-type">BTC Mining / AI Pivot · Small Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #f87171">
+      <div class="score-num" style="color:#f87171">33.0</div>
+      <div class="score-grade" style="color:#f87171">D</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">Q1 2026: $188.9M (+169%); AI cloud ARR ~$69M (+60% MoM Apr 2026); 180MW Tydal datacenter Dec 2026</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">AI cloud ARR $69M (+60% MoM); SEALMINER ASIC chip; 180MW Tydal (Nvidia Vera Rubin) Dec 2026</span>
+    <span class="rd-sep">|</span><span class="rd-price">$19.71 → 目标 $21.52</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 61.5)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#60a5fa"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:58.0%;background:#60a5fa"></div></div><span class="bar-val">58</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#60a5fa"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:70.0%;background:#60a5fa"></div></div><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:48.0%;background:#60a5fa"></div></div><span class="bar-val">48</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:52.0%;background:#60a5fa"></div></div><span class="bar-val">52</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#60a5fa"></div></div><span class="bar-val">60</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 53.2)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:58.0%;background:#4ade80"></div></div><span class="bar-val">58</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#4ade80"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#4ade80"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:50.0%;background:#4ade80"></div></div><span class="bar-val">50</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:40.0%;background:#4ade80"></div></div><span class="bar-val">40</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:45.0%;background:#4ade80"></div></div><span class="bar-val">45</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:52.0%;background:#4ade80"></div></div><span class="bar-val">52</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:48.0%;background:#4ade80"></div></div><span class="bar-val">48</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 27.5)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:42.0%;background:#ffd700"></div></div><span class="bar-val">42</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:44.0%;background:#ffd700"></div></div><span class="bar-val">44</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:40.0%;background:#ffd700"></div></div><span class="bar-val">40</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>Bitdeer is unique among BTC miners with vertically integrated SEALMINER ASIC chip design and dedicated NVIDIA Vera Rubin AI facility (Tydal) coming Dec 2026. Fastest AI ARR growth at 60% MoM.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>AI cloud only ~$69M ARR (<10% revenue); Cayman/Singapore governance risk; ASIC commoditization</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Tydal completion with Vera Rubin deployment; AI ARR crossing $250M+; SEALMINER external sales</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$4.8B</span>，来源：<a href="https://www.investing.com/equities/blue-safari-group-acquisition-corp" target="_blank" style="color:#60a5fa">https://www.investing.com/equities/blue-safari-group-acquisi</a>，截止日期 2026-06-04
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $0.5B<br>
+    CAGR: 38%<br>
+    Y5收入 = $0.5B × (1 + 38%)^5 = <b>2.50B</b><br>
+    Y5净利润 = 2.50B × 4% = <b>0.10B</b><br>
+    Y5市值 = 0.10B × 9x = <b>0.90B</b><br>
+    净债务: $0.8B<br>
+    Y5权益价值 = 0.90B - (0.8B) = <b>0.10B</b>
+    </code>
+    <br><small style="color:#888"></small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (0.10B / 4.8B)^(1/5) - 1 = <b>-53.8%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-51.8%</td><td class="num">25%</td><td class="num" style="color:#f87171">-12.95%</td></tr><tr><td>Base Case</td><td class="num">-53.8%</td><td class="num">45%</td><td class="num" style="color:#f87171">-24.22%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-58.8%</td><td class="num">20%</td><td class="num" style="color:#f87171">-11.76%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-68.8%</td><td class="num">10%</td><td class="num" style="color:#f87171">-6.88%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-55.81%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -55.8% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://coinshares.com/insights/research-data/bitcoin-mining-report-q1-2026/" target="_blank">[1]</a>
+      <a href="https://public.com/stocks/cifr/market-cap" target="_blank">[2]</a>
+    </div>
+    <div class="veto-reason">⚠ VETO原因: AI cloud only ~$69M ARR vs $755M annualized revenue (<10%); losses persist; Cayman Islands/Singapore structure adds governance risk.</div>
+  </div>
+</div>
+<div class="company-card" id="HIVE">
+  <div class="card-header" style="border-left:4px solid #f87171; background:rgba(248,113,113,0.12)">
+    <div class="card-rank">#13</div>
+    <div class="card-info">
+      <div class="card-ticker">HIVE <span class="veto-badge">⚠ VETO</span></div>
+      <div class="card-name">HIVE Digital Technologies</div>
+      <div class="card-type">BTC Mining / AI Pivot · Small Cap</div>
+    </div>
+    <div class="card-score-box" style="border:2px solid #f87171">
+      <div class="score-num" style="color:#f87171">31.1</div>
+      <div class="score-grade" style="color:#f87171">D</div>
+    </div>
+  </div>
+
+  <div class="realdata-banner">
+    <span class="rd-label">最新财务数据</span>
+    <span class="rd-val">FY2026: $297.8M (+158%); 320MW Toronto AI gigafactory ($3.5B, go-live H2 2027)</span>
+    <span class="rd-sep">|</span>
+    <span class="rd-label">关键指标</span>
+    <span class="rd-val">FY2026 +158% YoY to $298M; 320MW Toronto gigafactory ($3.5B); BUZZ HPC subsidiary; 7 Strong Buy analysts</span>
+    <span class="rd-sep">|</span><span class="rd-price">$4.3 → 目标 $5.8</span>
+  </div>
+
+  <div class="card-body">
+    <div class="dims-grid">
+      <div class="dim-col">
+        <div class="dim-title">行业指标 I1-I7 (均值: 58.9)</div>
+        <div class="bar-row"><span class="bar-label">I1</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#60a5fa"></div></div><span class="bar-val">62</span></div><div class="bar-row"><span class="bar-label">I2</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#60a5fa"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">I3</span><div class="bar-track"><div class="bar-fill" style="width:65.0%;background:#60a5fa"></div></div><span class="bar-val">65</span></div><div class="bar-row"><span class="bar-label">I4</span><div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#60a5fa"></div></div><span class="bar-val">68</span></div><div class="bar-row"><span class="bar-label">I5</span><div class="bar-track"><div class="bar-fill" style="width:45.0%;background:#60a5fa"></div></div><span class="bar-val">45</span></div><div class="bar-row"><span class="bar-label">I6</span><div class="bar-track"><div class="bar-fill" style="width:50.0%;background:#60a5fa"></div></div><span class="bar-val">50</span></div><div class="bar-row"><span class="bar-label">I7</span><div class="bar-track"><div class="bar-fill" style="width:58.0%;background:#60a5fa"></div></div><span class="bar-val">58</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">质量指标 Q1-Q8 (均值: 50.5)</div>
+        <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:55.0%;background:#4ade80"></div></div><span class="bar-val">55</span></div><div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:52.0%;background:#4ade80"></div></div><span class="bar-val">52</span></div><div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:62.0%;background:#4ade80"></div></div><span class="bar-val">62</span></div><div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:48.0%;background:#4ade80"></div></div><span class="bar-val">48</span></div><div class="bar-row"><span class="bar-label">Q5</span><div class="bar-track"><div class="bar-fill" style="width:38.0%;background:#4ade80"></div></div><span class="bar-val">38</span></div><div class="bar-row"><span class="bar-label">Q6</span><div class="bar-track"><div class="bar-fill" style="width:42.0%;background:#4ade80"></div></div><span class="bar-val">42</span></div><div class="bar-row"><span class="bar-label">Q7</span><div class="bar-track"><div class="bar-fill" style="width:50.0%;background:#4ade80"></div></div><span class="bar-val">50</span></div><div class="bar-row"><span class="bar-label">Q8</span><div class="bar-track"><div class="bar-fill" style="width:45.0%;background:#4ade80"></div></div><span class="bar-val">45</span></div>
+      </div>
+      <div class="dim-col">
+        <div class="dim-title">估值指标 V1-V4 (均值: 24.8)</div>
+        <div class="bar-row"><span class="bar-label">V1 DCF</span><div class="bar-track"><div class="bar-fill" style="width:0.0%;background:#ffd700"></div></div><span class="bar-val">0</span></div><div class="bar-row"><span class="bar-label">V2 催化剂</span><div class="bar-track"><div class="bar-fill" style="width:38.0%;background:#ffd700"></div></div><span class="bar-val">38</span></div><div class="bar-row"><span class="bar-label">V3 技术/壁垒</span><div class="bar-track"><div class="bar-fill" style="width:40.0%;background:#ffd700"></div></div><span class="bar-val">40</span></div><div class="bar-row"><span class="bar-label">V4 时机</span><div class="bar-track"><div class="bar-fill" style="width:35.0%;background:#ffd700"></div></div><span class="bar-val">35</span></div>
+      </div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-box">
+        <div class="thesis-title">投资逻辑</div>
+        <p>HIVE's FY2026 158% growth is real, and Toronto gigafactory positions for Canadian AI infrastructure gap. Green energy Paraguay and Canada is ESG advantage. But gigafactory 18+ months from completion.</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">主要风险</div>
+        <p>$3.5B gigafactory for $1.17B market cap — financing risk severe; BTC dominant revenue; Canada power permitting delays</p>
+      </div>
+      <div class="thesis-box">
+        <div class="thesis-title">近期催化剂</div>
+        <p>Gigafactory financing announcement; first AI/HPC tenant signed; BTC above $80K sustaining mining cash flows</p>
+      </div>
+    </div>
+
+    
+<div class="dcf-box">
+  <div class="dcf-title">DCF CHECKPOINT · v1由数学推导</div>
+  <div class="dcf-step">
+    <b>STEP A — 市值来源</b><br>
+    市值 <span class="hl">$1.2B</span>，来源：<a href="https://stockanalysis.com/stocks/hive/" target="_blank" style="color:#60a5fa">https://stockanalysis.com/stocks/hive/</a>，截止日期 2026-06-04
+  </div>
+  <div class="dcf-step">
+    <b>STEP C — 第5年估值推导</b><br>
+    <code>
+    当前收入: $0.3B<br>
+    CAGR: 35%<br>
+    Y5收入 = $0.3B × (1 + 35%)^5 = <b>1.34B</b><br>
+    Y5净利润 = 1.34B × 5% = <b>0.07B</b><br>
+    Y5市值 = 0.07B × 8x = <b>0.53B</b><br>
+    净债务: $0.5B<br>
+    Y5权益价值 = 0.53B - (0.5B) = <b>0.03B</b>
+    </code>
+    <br><small style="color:#888"></small>
+  </div>
+  <div class="dcf-step">
+    <b>STEP D — 四情景表</b><br>
+    基准年化回报 = (0.03B / 1.2B)^(1/5) - 1 = <b>-50.6%</b>
+    <table class="scenario-table">
+      <tr><th>情景</th><th>年化回报</th><th>概率</th><th>加权贡献</th></tr>
+      <tr><td>Optimistic (+2%)</td><td class="num">-48.6%</td><td class="num">25%</td><td class="num" style="color:#f87171">-12.14%</td></tr><tr><td>Base Case</td><td class="num">-50.6%</td><td class="num">45%</td><td class="num" style="color:#f87171">-22.76%</td></tr><tr><td>Pessimistic (-5%)</td><td class="num">-55.6%</td><td class="num">20%</td><td class="num" style="color:#f87171">-11.12%</td></tr><tr><td>Disruption (-15%)</td><td class="num">-65.6%</td><td class="num">10%</td><td class="num" style="color:#f87171">-6.56%</td></tr>
+      <tr class="total-row"><td colspan="2"><b>加权年化回报</b></td><td class="num">100%</td><td class="num" style="color:#f87171;font-weight:700">-52.58%</td></tr>
+    </table>
+  </div>
+  <div class="dcf-step">
+    <b>STEP E — v1推导</b><br>
+    <span style="color:#ffd700;font-size:1.1em">加权年化回报 -52.6% ≤ 0% → v1 = 0 (回避)</span><br>
+    <b>v1 = 0</b> → 估值得分 = 0 × 20 = <b>0/100</b>
+  </div>
+</div>
+
+    <div class="evidence-links">
+      来源: <a href="https://stockstotrade.com/news/hive-digital-technologies-ltd-hive-news-2026_06_01-2/" target="_blank">[1]</a>
+      <a href="https://stockanalysis.com/stocks/hive/" target="_blank">[2]</a>
+    </div>
+    <div class="veto-reason">⚠ VETO原因: Primary revenue cryptocurrency mining; AI datacenter (320MW gigafactory) announced but not yet revenue-generating; small cap limited operating history in AI infrastructure.</div>
+  </div>
+</div>
+
+</div>
+<div class="footer">v4.0 · 2026-06-05 · 实时数据+DCF数学推导 | Powered by Claude Code</div>
+</body>
+</html>
