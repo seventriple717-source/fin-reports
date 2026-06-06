@@ -1,0 +1,1562 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI算力芯片 v4.3 · 真DCF + 目标股价 · 2026-06-06</title>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d1117;color:#c9d1d9;font-family:-apple-system,'PingFang SC',sans-serif;font-size:14px;line-height:1.6}
+.hdr{background:linear-gradient(135deg,#0d1117,#1c2128);border-bottom:1px solid #30363d;padding:22px 20px 14px}
+.hdr h1{font-size:21px;font-weight:700;color:#e6edf3}.sub{color:#8b949e;font-size:12px;margin-top:4px}
+.bx{display:inline-block;padding:2px 8px;border-radius:9px;font-size:11px;margin-left:6px;background:#1f6feb22;color:#58a6ff;border:1px solid #1f6feb44}
+.bx-g{background:#2ea04322;color:#3fb950;border-color:#2ea04344}
+.con{max-width:1500px;margin:0 auto;padding:0 16px}
+.card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:14px;margin-bottom:12px}
+.sec{font-size:16px;font-weight:700;color:#e6edf3;margin:18px 0 10px;padding-left:10px;border-left:3px solid #ffd700}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:#21262d;color:#8b949e;padding:8px 10px;text-align:left;border-bottom:2px solid #30363d}
+td{padding:7px 10px;border-bottom:1px solid #21262d;vertical-align:middle}
+tr:hover td{background:#1c2128}
+.num{font-family:'SF Mono',monospace;color:#79c0ff}
+.pos{color:#3fb950}.neg{color:#f85149}.neu{color:#8b949e}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:800px){.g2,.g3,.g4{grid-template-columns:1fr 1fr}}
+.ibox{background:#3fb95011;border:1px solid #3fb95033;padding:8px 12px;border-radius:6px;font-size:12px;color:#56d364;margin:5px 0}
+.gbox{background:#2ea04311;border:1px solid #2ea04333;padding:8px 12px;border-radius:6px;font-size:12px;color:#3fb950;margin:5px 0}
+.warn{background:#f0883e11;border:1px solid #f0883e33;padding:8px 12px;border-radius:6px;font-size:12px;color:#f0883e;margin:5px 0}
+.rbox{background:#f8514911;border:1px solid #f8514933;padding:8px 12px;border-radius:6px;font-size:12px;color:#f85149;margin:5px 0}
+.ftr{text-align:center;padding:20px 0;color:#8b949e;font-size:12px;border-top:1px solid #30363d;margin-top:32px}
+.bw{display:flex;align-items:center;gap:6px}
+.bb{flex:1;background:#21262d;border-radius:4px;overflow:hidden;height:7px}
+.bf{height:7px;border-radius:4px}
+.sp{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:11px;font-weight:700;border:1.5px solid}
+.sec{border-left-color:#ffd700}</style>
+</head><body>
+<div class="hdr"><div class="con">
+<h1>AI算力芯片投资打分报告 v4.3
+<span class="bx">真正DCF</span><span class="bx bx-g">目标股价</span><span class="bx bx-g">高护城河终值6-7%</span><span class="bx bx-g">实时数据</span><span class="bx">2026-06-06</span></h1>
+<div class="sub">新增目标股价：5年DCF公允价（今日内在价值）+ 10年目标价（2036） · TSM/QCOM/UMC 5yr公允价高于现价 · NVDA/AVGO 10年目标$294/$702</div>
+</div></div>
+<div class="con">
+<div class="card" style="border-color:#ffd70044;margin-top:14px">
+<strong style="color:#3fb950">✅ v4.3核心改进（在v4.2真DCF基础上新增目标股价）：</strong>
+<span style="color:#79c0ff">【新增】5年DCF公允价</span>：基于5年DCF折现值推算今日内在价值（IRR=0时的合理股价），正数=低估，负数=高估。
+<span style="color:#79c0ff">【新增】10年目标价（2036年）</span>：若10年DCF假设IRR实现，2036年的股价预测。
+真正DCF（逐年预测FCF+WACC折现+Gordon终值），非乘数法。
+高护城河公司（NVDA/AVGO/TSM/ARM）终值增长6-7%（AI secular，比普通公司高3-4%）。
+</div>
+<div class="sec" style="margin-top:16px">🌐 AI算力行业全景</div>
+<div class="g3">
+<div class="card"><div style="font-weight:600;color:#e6edf3;margin-bottom:8px">🖥️ AI算力行业判断（2026）</div>
+<div class="ibox">Blackwell超级周期·超大规模$725B Capex·推理需求开始超越训练·ASIC定制化加速</div>
+<div class="warn">H20出口禁令（2026-04）：NVDA预计损失$5B+中国年收入；BIS持续升级</div>
+<div class="warn">ASIC分流：推理场景定制ASIC从&lt;10%→27%+（AVGO/MRVL）</div></div>
+<div class="card"><div style="font-weight:600;color:#e6edf3;margin-bottom:8px">💡 v4.2估值方法论</div>
+<div class="ibox">✅ 真正DCF：逐年预测FCF → WACC折现 → Gordon Growth终值</div>
+<div class="ibox">✅ WACC = Rf 4.4%（10yr美债）+ β×5.5%（ERP），反映系统风险</div>
+<div class="ibox">✅ 高护城河公司（NVDA/AVGO/TSM/ARM）：终值增长6-7%（AI secular），10yr权重40%</div>
+<div class="ibox">✅ 5yr+10yr分开展示，"隐含CAGR"反映市价预期vs管理层指引差距</div>
+<div class="ibox">✅ PEG倍数作为v2辅助：&lt;1.5x合理，&gt;2.5x高估</div></div>
+<div class="card"><div style="font-weight:600;color:#e6edf3;margin-bottom:8px">⚠️ 估值诚实说明</div>
+<div class="warn">多数大市值AI公司（NVDA/AVGO/TSM）5yr DCF IRR为负——这是<strong>准确反映</strong>，因2026年AI溢价已充分定价。隐含CAGR显示市价需要多少增速支撑，对比管理层指引判断"贵多少"。</div>
+<div class="ibox">例外：TSM/UMC/QCOM 5yr IRR为正，具备安全边际</div>
+<div class="ibox">高质量公司负IRR含义：不是"不能买"，而是"需要10年视角+等待回调"</div></div>
+</div>
+<div class="sec">📊 综合评分排名（11家公司）</div>
+<div class="card"><table>
+<tr><th>#</th><th>代码</th><th>公司</th><th>当前价</th><th>行业</th><th>质量</th><th>估值</th><th>最终</th><th>级</th><th>5yr IRR</th><th>10yr IRR</th><th>5年公允价</th><th>10年目标价(2036)</th><th>隐含CAGR</th><th>PEG</th></tr>
+<tr>
+<td style="font-weight:600;color:#ffd700">1</td><td style="font-weight:700">NVDA</td>
+<td style="color:#8b949e;font-size:12px">NVIDIA Corporati</td>
+<td class="num">$216.34</td>
+<td class="num">93.2</td><td class="num">96.8</td><td class="num">45.0</td>
+<td class="num" style="color:#ffd700;font-weight:700">80.5</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #ffd700;color:#ffd700;background:#0d1117">S</div></td>
+<td class="num" style="color:#3fb950">+0.2%</td>
+<td class="num" style="color:#3fb950">+3.1%</td>
+<td class="num" style="line-height:1.4">$218.1<br><span style='font-size:10px;color:#3fb950'>+1%</span></td>
+<td class="num" style="line-height:1.4">$294.2<br><span style='font-size:10px;color:#3fb950'>+36%</span></td>
+<td class="num" style="color:#f0883e">24.8%</td>
+<td class="num" style="color:#d29922">0.93x</td></tr><tr>
+<td style="font-weight:600;color:#3fb950">2</td><td style="font-weight:700">AVGO</td>
+<td style="color:#8b949e;font-size:12px">Broadcom Inc.</td>
+<td class="num">$407.06</td>
+<td class="num">92.0</td><td class="num">90.8</td><td class="num">53.0</td>
+<td class="num" style="color:#3fb950;font-weight:700">79.7</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #3fb950;color:#3fb950;background:#0d1117">A</div></td>
+<td class="num" style="color:#f85149">-0.3%</td>
+<td class="num" style="color:#3fb950">+5.6%</td>
+<td class="num" style="line-height:1.4">$400.4<br><span style='font-size:10px;color:#f85149'>-2%</span></td>
+<td class="num" style="line-height:1.4">$704.3<br><span style='font-size:10px;color:#3fb950'>+73%</span></td>
+<td class="num" style="color:#f0883e">35.5%</td>
+<td class="num" style="color:#d29922">0.90x</td></tr><tr>
+<td style="font-weight:600;color:#bc8cff">3</td><td style="font-weight:700">TSM</td>
+<td style="color:#8b949e;font-size:12px">台积电 TSMC</td>
+<td class="num">$444.11</td>
+<td class="num">91.2</td><td class="num">97.2</td><td class="num">49.0</td>
+<td class="num" style="color:#3fb950;font-weight:700">77.5</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #3fb950;color:#3fb950;background:#0d1117">A</div></td>
+<td class="num" style="color:#f85149">-1.6%</td>
+<td class="num" style="color:#3fb950">+2.0%</td>
+<td class="num" style="line-height:1.4">$410.0<br><span style='font-size:10px;color:#f85149'>-8%</span></td>
+<td class="num" style="line-height:1.4">$540.3<br><span style='font-size:10px;color:#3fb950'>+22%</span></td>
+<td class="num" style="color:#f0883e">24.1%</td>
+<td class="num" style="color:#d29922">0.85x</td></tr><tr>
+<td style="font-weight:600;color:#f0883e">4</td><td style="font-weight:700">AMD</td>
+<td style="color:#8b949e;font-size:12px">Advanced Micro D</td>
+<td class="num">$514.00</td>
+<td class="num">81.2</td><td class="num">84.4</td><td class="num">31.0</td>
+<td class="num" style="color:#58a6ff;font-weight:700">67.7</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #58a6ff;color:#58a6ff;background:#0d1117">B</div></td>
+<td class="num" style="color:#f85149">-19.4%</td>
+<td class="num" style="color:#f85149">-6.6%</td>
+<td class="num" style="line-height:1.4">$175.2<br><span style='font-size:10px;color:#f85149'>-66%</span></td>
+<td class="num" style="line-height:1.4">$260.5<br><span style='font-size:10px;color:#f85149'>-49%</span></td>
+<td class="num" style="color:#f0883e">66.9%</td>
+<td class="num" style="color:#d29922">1.50x</td></tr><tr>
+<td style="font-weight:600;color:#58a6ff">5</td><td style="font-weight:700">MRVL</td>
+<td style="color:#8b949e;font-size:12px">Marvell Technolo</td>
+<td class="num">$301.65</td>
+<td class="num">83.6</td><td class="num">82.4</td><td class="num">31.0</td>
+<td class="num" style="color:#58a6ff;font-weight:700">67.2</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #58a6ff;color:#58a6ff;background:#0d1117">B</div></td>
+<td class="num" style="color:#f85149">-20.8%</td>
+<td class="num" style="color:#f85149">-5.2%</td>
+<td class="num" style="line-height:1.4">$94.3<br><span style='font-size:10px;color:#f85149'>-69%</span></td>
+<td class="num" style="line-height:1.4">$177.7<br><span style='font-size:10px;color:#f85149'>-41%</span></td>
+<td class="num" style="color:#f0883e">75.8%</td>
+<td class="num" style="color:#d29922">1.40x</td></tr><tr>
+<td style="font-weight:600;color:#d29922">6</td><td style="font-weight:700">QCOM</td>
+<td style="color:#8b949e;font-size:12px">Qualcomm</td>
+<td class="num">$240.84</td>
+<td class="num">71.2</td><td class="num">71.2</td><td class="num">54.0</td>
+<td class="num" style="color:#58a6ff;font-weight:700">66.0</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #58a6ff;color:#58a6ff;background:#0d1117">B</div></td>
+<td class="num" style="color:#f85149">-1.1%</td>
+<td class="num" style="color:#3fb950">+0.9%</td>
+<td class="num" style="line-height:1.4">$227.5<br><span style='font-size:10px;color:#f85149'>-6%</span></td>
+<td class="num" style="line-height:1.4">$263.8<br><span style='font-size:10px;color:#3fb950'>+10%</span></td>
+<td class="num" style="color:#f0883e">11.5%</td>
+<td class="num" style="color:#d29922">0.75x</td></tr><tr>
+<td style="font-weight:600;color:#d29922">7</td><td style="font-weight:700">ARM</td>
+<td style="color:#8b949e;font-size:12px">Arm Holdings</td>
+<td class="num">$411.73</td>
+<td class="num">88.4</td><td class="num">82.4</td><td class="num">10.0</td>
+<td class="num" style="color:#58a6ff;font-weight:700">61.9</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #58a6ff;color:#58a6ff;background:#0d1117">B</div></td>
+<td class="num" style="color:#f85149">-28.6%</td>
+<td class="num" style="color:#f85149">-12.3%</td>
+<td class="num" style="line-height:1.4">$76.6<br><span style='font-size:10px;color:#f85149'>-81%</span></td>
+<td class="num" style="line-height:1.4">$110.7<br><span style='font-size:10px;color:#f85149'>-73%</span></td>
+<td class="num" style="color:#f0883e">83.2%</td>
+<td class="num" style="color:#d29922">5.80x</td></tr><tr>
+<td style="font-weight:600;color:#8b949e">8</td><td style="font-weight:700">UMC</td>
+<td style="color:#8b949e;font-size:12px">United Microelec</td>
+<td class="num">$21.42</td>
+<td class="num">56.4</td><td class="num">62.8</td><td class="num">60.0</td>
+<td class="num" style="color:#58a6ff;font-weight:700">60.7</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #58a6ff;color:#58a6ff;background:#0d1117">B</div></td>
+<td class="num" style="color:#f85149">-18.7%</td>
+<td class="num" style="color:#f85149">-8.9%</td>
+<td class="num" style="line-height:1.4">$7.6<br><span style='font-size:10px;color:#f85149'>-64%</span></td>
+<td class="num" style="line-height:1.4">$8.4<br><span style='font-size:10px;color:#f85149'>-61%</span></td>
+<td class="num" style="color:#f0883e">37.6%</td>
+<td class="num" style="color:#d29922">1.75x</td></tr><tr>
+<td style="font-weight:600;color:#3fb950">9</td><td style="font-weight:700">LSCC</td>
+<td style="color:#8b949e;font-size:12px">Lattice Semicond</td>
+<td class="num">$151.41</td>
+<td class="num">80.0</td><td class="num">73.2</td><td class="num">18.0</td>
+<td class="num" style="color:#d29922;font-weight:700">58.0</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #d29922;color:#d29922;background:#0d1117">C</div></td>
+<td class="num" style="color:#f85149">-25.7%</td>
+<td class="num" style="color:#f85149">-9.3%</td>
+<td class="num" style="line-height:1.4">$34.2<br><span style='font-size:10px;color:#f85149'>-77%</span></td>
+<td class="num" style="line-height:1.4">$56.8<br><span style='font-size:10px;color:#f85149'>-62%</span></td>
+<td class="num" style="color:#f0883e">67.5%</td>
+<td class="num" style="color:#d29922">2.40x</td></tr><tr>
+<td style="font-weight:600;color:#f85149">10</td><td style="font-weight:700">CBRS</td>
+<td style="color:#8b949e;font-size:12px">Cerebras Systems</td>
+<td class="num">$215.38</td>
+<td class="num">76.8</td><td class="num">69.2</td><td class="num">0.0</td>
+<td class="num" style="color:#f85149;font-weight:700">42.5</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #f85149;color:#f85149;background:#0d1117">D</div></td>
+<td class="num" style="color:#f85149">-21.2%</td>
+<td class="num" style="color:#f85149">-4.5%</td>
+<td class="num" style="line-height:1.4">$65.3<br><span style='font-size:10px;color:#f85149'>-70%</span></td>
+<td class="num" style="line-height:1.4">$135.5<br><span style='font-size:10px;color:#f85149'>-37%</span></td>
+<td class="num" style="color:#f0883e">129.1%</td>
+<td class="num" style="color:#d29922">3.01x</td></tr><tr>
+<td style="font-weight:600;color:#f85149">11</td><td style="font-weight:700">INTC</td>
+<td style="color:#8b949e;font-size:12px">Intel Corporatio</td>
+<td class="num">$110.06</td>
+<td class="num">56.0</td><td class="num">41.6</td><td class="num">13.0</td>
+<td class="num" style="color:#f85149;font-weight:700">35.9</td>
+<td><div style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800;border:2px solid #f85149;color:#f85149;background:#0d1117">D</div></td>
+<td class="num" style="color:#f85149">-54.3%</td>
+<td class="num" style="color:#f85149">-21.7%</td>
+<td class="num" style="line-height:1.4">$2.2<br><span style='font-size:10px;color:#f85149'>-98%</span></td>
+<td class="num" style="line-height:1.4">$9.6<br><span style='font-size:10px;color:#f85149'>-91%</span></td>
+<td class="num" style="color:#f0883e">101.0%</td>
+<td class="num" style="color:#d29922">7.75x</td></tr></table></div><div class="g4" style="margin-top:12px">
+<div class="card" style="border-color:#ffd70044"><div style="color:#ffd700;font-weight:700;margin-bottom:6px">⭐ S级</div><div style="margin:3px 0"><strong style="color:#ffd700">NVDA</strong> <span class="num">80.5</span> <span style="color:#8b949e;font-size:11px">·PEG 0.9x</span></div></div>
+<div class="card" style="border-color:#3fb95044"><div style="color:#3fb950;font-weight:700;margin-bottom:6px">🟢 A级</div><div style="margin:3px 0"><strong style="color:#3fb950">AVGO</strong> <span class="num">79.7</span> <span style="color:#8b949e;font-size:11px">·PEG 0.9x</span></div><div style="margin:3px 0"><strong style="color:#3fb950">TSM</strong> <span class="num">77.5</span> <span style="color:#8b949e;font-size:11px">·PEG 0.8x</span></div></div>
+<div class="card" style="border-color:#58a6ff44"><div style="color:#58a6ff;font-weight:700;margin-bottom:6px">🔵 B级</div><div style="margin:3px 0"><strong style="color:#58a6ff">AMD</strong> <span class="num">67.7</span> <span style="color:#8b949e;font-size:11px">·PEG 1.5x</span></div><div style="margin:3px 0"><strong style="color:#58a6ff">MRVL</strong> <span class="num">67.2</span> <span style="color:#8b949e;font-size:11px">·PEG 1.4x</span></div><div style="margin:3px 0"><strong style="color:#58a6ff">QCOM</strong> <span class="num">66.0</span> <span style="color:#8b949e;font-size:11px">·PEG 0.8x</span></div><div style="margin:3px 0"><strong style="color:#58a6ff">ARM</strong> <span class="num">61.9</span> <span style="color:#8b949e;font-size:11px">·PEG 5.8x</span></div><div style="margin:3px 0"><strong style="color:#58a6ff">UMC</strong> <span class="num">60.7</span> <span style="color:#8b949e;font-size:11px">·PEG 1.8x</span></div></div>
+<div class="card" style="border-color:#f8514944"><div style="color:#f85149;font-weight:700;margin-bottom:6px">🔴 C/D</div><div style="margin:3px 0"><strong style="color:#d29922">LSCC</strong> <span class="num">58.0</span> <span style="color:#8b949e;font-size:11px">·PEG 2.4x</span></div><div style="margin:3px 0"><strong style="color:#f85149">CBRS</strong> <span class="num">42.5</span> <span style="color:#8b949e;font-size:11px">·PEG 3.0x</span></div><div style="margin:3px 0"><strong style="color:#f85149">INTC</strong> <span class="num">35.9</span> <span style="color:#8b949e;font-size:11px">·PEG 7.8x</span></div></div>
+</div>
+<div class="sec">🔍 公司详细评分（含5年/10年真DCF + PEG/PE可比）</div>
+
+<div class="card" id="co-NVDA">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">NVIDIA Corporation <span style="color:#ffd700;font-size:12px">(AI GPU/算力芯片)</span></div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">NVDA · 置信度<strong>1.0</strong> · 2026-06-06</div>
+      <div class="ibox" style="margin-top:5px;font-size:12px"><strong>实时数据</strong>: Q1 FY2027 $81.6B +85% YoY；数据中心$75.2B +92% | Q2 FY2027指引$91B ±2%；FY2027共识$391B；H20禁令后中国~4%</div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:700px">NVIDIA是AI算力的基础设施垄断者。CUDA生态30M+开发者护城河不可逾越。Blackwell主导训练，Rubin 2027H2接棒。Q1 FY2027 $81.6B+85%，Q2指引$91B超预期。FCF率55%，净现金$45B，$80B回购计划。5年DCF IRR为负（$5.3T市值定价了极长的成长期），但10年DCF更合理（+2.4%）。PEG仅0.93属于同行最低，支撑相对估值。</div>
+    </div>
+    <div style="text-align:center;min-width:100px">
+      <div style="font-size:50px;font-weight:800;color:#ffd700;line-height:1">80.5</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;border:2px solid #ffd700;color:#ffd700;background:#0d1117">S</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#3fb950">93.2</div><div style="font-size:11px;color:#8b949e">行业分×20%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#58a6ff">96.8</div><div style="font-size:11px;color:#8b949e">质量分×50%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#f0883e">45.0</div><div style="font-size:11px;color:#8b949e">估值分×30%（v4.2真DCF）</div></div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">AI算力需求空间</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI需求可见性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">政策出口管制</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 质量（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI产品对齐度</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">客户结构</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">5年DCF内在价值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">可比PE/PS估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">下行情景保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">历史同行对比</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">①定制ASIC推理分流（AVGO/MRVL从<10%→27%+）②出口管制全面禁售Blackwell ③AMD MI450系列快速追近 ④超大规模Capex增速放缓引发估值压缩</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">①Q2 FY2027财报（2026-08）②Rubin架构正式时间线 ③中国H200许可规模扩大</li></ul></div>
+  </div>
+  
+<div style="margin-top:14px">
+  <div style="font-size:14px;font-weight:700;color:#e6edf3;padding:8px 12px;background:#21262d;border-radius:6px;border-left:3px solid #ffd700;margin-bottom:10px">
+    📐 估值模型（真DCF + PE/PS可比）— 高护城河（10年权重40%）
+  </div>
+  
+  <div style="background:#1c2128;border:1px solid #388bfd44;border-radius:8px;padding:12px;margin-bottom:10px">
+    <div style="font-size:13px;font-weight:700;color:#79c0ff;margin-bottom:10px">🎯 目标股价（DCF推算）</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:stretch">
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">当前股价</div>
+        <div style="font-size:22px;font-weight:800;color:#e6edf3">$216.34</div>
+        <div style="font-size:11px;color:#8b949e;margin-top:2px">2026-06-06 收盘</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #3fb95044;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">5年 DCF 公允价（今日）</div>
+        <div style="font-size:22px;font-weight:800;color:#3fb950">$218.06</div>
+        <div style="font-size:12px;color:#3fb950;margin-top:2px">+0.8% 于当前价</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">基准：IRR=0时的今日内在价值</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #3fb95044;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">10年目标价（2036年）</div>
+        <div style="font-size:22px;font-weight:800;color:#3fb950">$294.24</div>
+        <div style="font-size:12px;color:#3fb950;margin-top:2px">+36.0%（×1.4倍）</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">假设10yr IRR +3.1%/年实现</div>
+      </div>
+    </div>
+    <div style="margin-top:8px;font-size:11px;color:#8b949e;text-align:center">
+      ⚠️ 5年公允价 = DCF折现内在价值（今天该值多少）；10年目标价 = 若10yr IRR实现则2036年股价。<br>
+      负IRR不代表"不能买"——高护城河公司需10年视角 + 等待回调至5年公允价附近建仓。
+    </div>
+  </div>
+  <div class="g2">
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#79c0ff;margin-bottom:8px">📊 5年 DCF（2026-2031）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px;margin-bottom:8px">
+          <tr><th>假设</th><th>值</th><th>来源</th></tr>
+          <tr><td>当前市值</td><td class="num"><strong>$5296.0B</strong></td><td style="color:#8b949e;font-size:11px">companiesmarketcap.com 2026-06-04</td></tr>
+          <tr><td>净负债/现金</td><td class="num pos">$-45.0B</td><td style="color:#8b949e;font-size:11px">净现金</td></tr>
+          <tr><td>当前年化营收</td><td class="num">$326.0B</td><td style="color:#8b949e;font-size:11px">最新季度×4</td></tr>
+          <tr><td>5yr CAGR</td><td class="num"><strong>25.0%</strong></td><td style="color:#8b949e;font-size:11px">管理层Q2 FY2027指引$91B年化；FY2027分析师共识$39</td></tr>
+          <tr><td>FCF Margin</td><td class="num">55%</td><td style="color:#8b949e;font-size:11px">历史FCF/Revenue</td></tr>
+          <tr><td>WACC</td><td class="num">14.3%</td><td style="color:#8b949e;font-size:11px">Rf 4.4% + β×5.5%</td></tr>
+          <tr><td>终值增长率 g</td><td class="num">7.0%</td><td style="color:#8b949e;font-size:11px">高护城河行业长期</td></tr>
+        </table>
+        <table style="font-size:11px;margin-bottom:8px">
+          <tr><th>Year</th><th>营收</th><th>FCF率</th><th>FCF</th><th>折现PV</th></tr>
+          <tr><td class='num'>1</td><td class='num'>$407.5B</td><td class='num'>55%</td><td class='num'>$224.1B</td><td class='num'>$196.1B</td></tr><tr><td class='num'>2</td><td class='num'>$509.4B</td><td class='num'>55%</td><td class='num'>$280.2B</td><td class='num'>$214.4B</td></tr><tr><td class='num'>3</td><td class='num'>$636.7B</td><td class='num'>55%</td><td class='num'>$350.2B</td><td class='num'>$234.5B</td></tr><tr><td class='num'>4</td><td class='num'>$795.9B</td><td class='num'>55%</td><td class='num'>$437.7B</td><td class='num'>$256.5B</td></tr><tr><td class='num'>5</td><td class='num'>$994.9B</td><td class='num'>55%</td><td class='num'>$547.2B</td><td class='num'>$280.5B</td></tr>
+          <tr style="background:#21262d"><td colspan="4"><strong>PV(终值) = $8020.3B×(1+7.0%)/(WACC-7.0%)折现</strong></td><td class="num">$4111.1B</td></tr>
+        </table>
+        <div style="padding:8px;background:#21262d;border-radius:5px;font-size:12px">
+          EV = $5293.1B → 股权价值 = <strong style="color:#3fb950">$5338.1B</strong>
+          vs 市值 $5296.0B
+          → <strong style="color:#3fb950">5yr IRR = +0.2%/年</strong>
+        </div>
+        <div style="margin-top:6px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          🔍 市价隐含CAGR = <strong style="color:#f0883e">24.8%</strong>
+          vs 假设 25.0%
+          → 市场定价低于假设 → 存在上行空间
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#bc8cff;margin-bottom:8px">🔭 10年 DCF（2026-2036）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px;margin-bottom:10px">
+        前5年CAGR：25.0%<br>
+        后5年CAGR：15%（AI长期正常化增速）<br>
+        后5年FCF Margin：58%<br>
+        终值增长率：7.0%，WACC：14.3%<br>
+        ─────────────────────────────────────────
+        Year10 营收：<strong>$2001.0B</strong><br>
+        EV₁₀ = $7158.0B → 股权价值：<strong>$7203.0B</strong><br>
+        <strong style="color:#3fb950">10年 IRR = +3.1%/年</strong>
+        <div style="margin-top:8px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          v1 = 2（5yr×60% + 10yr×40%（高护城河权重））
+          → 综合IRR ≈ +1.3%
+        </div>
+      </div>
+      <div style="font-size:13px;font-weight:600;color:#f0883e;margin-bottom:8px">📈 PE/PS可比估值</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px">
+          <tr><th>指标</th><th>当前</th><th>同行均值</th><th>比较</th></tr>
+          <tr><td>Forward PE</td><td class="num">24.6x</td><td class="num">28.0x</td>
+              <td style="color:#3fb950">-3.4x 折价</td></tr>
+          <tr><td>P/S</td><td class="num">16.2x</td><td class="num">—</td><td style="color:#8b949e">参考</td></tr>
+          <tr><td>PEG</td><td class="num">0.93x</td><td class="num">&lt;2.0x合理</td>
+              <td style="color:#3fb950">0.93x ✅</td></tr>
+        </table>
+        <div style="margin-top:6px;font-size:11px;color:#8b949e">→ v2 = 2（基于PE/PEG相对估值）</div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div style="margin-top:6px;font-size:11px;color:#8b949e">数据来源: <a href="https://www.tikr.com/blog/nvidia-q1-2027-earnings-81-6b-revenue-and-three-straight-quarters-of-acceleration" style="color:#79c0ff">[来源1]</a> | <a href="https://companiesmarketcap.com/nvidia/marketcap/" style="color:#79c0ff">[来源2]</a></div>
+</div>
+<div class="card" id="co-AVGO">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">Broadcom Inc. <span style="color:#3fb950;font-size:12px">(定制ASIC/AI网络/基础设施软件)</span></div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">AVGO · 置信度<strong>1.0</strong> · 2026-06-06</div>
+      <div class="ibox" style="margin-top:5px;font-size:12px"><strong>实时数据</strong>: Q2 FY2026 $22.19B +48% YoY；AI半导体$10.8B +143% YoY | Q3 FY2026指引$29.4B +84%；FY2027 AI半导体营收>$100B（管理层重申）</div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:700px">Broadcom是AI定制ASIC最大受益者（~70%市占）。FY2027 AI>$100B管理层指引，AI营收$10.8B/季（+143%）。Q2后股价跌13%提供买点。VMware软件提供稳定现金流。FCF率46%，VMware债务$58B但快速偿还中。PEG仅0.90，相对NVDA更具性价比。</div>
+    </div>
+    <div style="text-align:center;min-width:100px">
+      <div style="font-size:50px;font-weight:800;color:#3fb950;line-height:1">79.7</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;border:2px solid #3fb950;color:#3fb950;background:#0d1117">A</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#3fb950">92.0</div><div style="font-size:11px;color:#8b949e">行业分×20%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#58a6ff">90.8</div><div style="font-size:11px;color:#8b949e">质量分×50%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#f0883e">53.0</div><div style="font-size:11px;color:#8b949e">估值分×30%（v4.2真DCF）</div></div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">AI算力需求空间</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI需求可见性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">政策出口管制</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 质量（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI产品对齐度</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">客户结构</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">5年DCF内在价值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">可比PE/PS估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">下行情景保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">历史同行对比</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">①Q3指引低于市场部分激进预期 ②VMware软件增速不及预期 ③NVDA Spectrum-X蚕食AVGO网络份额 ④VMware债务$58B制约回购</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">①Q3 FY2026财报（2026-09） ②FY2027 AI营收路径更新 ③新ASIC客户公告（Anthropic/OpenAI规模化）</li></ul></div>
+  </div>
+  
+<div style="margin-top:14px">
+  <div style="font-size:14px;font-weight:700;color:#e6edf3;padding:8px 12px;background:#21262d;border-radius:6px;border-left:3px solid #ffd700;margin-bottom:10px">
+    📐 估值模型（真DCF + PE/PS可比）— 高护城河（10年权重40%）
+  </div>
+  
+  <div style="background:#1c2128;border:1px solid #388bfd44;border-radius:8px;padding:12px;margin-bottom:10px">
+    <div style="font-size:13px;font-weight:700;color:#79c0ff;margin-bottom:10px">🎯 目标股价（DCF推算）</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:stretch">
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">当前股价</div>
+        <div style="font-size:22px;font-weight:800;color:#e6edf3">$407.06</div>
+        <div style="font-size:11px;color:#8b949e;margin-top:2px">2026-06-06 收盘</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #f8514944;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">5年 DCF 公允价（今日）</div>
+        <div style="font-size:22px;font-weight:800;color:#f85149">$400.41</div>
+        <div style="font-size:12px;color:#f85149;margin-top:2px">-1.6% 于当前价</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">基准：IRR=0时的今日内在价值</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #3fb95044;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">10年目标价（2036年）</div>
+        <div style="font-size:22px;font-weight:800;color:#3fb950">$704.29</div>
+        <div style="font-size:12px;color:#3fb950;margin-top:2px">+73.0%（×1.7倍）</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">假设10yr IRR +5.6%/年实现</div>
+      </div>
+    </div>
+    <div style="margin-top:8px;font-size:11px;color:#8b949e;text-align:center">
+      ⚠️ 5年公允价 = DCF折现内在价值（今天该值多少）；10年目标价 = 若10yr IRR实现则2036年股价。<br>
+      负IRR不代表"不能买"——高护城河公司需10年视角 + 等待回调至5年公允价附近建仓。
+    </div>
+  </div>
+  <div class="g2">
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#79c0ff;margin-bottom:8px">📊 5年 DCF（2026-2031）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px;margin-bottom:8px">
+          <tr><th>假设</th><th>值</th><th>来源</th></tr>
+          <tr><td>当前市值</td><td class="num"><strong>$1930.0B</strong></td><td style="color:#8b949e;font-size:11px">stockanalysis.com 2026-06-04（Q2后跌13%）</td></tr>
+          <tr><td>净负债/现金</td><td class="num neg">$58.0B</td><td style="color:#8b949e;font-size:11px">净负债</td></tr>
+          <tr><td>当前年化营收</td><td class="num">$88.8B</td><td style="color:#8b949e;font-size:11px">最新季度×4</td></tr>
+          <tr><td>5yr CAGR</td><td class="num"><strong>35.0%</strong></td><td style="color:#8b949e;font-size:11px">管理层FY2027 AI>$100B指引；FY2027分析师共识CAG</td></tr>
+          <tr><td>FCF Margin</td><td class="num">46%</td><td style="color:#8b949e;font-size:11px">历史FCF/Revenue</td></tr>
+          <tr><td>WACC</td><td class="num">12.7%</td><td style="color:#8b949e;font-size:11px">Rf 4.4% + β×5.5%</td></tr>
+          <tr><td>终值增长率 g</td><td class="num">6.0%</td><td style="color:#8b949e;font-size:11px">高护城河行业长期</td></tr>
+        </table>
+        <table style="font-size:11px;margin-bottom:8px">
+          <tr><th>Year</th><th>营收</th><th>FCF率</th><th>FCF</th><th>折现PV</th></tr>
+          <tr><td class='num'>1</td><td class='num'>$119.9B</td><td class='num'>46%</td><td class='num'>$55.1B</td><td class='num'>$48.9B</td></tr><tr><td class='num'>2</td><td class='num'>$161.8B</td><td class='num'>46%</td><td class='num'>$74.4B</td><td class='num'>$58.6B</td></tr><tr><td class='num'>3</td><td class='num'>$218.5B</td><td class='num'>46%</td><td class='num'>$100.5B</td><td class='num'>$70.2B</td></tr><tr><td class='num'>4</td><td class='num'>$294.9B</td><td class='num'>46%</td><td class='num'>$135.7B</td><td class='num'>$84.1B</td></tr><tr><td class='num'>5</td><td class='num'>$398.2B</td><td class='num'>46%</td><td class='num'>$183.2B</td><td class='num'>$100.7B</td></tr>
+          <tr style="background:#21262d"><td colspan="4"><strong>PV(终值) = $2897.8B×(1+6.0%)/(WACC-6.0%)折现</strong></td><td class="num">$1593.9B</td></tr>
+        </table>
+        <div style="padding:8px;background:#21262d;border-radius:5px;font-size:12px">
+          EV = $1956.5B → 股权价值 = <strong style="color:#f85149">$1898.5B</strong>
+          vs 市值 $1930.0B
+          → <strong style="color:#f85149">5yr IRR = -0.3%/年</strong>
+        </div>
+        <div style="margin-top:6px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          🔍 市价隐含CAGR = <strong style="color:#f0883e">35.5%</strong>
+          vs 假设 35.0%
+          → 市场定价比假设高 → 溢价已充分
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#bc8cff;margin-bottom:8px">🔭 10年 DCF（2026-2036）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px;margin-bottom:10px">
+        前5年CAGR：35.0%<br>
+        后5年CAGR：20%（AI长期正常化增速）<br>
+        后5年FCF Margin：50%<br>
+        终值增长率：6.0%，WACC：12.7%<br>
+        ─────────────────────────────────────────
+        Year10 营收：<strong>$990.8B</strong><br>
+        EV₁₀ = $3397.3B → 股权价值：<strong>$3339.3B</strong><br>
+        <strong style="color:#3fb950">10年 IRR = +5.6%/年</strong>
+        <div style="margin-top:8px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          v1 = 2（5yr×60% + 10yr×40%（高护城河权重））
+          → 综合IRR ≈ +2.1%
+        </div>
+      </div>
+      <div style="font-size:13px;font-weight:600;color:#f0883e;margin-bottom:8px">📈 PE/PS可比估值</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px">
+          <tr><th>指标</th><th>当前</th><th>同行均值</th><th>比较</th></tr>
+          <tr><td>Forward PE</td><td class="num">32.0x</td><td class="num">28.0x</td>
+              <td style="color:#f85149">+4.0x 溢价</td></tr>
+          <tr><td>P/S</td><td class="num">21.8x</td><td class="num">—</td><td style="color:#8b949e">参考</td></tr>
+          <tr><td>PEG</td><td class="num">0.90x</td><td class="num">&lt;2.0x合理</td>
+              <td style="color:#3fb950">0.90x ✅</td></tr>
+        </table>
+        <div style="margin-top:6px;font-size:11px;color:#8b949e">→ v2 = 3（基于PE/PEG相对估值）</div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div style="margin-top:6px;font-size:11px;color:#8b949e">数据来源: <a href="https://www.sec.gov/Archives/edgar/data/0001730168/000173016826000051/avgo-05032026x8kxex99.htm" style="color:#79c0ff">[来源1]</a> | <a href="https://www.cnbc.com/2026/06/03/broadcom-avgo-earnings-report-q2-2026.html" style="color:#79c0ff">[来源2]</a></div>
+</div>
+<div class="card" id="co-TSM">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">台积电 TSMC <span style="color:#bc8cff;font-size:12px">(先进代工/CoWoS先进封装)</span></div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">TSM · 置信度<strong>0.95</strong> · 2026-06-06</div>
+      <div class="ibox" style="margin-top:5px;font-size:12px"><strong>实时数据</strong>: Q1 2026 $35.9B +35.1% YoY；毛利率66.2% | Q2指引$39.0-40.2B +32%；AI加速器CAGR 50%+（至2029）；N2量产启动</div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:700px">台积电是全球AI芯片供应链的唯一不可绕过节点。N3/N2先进制程+CoWoS先进封装双重垄断，所有主要AI芯片均依赖TSMC。毛利率66.2%近历史峰值。置信度0.95（台湾地缘折减）。PEG 0.85，在同类优质公司中最低之一。10年DCF显示+6.4%年化IRR，10年视角合理。</div>
+    </div>
+    <div style="text-align:center;min-width:100px">
+      <div style="font-size:50px;font-weight:800;color:#3fb950;line-height:1">77.5</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;border:2px solid #3fb950;color:#3fb950;background:#0d1117">A</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#3fb950">91.2</div><div style="font-size:11px;color:#8b949e">行业分×20%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#58a6ff">97.2</div><div style="font-size:11px;color:#8b949e">质量分×50%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#f0883e">49.0</div><div style="font-size:11px;color:#8b949e">估值分×30%（v4.2真DCF）</div></div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">AI算力需求空间</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI需求可见性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">政策出口管制</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 质量（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI产品对齐度</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">客户结构</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">5年DCF内在价值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:20%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">1</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">可比PE/PS估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">下行情景保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">历史同行对比</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">①台湾地缘政治（最大尾风险）②亚利桑那/日本Fab成本超支 ③三星18A/Intel 18A 2028+竞争 ④CoWoS产能持续紧缺制约增长</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">①Q2 2026财报（2026-07） ②N2量产扩产公告 ③美国CoWoS产能进展 ④AI加速器新订单</li></ul></div>
+  </div>
+  
+<div style="margin-top:14px">
+  <div style="font-size:14px;font-weight:700;color:#e6edf3;padding:8px 12px;background:#21262d;border-radius:6px;border-left:3px solid #ffd700;margin-bottom:10px">
+    📐 估值模型（真DCF + PE/PS可比）— 高护城河（10年权重40%）
+  </div>
+  
+  <div style="background:#1c2128;border:1px solid #388bfd44;border-radius:8px;padding:12px;margin-bottom:10px">
+    <div style="font-size:13px;font-weight:700;color:#79c0ff;margin-bottom:10px">🎯 目标股价（DCF推算）</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:stretch">
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">当前股价</div>
+        <div style="font-size:22px;font-weight:800;color:#e6edf3">$444.11</div>
+        <div style="font-size:11px;color:#8b949e;margin-top:2px">2026-06-06 收盘</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #f8514944;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">5年 DCF 公允价（今日）</div>
+        <div style="font-size:22px;font-weight:800;color:#f85149">$409.97</div>
+        <div style="font-size:12px;color:#f85149;margin-top:2px">-7.7% 于当前价</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">基准：IRR=0时的今日内在价值</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #3fb95044;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">10年目标价（2036年）</div>
+        <div style="font-size:22px;font-weight:800;color:#3fb950">$540.31</div>
+        <div style="font-size:12px;color:#3fb950;margin-top:2px">+21.7%（×1.2倍）</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">假设10yr IRR +2.0%/年实现</div>
+      </div>
+    </div>
+    <div style="margin-top:8px;font-size:11px;color:#8b949e;text-align:center">
+      ⚠️ 5年公允价 = DCF折现内在价值（今天该值多少）；10年目标价 = 若10yr IRR实现则2036年股价。<br>
+      负IRR不代表"不能买"——高护城河公司需10年视角 + 等待回调至5年公允价附近建仓。
+    </div>
+  </div>
+  <div class="g2">
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#79c0ff;margin-bottom:8px">📊 5年 DCF（2026-2031）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px;margin-bottom:8px">
+          <tr><th>假设</th><th>值</th><th>来源</th></tr>
+          <tr><td>当前市值</td><td class="num"><strong>$2000.0B</strong></td><td style="color:#8b949e;font-size:11px">companiesmarketcap.com 2026-06-04</td></tr>
+          <tr><td>净负债/现金</td><td class="num pos">$-30.0B</td><td style="color:#8b949e;font-size:11px">净现金</td></tr>
+          <tr><td>当前年化营收</td><td class="num">$143.6B</td><td style="color:#8b949e;font-size:11px">最新季度×4</td></tr>
+          <tr><td>5yr CAGR</td><td class="num"><strong>22.0%</strong></td><td style="color:#8b949e;font-size:11px">管理层全年>30% YoY指引；AI加速器CAGR 50%（至2029</td></tr>
+          <tr><td>FCF Margin</td><td class="num">35%</td><td style="color:#8b949e;font-size:11px">历史FCF/Revenue</td></tr>
+          <tr><td>WACC</td><td class="num">11.6%</td><td style="color:#8b949e;font-size:11px">Rf 4.4% + β×5.5%</td></tr>
+          <tr><td>终值增长率 g</td><td class="num">6.0%</td><td style="color:#8b949e;font-size:11px">高护城河行业长期</td></tr>
+        </table>
+        <table style="font-size:11px;margin-bottom:8px">
+          <tr><th>Year</th><th>营收</th><th>FCF率</th><th>FCF</th><th>折现PV</th></tr>
+          <tr><td class='num'>1</td><td class='num'>$175.2B</td><td class='num'>35%</td><td class='num'>$61.3B</td><td class='num'>$54.9B</td></tr><tr><td class='num'>2</td><td class='num'>$213.7B</td><td class='num'>35%</td><td class='num'>$74.8B</td><td class='num'>$60.1B</td></tr><tr><td class='num'>3</td><td class='num'>$260.8B</td><td class='num'>35%</td><td class='num'>$91.3B</td><td class='num'>$65.7B</td></tr><tr><td class='num'>4</td><td class='num'>$318.1B</td><td class='num'>35%</td><td class='num'>$111.3B</td><td class='num'>$71.8B</td></tr><tr><td class='num'>5</td><td class='num'>$388.1B</td><td class='num'>35%</td><td class='num'>$135.8B</td><td class='num'>$78.5B</td></tr>
+          <tr style="background:#21262d"><td colspan="4"><strong>PV(终值) = $2571.2B×(1+6.0%)/(WACC-6.0%)折现</strong></td><td class="num">$1485.3B</td></tr>
+        </table>
+        <div style="padding:8px;background:#21262d;border-radius:5px;font-size:12px">
+          EV = $1816.2B → 股权价值 = <strong style="color:#f85149">$1846.2B</strong>
+          vs 市值 $2000.0B
+          → <strong style="color:#f85149">5yr IRR = -1.6%/年</strong>
+        </div>
+        <div style="margin-top:6px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          🔍 市价隐含CAGR = <strong style="color:#f0883e">24.1%</strong>
+          vs 假设 22.0%
+          → 市场定价比假设高 → 溢价已充分
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#bc8cff;margin-bottom:8px">🔭 10年 DCF（2026-2036）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px;margin-bottom:10px">
+        前5年CAGR：22.0%<br>
+        后5年CAGR：12%（AI长期正常化增速）<br>
+        后5年FCF Margin：38%<br>
+        终值增长率：6.0%，WACC：11.6%<br>
+        ─────────────────────────────────────────
+        Year10 营收：<strong>$684.0B</strong><br>
+        EV₁₀ = $2403.2B → 股权价值：<strong>$2433.2B</strong><br>
+        <strong style="color:#3fb950">10年 IRR = +2.0%/年</strong>
+        <div style="margin-top:8px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          v1 = 1（5yr×60% + 10yr×40%（高护城河权重））
+          → 综合IRR ≈ -0.2%
+        </div>
+      </div>
+      <div style="font-size:13px;font-weight:600;color:#f0883e;margin-bottom:8px">📈 PE/PS可比估值</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px">
+          <tr><th>指标</th><th>当前</th><th>同行均值</th><th>比较</th></tr>
+          <tr><td>Forward PE</td><td class="num">22.0x</td><td class="num">20.0x</td>
+              <td style="color:#f85149">+2.0x 溢价</td></tr>
+          <tr><td>P/S</td><td class="num">13.9x</td><td class="num">—</td><td style="color:#8b949e">参考</td></tr>
+          <tr><td>PEG</td><td class="num">0.85x</td><td class="num">&lt;2.0x合理</td>
+              <td style="color:#3fb950">0.85x ✅</td></tr>
+        </table>
+        <div style="margin-top:6px;font-size:11px;color:#8b949e">→ v2 = 3（基于PE/PEG相对估值）</div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div style="margin-top:6px;font-size:11px;color:#8b949e">数据来源: <a href="https://investor.tsmc.com/english/quarterly-results/2026/q1" style="color:#79c0ff">[来源1]</a> | <a href="https://www.manufacturingdive.com/news/tsmc-q1-2026-revenue-q2-guidance-ai-arizona/817728/" style="color:#79c0ff">[来源2]</a></div>
+</div>
+<div class="card" id="co-AMD">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">Advanced Micro Devices <span style="color:#f0883e;font-size:12px">(AI GPU/服务器CPU/AI PC)</span></div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">AMD · 置信度<strong>1.0</strong> · 2026-06-06</div>
+      <div class="ibox" style="margin-top:5px;font-size:12px"><strong>实时数据</strong>: Q1 2026 $10.3B +38% YoY；数据中心$5.8B +57% | Q2指引$11.2B +46%；Meta 6GW MI450大单确认；FCF历史新高$2.6B（+3x YoY）</div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:700px">AMD是AI芯片领域最具性价比的'第二名'。Meta 6GW MI450大单确立GPU规模化；EPYC持续蚕食Intel服务器CPU（利用率80%+）。FCF历史新高$2.6B，净现金$4B。10年DCF显示+4.2%年化，PEG 1.5相对合理。风险在于NVDA CUDA护城河差距，以及$853B市值已反映较高增长预期。</div>
+    </div>
+    <div style="text-align:center;min-width:100px">
+      <div style="font-size:50px;font-weight:800;color:#58a6ff;line-height:1">67.7</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;border:2px solid #58a6ff;color:#58a6ff;background:#0d1117">B</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#3fb950">81.2</div><div style="font-size:11px;color:#8b949e">行业分×20%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#58a6ff">84.4</div><div style="font-size:11px;color:#8b949e">质量分×50%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#f0883e">31.0</div><div style="font-size:11px;color:#8b949e">估值分×30%（v4.2真DCF）</div></div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">AI算力需求空间</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI需求可见性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">政策出口管制</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 质量（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI产品对齐度</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">客户结构</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">5年DCF内在价值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:0%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">0</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">可比PE/PS估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">下行情景保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">历史同行对比</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">①NVDA CUDA生态壁垒难以逾越 ②AMD MI450 vs Blackwell下一代性能差距可能扩大 ③数据中心GPU高速增长能否持续至2027-2028待观察</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">①Q2 2026财报（2026-07） ②Meta 6GW MI450部署进度 ③MI450 vs Blackwell基准测试 ④EPYC Zen6发布</li></ul></div>
+  </div>
+  
+<div style="margin-top:14px">
+  <div style="font-size:14px;font-weight:700;color:#e6edf3;padding:8px 12px;background:#21262d;border-radius:6px;border-left:3px solid #ffd700;margin-bottom:10px">
+    📐 估值模型（真DCF + PE/PS可比）— 中等护城河（10年权重25%）
+  </div>
+  
+  <div style="background:#1c2128;border:1px solid #388bfd44;border-radius:8px;padding:12px;margin-bottom:10px">
+    <div style="font-size:13px;font-weight:700;color:#79c0ff;margin-bottom:10px">🎯 目标股价（DCF推算）</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:stretch">
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">当前股价</div>
+        <div style="font-size:22px;font-weight:800;color:#e6edf3">$514.00</div>
+        <div style="font-size:11px;color:#8b949e;margin-top:2px">2026-06-06 收盘</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #f8514944;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">5年 DCF 公允价（今日）</div>
+        <div style="font-size:22px;font-weight:800;color:#f85149">$175.17</div>
+        <div style="font-size:12px;color:#f85149;margin-top:2px">-65.9% 于当前价</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">基准：IRR=0时的今日内在价值</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #f8514944;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">10年目标价（2036年）</div>
+        <div style="font-size:22px;font-weight:800;color:#f85149">$260.49</div>
+        <div style="font-size:12px;color:#f85149;margin-top:2px">-49.3%（×0.5倍）</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">假设10yr IRR -6.6%/年实现</div>
+      </div>
+    </div>
+    <div style="margin-top:8px;font-size:11px;color:#8b949e;text-align:center">
+      ⚠️ 5年公允价 = DCF折现内在价值（今天该值多少）；10年目标价 = 若10yr IRR实现则2036年股价。<br>
+      负IRR不代表"不能买"——高护城河公司需10年视角 + 等待回调至5年公允价附近建仓。
+    </div>
+  </div>
+  <div class="g2">
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#79c0ff;margin-bottom:8px">📊 5年 DCF（2026-2031）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px;margin-bottom:8px">
+          <tr><th>假设</th><th>值</th><th>来源</th></tr>
+          <tr><td>当前市值</td><td class="num"><strong>$853.0B</strong></td><td style="color:#8b949e;font-size:11px">companiesmarketcap.com 2026-06-04</td></tr>
+          <tr><td>净负债/现金</td><td class="num pos">$-4.0B</td><td style="color:#8b949e;font-size:11px">净现金</td></tr>
+          <tr><td>当前年化营收</td><td class="num">$41.2B</td><td style="color:#8b949e;font-size:11px">最新季度×4</td></tr>
+          <tr><td>5yr CAGR</td><td class="num"><strong>32.0%</strong></td><td style="color:#8b949e;font-size:11px">管理层整体>35% CAGR指引；数据中心>60% CAGR；综合分部</td></tr>
+          <tr><td>FCF Margin</td><td class="num">25%</td><td style="color:#8b949e;font-size:11px">历史FCF/Revenue</td></tr>
+          <tr><td>WACC</td><td class="num">14.9%</td><td style="color:#8b949e;font-size:11px">Rf 4.4% + β×5.5%</td></tr>
+          <tr><td>终值增长率 g</td><td class="num">4.5%</td><td style="color:#8b949e;font-size:11px">AI行业长期增速</td></tr>
+        </table>
+        <table style="font-size:11px;margin-bottom:8px">
+          <tr><th>Year</th><th>营收</th><th>FCF率</th><th>FCF</th><th>折现PV</th></tr>
+          <tr><td class='num'>1</td><td class='num'>$54.4B</td><td class='num'>25%</td><td class='num'>$13.6B</td><td class='num'>$11.8B</td></tr><tr><td class='num'>2</td><td class='num'>$71.8B</td><td class='num'>25%</td><td class='num'>$17.9B</td><td class='num'>$13.6B</td></tr><tr><td class='num'>3</td><td class='num'>$94.8B</td><td class='num'>25%</td><td class='num'>$23.7B</td><td class='num'>$15.6B</td></tr><tr><td class='num'>4</td><td class='num'>$125.1B</td><td class='num'>25%</td><td class='num'>$31.3B</td><td class='num'>$17.9B</td></tr><tr><td class='num'>5</td><td class='num'>$165.1B</td><td class='num'>25%</td><td class='num'>$41.3B</td><td class='num'>$20.6B</td></tr>
+          <tr style="background:#21262d"><td colspan="4"><strong>PV(终值) = $414.8B×(1+4.5%)/(WACC-4.5%)折现</strong></td><td class="num">$207.1B</td></tr>
+        </table>
+        <div style="padding:8px;background:#21262d;border-radius:5px;font-size:12px">
+          EV = $286.7B → 股权价值 = <strong style="color:#f85149">$290.7B</strong>
+          vs 市值 $853.0B
+          → <strong style="color:#f85149">5yr IRR = -19.4%/年</strong>
+        </div>
+        <div style="margin-top:6px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          🔍 市价隐含CAGR = <strong style="color:#f0883e">66.9%</strong>
+          vs 假设 32.0%
+          → 市场定价比假设高 → 溢价已充分
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#bc8cff;margin-bottom:8px">🔭 10年 DCF（2026-2036）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px;margin-bottom:10px">
+        前5年CAGR：32.0%<br>
+        后5年CAGR：15%（AI长期正常化增速）<br>
+        后5年FCF Margin：28%<br>
+        终值增长率：4.5%，WACC：14.9%<br>
+        ─────────────────────────────────────────
+        Year10 营收：<strong>$332.1B</strong><br>
+        EV₁₀ = $428.3B → 股权价值：<strong>$432.3B</strong><br>
+        <strong style="color:#f85149">10年 IRR = -6.6%/年</strong>
+        <div style="margin-top:8px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          v1 = 0（5yr×75% + 10yr×25%（标准权重））
+          → 综合IRR ≈ -16.2%
+        </div>
+      </div>
+      <div style="font-size:13px;font-weight:600;color:#f0883e;margin-bottom:8px">📈 PE/PS可比估值</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px">
+          <tr><th>指标</th><th>当前</th><th>同行均值</th><th>比较</th></tr>
+          <tr><td>Forward PE</td><td class="num">50.0x</td><td class="num">28.0x</td>
+              <td style="color:#f85149">+22.0x 溢价</td></tr>
+          <tr><td>P/S</td><td class="num">20.7x</td><td class="num">—</td><td style="color:#8b949e">参考</td></tr>
+          <tr><td>PEG</td><td class="num">1.50x</td><td class="num">&lt;2.0x合理</td>
+              <td style="color:#d29922">1.50x ⚠️</td></tr>
+        </table>
+        <div style="margin-top:6px;font-size:11px;color:#8b949e">→ v2 = 2（基于PE/PEG相对估值）</div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div style="margin-top:6px;font-size:11px;color:#8b949e">数据来源: <a href="https://www.techi.com/amd-q1-2026-earnings-ai-data-center-revenue/" style="color:#79c0ff">[来源1]</a> | <a href="https://www.datacenterdynamics.com/en/news/amd-posts-q1-2026-data-center-revenue-of-58bn-forecasts-120bn-server-cpu-income-by-2030/" style="color:#79c0ff">[来源2]</a></div>
+</div>
+<div class="card" id="co-MRVL">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">Marvell Technology <span style="color:#58a6ff;font-size:12px">(定制ASIC/AI网络互联/光DSP)</span></div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">MRVL · 置信度<strong>1.0</strong> · 2026-06-06</div>
+      <div class="ibox" style="margin-top:5px;font-size:12px"><strong>实时数据</strong>: Q1 FY2027 $2.42B +27.6% YoY；数据中心$678M +42% | FY2027目标$11.5B（+40%）；FY2028目标$16.5B（+43%）；互联业务增速70%+</div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:700px">Marvell是AI推理时代最大的架构性受益者。互联带宽成为推理瓶颈，MRVL的PAM4光DSP和定制ASIC填补需求。Amazon Trainium/Microsoft Maia主要合作方。FY2028 $16.5B目标意味着5年~5x增长。Jensen Huang称其'下一个万亿美元公司'。PEG 1.4相对增速仍具竞争力。</div>
+    </div>
+    <div style="text-align:center;min-width:100px">
+      <div style="font-size:50px;font-weight:800;color:#58a6ff;line-height:1">67.2</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;border:2px solid #58a6ff;color:#58a6ff;background:#0d1117">B</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#3fb950">83.6</div><div style="font-size:11px;color:#8b949e">行业分×20%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#58a6ff">82.4</div><div style="font-size:11px;color:#8b949e">质量分×50%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#f0883e">31.0</div><div style="font-size:11px;color:#8b949e">估值分×30%（v4.2真DCF）</div></div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">AI算力需求空间</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI需求可见性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">政策出口管制</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 质量（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI产品对齐度</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">客户结构</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">5年DCF内在价值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:0%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">0</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">可比PE/PS估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">下行情景保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">历史同行对比</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">①FY2028 $16.5B高度依赖Amazon/Google持续采购 ②AI推理ASIC竞争加剧 ③当前P/S ~27x需持续超预期支撑</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">①Q2 FY2027财报（2026-08） ②FY2028营收路径更新 ③新超大规模ASIC合同公告</li></ul></div>
+  </div>
+  
+<div style="margin-top:14px">
+  <div style="font-size:14px;font-weight:700;color:#e6edf3;padding:8px 12px;background:#21262d;border-radius:6px;border-left:3px solid #ffd700;margin-bottom:10px">
+    📐 估值模型（真DCF + PE/PS可比）— 中等护城河（10年权重25%）
+  </div>
+  
+  <div style="background:#1c2128;border:1px solid #388bfd44;border-radius:8px;padding:12px;margin-bottom:10px">
+    <div style="font-size:13px;font-weight:700;color:#79c0ff;margin-bottom:10px">🎯 目标股价（DCF推算）</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:stretch">
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">当前股价</div>
+        <div style="font-size:22px;font-weight:800;color:#e6edf3">$301.65</div>
+        <div style="font-size:11px;color:#8b949e;margin-top:2px">2026-06-06 收盘</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #f8514944;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">5年 DCF 公允价（今日）</div>
+        <div style="font-size:22px;font-weight:800;color:#f85149">$94.26</div>
+        <div style="font-size:12px;color:#f85149;margin-top:2px">-68.8% 于当前价</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">基准：IRR=0时的今日内在价值</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #f8514944;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">10年目标价（2036年）</div>
+        <div style="font-size:22px;font-weight:800;color:#f85149">$177.75</div>
+        <div style="font-size:12px;color:#f85149;margin-top:2px">-41.1%（×0.6倍）</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">假设10yr IRR -5.2%/年实现</div>
+      </div>
+    </div>
+    <div style="margin-top:8px;font-size:11px;color:#8b949e;text-align:center">
+      ⚠️ 5年公允价 = DCF折现内在价值（今天该值多少）；10年目标价 = 若10yr IRR实现则2036年股价。<br>
+      负IRR不代表"不能买"——高护城河公司需10年视角 + 等待回调至5年公允价附近建仓。
+    </div>
+  </div>
+  <div class="g2">
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#79c0ff;margin-bottom:8px">📊 5年 DCF（2026-2031）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px;margin-bottom:8px">
+          <tr><th>假设</th><th>值</th><th>来源</th></tr>
+          <tr><td>当前市值</td><td class="num"><strong>$264.0B</strong></td><td style="color:#8b949e;font-size:11px">capitalstreetfx.com 2026-06-02</td></tr>
+          <tr><td>净负债/现金</td><td class="num neg">$3.5B</td><td style="color:#8b949e;font-size:11px">净负债</td></tr>
+          <tr><td>当前年化营收</td><td class="num">$9.7B</td><td style="color:#8b949e;font-size:11px">最新季度×4</td></tr>
+          <tr><td>5yr CAGR</td><td class="num"><strong>38.0%</strong></td><td style="color:#8b949e;font-size:11px">管理层FY2027 +40%/FY2028 +43%正式指引；互联业务</td></tr>
+          <tr><td>FCF Margin</td><td class="num">25%</td><td style="color:#8b949e;font-size:11px">历史FCF/Revenue</td></tr>
+          <tr><td>WACC</td><td class="num">14.9%</td><td style="color:#8b949e;font-size:11px">Rf 4.4% + β×5.5%</td></tr>
+          <tr><td>终值增长率 g</td><td class="num">5.0%</td><td style="color:#8b949e;font-size:11px">AI行业长期增速</td></tr>
+        </table>
+        <table style="font-size:11px;margin-bottom:8px">
+          <tr><th>Year</th><th>营收</th><th>FCF率</th><th>FCF</th><th>折现PV</th></tr>
+          <tr><td class='num'>1</td><td class='num'>$13.4B</td><td class='num'>25%</td><td class='num'>$3.3B</td><td class='num'>$2.9B</td></tr><tr><td class='num'>2</td><td class='num'>$18.5B</td><td class='num'>25%</td><td class='num'>$4.6B</td><td class='num'>$3.5B</td></tr><tr><td class='num'>3</td><td class='num'>$25.5B</td><td class='num'>25%</td><td class='num'>$6.4B</td><td class='num'>$4.2B</td></tr><tr><td class='num'>4</td><td class='num'>$35.2B</td><td class='num'>25%</td><td class='num'>$8.8B</td><td class='num'>$5.0B</td></tr><tr><td class='num'>5</td><td class='num'>$48.5B</td><td class='num'>25%</td><td class='num'>$12.1B</td><td class='num'>$6.1B</td></tr>
+          <tr style="background:#21262d"><td colspan="4"><strong>PV(终值) = $128.7B×(1+5.0%)/(WACC-5.0%)折现</strong></td><td class="num">$64.3B</td></tr>
+        </table>
+        <div style="padding:8px;background:#21262d;border-radius:5px;font-size:12px">
+          EV = $86.0B → 股权价值 = <strong style="color:#f85149">$82.5B</strong>
+          vs 市值 $264.0B
+          → <strong style="color:#f85149">5yr IRR = -20.8%/年</strong>
+        </div>
+        <div style="margin-top:6px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          🔍 市价隐含CAGR = <strong style="color:#f0883e">75.8%</strong>
+          vs 假设 38.0%
+          → 市场定价比假设高 → 溢价已充分
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#bc8cff;margin-bottom:8px">🔭 10年 DCF（2026-2036）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px;margin-bottom:10px">
+        前5年CAGR：38.0%<br>
+        后5年CAGR：20%（AI长期正常化增速）<br>
+        后5年FCF Margin：30%<br>
+        终值增长率：5.0%，WACC：14.9%<br>
+        ─────────────────────────────────────────
+        Year10 营收：<strong>$120.8B</strong><br>
+        EV₁₀ = $159.1B → 股权价值：<strong>$155.6B</strong><br>
+        <strong style="color:#f85149">10年 IRR = -5.2%/年</strong>
+        <div style="margin-top:8px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          v1 = 0（5yr×75% + 10yr×25%（标准权重））
+          → 综合IRR ≈ -16.9%
+        </div>
+      </div>
+      <div style="font-size:13px;font-weight:600;color:#f0883e;margin-bottom:8px">📈 PE/PS可比估值</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px">
+          <tr><th>指标</th><th>当前</th><th>同行均值</th><th>比较</th></tr>
+          <tr><td>Forward PE</td><td class="num">55.0x</td><td class="num">28.0x</td>
+              <td style="color:#f85149">+27.0x 溢价</td></tr>
+          <tr><td>P/S</td><td class="num">27.2x</td><td class="num">—</td><td style="color:#8b949e">参考</td></tr>
+          <tr><td>PEG</td><td class="num">1.40x</td><td class="num">&lt;2.0x合理</td>
+              <td style="color:#3fb950">1.40x ✅</td></tr>
+        </table>
+        <div style="margin-top:6px;font-size:11px;color:#8b949e">→ v2 = 2（基于PE/PEG相对估值）</div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div style="margin-top:6px;font-size:11px;color:#8b949e">数据来源: <a href="https://www.stocktitan.net/sec-filings/MRVL/8-k-marvell-technology-inc-reports-material-event-c6f040475efc.html" style="color:#79c0ff">[来源1]</a> | <a href="https://www.tikr.com/blog/marvell-technology-stock-hits-all-time-highs-with-a-16-5-billion-2028-revenue-target-behind-it" style="color:#79c0ff">[来源2]</a></div>
+</div>
+<div class="card" id="co-QCOM">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">Qualcomm <span style="color:#d29922;font-size:12px">(移动SoC/AI PC/汽车/端侧AI推理)</span></div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">QCOM · 置信度<strong>1.0</strong> · 2026-06-06</div>
+      <div class="ibox" style="margin-top:5px;font-size:12px"><strong>实时数据</strong>: Q2 FY2026 $10.6B -2.2% YoY；汽车$1.3B +38%（历史新高年化$5B+） | Q3指引$9.2-10.0B；汽车年化>$6B；数据中心AI芯片FY2027出货</div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:700px">QCOM是被低估的'AI PC+汽车AI'组合。Fwd PE仅14x，PEG 0.75历史低估区间。汽车业务CAGR 38%，年化>$5B。FY2027开始数据中心AI芯片出货（新业务）。苹果基带失单风险已大幅定价。5年DCF IRR +3.7%，加上股息收益率，综合回报合理。适合价值型投资者建底仓。</div>
+    </div>
+    <div style="text-align:center;min-width:100px">
+      <div style="font-size:50px;font-weight:800;color:#58a6ff;line-height:1">66.0</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;border:2px solid #58a6ff;color:#58a6ff;background:#0d1117">B</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#3fb950">71.2</div><div style="font-size:11px;color:#8b949e">行业分×20%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#58a6ff">71.2</div><div style="font-size:11px;color:#8b949e">质量分×50%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#f0883e">54.0</div><div style="font-size:11px;color:#8b949e">估值分×30%（v4.2真DCF）</div></div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">AI算力需求空间</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI需求可见性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">政策出口管制</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 质量（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI产品对齐度</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">客户结构</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">5年DCF内在价值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:20%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">1</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">可比PE/PS估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">下行情景保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">历史同行对比</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">①苹果FY2027起逐步转向自研基带（影响~$6-8B营收/年） ②中国Android手机市场波动 ③AI PC渗透速度不及预期</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">①汽车业务年化$6B确认 ②数据中心AI芯片首次出货（FY2027Q1） ③Snapdragon X3发布</li></ul></div>
+  </div>
+  
+<div style="margin-top:14px">
+  <div style="font-size:14px;font-weight:700;color:#e6edf3;padding:8px 12px;background:#21262d;border-radius:6px;border-left:3px solid #ffd700;margin-bottom:10px">
+    📐 估值模型（真DCF + PE/PS可比）— 中等护城河（10年权重25%）
+  </div>
+  
+  <div style="background:#1c2128;border:1px solid #388bfd44;border-radius:8px;padding:12px;margin-bottom:10px">
+    <div style="font-size:13px;font-weight:700;color:#79c0ff;margin-bottom:10px">🎯 目标股价（DCF推算）</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:stretch">
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">当前股价</div>
+        <div style="font-size:22px;font-weight:800;color:#e6edf3">$240.84</div>
+        <div style="font-size:11px;color:#8b949e;margin-top:2px">2026-06-06 收盘</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #f8514944;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">5年 DCF 公允价（今日）</div>
+        <div style="font-size:22px;font-weight:800;color:#f85149">$227.54</div>
+        <div style="font-size:12px;color:#f85149;margin-top:2px">-5.5% 于当前价</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">基准：IRR=0时的今日内在价值</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #3fb95044;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">10年目标价（2036年）</div>
+        <div style="font-size:22px;font-weight:800;color:#3fb950">$263.85</div>
+        <div style="font-size:12px;color:#3fb950;margin-top:2px">+9.6%（×1.1倍）</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">假设10yr IRR +0.9%/年实现</div>
+      </div>
+    </div>
+    <div style="margin-top:8px;font-size:11px;color:#8b949e;text-align:center">
+      ⚠️ 5年公允价 = DCF折现内在价值（今天该值多少）；10年目标价 = 若10yr IRR实现则2036年股价。<br>
+      负IRR不代表"不能买"——高护城河公司需10年视角 + 等待回调至5年公允价附近建仓。
+    </div>
+  </div>
+  <div class="g2">
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#79c0ff;margin-bottom:8px">📊 5年 DCF（2026-2031）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px;margin-bottom:8px">
+          <tr><th>假设</th><th>值</th><th>来源</th></tr>
+          <tr><td>当前市值</td><td class="num"><strong>$263.0B</strong></td><td style="color:#8b949e;font-size:11px">tradingeconomics.com 2026-06-04</td></tr>
+          <tr><td>净负债/现金</td><td class="num pos">$-5.0B</td><td style="color:#8b949e;font-size:11px">净现金</td></tr>
+          <tr><td>当前年化营收</td><td class="num">$42.4B</td><td style="color:#8b949e;font-size:11px">最新季度×4</td></tr>
+          <tr><td>5yr CAGR</td><td class="num"><strong>10.0%</strong></td><td style="color:#8b949e;font-size:11px">苹果基带失单FY2027+影响；汽车+IoT抵消部分；保守取10% C</td></tr>
+          <tr><td>FCF Margin</td><td class="num">35%</td><td style="color:#8b949e;font-size:11px">历史FCF/Revenue</td></tr>
+          <tr><td>WACC</td><td class="num">12.1%</td><td style="color:#8b949e;font-size:11px">Rf 4.4% + β×5.5%</td></tr>
+          <tr><td>终值增长率 g</td><td class="num">4.0%</td><td style="color:#8b949e;font-size:11px">AI行业长期增速</td></tr>
+        </table>
+        <table style="font-size:11px;margin-bottom:8px">
+          <tr><th>Year</th><th>营收</th><th>FCF率</th><th>FCF</th><th>折现PV</th></tr>
+          <tr><td class='num'>1</td><td class='num'>$46.6B</td><td class='num'>35%</td><td class='num'>$16.3B</td><td class='num'>$14.6B</td></tr><tr><td class='num'>2</td><td class='num'>$51.3B</td><td class='num'>35%</td><td class='num'>$18.0B</td><td class='num'>$14.3B</td></tr><tr><td class='num'>3</td><td class='num'>$56.4B</td><td class='num'>35%</td><td class='num'>$19.8B</td><td class='num'>$14.0B</td></tr><tr><td class='num'>4</td><td class='num'>$62.1B</td><td class='num'>35%</td><td class='num'>$21.7B</td><td class='num'>$13.8B</td></tr><tr><td class='num'>5</td><td class='num'>$68.3B</td><td class='num'>35%</td><td class='num'>$23.9B</td><td class='num'>$13.5B</td></tr>
+          <tr style="background:#21262d"><td colspan="4"><strong>PV(终值) = $306.9B×(1+4.0%)/(WACC-4.0%)折现</strong></td><td class="num">$173.3B</td></tr>
+        </table>
+        <div style="padding:8px;background:#21262d;border-radius:5px;font-size:12px">
+          EV = $243.5B → 股权价值 = <strong style="color:#f85149">$248.5B</strong>
+          vs 市值 $263.0B
+          → <strong style="color:#f85149">5yr IRR = -1.1%/年</strong>
+        </div>
+        <div style="margin-top:6px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          🔍 市价隐含CAGR = <strong style="color:#f0883e">11.5%</strong>
+          vs 假设 10.0%
+          → 市场定价比假设高 → 溢价已充分
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#bc8cff;margin-bottom:8px">🔭 10年 DCF（2026-2036）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px;margin-bottom:10px">
+        前5年CAGR：10.0%<br>
+        后5年CAGR：7%（AI长期正常化增速）<br>
+        后5年FCF Margin：38%<br>
+        终值增长率：4.0%，WACC：12.1%<br>
+        ─────────────────────────────────────────
+        Year10 营收：<strong>$95.8B</strong><br>
+        EV₁₀ = $283.1B → 股权价值：<strong>$288.1B</strong><br>
+        <strong style="color:#3fb950">10年 IRR = +0.9%/年</strong>
+        <div style="margin-top:8px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          v1 = 1（5yr×75% + 10yr×25%（标准权重））
+          → 综合IRR ≈ -0.6%
+        </div>
+      </div>
+      <div style="font-size:13px;font-weight:600;color:#f0883e;margin-bottom:8px">📈 PE/PS可比估值</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px">
+          <tr><th>指标</th><th>当前</th><th>同行均值</th><th>比较</th></tr>
+          <tr><td>Forward PE</td><td class="num">14.0x</td><td class="num">20.0x</td>
+              <td style="color:#3fb950">-6.0x 折价</td></tr>
+          <tr><td>P/S</td><td class="num">6.2x</td><td class="num">—</td><td style="color:#8b949e">参考</td></tr>
+          <tr><td>PEG</td><td class="num">0.75x</td><td class="num">&lt;2.0x合理</td>
+              <td style="color:#3fb950">0.75x ✅</td></tr>
+        </table>
+        <div style="margin-top:6px;font-size:11px;color:#8b949e">→ v2 = 3（基于PE/PEG相对估值）</div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div style="margin-top:6px;font-size:11px;color:#8b949e">数据来源: <a href="https://www.fool.com/earnings/call-transcripts/2026/04/29/qualcomm-qcom-q2-2026-earnings-transcript/" style="color:#79c0ff">[来源1]</a> | <a href="https://futurumgroup.com/insights/qualcomm-q2-fy-2026-earnings-show-data-center-entry-and-auto-strength/" style="color:#79c0ff">[来源2]</a></div>
+</div>
+<div class="card" id="co-ARM">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">Arm Holdings <span style="color:#d29922;font-size:12px">(CPU IP授权/AI推理使能)</span></div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">ARM · 置信度<strong>1.0</strong> · 2026-06-06</div>
+      <div class="ibox" style="margin-top:5px;font-size:12px"><strong>实时数据</strong>: FY2026全年$4.92B +23% YoY；Q4 FY2026 $1.49B历史最高 | FY2027 Q1指引~$1.26B ±$50M（+20% YoY）；长期目标FY2031 $25B</div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:700px">ARM是最优质的IP授权商业模式——边际成本趋零，版税随芯片出货量自然增长。数据中心版税翻倍YoY，AI PC+服务器渗透加速。但P/S 89x、PEG 5.8透支了极长的理想增长。10年DCF即使用7%终值增长仍为+3.8%年化，仅在10年视角下才合理。等待30-40%回调后建仓。</div>
+    </div>
+    <div style="text-align:center;min-width:100px">
+      <div style="font-size:50px;font-weight:800;color:#58a6ff;line-height:1">61.9</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;border:2px solid #58a6ff;color:#58a6ff;background:#0d1117">B</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#3fb950">88.4</div><div style="font-size:11px;color:#8b949e">行业分×20%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#58a6ff">82.4</div><div style="font-size:11px;color:#8b949e">质量分×50%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#f0883e">10.0</div><div style="font-size:11px;color:#8b949e">估值分×30%（v4.2真DCF）</div></div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">AI算力需求空间</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI需求可见性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">政策出口管制</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 质量（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI产品对齐度</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">客户结构</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">5年DCF内在价值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:0%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">0</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">可比PE/PS估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:0%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">0</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">下行情景保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">历史同行对比</td><td><div class="bw"><div class="bb"><div class="bf" style="width:0%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">0</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">①P/S 89x极度透支，任何低于预期季报引发崩塌 ②RISC-V持续蚕食低端市场 ③ARM中国独立运营治理风险 ④Softbank ~90%持股，流通量极小</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">①FY2027 Q2/Q3财报版税确认加速 ②AGI CPU数据中心版税爆发 ③Softbank减持引发估值正常化（买点）</li></ul></div>
+  </div>
+  
+<div style="margin-top:14px">
+  <div style="font-size:14px;font-weight:700;color:#e6edf3;padding:8px 12px;background:#21262d;border-radius:6px;border-left:3px solid #ffd700;margin-bottom:10px">
+    📐 估值模型（真DCF + PE/PS可比）— 高护城河（10年权重40%）
+  </div>
+  
+  <div style="background:#1c2128;border:1px solid #388bfd44;border-radius:8px;padding:12px;margin-bottom:10px">
+    <div style="font-size:13px;font-weight:700;color:#79c0ff;margin-bottom:10px">🎯 目标股价（DCF推算）</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:stretch">
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">当前股价</div>
+        <div style="font-size:22px;font-weight:800;color:#e6edf3">$411.73</div>
+        <div style="font-size:11px;color:#8b949e;margin-top:2px">2026-06-06 收盘</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #f8514944;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">5年 DCF 公允价（今日）</div>
+        <div style="font-size:22px;font-weight:800;color:#f85149">$76.56</div>
+        <div style="font-size:12px;color:#f85149;margin-top:2px">-81.4% 于当前价</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">基准：IRR=0时的今日内在价值</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #f8514944;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">10年目标价（2036年）</div>
+        <div style="font-size:22px;font-weight:800;color:#f85149">$110.74</div>
+        <div style="font-size:12px;color:#f85149;margin-top:2px">-73.1%（×0.3倍）</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">假设10yr IRR -12.3%/年实现</div>
+      </div>
+    </div>
+    <div style="margin-top:8px;font-size:11px;color:#8b949e;text-align:center">
+      ⚠️ 5年公允价 = DCF折现内在价值（今天该值多少）；10年目标价 = 若10yr IRR实现则2036年股价。<br>
+      负IRR不代表"不能买"——高护城河公司需10年视角 + 等待回调至5年公允价附近建仓。
+    </div>
+  </div>
+  <div class="g2">
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#79c0ff;margin-bottom:8px">📊 5年 DCF（2026-2031）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px;margin-bottom:8px">
+          <tr><th>假设</th><th>值</th><th>来源</th></tr>
+          <tr><td>当前市值</td><td class="num"><strong>$440.0B</strong></td><td style="color:#8b949e;font-size:11px">companiesmarketcap.com 2026-06-05</td></tr>
+          <tr><td>净负债/现金</td><td class="num pos">$-2.0B</td><td style="color:#8b949e;font-size:11px">净现金</td></tr>
+          <tr><td>当前年化营收</td><td class="num">$6.0B</td><td style="color:#8b949e;font-size:11px">最新季度×4</td></tr>
+          <tr><td>5yr CAGR</td><td class="num"><strong>28.0%</strong></td><td style="color:#8b949e;font-size:11px">CEO FY2031 $25B目标（CAGR ~33%）；保守取28%</td></tr>
+          <tr><td>FCF Margin</td><td class="num">40%</td><td style="color:#8b949e;font-size:11px">历史FCF/Revenue</td></tr>
+          <tr><td>WACC</td><td class="num">13.8%</td><td style="color:#8b949e;font-size:11px">Rf 4.4% + β×5.5%</td></tr>
+          <tr><td>终值增长率 g</td><td class="num">6.5%</td><td style="color:#8b949e;font-size:11px">高护城河行业长期</td></tr>
+        </table>
+        <table style="font-size:11px;margin-bottom:8px">
+          <tr><th>Year</th><th>营收</th><th>FCF率</th><th>FCF</th><th>折现PV</th></tr>
+          <tr><td class='num'>1</td><td class='num'>$7.6B</td><td class='num'>40%</td><td class='num'>$3.1B</td><td class='num'>$2.7B</td></tr><tr><td class='num'>2</td><td class='num'>$9.8B</td><td class='num'>40%</td><td class='num'>$3.9B</td><td class='num'>$3.0B</td></tr><tr><td class='num'>3</td><td class='num'>$12.5B</td><td class='num'>40%</td><td class='num'>$5.0B</td><td class='num'>$3.4B</td></tr><tr><td class='num'>4</td><td class='num'>$16.0B</td><td class='num'>40%</td><td class='num'>$6.4B</td><td class='num'>$3.8B</td></tr><tr><td class='num'>5</td><td class='num'>$20.5B</td><td class='num'>40%</td><td class='num'>$8.2B</td><td class='num'>$4.3B</td></tr>
+          <tr style="background:#21262d"><td colspan="4"><strong>PV(终值) = $119.5B×(1+6.5%)/(WACC-6.5%)折现</strong></td><td class="num">$62.6B</td></tr>
+        </table>
+        <div style="padding:8px;background:#21262d;border-radius:5px;font-size:12px">
+          EV = $79.8B → 股权价值 = <strong style="color:#f85149">$81.8B</strong>
+          vs 市值 $440.0B
+          → <strong style="color:#f85149">5yr IRR = -28.6%/年</strong>
+        </div>
+        <div style="margin-top:6px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          🔍 市价隐含CAGR = <strong style="color:#f0883e">83.2%</strong>
+          vs 假设 28.0%
+          → 市场定价比假设高 → 溢价已充分
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#bc8cff;margin-bottom:8px">🔭 10年 DCF（2026-2036）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px;margin-bottom:10px">
+        前5年CAGR：28.0%<br>
+        后5年CAGR：15%（AI长期正常化增速）<br>
+        后5年FCF Margin：45%<br>
+        终值增长率：6.5%，WACC：13.8%<br>
+        ─────────────────────────────────────────
+        Year10 营收：<strong>$41.2B</strong><br>
+        EV₁₀ = $116.3B → 股权价值：<strong>$118.3B</strong><br>
+        <strong style="color:#f85149">10年 IRR = -12.3%/年</strong>
+        <div style="margin-top:8px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          v1 = 0（5yr×60% + 10yr×40%（高护城河权重））
+          → 综合IRR ≈ -22.1%
+        </div>
+      </div>
+      <div style="font-size:13px;font-weight:600;color:#f0883e;margin-bottom:8px">📈 PE/PS可比估值</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px">
+          <tr><th>指标</th><th>当前</th><th>同行均值</th><th>比较</th></tr>
+          <tr><td>Forward PE</td><td class="num">180.0x</td><td class="num">28.0x</td>
+              <td style="color:#f85149">+152.0x 溢价</td></tr>
+          <tr><td>P/S</td><td class="num">89.0x</td><td class="num">—</td><td style="color:#8b949e">参考</td></tr>
+          <tr><td>PEG</td><td class="num">5.80x</td><td class="num">&lt;2.0x合理</td>
+              <td style="color:#f85149">5.80x ❌</td></tr>
+        </table>
+        <div style="margin-top:6px;font-size:11px;color:#8b949e">→ v2 = 0（基于PE/PEG相对估值）</div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div style="margin-top:6px;font-size:11px;color:#8b949e">数据来源: <a href="https://mlq.ai/news/arm-holdings-unveils-record-breaking-q4-and-full-year-2026-financial-results/" style="color:#79c0ff">[来源1]</a> | <a href="https://moneycheck.com/arm-holdings-arm-stock-soars-as-ceo-accelerates-15b-revenue-timeline/" style="color:#79c0ff">[来源2]</a></div>
+</div>
+<div class="card" id="co-UMC">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">United Microelectronics <span style="color:#8b949e;font-size:12px">(成熟制程代工（22/28nm）)</span></div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">UMC · 置信度<strong>1.0</strong> · 2026-06-06</div>
+      <div class="ibox" style="margin-top:5px;font-size:12px"><strong>实时数据</strong>: Q1 2026 NT$61.04B +5.5% YoY；利用率79%；22/28nm占34% | Q2晶圆出货量增高单位数%；H2 2026计划提价；Capex预算$1.5B</div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:700px">UMC不是AI成长股，而是价值防御型半导体持仓。P/S仅1.0x，P/E 14x，历史低估区间，派发稳定股息。22/28nm成熟制程在MCU/IoT/模拟功率芯片有稳定需求。H2 2026涨价支撑毛利率改善。5年DCF IRR +5.5%，加上股息收益率，是板块中确定性最高的安全边际标的。</div>
+    </div>
+    <div style="text-align:center;min-width:100px">
+      <div style="font-size:50px;font-weight:800;color:#58a6ff;line-height:1">60.7</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;border:2px solid #58a6ff;color:#58a6ff;background:#0d1117">B</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#3fb950">56.4</div><div style="font-size:11px;color:#8b949e">行业分×20%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#58a6ff">62.8</div><div style="font-size:11px;color:#8b949e">质量分×50%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#f0883e">60.0</div><div style="font-size:11px;color:#8b949e">估值分×30%（v4.2真DCF）</div></div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">AI算力需求空间</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI需求可见性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">政策出口管制</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 质量（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI产品对齐度</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">客户结构</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">5年DCF内在价值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:0%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">0</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">可比PE/PS估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">下行情景保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">历史同行对比</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">①中芯国际产能扩张压制成熟制程ASP ②成熟制程中长期过剩（汽车/消费电子复苏慢） ③AI主链受益有限，与热点脱节</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">①H2 2026价格调整落地 ②利用率回升至85%+ ③22nm特色工艺新客户（汽车/工业）</li></ul></div>
+  </div>
+  
+<div style="margin-top:14px">
+  <div style="font-size:14px;font-weight:700;color:#e6edf3;padding:8px 12px;background:#21262d;border-radius:6px;border-left:3px solid #ffd700;margin-bottom:10px">
+    📐 估值模型（真DCF + PE/PS可比）— 中等护城河（10年权重25%）
+  </div>
+  
+  <div style="background:#1c2128;border:1px solid #388bfd44;border-radius:8px;padding:12px;margin-bottom:10px">
+    <div style="font-size:13px;font-weight:700;color:#79c0ff;margin-bottom:10px">🎯 目标股价（DCF推算）</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:stretch">
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">当前股价</div>
+        <div style="font-size:22px;font-weight:800;color:#e6edf3">$21.42</div>
+        <div style="font-size:11px;color:#8b949e;margin-top:2px">2026-06-06 收盘</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #f8514944;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">5年 DCF 公允价（今日）</div>
+        <div style="font-size:22px;font-weight:800;color:#f85149">$7.62</div>
+        <div style="font-size:12px;color:#f85149;margin-top:2px">-64.4% 于当前价</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">基准：IRR=0时的今日内在价值</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #f8514944;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">10年目标价（2036年）</div>
+        <div style="font-size:22px;font-weight:800;color:#f85149">$8.39</div>
+        <div style="font-size:12px;color:#f85149;margin-top:2px">-60.8%（×0.4倍）</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">假设10yr IRR -8.9%/年实现</div>
+      </div>
+    </div>
+    <div style="margin-top:8px;font-size:11px;color:#8b949e;text-align:center">
+      ⚠️ 5年公允价 = DCF折现内在价值（今天该值多少）；10年目标价 = 若10yr IRR实现则2036年股价。<br>
+      负IRR不代表"不能买"——高护城河公司需10年视角 + 等待回调至5年公允价附近建仓。
+    </div>
+  </div>
+  <div class="g2">
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#79c0ff;margin-bottom:8px">📊 5年 DCF（2026-2031）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px;margin-bottom:8px">
+          <tr><th>假设</th><th>值</th><th>来源</th></tr>
+          <tr><td>当前市值</td><td class="num"><strong>$56.4B</strong></td><td style="color:#8b949e;font-size:11px">investing.com 2026-06-04</td></tr>
+          <tr><td>净负债/现金</td><td class="num pos">$-2.0B</td><td style="color:#8b949e;font-size:11px">净现金</td></tr>
+          <tr><td>当前年化营收</td><td class="num">$7.6B</td><td style="color:#8b949e;font-size:11px">最新季度×4</td></tr>
+          <tr><td>5yr CAGR</td><td class="num"><strong>8.0%</strong></td><td style="color:#8b949e;font-size:11px">历史均值5-10% CAGR；成熟制程非AI主链；H2涨价+利用率提升</td></tr>
+          <tr><td>FCF Margin</td><td class="num">15%</td><td style="color:#8b949e;font-size:11px">历史FCF/Revenue</td></tr>
+          <tr><td>WACC</td><td class="num">11.0%</td><td style="color:#8b949e;font-size:11px">Rf 4.4% + β×5.5%</td></tr>
+          <tr><td>终值增长率 g</td><td class="num">3.0%</td><td style="color:#8b949e;font-size:11px">AI行业长期增速</td></tr>
+        </table>
+        <table style="font-size:11px;margin-bottom:8px">
+          <tr><th>Year</th><th>营收</th><th>FCF率</th><th>FCF</th><th>折现PV</th></tr>
+          <tr><td class='num'>1</td><td class='num'>$8.2B</td><td class='num'>15%</td><td class='num'>$1.2B</td><td class='num'>$1.1B</td></tr><tr><td class='num'>2</td><td class='num'>$8.9B</td><td class='num'>15%</td><td class='num'>$1.3B</td><td class='num'>$1.1B</td></tr><tr><td class='num'>3</td><td class='num'>$9.6B</td><td class='num'>15%</td><td class='num'>$1.4B</td><td class='num'>$1.1B</td></tr><tr><td class='num'>4</td><td class='num'>$10.3B</td><td class='num'>15%</td><td class='num'>$1.6B</td><td class='num'>$1.0B</td></tr><tr><td class='num'>5</td><td class='num'>$11.2B</td><td class='num'>15%</td><td class='num'>$1.7B</td><td class='num'>$994M</td></tr>
+          <tr style="background:#21262d"><td colspan="4"><strong>PV(终值) = $21.6B×(1+3.0%)/(WACC-3.0%)折现</strong></td><td class="num">$12.8B</td></tr>
+        </table>
+        <div style="padding:8px;background:#21262d;border-radius:5px;font-size:12px">
+          EV = $18.1B → 股权价值 = <strong style="color:#f85149">$20.1B</strong>
+          vs 市值 $56.4B
+          → <strong style="color:#f85149">5yr IRR = -18.7%/年</strong>
+        </div>
+        <div style="margin-top:6px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          🔍 市价隐含CAGR = <strong style="color:#f0883e">37.6%</strong>
+          vs 假设 8.0%
+          → 市场定价比假设高 → 溢价已充分
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#bc8cff;margin-bottom:8px">🔭 10年 DCF（2026-2036）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px;margin-bottom:10px">
+        前5年CAGR：8.0%<br>
+        后5年CAGR：5%（AI长期正常化增速）<br>
+        后5年FCF Margin：16%<br>
+        终值增长率：3.0%，WACC：11.0%<br>
+        ─────────────────────────────────────────
+        Year10 营收：<strong>$14.3B</strong><br>
+        EV₁₀ = $20.1B → 股权价值：<strong>$22.1B</strong><br>
+        <strong style="color:#f85149">10年 IRR = -8.9%/年</strong>
+        <div style="margin-top:8px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          v1 = 0（5yr×75% + 10yr×25%（标准权重））
+          → 综合IRR ≈ -16.2%
+        </div>
+      </div>
+      <div style="font-size:13px;font-weight:600;color:#f0883e;margin-bottom:8px">📈 PE/PS可比估值</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px">
+          <tr><th>指标</th><th>当前</th><th>同行均值</th><th>比较</th></tr>
+          <tr><td>Forward PE</td><td class="num">14.0x</td><td class="num">16.0x</td>
+              <td style="color:#3fb950">-2.0x 折价</td></tr>
+          <tr><td>P/S</td><td class="num">1.0x</td><td class="num">—</td><td style="color:#8b949e">参考</td></tr>
+          <tr><td>PEG</td><td class="num">1.75x</td><td class="num">&lt;2.0x合理</td>
+              <td style="color:#d29922">1.75x ⚠️</td></tr>
+        </table>
+        <div style="margin-top:6px;font-size:11px;color:#8b949e">→ v2 = 5（基于PE/PEG相对估值）</div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div style="margin-top:6px;font-size:11px;color:#8b949e">数据来源: <a href="https://www.stocktitan.net/sec-filings/UMC/6-k-united-microelectronics-corp-current-report-foreign-issuer-e9b1dbf4d35d.html" style="color:#79c0ff">[来源1]</a> | <a href="https://finance.yahoo.com/markets/stocks/articles/united-microelectronics-corp-umc-q1-070434675.html" style="color:#79c0ff">[来源2]</a></div>
+</div>
+<div class="card" id="co-LSCC">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">Lattice Semiconductor <span style="color:#3fb950;font-size:12px">(低功耗FPGA/AI服务器固件管理)</span></div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">LSCC · 置信度<strong>1.0</strong> · 2026-06-06</div>
+      <div class="ibox" style="margin-top:5px;font-size:12px"><strong>实时数据</strong>: Q1 2026 $170.9M +42.2% YoY；计算与通信$106.6M +86% | Q2指引~$185M（+50% YoY）；AMI收购$1.65B完成；AI服务器附着率提升</div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:700px">Lattice是AI服务器'看不见的赢家'——每台AI服务器内嵌LSCC低功耗FPGA负责BMC/安全/电源。毛利70%，AMI收购增加固件软件业务。Q2+50%确认复苏。但P/S 29.3x vs同行7.6x，PEG 2.4严重高估，DCF显示-3.1%年化。需等待估值回调至P/S 15-18x再建仓。</div>
+    </div>
+    <div style="text-align:center;min-width:100px">
+      <div style="font-size:50px;font-weight:800;color:#d29922;line-height:1">58.0</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;border:2px solid #d29922;color:#d29922;background:#0d1117">C</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#3fb950">80.0</div><div style="font-size:11px;color:#8b949e">行业分×20%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#58a6ff">73.2</div><div style="font-size:11px;color:#8b949e">质量分×50%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#f0883e">18.0</div><div style="font-size:11px;color:#8b949e">估值分×30%（v4.2真DCF）</div></div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">AI算力需求空间</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI需求可见性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">政策出口管制</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 质量（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI产品对齐度</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">客户结构</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">5年DCF内在价值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:0%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">0</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">可比PE/PS估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:0%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">0</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">下行情景保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">历史同行对比</td><td><div class="bw"><div class="bb"><div class="bf" style="width:20%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">1</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">①P/S 29.3x vs行业7.6x严重高估 ②AMI整合风险（$1.65B并购） ③Intel/Xilinx FPGA竞争 ④AI服务器FPGA附加值提升速度不及预期</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">①AMI协同效应公布 ②AI服务器附着率数据披露 ③Q3 2026财报（2026-08）</li></ul></div>
+  </div>
+  
+<div style="margin-top:14px">
+  <div style="font-size:14px;font-weight:700;color:#e6edf3;padding:8px 12px;background:#21262d;border-radius:6px;border-left:3px solid #ffd700;margin-bottom:10px">
+    📐 估值模型（真DCF + PE/PS可比）— 中等护城河（10年权重25%）
+  </div>
+  
+  <div style="background:#1c2128;border:1px solid #388bfd44;border-radius:8px;padding:12px;margin-bottom:10px">
+    <div style="font-size:13px;font-weight:700;color:#79c0ff;margin-bottom:10px">🎯 目标股价（DCF推算）</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:stretch">
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">当前股价</div>
+        <div style="font-size:22px;font-weight:800;color:#e6edf3">$151.41</div>
+        <div style="font-size:11px;color:#8b949e;margin-top:2px">2026-06-06 收盘</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #f8514944;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">5年 DCF 公允价（今日）</div>
+        <div style="font-size:22px;font-weight:800;color:#f85149">$34.20</div>
+        <div style="font-size:12px;color:#f85149;margin-top:2px">-77.4% 于当前价</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">基准：IRR=0时的今日内在价值</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #f8514944;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">10年目标价（2036年）</div>
+        <div style="font-size:22px;font-weight:800;color:#f85149">$56.83</div>
+        <div style="font-size:12px;color:#f85149;margin-top:2px">-62.5%（×0.4倍）</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">假设10yr IRR -9.3%/年实现</div>
+      </div>
+    </div>
+    <div style="margin-top:8px;font-size:11px;color:#8b949e;text-align:center">
+      ⚠️ 5年公允价 = DCF折现内在价值（今天该值多少）；10年目标价 = 若10yr IRR实现则2036年股价。<br>
+      负IRR不代表"不能买"——高护城河公司需10年视角 + 等待回调至5年公允价附近建仓。
+    </div>
+  </div>
+  <div class="g2">
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#79c0ff;margin-bottom:8px">📊 5年 DCF（2026-2031）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px;margin-bottom:8px">
+          <tr><th>假设</th><th>值</th><th>来源</th></tr>
+          <tr><td>当前市值</td><td class="num"><strong>$20.7B</strong></td><td style="color:#8b949e;font-size:11px">stockanalysis.com 2026-06-02</td></tr>
+          <tr><td>净负债/现金</td><td class="num neg">$1.6B</td><td style="color:#8b949e;font-size:11px">净负债</td></tr>
+          <tr><td>当前年化营收</td><td class="num">$680M</td><td style="color:#8b949e;font-size:11px">最新季度×4</td></tr>
+          <tr><td>5yr CAGR</td><td class="num"><strong>28.0%</strong></td><td style="color:#8b949e;font-size:11px">Q2指引~$185M中位（+50% YoY）；AMI收购扩大TAM；分</td></tr>
+          <tr><td>FCF Margin</td><td class="num">30%</td><td style="color:#8b949e;font-size:11px">历史FCF/Revenue</td></tr>
+          <tr><td>WACC</td><td class="num">13.2%</td><td style="color:#8b949e;font-size:11px">Rf 4.4% + β×5.5%</td></tr>
+          <tr><td>终值增长率 g</td><td class="num">5.0%</td><td style="color:#8b949e;font-size:11px">AI行业长期增速</td></tr>
+        </table>
+        <table style="font-size:11px;margin-bottom:8px">
+          <tr><th>Year</th><th>营收</th><th>FCF率</th><th>FCF</th><th>折现PV</th></tr>
+          <tr><td class='num'>1</td><td class='num'>$870M</td><td class='num'>30%</td><td class='num'>$261M</td><td class='num'>$231M</td></tr><tr><td class='num'>2</td><td class='num'>$1.1B</td><td class='num'>30%</td><td class='num'>$334M</td><td class='num'>$261M</td></tr><tr><td class='num'>3</td><td class='num'>$1.4B</td><td class='num'>30%</td><td class='num'>$428M</td><td class='num'>$295M</td></tr><tr><td class='num'>4</td><td class='num'>$1.8B</td><td class='num'>30%</td><td class='num'>$548M</td><td class='num'>$333M</td></tr><tr><td class='num'>5</td><td class='num'>$2.3B</td><td class='num'>30%</td><td class='num'>$701M</td><td class='num'>$377M</td></tr>
+          <tr style="background:#21262d"><td colspan="4"><strong>PV(终值) = $9.0B×(1+5.0%)/(WACC-5.0%)折现</strong></td><td class="num">$4.8B</td></tr>
+        </table>
+        <div style="padding:8px;background:#21262d;border-radius:5px;font-size:12px">
+          EV = $6.3B → 股权价值 = <strong style="color:#f85149">$4.7B</strong>
+          vs 市值 $20.7B
+          → <strong style="color:#f85149">5yr IRR = -25.7%/年</strong>
+        </div>
+        <div style="margin-top:6px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          🔍 市价隐含CAGR = <strong style="color:#f0883e">67.5%</strong>
+          vs 假设 28.0%
+          → 市场定价比假设高 → 溢价已充分
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#bc8cff;margin-bottom:8px">🔭 10年 DCF（2026-2036）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px;margin-bottom:10px">
+        前5年CAGR：28.0%<br>
+        后5年CAGR：15%（AI长期正常化增速）<br>
+        后5年FCF Margin：33%<br>
+        终值增长率：5.0%，WACC：13.2%<br>
+        ─────────────────────────────────────────
+        Year10 营收：<strong>$4.7B</strong><br>
+        EV₁₀ = $9.4B → 股权价值：<strong>$7.8B</strong><br>
+        <strong style="color:#f85149">10年 IRR = -9.3%/年</strong>
+        <div style="margin-top:8px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          v1 = 0（5yr×75% + 10yr×25%（标准权重））
+          → 综合IRR ≈ -21.6%
+        </div>
+      </div>
+      <div style="font-size:13px;font-weight:600;color:#f0883e;margin-bottom:8px">📈 PE/PS可比估值</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px">
+          <tr><th>指标</th><th>当前</th><th>同行均值</th><th>比较</th></tr>
+          <tr><td>Forward PE</td><td class="num">67.0x</td><td class="num">20.0x</td>
+              <td style="color:#f85149">+47.0x 溢价</td></tr>
+          <tr><td>P/S</td><td class="num">29.3x</td><td class="num">—</td><td style="color:#8b949e">参考</td></tr>
+          <tr><td>PEG</td><td class="num">2.40x</td><td class="num">&lt;2.0x合理</td>
+              <td style="color:#d29922">2.40x ⚠️</td></tr>
+        </table>
+        <div style="margin-top:6px;font-size:11px;color:#8b949e">→ v2 = 0（基于PE/PEG相对估值）</div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div style="margin-top:6px;font-size:11px;color:#8b949e">数据来源: <a href="https://www.sec.gov/Archives/edgar/data/0000855658/000143774926014654/ex_943286.htm" style="color:#79c0ff">[来源1]</a> | <a href="https://futurumgroup.com/insights/lattice-semiconductor-q1-fy-2026-results-set-up-ami-acquisition/" style="color:#79c0ff">[来源2]</a></div>
+</div>
+<div class="card" id="co-CBRS">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">Cerebras Systems <span style="color:#f85149;font-size:12px">(晶圆级AI推理芯片（WSE）)</span></div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">CBRS · 置信度<strong>0.85</strong> · 2026-06-06</div>
+      <div class="ibox" style="margin-top:5px;font-size:12px"><strong>实时数据</strong>: 2025全年$510M +76% YoY；净利率47%（IPO前已盈利，令人意外） | OpenAI 750MW大单确认多年营收能见度；P/S 92x；上市仅22天</div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:700px">Cerebras WSE是真正的技术创新——晶圆级推理芯片特定场景速度超H100 20倍，47%净利率令人意外。OpenAI大单提供多年营收能见度。但P/S 92x、IPO仅22天，极度不透明。10年DCF +15.8%（高增速下较合理），但高WACC（beta~2.5，18.2%）拉低5年。投机仓位合理，等①多客户扩展②营收>$2B③P/S<20x后加仓。</div>
+    </div>
+    <div style="text-align:center;min-width:100px">
+      <div style="font-size:50px;font-weight:800;color:#f85149;line-height:1">42.5</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;border:2px solid #f85149;color:#f85149;background:#0d1117">D</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#3fb950">76.8</div><div style="font-size:11px;color:#8b949e">行业分×20%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#58a6ff">69.2</div><div style="font-size:11px;color:#8b949e">质量分×50%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#f0883e">0.0</div><div style="font-size:11px;color:#8b949e">估值分×30%（v4.2真DCF）</div></div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">AI算力需求空间</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI需求可见性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">政策出口管制</td><td><div class="bw"><div class="bb"><div class="bf" style="width:100%;background:#2ea043"></div></div><span class="sp" style="color:#2ea043;border-color:#2ea043">5</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 质量（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI产品对齐度</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">客户结构</td><td><div class="bw"><div class="bb"><div class="bf" style="width:20%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">1</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:80%;background:#3fb950"></div></div><span class="sp" style="color:#3fb950;border-color:#3fb950">4</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">5年DCF内在价值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:0%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">0</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">可比PE/PS估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:0%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">0</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">下行情景保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:0%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">0</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">历史同行对比</td><td><div class="bw"><div class="bb"><div class="bf" style="width:0%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">0</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">①客户高度集中（OpenAI占主要营收） ②P/S 92x任何低于预期崩塌 ③NVDA Rubin可能消除WSE性能优势 ④IPO<1年，信息极不透明</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">①非OpenAI新客户公告（MSFT/Google/Meta任一） ②Q1 2026财报首次披露（预计2026-08） ③WSE-4下一代路线图</li></ul></div>
+  </div>
+  
+<div style="margin-top:14px">
+  <div style="font-size:14px;font-weight:700;color:#e6edf3;padding:8px 12px;background:#21262d;border-radius:6px;border-left:3px solid #ffd700;margin-bottom:10px">
+    📐 估值模型（真DCF + PE/PS可比）— 中等护城河（10年权重25%）
+  </div>
+  
+  <div style="background:#1c2128;border:1px solid #388bfd44;border-radius:8px;padding:12px;margin-bottom:10px">
+    <div style="font-size:13px;font-weight:700;color:#79c0ff;margin-bottom:10px">🎯 目标股价（DCF推算）</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:stretch">
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">当前股价</div>
+        <div style="font-size:22px;font-weight:800;color:#e6edf3">$215.38</div>
+        <div style="font-size:11px;color:#8b949e;margin-top:2px">2026-06-06 收盘</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #f8514944;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">5年 DCF 公允价（今日）</div>
+        <div style="font-size:22px;font-weight:800;color:#f85149">$65.26</div>
+        <div style="font-size:12px;color:#f85149;margin-top:2px">-69.7% 于当前价</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">基准：IRR=0时的今日内在价值</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #f8514944;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">10年目标价（2036年）</div>
+        <div style="font-size:22px;font-weight:800;color:#f85149">$135.45</div>
+        <div style="font-size:12px;color:#f85149;margin-top:2px">-37.1%（×0.6倍）</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">假设10yr IRR -4.5%/年实现</div>
+      </div>
+    </div>
+    <div style="margin-top:8px;font-size:11px;color:#8b949e;text-align:center">
+      ⚠️ 5年公允价 = DCF折现内在价值（今天该值多少）；10年目标价 = 若10yr IRR实现则2036年股价。<br>
+      负IRR不代表"不能买"——高护城河公司需10年视角 + 等待回调至5年公允价附近建仓。
+    </div>
+  </div>
+  <div class="g2">
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#79c0ff;margin-bottom:8px">📊 5年 DCF（2026-2031）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px;margin-bottom:8px">
+          <tr><th>假设</th><th>值</th><th>来源</th></tr>
+          <tr><td>当前市值</td><td class="num"><strong>$47.1B</strong></td><td style="color:#8b949e;font-size:11px">stockanalysis.com 2026-06-04（IPO 2026-05-14）</td></tr>
+          <tr><td>净负债/现金</td><td class="num pos">$-5.5B</td><td style="color:#8b949e;font-size:11px">净现金</td></tr>
+          <tr><td>当前年化营收</td><td class="num">$510M</td><td style="color:#8b949e;font-size:11px">最新季度×4</td></tr>
+          <tr><td>5yr CAGR</td><td class="num"><strong>65.0%</strong></td><td style="color:#8b949e;font-size:11px">历史2022-2025 CAGR ~110%，预计减速；OpenAI大</td></tr>
+          <tr><td>FCF Margin</td><td class="num">30%</td><td style="color:#8b949e;font-size:11px">历史FCF/Revenue</td></tr>
+          <tr><td>WACC</td><td class="num">18.2%</td><td style="color:#8b949e;font-size:11px">Rf 4.4% + β×5.5%</td></tr>
+          <tr><td>终值增长率 g</td><td class="num">5.0%</td><td style="color:#8b949e;font-size:11px">AI行业长期增速</td></tr>
+        </table>
+        <table style="font-size:11px;margin-bottom:8px">
+          <tr><th>Year</th><th>营收</th><th>FCF率</th><th>FCF</th><th>折现PV</th></tr>
+          <tr><td class='num'>1</td><td class='num'>$841M</td><td class='num'>30%</td><td class='num'>$252M</td><td class='num'>$214M</td></tr><tr><td class='num'>2</td><td class='num'>$1.4B</td><td class='num'>30%</td><td class='num'>$417M</td><td class='num'>$298M</td></tr><tr><td class='num'>3</td><td class='num'>$2.3B</td><td class='num'>30%</td><td class='num'>$687M</td><td class='num'>$416M</td></tr><tr><td class='num'>4</td><td class='num'>$3.8B</td><td class='num'>30%</td><td class='num'>$1.1B</td><td class='num'>$581M</td></tr><tr><td class='num'>5</td><td class='num'>$6.2B</td><td class='num'>30%</td><td class='num'>$1.9B</td><td class='num'>$811M</td></tr>
+          <tr style="background:#21262d"><td colspan="4"><strong>PV(终值) = $14.9B×(1+5.0%)/(WACC-5.0%)折现</strong></td><td class="num">$6.5B</td></tr>
+        </table>
+        <div style="padding:8px;background:#21262d;border-radius:5px;font-size:12px">
+          EV = $8.8B → 股权价值 = <strong style="color:#f85149">$14.3B</strong>
+          vs 市值 $47.1B
+          → <strong style="color:#f85149">5yr IRR = -21.2%/年</strong>
+        </div>
+        <div style="margin-top:6px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          🔍 市价隐含CAGR = <strong style="color:#f0883e">129.1%</strong>
+          vs 假设 65.0%
+          → 市场定价比假设高 → 溢价已充分
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#bc8cff;margin-bottom:8px">🔭 10年 DCF（2026-2036）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px;margin-bottom:10px">
+        前5年CAGR：65.0%<br>
+        后5年CAGR：35%（AI长期正常化增速）<br>
+        后5年FCF Margin：35%<br>
+        终值增长率：5.0%，WACC：18.2%<br>
+        ─────────────────────────────────────────
+        Year10 营收：<strong>$28.0B</strong><br>
+        EV₁₀ = $24.1B → 股权价值：<strong>$29.6B</strong><br>
+        <strong style="color:#f85149">10年 IRR = -4.5%/年</strong>
+        <div style="margin-top:8px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          v1 = 0（5yr×75% + 10yr×25%（标准权重））
+          → 综合IRR ≈ -17.1%
+        </div>
+      </div>
+      <div style="font-size:13px;font-weight:600;color:#f0883e;margin-bottom:8px">📈 PE/PS可比估值</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px">
+          <tr><th>指标</th><th>当前</th><th>同行均值</th><th>比较</th></tr>
+          <tr><td>Forward PE</td><td class="num">196.0x</td><td class="num">35.0x</td>
+              <td style="color:#f85149">+161.0x 溢价</td></tr>
+          <tr><td>P/S</td><td class="num">92.0x</td><td class="num">—</td><td style="color:#8b949e">参考</td></tr>
+          <tr><td>PEG</td><td class="num">3.01x</td><td class="num">&lt;2.0x合理</td>
+              <td style="color:#f85149">3.01x ❌</td></tr>
+        </table>
+        <div style="margin-top:6px;font-size:11px;color:#8b949e">→ v2 = 0（基于PE/PEG相对估值）</div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div style="margin-top:6px;font-size:11px;color:#8b949e">数据来源: <a href="https://techcrunch.com/2026/05/14/cerebras-raises-5-5b-kicking-off-2026s-ipo-season-with-a-bang/" style="color:#79c0ff">[来源1]</a> | <a href="https://www.sec.gov/Archives/edgar/data/0002021728/000162828026035214/cerebras-424b4.htm" style="color:#79c0ff">[来源2]</a></div>
+</div>
+<div class="card" id="co-INTC">
+  <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:17px;font-weight:700;color:#e6edf3">Intel Corporation <span style="color:#f85149;font-size:12px">(服务器CPU/AI推理使能/代工转型)</span></div>
+      <div style="font-size:11px;color:#8b949e;margin:3px 0">INTC · 置信度<strong>1.0</strong> · 2026-06-06</div>
+      <div class="ibox" style="margin-top:5px;font-size:12px"><strong>实时数据</strong>: Q1 2026 $13.6B +7% YoY；DCAI+22%；代工运营亏损$2.4B/季 | 毛利率41%（超指引650bps）；18A良率提前达标；代工外部收入$174M（仍极小）</div>
+      <div style="font-size:12px;color:#8b949e;margin-top:6px;max-width:700px">Intel YTD涨幅497%，市值$560B完全定价18A成功情景。当前Non-GAAP PEG 7.75x，DCF年化-17.1%，风险收益严重不对称。18A良率提前达标是真实进展，但代工外部收入仅$174M距百亿目标差距巨大。仅观察，等待估值修正至$100-150B区间（即代工业务需真正实现$10B+外部营收）再考虑。</div>
+    </div>
+    <div style="text-align:center;min-width:100px">
+      <div style="font-size:50px;font-weight:800;color:#f85149;line-height:1">35.9</div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:800;border:2px solid #f85149;color:#f85149;background:#0d1117">D</div>
+    </div>
+  </div>
+  <div class="g3" style="margin-bottom:10px">
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#3fb950">56.0</div><div style="font-size:11px;color:#8b949e">行业分×20%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#58a6ff">41.6</div><div style="font-size:11px;color:#8b949e">质量分×50%（冻结）</div></div>
+    <div style="background:#21262d;border-radius:6px;padding:10px;text-align:center"><div style="font-size:20px;font-weight:700;color:#f0883e">13.0</div><div style="font-size:11px;color:#8b949e">估值分×30%（v4.2真DCF）</div></div>
+  </div>
+  <div class="g3">
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">⚡ 行业（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">AI算力需求空间</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">技术演进确定性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">利润池位置</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">行业壁垒</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">竞争格局</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI需求可见性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">政策出口管制</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">14%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">🏢 质量（冻结）</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">成长性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">20%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">盈利质量</td><td><div class="bw"><div class="bb"><div class="bf" style="width:20%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">1</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">16%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">结构性护城河</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">18%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">AI产品对齐度</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">财务稳健</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">10%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">管理层</td><td><div class="bw"><div class="bb"><div class="bf" style="width:40%;background:#f85149"></div></div><span class="sp" style="color:#f85149;border-color:#f85149">2</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">12%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">客户结构</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">8%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">未来可选性</td><td><div class="bw"><div class="bb"><div class="bf" style="width:60%;background:#d29922"></div></div><span class="sp" style="color:#d29922;border-color:#d29922">3</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">6%</td></tr></table></div>
+    <div><div style="font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px">💰 估值维度</div><table><tr><td style="width:155px;color:#8b949e;font-size:12px">5年DCF内在价值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:0%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">0</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">35%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">可比PE/PS估值</td><td><div class="bw"><div class="bb"><div class="bf" style="width:20%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">1</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">下行情景保护</td><td><div class="bw"><div class="bb"><div class="bf" style="width:20%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">1</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">25%</td></tr><tr><td style="width:155px;color:#8b949e;font-size:12px">历史同行对比</td><td><div class="bw"><div class="bb"><div class="bf" style="width:20%;background:#da3633"></div></div><span class="sp" style="color:#da3633;border-color:#da3633">1</span></div></td><td style="width:36px;text-align:right;color:#8b949e;font-size:11px">15%</td></tr></table></div>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <div class="rbox"><strong>⚠️ 主要风险</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#f85149;margin:2px 0">①估值已透支所有改善情景（YTD +497%）②代工外部收入$174M vs $10B+目标差距巨大 ③GAAP持续亏损，重组费用不透明 ④AMD/ARM持续蚕食服务器CPU份额</li></ul></div>
+    <div class="gbox"><strong>🚀 近期催化剂</strong><ul style="list-style:disc;padding-left:14px;margin-top:3px"><li style="color:#3fb950;margin:2px 0">①18A外部代工首个大客户公告（AWS/Apple/MSFT任一） ②代工季度亏损首次收窄 ③Panther Lake AI PC发布</li></ul></div>
+  </div>
+  
+<div style="margin-top:14px">
+  <div style="font-size:14px;font-weight:700;color:#e6edf3;padding:8px 12px;background:#21262d;border-radius:6px;border-left:3px solid #ffd700;margin-bottom:10px">
+    📐 估值模型（真DCF + PE/PS可比）— 中等护城河（10年权重25%）
+  </div>
+  
+  <div style="background:#1c2128;border:1px solid #388bfd44;border-radius:8px;padding:12px;margin-bottom:10px">
+    <div style="font-size:13px;font-weight:700;color:#79c0ff;margin-bottom:10px">🎯 目标股价（DCF推算）</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:stretch">
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">当前股价</div>
+        <div style="font-size:22px;font-weight:800;color:#e6edf3">$110.06</div>
+        <div style="font-size:11px;color:#8b949e;margin-top:2px">2026-06-06 收盘</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #f8514944;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">5年 DCF 公允价（今日）</div>
+        <div style="font-size:22px;font-weight:800;color:#f85149">$2.20</div>
+        <div style="font-size:12px;color:#f85149;margin-top:2px">-98.0% 于当前价</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">基准：IRR=0时的今日内在价值</div>
+      </div>
+      <div style="flex:1;min-width:180px;background:#0d1117;border:1px solid #f8514944;border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:4px">10年目标价（2036年）</div>
+        <div style="font-size:22px;font-weight:800;color:#f85149">$9.59</div>
+        <div style="font-size:12px;color:#f85149;margin-top:2px">-91.3%（×0.1倍）</div>
+        <div style="font-size:10px;color:#8b949e;margin-top:3px">假设10yr IRR -21.7%/年实现</div>
+      </div>
+    </div>
+    <div style="margin-top:8px;font-size:11px;color:#8b949e;text-align:center">
+      ⚠️ 5年公允价 = DCF折现内在价值（今天该值多少）；10年目标价 = 若10yr IRR实现则2036年股价。<br>
+      负IRR不代表"不能买"——高护城河公司需10年视角 + 等待回调至5年公允价附近建仓。
+    </div>
+  </div>
+  <div class="g2">
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#79c0ff;margin-bottom:8px">📊 5年 DCF（2026-2031）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px;margin-bottom:8px">
+          <tr><th>假设</th><th>值</th><th>来源</th></tr>
+          <tr><td>当前市值</td><td class="num"><strong>$560.0B</strong></td><td style="color:#8b949e;font-size:11px">capital.com 2026-06-04</td></tr>
+          <tr><td>净负债/现金</td><td class="num neg">$28.0B</td><td style="color:#8b949e;font-size:11px">净负债</td></tr>
+          <tr><td>当前年化营收</td><td class="num">$54.4B</td><td style="color:#8b949e;font-size:11px">最新季度×4</td></tr>
+          <tr><td>5yr CAGR</td><td class="num"><strong>12.0%</strong></td><td style="color:#8b949e;font-size:11px">Q2指引$13.8-14.8B；分析师共识全年$55-58B；代工扭亏</td></tr>
+          <tr><td>FCF Margin</td><td class="num">5%</td><td style="color:#8b949e;font-size:11px">历史FCF/Revenue</td></tr>
+          <tr><td>WACC</td><td class="num">13.2%</td><td style="color:#8b949e;font-size:11px">Rf 4.4% + β×5.5%</td></tr>
+          <tr><td>终值增长率 g</td><td class="num">3.0%</td><td style="color:#8b949e;font-size:11px">AI行业长期增速</td></tr>
+        </table>
+        <table style="font-size:11px;margin-bottom:8px">
+          <tr><th>Year</th><th>营收</th><th>FCF率</th><th>FCF</th><th>折现PV</th></tr>
+          <tr><td class='num'>1</td><td class='num'>$60.9B</td><td class='num'>5%</td><td class='num'>$3.0B</td><td class='num'>$2.7B</td></tr><tr><td class='num'>2</td><td class='num'>$68.2B</td><td class='num'>5%</td><td class='num'>$3.4B</td><td class='num'>$2.7B</td></tr><tr><td class='num'>3</td><td class='num'>$76.4B</td><td class='num'>5%</td><td class='num'>$3.8B</td><td class='num'>$2.6B</td></tr><tr><td class='num'>4</td><td class='num'>$85.6B</td><td class='num'>5%</td><td class='num'>$4.3B</td><td class='num'>$2.6B</td></tr><tr><td class='num'>5</td><td class='num'>$95.9B</td><td class='num'>5%</td><td class='num'>$4.8B</td><td class='num'>$2.6B</td></tr>
+          <tr style="background:#21262d"><td colspan="4"><strong>PV(终值) = $48.4B×(1+3.0%)/(WACC-3.0%)折现</strong></td><td class="num">$26.0B</td></tr>
+        </table>
+        <div style="padding:8px;background:#21262d;border-radius:5px;font-size:12px">
+          EV = $39.2B → 股权价值 = <strong style="color:#f85149">$11.2B</strong>
+          vs 市值 $560.0B
+          → <strong style="color:#f85149">5yr IRR = -54.3%/年</strong>
+        </div>
+        <div style="margin-top:6px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          🔍 市价隐含CAGR = <strong style="color:#f0883e">101.0%</strong>
+          vs 假设 12.0%
+          → 市场定价比假设高 → 溢价已充分
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#bc8cff;margin-bottom:8px">🔭 10年 DCF（2026-2036）</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px;margin-bottom:10px">
+        前5年CAGR：12.0%<br>
+        后5年CAGR：8%（AI长期正常化增速）<br>
+        后5年FCF Margin：10%<br>
+        终值增长率：3.0%，WACC：13.2%<br>
+        ─────────────────────────────────────────
+        Year10 营收：<strong>$140.9B</strong><br>
+        EV₁₀ = $76.8B → 股权价值：<strong>$48.8B</strong><br>
+        <strong style="color:#f85149">10年 IRR = -21.7%/年</strong>
+        <div style="margin-top:8px;padding:6px;background:#21262d;border-radius:4px;font-size:11px">
+          v1 = 0（5yr×75% + 10yr×25%（标准权重））
+          → 综合IRR ≈ -46.1%
+        </div>
+      </div>
+      <div style="font-size:13px;font-weight:600;color:#f0883e;margin-bottom:8px">📈 PE/PS可比估值</div>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;font-size:12px">
+        <table style="font-size:12px">
+          <tr><th>指标</th><th>当前</th><th>同行均值</th><th>比较</th></tr>
+          <tr><td>Forward PE</td><td class="num">93.0x</td><td class="num">20.0x</td>
+              <td style="color:#f85149">+73.0x 溢价</td></tr>
+          <tr><td>P/S</td><td class="num">10.3x</td><td class="num">—</td><td style="color:#8b949e">参考</td></tr>
+          <tr><td>PEG</td><td class="num">7.75x</td><td class="num">&lt;2.0x合理</td>
+              <td style="color:#f85149">7.75x ❌</td></tr>
+        </table>
+        <div style="margin-top:6px;font-size:11px;color:#8b949e">→ v2 = 1（基于PE/PEG相对估值）</div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div style="margin-top:6px;font-size:11px;color:#8b949e">数据来源: <a href="https://www.intc.com/news-events/press-releases/detail/1767/intel-reports-first-quarter-2026-financial-results" style="color:#79c0ff">[来源1]</a> | <a href="https://www.tikr.com/blog/intel-stock-up-450-in-2026-heres-what-investors-need-to-know" style="color:#79c0ff">[来源2]</a></div>
+</div>
+</div>
+<div class="ftr"><div class="con">AI算力芯片专项投资打分系统 v4.2 · 2026-06-06 · 真DCF+高护城河终值 · 行业/质量冻结 · 仅供参考</div></div>
+</body></html>
